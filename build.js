@@ -15,7 +15,7 @@ const html = `<!doctype html>
 <meta name="theme-color" content="#a9d9ff">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="default">
-<meta name="apple-mobile-web-app-title" content="Ferro">
+<meta name="apple-mobile-web-app-title" content="Frutiger Ferro">
 <link rel="manifest" href="manifest.webmanifest">
 <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
 <link rel="icon" href="icons/icon-192.png">

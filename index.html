@@ -6,13 +6,13 @@
 <meta name="theme-color" content="#a9d9ff">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="default">
-<meta name="apple-mobile-web-app-title" content="Ferro">
+<meta name="apple-mobile-web-app-title" content="Frutiger Ferro">
 <link rel="manifest" href="manifest.webmanifest">
 <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
 <link rel="icon" href="icons/icon-192.png">
 <style>:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}img{max-width:100%}[hidden]{display:none!important}</style>
 <script>window.FERRO_REAL = true;</script>
-<title>Ferro</title>
+<title>Frutiger Ferro</title>
 <meta name="claude:viewport-fit-sides" content="cover">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Hind:wght@400;500;600;700&family=Nunito:wght@700;800;900&display=swap">
@@ -67,8 +67,8 @@ h3 { font-size: 18px; }
 .wrap { flex-wrap: wrap; }
 .grow { flex: 1; min-width: 0; }
 
-.topbar { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; }
-.brand { display: flex; align-items: center; font: 900 30px/1 var(--display); letter-spacing: .01em; color: var(--navy); text-shadow: 0 1px 0 #fff, 0 2px 8px rgba(255, 255, 255, .9); }
+.topbar { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 4px 12px; }
+.brand { display: flex; align-items: center; white-space: nowrap; font: 900 clamp(21px, 7vw, 30px)/1 var(--display); letter-spacing: .01em; color: var(--navy); text-shadow: 0 1px 0 #fff, 0 2px 8px rgba(255, 255, 255, .9); }
 .brand .buddy { width: 26px; height: 32px; }
 .brand .buddy + .buddy { margin-left: -9px; margin-right: 7px; }
 .buddy { display: block; flex: none; width: 34px; height: 41px; filter: drop-shadow(0 2px 2px rgba(10, 40, 90, .3)); }
@@ -335,7 +335,7 @@ const PET_ITEMS = [
   { id: 'supino', cat: 'decor', layer: 'back', name: 'Banco de supino', price: 120, rank: 1, vb: '228 180 84 62', svg: '<rect x="238" y="214" width="58" height="9" rx="4" fill="#0d3480"/><path d="M246 223v15M288 223v15M292 214v-26" stroke="#3a5a88" stroke-width="4"/><rect x="262" y="185" width="44" height="4" rx="2" fill="#7c8ba1"/><rect x="258" y="178" width="7" height="18" rx="2" fill="#0a2350"/><rect x="303" y="178" width="7" height="18" rx="2" fill="#0a2350"/>' },
   { id: 'rack', cat: 'decor', layer: 'back', name: 'Rack de agachamento', price: 200, rank: 2, vb: '298 145 58 96', svg: '<path d="M312 238v-82M344 238v-82M312 158h32M306 238h44" stroke="#3a5a88" stroke-width="5" stroke-linecap="round"/><rect x="302" y="184" width="52" height="4" rx="2" fill="#7c8ba1"/><rect x="299" y="175" width="7" height="22" rx="2" fill="#0a2350"/><rect x="350" y="175" width="7" height="22" rx="2" fill="#0a2350"/>' },
   { id: 'trofeu', cat: 'decor', layer: 'front', name: 'Troféu', price: 250, rank: 3, vb: '230 236 40 42', svg: '<path d="M240 244h20v9c0 8-5 12-10 12s-10-4-10-12z" fill="url(#sc-gold)"/><path d="M240 247h-6c0 8 3 10 7 11M260 247h6c0 8-3 10-7 11" fill="none" stroke="#d49a1c" stroke-width="2.500"/><rect x="247" y="264" width="6" height="6" fill="#d49a1c"/><rect x="241" y="270" width="18" height="5" rx="1.500" fill="#0a2350"/>' },
-  { id: 'bandeira', cat: 'decor', layer: 'back', name: 'Bandeira do Ferro', price: 300, rank: 4, vb: '238 92 44 112', svg: '<path d="M247 200V98" stroke="#3a5a88" stroke-width="4" stroke-linecap="round"/><path d="M249 100c10 6 18-3 28 3v28c-10-6-18 3-28-3z" fill="url(#bd-green)"/>' },
+  { id: 'bandeira', cat: 'decor', layer: 'back', name: 'Bandeira Frutiger', price: 300, rank: 4, vb: '238 92 44 112', svg: '<path d="M247 200V98" stroke="#3a5a88" stroke-width="4" stroke-linecap="round"/><path d="M249 100c10 6 18-3 28 3v28c-10-6-18 3-28-3z" fill="url(#bd-green)"/>' },
   { id: 'piscina', cat: 'decor', layer: 'front', name: 'Piscina', price: 500, rank: 4, vb: '10 238 112 42', svg: '<ellipse cx="65" cy="259" rx="52" ry="18" fill="#fff"/><ellipse cx="65" cy="259" rx="46" ry="14" fill="url(#sc-glass)"/><ellipse cx="50" cy="254" rx="20" ry="4" fill="#fff" opacity=".7"/>' },
   { id: 'balao', cat: 'decor', layer: 'back', name: 'Balão', price: 700, rank: 6, vb: '205 4 70 88', svg: '<ellipse cx="240" cy="34" rx="26" ry="29" fill="url(#bd-blue)"/><path d="M240 5c-10 8-10 50 0 58c10-8 10-50 0-58z" fill="url(#bd-green)"/><path d="M226 58l8 18M254 58l-8 18" stroke="#3a5a88" stroke-width="1.500"/><rect x="232" y="76" width="16" height="11" rx="2" fill="#8a5a30"/><ellipse cx="231" cy="20" rx="8" ry="5" fill="#fff" opacity=".6"/>' },
   { id: 'faixa', cat: 'wear', slot: 'head', name: 'Faixa de treino', price: 40, rank: 0, vb: '-34 -104 68 38', svg: '<path d="M21 -84l12 -5-4 8 6 5-14 -1z" fill="#d81f43"/><rect x="-22" y="-88" width="44" height="8" rx="3" fill="#d81f43"/>' },
@@ -792,7 +792,7 @@ function demoBanner() {
 function viewHoje() {
   const t = today(), dates = trainedDates(), days = dates.length, info = rankInfo(days), wk = weekStats();
   const nextTxt = info.next ? '<b>' + leftTxt(info.left) + '</b> para ' + esc(info.next.name) : 'Você chegou ao topo';
-  let h = '<header class="topbar"><div class="brand">' + buddy('blue') + buddy('green') + 'FERRO</div><div class="muted small">' + esc(longDate(t)) + '</div></header>' + demoBanner();
+  let h = '<header class="topbar"><div class="brand">' + buddy('blue') + buddy('green') + 'FRUTIGER FERRO</div><div class="muted small">' + esc(longDate(t)) + '</div></header>' + demoBanner();
   h += '<section class="hero">' + plate(days, info) + '<div class="stack"><div><div class="eyebrow">Patente</div><div class="rank-name">' + esc(info.cur.name) + '</div></div><div class="small">' + nextTxt + '</div><div class="bar" aria-hidden="true"><i style="width:' + Math.round(info.progress * 100) + '%"></i></div></div></section>';
   h += petMini();
   h += todayCard(t);
@@ -881,7 +881,7 @@ function dietWeek(date, plan) {
 function viewDieta() {
   let h = '<header class="topbar"><h1 style="font-size:36px">Dieta</h1></header>' + demoBanner();
   const plan = dietPlan();
-  if (!plan) return h + '<section class="card"><div class="row">' + buddy('blue') + buddy('green') + '<h3 class="grow">Sua meta de calorias</h3></div><p class="small muted">Informe seus dados e o peso que quer alcançar. O Ferro estima quantas calorias comer por dia, e você registra as refeições para ver se bateu o déficit.</p><button class="btn primary block" data-a="plan-edit">Calcular minha meta</button></section>';
+  if (!plan) return h + '<section class="card"><div class="row">' + buddy('blue') + buddy('green') + '<h3 class="grow">Sua meta de calorias</h3></div><p class="small muted">Informe seus dados e o peso que quer alcançar. O Frutiger Ferro estima quantas calorias comer por dia, e você registra as refeições para ver se bateu o déficit.</p><button class="btn primary block" data-a="plan-edit">Calcular minha meta</button></section>';
   const date = ui.dietDate, t = today(), c = dayKcal(date), lim = dayTarget(date, plan), v = dayVerdict(date, plan), day = S.diet.days[date];
   h += '<section class="stack"><div class="row between"><button class="iconbtn" data-a="diet-shift" data-d="-1" aria-label="Dia anterior">' + ico('back') + '</button><b class="small">' + (date === t ? 'Hoje' : esc(longDate(date))) + '</b><button class="iconbtn" data-a="diet-shift" data-d="1" aria-label="Próximo dia"' + (date >= t ? ' disabled style="visibility:hidden"' : '') + '>' + ico('chev') + '</button></div>' + dietWeek(date, plan) + '</section>';
   h += '<section class="hero">' + dietRing(c, lim) + '<div class="stack"><div class="ring-num">' + esc(v.title) + '</div><div class="small">' + esc(v.text) + '</div><div class="bar" aria-hidden="true"><i style="width:' + Math.min(100, Math.round(c / lim * 100)) + '%"></i></div></div></section>';
@@ -1756,7 +1756,7 @@ document.getElementById('backup-input').addEventListener('change', e => {
   r.onload = () => {
     let data;
     try { data = JSON.parse(r.result); } catch (err) { data = null; }
-    if (!data || data.app !== 'ferro' || !data.state) { toast('Esse arquivo não é um backup do Ferro.'); return; }
+    if (!data || data.app !== 'ferro' || !data.state) { toast('Esse arquivo não é um backup do Frutiger Ferro.'); return; }
     confirmSheet({ title: 'Importar este backup?', body: 'Os dados atuais deste aparelho serão substituídos pelos do arquivo.', yes: 'Importar', async onYes() {
       for (const id of Object.keys(data.photos || {})) { const res = await fetch(data.photos[id]); await photoPut(id, await res.blob()); }
       S = normalize(data.state); save(); overlays = []; urls.clear(); render(); toast('Backup importado.');

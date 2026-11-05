@@ -1,5 +1,5 @@
 // Mantém o app abrindo sem internet. Mude VERSION a cada publicação.
-const VERSION = 'ferro-5';
+const VERSION = 'ferro-6';
 const SHELL = ['./', 'index.html', 'manifest.webmanifest', 'icons/icon-192.png', 'icons/icon-512.png', 'icons/icon-maskable-512.png', 'icons/apple-touch-icon.png'];
 
 self.addEventListener('install', e => {
