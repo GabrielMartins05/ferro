@@ -206,6 +206,11 @@ button.card:focus-visible { border-color: #fff; outline: none; }
 .exrow .nm { flex: 1; min-width: 0; }
 .exrow .pt { font-size: 12px; font-weight: 700; color: var(--c); white-space: nowrap; }
 .exrow .rm { color: var(--dim); padding: 2px 6px; font-weight: 700; }
+.exline { display: flex; gap: 6px; align-items: stretch; }
+.exline .exrow { flex: 1; min-width: 0; }
+.exrow .det { display: block; font-size: 12px; color: var(--muted); margin-top: 2px; text-decoration: none; }
+.ed { width: 46px; flex: none; border-radius: 12px; background: var(--card); display: grid; place-items: center; color: var(--muted); position: relative; }
+.ed:hover { color: #fff; }
 .grp { font-size: 11px; color: var(--dim); text-transform: uppercase; letter-spacing: .08em; margin: 14px 2px 6px; font-weight: 600; }
 .pickfoot { position: sticky; bottom: -20px; background: var(--panel); padding: 12px 0 4px; margin-top: 12px; box-shadow: 0 -10px 20px var(--panel); }
 .newex { display: grid; grid-template-columns: 1fr auto auto; gap: 8px; margin-top: 10px; }
@@ -462,6 +467,10 @@ const TX = {
   alarm_help: ['Escolha o dia e a hora em que a janela atual deve fechar.', 'Pick the day and time the current window should close.', 'Elige el día y la hora en que la ventana actual debe cerrarse.'],
   e_time: ['Escolha um tempo entre 15 min e 30 dias', 'Choose a time between 15 min and 30 days', 'Elige un tiempo entre 15 min y 30 días'],
   e_future: ['Escolha um horário no futuro', 'Pick a time in the future', 'Elige una hora futura'],
+  sets: ['Séries', 'Sets', 'Series'], reps: ['Repetições', 'Reps', 'Repeticiones'], load_kg: ['Carga em kg (opcional)', 'Weight in kg (optional)', 'Peso en kg (opcional)'],
+  edit: ['Editar', 'Edit', 'Editar'], e_sets: ['Coloque séries e repetições', 'Enter sets and reps', 'Pon series y repeticiones'],
+  my_foods: ['Minhas comidas', 'My foods', 'Mis comidas'],
+  my_foods_empty: ['Suas comidas aparecem aqui depois que você adicionar a primeira. Aí é só tocar para repetir.', 'Your foods show up here after you add the first one. Then just tap to repeat.', 'Tus comidas aparecen aquí después de añadir la primera. Luego solo toca para repetir.'],
   saved: ['Salvo', 'Saved', 'Guardado'], restore: ['Voltar ao padrão', 'Reset to default', 'Restablecer'],
   new_act_t: ['Nova atividade', 'New activity', 'Nueva actividad'], act_ph: ['Ex.: Yoga, Futebol, Luta', 'E.g. Yoga, Soccer, Martial arts', 'Ej.: Yoga, Fútbol, Lucha'],
   icon: ['Ícone', 'Icon', 'Icono'], color: ['Cor', 'Color', 'Color'], e_name: ['Dê um nome', 'Give it a name', 'Ponle un nombre'],
@@ -594,7 +603,8 @@ const ICONS = {
   leaf: '<path fill="currentColor" d="M20 4c-9 0-15 4-15 11 0 1.4.3 2.6.8 3.6L4 20.5l1.4 1.4 1.8-1.8c1 .6 2.3.9 3.8.9 7 0 9-7 9-17zM9 17c1.5-3 4-5.5 7-7-2.5 2-4.6 4.4-6 7.6z"/>',
   body: '<circle cx="12" cy="4.8" r="2.3" fill="currentColor"/><path fill="currentColor" d="M7 8h10l-1.6 6.4H14l-.6 7.1h-2.8l-.6-7.1H8.6z"/>',
   user: '<circle cx="12" cy="8" r="4" fill="currentColor"/><path fill="currentColor" d="M4 21c0-4.4 3.6-7 8-7s8 2.6 8 7z"/>',
-  home: '<path fill="currentColor" d="M12 3 3 10.5V21h6.5v-6h5v6H21V10.5z"/>'
+  home: '<path fill="currentColor" d="M12 3 3 10.5V21h6.5v-6h5v6H21V10.5z"/>',
+  edit: '<path fill="currentColor" d="M4 17.3V20h2.7l8.1-8.1-2.7-2.7zM19.7 7.1a1 1 0 0 0 0-1.4l-1.4-1.4a1 1 0 0 0-1.4 0l-1.5 1.5 2.8 2.8z"/>'
 };
 const ico = (n, cls) => '<svg class="i' + (cls ? ' ' + cls : '') + '" viewBox="0 0 24 24" aria-hidden="true">' + (ICONS[n] || ICONS.star) + '</svg>';
 function ring(frac, icon, c) {
@@ -609,7 +619,7 @@ function blank() {
     profile: { sex: 'm', age: '', height: '', weight: '', act: 1.375, goal: 'perder' },
     forca: { pts: 0, last: null, due: null },
     cardio: { pts: 0, last: null, due: null },
-    cfg: {}, custom: [], tracks: {}, ex: {}, plan: {}, sess: {},
+    cfg: {}, custom: [], tracks: {}, ex: {}, plan: {}, sess: {}, load: {}, myFoods: [],
     workouts: [], lost: [],
     focus: [], focusGoal: 60, timer: null, focusCats: [],
     meals: [], weights: [], recent: []
@@ -617,8 +627,8 @@ function blank() {
 }
 function fill(o) {
   const s = Object.assign(blank(), o);
-  ['cfg', 'tracks', 'ex', 'plan', 'sess'].forEach(k => { if (!s[k] || typeof s[k] !== 'object' || Array.isArray(s[k])) s[k] = {}; });
-  ['custom', 'focusCats'].forEach(k => { if (!Array.isArray(s[k])) s[k] = []; });
+  ['cfg', 'tracks', 'ex', 'plan', 'sess', 'load'].forEach(k => { if (!s[k] || typeof s[k] !== 'object' || Array.isArray(s[k])) s[k] = {}; });
+  ['custom', 'focusCats', 'myFoods'].forEach(k => { if (!Array.isArray(s[k])) s[k] = []; });
   // versão antiga: pontos eram "treinos" (4 por nível); agora são pontos de exercício (60 por nível)
   if (o && !o.pv) {
     [s.forca, s.cardio].concat(Object.values(s.tracks)).forEach(a => { if (a) a.pts = Math.min(PTS_MAX, (a.pts || 0) * 15); });
@@ -790,8 +800,36 @@ function addPts(k, p) {
   const after = level(a.pts).l;
   return after > before ? t('w_up', { a: A(k).name, l: after }) : '';
 }
+// séries × repetições e carga (Força) ou minutos (Cárdio e atividades criadas); o último valor fica salvo
+const isSets = k => k === 'forca';
+function exCfg(k, n) { const l = S.load[k + ':' + n]; return isSets(k) ? Object.assign({ s: 3, r: 10, kg: '' }, l) : Object.assign({ min: 30 }, l); }
+function exDetail(k, c) {
+  if (isSets(k)) { const x = Object.assign({ s: 3, r: 10, kg: '' }, c); return x.s + '×' + x.r + (toNum(x.kg) ? ' · ' + dec(toNum(x.kg)) + ' kg' : ''); }
+  return fmtMin((c && c.min) || 30);
+}
+function exEditSheet(k, ref) {
+  const s = S.sess[k], it = ref.i != null && s ? s.items[ref.i] : null, n = it ? it.n : ref.n;
+  const c = Object.assign(exCfg(k, n), it ? (isSets(k) ? { s: it.s || 3, r: it.r || 10, kg: it.kg || '' } : { min: it.min || 30 }) : {});
+  const fields = isSets(k)
+    ? '<div class="two"><label class="field"><span>' + t('sets') + '</span><input id="x-s" type="number" inputmode="numeric" min="1" max="20" value="' + c.s + '"></label><label class="field"><span>' + t('reps') + '</span><input id="x-r" type="number" inputmode="numeric" min="1" max="200" value="' + c.r + '"></label></div><label class="field"><span>' + t('load_kg') + '</span><input id="x-kg" type="number" inputmode="decimal" step="0.5" min="0" value="' + esc(c.kg) + '"></label>'
+    : '<label class="field"><span>' + t('minutes') + '</span><input id="x-min" type="number" inputmode="numeric" min="1" max="600" value="' + c.min + '"></label>';
+  openSheet('<h2>' + esc(tn(n)) + '</h2>' + fields + btnsRow(), A(k).c, el => {
+    if (el.dataset.s !== 'ok') return;
+    let v;
+    if (isSets(k)) {
+      v = { s: Math.round(toNum(val('x-s'))), r: Math.round(toNum(val('x-r'))), kg: toNum(val('x-kg')) || '' };
+      if (v.s < 1 || v.r < 1) return toast(t('e_sets'));
+    } else {
+      v = { min: Math.round(toNum(val('x-min'))) };
+      if (v.min < 1) return toast(t('e_min'));
+    }
+    S.load[k + ':' + n] = v;
+    if (it) Object.assign(it, v);
+    save(); closeSheet(); render();
+  });
+}
 function startSession(k, names) {
-  S.sess[k] = { start: Date.now(), items: names.map(n => ({ n, p: exPts(k, n), done: false })) };
+  S.sess[k] = { start: Date.now(), items: names.map(n => Object.assign({ n, p: exPts(k, n), done: false }, exCfg(k, n))) };
   S.plan[k] = names.slice(); save();
 }
 function toggleItem(k, i) {
@@ -892,7 +930,7 @@ function reminders() {
 
 /* ---------- telas ---------- */
 const langChips = () => LANGS.map(([k, n]) => '<button class="chip' + (LANG === k ? ' on' : '') + '" data-a="lang" data-v="' + k + '" lang="' + LOC[k] + '">' + n + '</button>').join('');
-const BRAND = '<svg viewBox="0 0 100 100" aria-hidden="true"><g transform="translate(50 50) rotate(-90)" fill="none" stroke-linecap="round" stroke-width="9"><circle r="34" stroke="rgba(255,255,255,.1)"/><circle r="34" stroke="#f6a6c8" stroke-dasharray="160 214"/><circle r="21" stroke="rgba(255,255,255,.1)"/><circle r="21" stroke="#7fdfc6" stroke-dasharray="95 132"/><circle r="8" stroke="rgba(255,255,255,.1)"/><circle r="8" stroke="#b8a1ff" stroke-dasharray="34 50"/></g></svg>';
+const BRAND = '<svg aria-hidden="true" viewBox="0 0 100 100"><defs><radialGradient id="lgbbg" cx=".68" cy=".25" r=".85"><stop offset="0" stop-color="#3f56ff"/><stop offset=".55" stop-color="#2228c4"/><stop offset="1" stop-color="#121470"/></radialGradient><linearGradient id="lgbp" x1="0" x2="1"><stop offset="0" stop-color="#7a3fae" stop-opacity=".35"/><stop offset=".7" stop-color="#e27ad0"/><stop offset="1" stop-color="#ff9fd2"/></linearGradient><linearGradient id="lgbt" x1="0" x2="1"><stop offset="0" stop-color="#1d6fb8" stop-opacity=".35"/><stop offset=".7" stop-color="#3fd6dc"/><stop offset="1" stop-color="#8ff7e6"/></linearGradient><linearGradient id="lgbl" x1="0" x2="1"><stop offset="0" stop-color="#4b2fb0" stop-opacity=".35"/><stop offset=".7" stop-color="#a67cff"/><stop offset="1" stop-color="#d2b8ff"/></linearGradient><clipPath id="lgbc"><circle cx="50" cy="50" r="50"/></clipPath></defs><circle cx="50" cy="50" r="50" fill="url(#lgbbg)"/><g clip-path="url(#lgbc)"><rect x="-6" y="20" width="76" height="17" rx="8.5" fill="url(#lgbp)"/><circle cx="61.5" cy="28.5" r="4.6" fill="#ffd1ea" opacity=".85"/><rect x="-6" y="41.5" width="96" height="17" rx="8.5" fill="url(#lgbt)"/><circle cx="81.5" cy="50" r="4.6" fill="#d4fff6" opacity=".85"/><rect x="-6" y="63" width="76" height="17" rx="8.5" fill="url(#lgbl)"/><circle cx="61.5" cy="71.5" r="4.6" fill="#eadcff" opacity=".85"/></g></svg>';
 function topbar() {
   const rs = reminders();
   return '<div class="topbar"><div class="brandbar">' + BRAND + 'Fitness</div><button class="dots" data-a="menu" aria-label="' + t('menu') + '" aria-expanded="' + V.menu + '">' + ico('dots') + (rs.length ? '<span class="badge">' + rs.length + '</span>' : '') + '</button></div>';
@@ -965,13 +1003,13 @@ function viewAttr(k) {
   if (s) {
     const d = s.items.filter(x => x.done);
     h += '<p class="small muted" style="margin:-4px 0 10px">' + t('tap_done') + ' ' + t('n_of_m', { a: d.length, b: s.items.length }) + ' · ' + t('plus_pts', { p: d.reduce((x, y) => x + y.p, 0) }) + '</p><div class="list">';
-    h += s.items.map((it, i) => '<button class="exrow' + (it.done ? ' done' : '') + '" data-a="ex-toggle" data-k="' + esc(k) + '" data-i="' + i + '"><span class="ck">' + ico('check') + '</span><span class="nm">' + esc(tn(it.n)) + '</span><span class="pt">' + t('plus_pts', { p: it.p }) + '</span></button>').join('');
+    h += s.items.map((it, i) => '<div class="exline"><button class="exrow' + (it.done ? ' done' : '') + '" data-a="ex-toggle" data-k="' + esc(k) + '" data-i="' + i + '"><span class="ck">' + ico('check') + '</span><span class="nm">' + esc(tn(it.n)) + '<span class="det">' + esc(exDetail(k, it)) + '</span></span><span class="pt">' + t('plus_pts', { p: it.p }) + '</span></button><button class="ed" data-a="ex-edit" data-k="' + esc(k) + '" data-i="' + i + '" aria-label="' + t('edit') + '">' + ico('edit') + '</button></div>').join('');
     h += '</div><div class="btns" style="margin-top:14px"><button class="btn ghost" data-a="wo-discard" data-k="' + esc(k) + '">' + t('discard') + '</button><button class="btn main" data-a="wo-finish" data-k="' + esc(k) + '">' + t('finish_wo') + '</button></div>';
   } else {
     const plan = (S.plan[k] || []);
     if (plan.length) {
       const tot = plan.reduce((x, n) => x + exPts(k, n), 0);
-      h += '<p class="small muted" style="margin:-4px 0 10px">' + exCount(plan.length) + ' · ' + t('plus_pts', { p: tot }) + '</p><div class="list">' + plan.map(n => '<div class="exrow"><span class="nm">' + esc(tn(n)) + '</span><span class="pt">' + t('plus_pts', { p: exPts(k, n) }) + '</span></div>').join('') + '</div>';
+      h += '<p class="small muted" style="margin:-4px 0 10px">' + exCount(plan.length) + ' · ' + t('plus_pts', { p: tot }) + '</p><div class="list">' + plan.map(n => '<div class="exline"><div class="exrow"><span class="nm">' + esc(tn(n)) + '<span class="det">' + esc(exDetail(k, exCfg(k, n))) + '</span></span><span class="pt">' + t('plus_pts', { p: exPts(k, n) }) + '</span></div><button class="ed" data-a="ex-edit" data-k="' + esc(k) + '" data-n="' + esc(n) + '" aria-label="' + t('edit') + '">' + ico('edit') + '</button></div>').join('') + '</div>';
       h += '<div class="btns" style="margin-top:14px"><button class="btn" data-a="wo-pick" data-k="' + esc(k) + '">' + t('edit_wo') + '</button><button class="btn main" data-a="wo-start" data-k="' + esc(k) + '">' + t('start_wo') + '</button></div>';
     } else {
       h += '<p class="small muted" style="margin-bottom:14px">' + t('no_plan') + '</p><button class="btn main block" data-a="wo-pick" data-k="' + esc(k) + '">' + ico('plus') + t('build_wo') + '</button>';
@@ -980,7 +1018,7 @@ function viewAttr(k) {
   h += '</div>';
   const list = S.workouts.filter(x => x.kind === k).slice(0, 20);
   h += '<div class="panel"><h2>' + t('last_wo') + '</h2><div class="list">' + (list.length ? list.map(x => {
-    const title = x.items ? x.items.filter(i => i.done).map(i => tn(i.n)).join(', ') : tn(x.type || '');
+    const title = x.items ? x.items.filter(i => i.done).map(i => tn(i.n) + ' ' + exDetail(k, i)).join(', ') : tn(x.type || '');
     const sub = when(x.at) + ' · ' + (x.items ? t('plus_pts', { p: x.pts || 0 }) : (x.min || 0) + ' min');
     const ok = x.items ? x.full : x.counted;
     return '<div class="li"><div class="grow"><div class="t">' + esc(title) + '</div><div class="s num">' + sub + '</div></div><span class="tag' + (ok ? ' ok' : '') + '">' + t(ok ? 'full' : 'partial') + '</span><button class="x" data-a="del-workout" data-id="' + x.id + '" aria-label="' + t('del_wo') + '">' + ico('x') + '</button></div>';
@@ -1024,7 +1062,7 @@ function viewNutri() {
   h += '<div class="panel"><div class="row between" style="margin-bottom:10px"><h2 style="margin:0">' + t('weight') + '</h2><button class="btn slim" data-a="add-weight">' + ico('plus') + t('log') + '</button></div>' + (ws.length ? '<div class="list">' + ws.slice(0, 8).map((w, i) => { const prev = ws[i + 1], df = prev ? w.kg - prev.kg : 0; return '<div class="li"><div class="grow"><div class="t num">' + dec(w.kg) + ' kg</div><div class="s">' + dayLabel(w.date) + '</div></div>' + (prev && df ? '<span class="tag num">' + (df > 0 ? '+' : '−') + dec(Math.abs(df)) + ' kg</span>' : '') + '<button class="x" data-a="del-weight" data-v="' + w.date + '" aria-label="' + t('delete') + '">' + ico('x') + '</button></div>'; }).join('') + '</div>' : '<p class="empty">' + t('no_weight') + '</p>') + '</div>';
   return h + '</div>';
 }
-const LOGO = '<svg class="logo" viewBox="0 0 100 100" aria-hidden="true"><g transform="translate(50 50) rotate(-90)" fill="none" stroke-linecap="round" stroke-width="7"><circle r="34" stroke="rgba(255,255,255,.1)"/><circle r="34" stroke="#f6a6c8" stroke-dasharray="160 214"/><circle r="23" stroke="rgba(255,255,255,.1)"/><circle r="23" stroke="#7fdfc6" stroke-dasharray="105 145"/><circle r="12" stroke="rgba(255,255,255,.1)"/><circle r="12" stroke="#b8a1ff" stroke-dasharray="50 76"/></g></svg>';
+const LOGO = '<svg class="logo" aria-hidden="true" viewBox="0 0 100 100"><defs><radialGradient id="lgabg" cx=".68" cy=".25" r=".85"><stop offset="0" stop-color="#3f56ff"/><stop offset=".55" stop-color="#2228c4"/><stop offset="1" stop-color="#121470"/></radialGradient><linearGradient id="lgap" x1="0" x2="1"><stop offset="0" stop-color="#7a3fae" stop-opacity=".35"/><stop offset=".7" stop-color="#e27ad0"/><stop offset="1" stop-color="#ff9fd2"/></linearGradient><linearGradient id="lgat" x1="0" x2="1"><stop offset="0" stop-color="#1d6fb8" stop-opacity=".35"/><stop offset=".7" stop-color="#3fd6dc"/><stop offset="1" stop-color="#8ff7e6"/></linearGradient><linearGradient id="lgal" x1="0" x2="1"><stop offset="0" stop-color="#4b2fb0" stop-opacity=".35"/><stop offset=".7" stop-color="#a67cff"/><stop offset="1" stop-color="#d2b8ff"/></linearGradient><clipPath id="lgac"><circle cx="50" cy="50" r="50"/></clipPath></defs><circle cx="50" cy="50" r="50" fill="url(#lgabg)"/><g clip-path="url(#lgac)"><rect x="-6" y="20" width="76" height="17" rx="8.5" fill="url(#lgap)"/><circle cx="61.5" cy="28.5" r="4.6" fill="#ffd1ea" opacity=".85"/><rect x="-6" y="41.5" width="96" height="17" rx="8.5" fill="url(#lgat)"/><circle cx="81.5" cy="50" r="4.6" fill="#d4fff6" opacity=".85"/><rect x="-6" y="63" width="76" height="17" rx="8.5" fill="url(#lgal)"/><circle cx="61.5" cy="71.5" r="4.6" fill="#eadcff" opacity=".85"/></g></svg>';
 function viewLoading() { return '<div class="auth"><div class="brand">' + LOGO + '</div><p class="muted" style="text-align:center">' + t('loading') + '</p></div>'; }
 const pwField = (label, auto) => '<div class="field"><span id="a-pass-l">' + label + '</span><div class="pw"><input id="a-pass" type="password" aria-labelledby="a-pass-l" autocomplete="' + auto + '" minlength="8"><button type="button" data-a="pw-toggle" aria-label="' + t('show_pw') + '" title="' + t('show_pw') + '">' + ico('eye') + '</button></div></div>';
 function viewAuth() {
@@ -1249,14 +1287,19 @@ function addFocus(cat, min, at) {
   toast(after > before ? t('f_up', { l: after }) : t('f_plus', { m: min }));
 }
 function mealSheet(meal) {
-  const rec = S.recent.map(n => FOODS.find(f => f[0] === n) || null).filter(Boolean);
-  const all = rec.concat(FOODS.filter(f => !S.recent.includes(f[0])));
-  const list = q => all.filter(f => !q || norm(tn(f[0])).includes(norm(q)) || norm(f[0]).includes(norm(q))).map(f => '<button class="food" data-f="' + esc(f[0]) + '"><span class="grow"><span>' + esc(tn(f[0])) + '</span><br><span class="s">' + esc(tn(f[1])) + ' · ' + f[2] + ' kcal · ' + dec(f[3]) + ' ' + t('g_prot_s') + '</span></span>' + ico('plus') + '</button>').join('') || '<p class="empty">' + t('nothing_found') + '</p>';
-  const html = '<h2>' + t('m_' + meal) + '</h2><label class="field"><span>' + t('food') + '</span><input id="m-name" placeholder="' + t('food_ph') + '" autocomplete="off"></label><div class="two"><label class="field"><span>' + t('kcal_f') + '</span><input id="m-kcal" type="number" inputmode="numeric" min="0"></label><label class="field"><span>' + t('prot_f') + '</span><input id="m-prot" type="number" inputmode="decimal" min="0"></label></div><button class="btn main block" data-s="ok" style="margin-bottom:16px">' + t('add') + '</button><label class="field"><span>' + t('or_pick') + '</span><input id="m-q" placeholder="' + t('search') + '" autocomplete="off"></label><div class="foods" id="foods">' + list('') + '</div>';
+  // "Minhas comidas": começa vazia; cada comida adicionada pelo formulário fica salva para repetir com um toque
+  let q = '';
+  const list = () => {
+    if (!S.myFoods.length) return '<p class="empty">' + t('my_foods_empty') + '</p>';
+    const fs2 = S.myFoods.filter(f => !q || norm(f[0]).includes(norm(q)));
+    return fs2.length ? fs2.map(f => '<div class="exline"><button class="food" data-f="' + esc(f[0]) + '"><span class="grow"><span>' + esc(f[0]) + '</span><br><span class="s">' + int(f[1]) + ' kcal · ' + dec(f[2]) + ' ' + t('g_prot_s') + '</span></span>' + ico('plus') + '</button><button class="ed" data-rmf="' + esc(f[0]) + '" aria-label="' + t('delete') + '">' + ico('x') + '</button></div>').join('') : '<p class="empty">' + t('nothing_found') + '</p>';
+  };
+  const html = '<h2>' + t('m_' + meal) + '</h2><label class="field"><span>' + t('food') + '</span><input id="m-name" placeholder="' + t('food_ph') + '" autocomplete="off"></label><div class="two"><label class="field"><span>' + t('kcal_f') + '</span><input id="m-kcal" type="number" inputmode="numeric" min="0"></label><label class="field"><span>' + t('prot_f') + '</span><input id="m-prot" type="number" inputmode="decimal" min="0"></label></div><button class="btn main block" data-s="ok" style="margin-bottom:16px">' + t('add') + '</button><div class="grp" style="margin-top:4px">' + t('my_foods') + '</div>' + (S.myFoods.length > 5 ? '<input id="m-q" style="width:100%;min-height:42px;padding:0 12px;border-radius:12px;border:1px solid var(--line);background:var(--card);margin-bottom:8px" placeholder="' + t('search') + '" autocomplete="off">' : '') + '<div class="foods" id="foods">' + list() + '</div>';
   openSheet(html, 'var(--lime)', el => {
+    if (el.dataset.rmf) { S.myFoods = S.myFoods.filter(f => f[0] !== el.dataset.rmf); save(); box.querySelector('#foods').innerHTML = list(); return; }
     if (el.dataset.f) {
-      const f = FOODS.find(x => x[0] === el.dataset.f);
-      addMeal(meal, f[0], f[2], f[3]); el.style.opacity = .5; toast(t('added', { f: tn(f[0]) }));
+      const f = S.myFoods.find(x => x[0] === el.dataset.f); if (!f) return;
+      addMeal(meal, f[0], f[1], f[2]); el.style.opacity = .5; toast(t('added', { f: f[0] }));
       return;
     }
     if (el.dataset.s !== 'ok') return;
@@ -1264,12 +1307,13 @@ function mealSheet(meal) {
     if (!name || !kcal) return toast(t('e_meal'));
     addMeal(meal, name, kcal, toNum(val('m-prot'))); closeSheet(); render();
   });
-  box.querySelector('#m-q').addEventListener('input', e => { box.querySelector('#foods').innerHTML = list(e.target.value); });
+  const qi = box.querySelector('#m-q'); if (qi) qi.addEventListener('input', e => { q = e.target.value; box.querySelector('#foods').innerHTML = list(); });
   sheetAfterClose = render;
 }
 function addMeal(meal, name, kcal, prot) {
   S.meals.push({ id: uid(), date: V.day, meal, name, kcal, prot });
-  if (FOODS.some(f => f[0] === name)) S.recent = [name].concat(S.recent.filter(n => n !== name)).slice(0, 6);
+  // guarda/atualiza em "Minhas comidas" e põe no topo
+  S.myFoods = [[name, kcal, prot]].concat(S.myFoods.filter(f => norm(f[0]) !== norm(name))).slice(0, 200);
   save();
 }
 function weightSheet() {
@@ -1392,6 +1436,7 @@ function onClick(e) {
   if (a === 'wo-pick') return pickerSheet(d.k);
   if (a === 'wo-start') { startSession(d.k, S.plan[d.k] || []); return render(); }
   if (a === 'ex-toggle') { toggleItem(d.k, +d.i); V.pop = [d.k, d.i]; return render(); }
+  if (a === 'ex-edit') return exEditSheet(d.k, d.i != null ? { i: +d.i } : { n: d.n });
   if (a === 'wo-finish') { finishSession(d.k); return render(); }
   if (a === 'wo-discard') return confirmSheet(t('c_discard_wo'), t('discard'), () => discardSession(d.k));
   if (a === 'win-edit') return windowSheet(d.k);

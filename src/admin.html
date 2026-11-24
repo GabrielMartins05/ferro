@@ -94,7 +94,7 @@ function loginView() {
   return '<div class="login"><div class="panel"><h2 style="color:#fff;font-size:20px">Painel de admin</h2><p class="small muted" style="margin-bottom:14px">Entre com uma conta de admin.</p>' + (V.msg ? '<p class="msg' + (V.ok ? ' ok' : '') + '">' + esc(V.msg) + '</p>' : '') + '<label class="field"><span>E-mail</span><input id="e" type="email" autocomplete="email"></label><label class="field"><span>Senha</span><input id="p" type="password" autocomplete="current-password"></label><button class="btn main" style="width:100%" data-a="login">Entrar</button></div><p class="small muted" style="text-align:center"><a href="./" style="color:#fff">Voltar ao app</a></p></div>';
 }
 function shell(inner) {
-  const tabs = [['geral', 'Visão geral'], ['usuarios', 'Usuários'], ['aviso', 'Aviso'], ['comidas', 'Comidas']];
+  const tabs = [['geral', 'Visão geral'], ['usuarios', 'Usuários'], ['aviso', 'Aviso']];
   return '<header><h1>Fitness · Admin</h1><span class="who">' + esc(V.me.email) + '</span><a class="btn slim" href="./" style="text-decoration:none">App</a><button class="btn slim" data-a="logout">Sair</button></header><nav class="tabs">' + tabs.map(t => '<button class="tab' + (V.tab === t[0] ? ' on' : '') + '" data-a="tab" data-v="' + t[0] + '">' + t[1] + '</button>').join('') + '</nav>' + inner;
 }
 function geral() {
