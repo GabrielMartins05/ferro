@@ -36,3 +36,18 @@ Depois de mudar qualquer coisa em `src/` ou `config.json`, rode `npm run cap:syn
 - Trocar `[COLOQUE AQUI O E-MAIL DE CONTATO]` em `privacidade.html` e `termos.html`.
 - Escolher um nome próprio para a loja (não pode usar marca de terceiros nem só "Fitness").
 - Se adicionar login com Google, a Apple exige também "Entrar com Apple".
+
+## Gerar o app Android (já configurado neste PC)
+
+```
+npm run cap:sync
+cd android
+set JAVA_HOME=C:\Program Files\Eclipse Adoptium\jdk-21.0.13.10002-hotspot
+gradlew.bat assembleRelease bundleRelease
+```
+
+- APK (instalar direto no celular): `android/app/build/outputs/apk/release/app-release.apk`
+- AAB (enviar para a Play): `android/app/build/outputs/bundle/release/app-release.aab`
+- Use o **JDK 21**: o Java 25 que vem no Android Studio não funciona com este Gradle.
+- A cada atualização na Play, aumente `versionCode` (e `versionName`) em `android/app/build.gradle`.
+- A chave de assinatura (`android/fitness-upload.jks` e `android/keystore.properties`) fica fora do Git. Há uma cópia em `Documents\Fitness-CHAVE-DO-APP`.
