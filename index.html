@@ -11,7 +11,7 @@
 <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
 <link rel="icon" href="icons/icon-192.png">
 <style>:root{padding-top:max(env(safe-area-inset-top,0px),var(--safe-area-inset-top,0px));padding-bottom:max(env(safe-area-inset-bottom,0px),var(--safe-area-inset-bottom,0px))}img{max-width:100%}[hidden]{display:none!important}</style>
-<script>window.FERRO_REAL = true; window.FITNESS_CONFIG = {"supabaseUrl":"https://iwkcwharouakejivkiqp.supabase.co","supabaseAnonKey":"sb_publishable_BpQXJSmHBpqOA-n6yX1ydA_CQtHxBpk","siteUrl":"https://gabrielmartins05.github.io/ferro/","version":"1.0.1"}; window.FITNESS_FOODS = [["Arroz branco","1 escumadeira",115,2.3],["Feijão","1 concha",70,4.5],["Peito de frango grelhado","1 filé (120 g)",190,38],["Bife de patinho","1 bife (100 g)",220,32],["Carne moída","1 colher de servir",130,13],["Ovo cozido","1 unidade",73,6.5],["Ovo frito","1 unidade",110,6.5],["Pão francês","1 unidade",150,4.5],["Pão de forma","2 fatias",130,5],["Queijo muçarela","1 fatia",66,5],["Presunto","2 fatias",50,7],["Leite integral","1 copo",120,6],["Iogurte natural","1 pote",90,6],["Whey protein","1 scoop",120,24],["Aveia","2 colheres de sopa",118,4],["Banana","1 unidade",70,1],["Maçã","1 unidade",72,0.4],["Mamão","1 fatia",60,0.7],["Batata doce","1 média",100,1.5],["Macarrão","1 pegador",150,5],["Tapioca com queijo","1 unidade",250,8],["Cuscuz","1 pedaço",150,3],["Salada","1 prato",15,1],["Tilápia grelhada","1 filé",155,32],["Atum em lata","1 lata",140,30],["Café com açúcar","1 xícara",40,0],["Pizza","1 fatia",280,12],["Hambúrguer","1 unidade",500,25],["Coxinha","1 unidade",280,9],["Refrigerante","1 lata",140,0],["Suco de laranja","1 copo",90,1],["Chocolate","1 barrinha",135,2],["Açaí","1 tigela",360,4]];</script>
+<script>window.FERRO_REAL = true; window.FITNESS_CONFIG = {"supabaseUrl":"https://iwkcwharouakejivkiqp.supabase.co","supabaseAnonKey":"sb_publishable_BpQXJSmHBpqOA-n6yX1ydA_CQtHxBpk","siteUrl":"https://gabrielmartins05.github.io/ferro/","version":"1.0.2"}; window.FITNESS_FOODS = [["Arroz branco","1 escumadeira",115,2.3],["Feijão","1 concha",70,4.5],["Peito de frango grelhado","1 filé (120 g)",190,38],["Bife de patinho","1 bife (100 g)",220,32],["Carne moída","1 colher de servir",130,13],["Ovo cozido","1 unidade",73,6.5],["Ovo frito","1 unidade",110,6.5],["Pão francês","1 unidade",150,4.5],["Pão de forma","2 fatias",130,5],["Queijo muçarela","1 fatia",66,5],["Presunto","2 fatias",50,7],["Leite integral","1 copo",120,6],["Iogurte natural","1 pote",90,6],["Whey protein","1 scoop",120,24],["Aveia","2 colheres de sopa",118,4],["Banana","1 unidade",70,1],["Maçã","1 unidade",72,0.4],["Mamão","1 fatia",60,0.7],["Batata doce","1 média",100,1.5],["Macarrão","1 pegador",150,5],["Tapioca com queijo","1 unidade",250,8],["Cuscuz","1 pedaço",150,3],["Salada","1 prato",15,1],["Tilápia grelhada","1 filé",155,32],["Atum em lata","1 lata",140,30],["Café com açúcar","1 xícara",40,0],["Pizza","1 fatia",280,12],["Hambúrguer","1 unidade",500,25],["Coxinha","1 unidade",280,9],["Refrigerante","1 lata",140,0],["Suco de laranja","1 copo",90,1],["Chocolate","1 barrinha",135,2],["Açaí","1 tigela",360,4]];</script>
 <script src="vendor/supabase.js"></script>
 <title>Fitness</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -181,6 +181,35 @@ button.card:active, button.card:focus-visible { border-color: #fff; outline: non
 .addcard:hover { border-color: rgba(255, 255, 255, .3); color: #fff; }
 .newtype { display: flex; gap: 8px; margin-top: 10px; }
 .newtype input { flex: 1; min-height: 40px; padding: 0 12px; border-radius: 10px; border: 1px solid var(--line); background: var(--card); }
+.topbar { position: relative; display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 4px 0 18px; }
+.topbar .hi { font-size: 14px; color: var(--muted); min-width: 0; }
+.topbar .hi b { color: #fff; font-size: 22px; display: block; line-height: 1.2; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.dots { position: relative; width: 44px; height: 44px; display: grid; place-items: center; border-radius: 14px; background: var(--card); color: #fff; flex: none; }
+.dots .badge { position: absolute; top: -5px; right: -5px; min-width: 20px; height: 20px; padding: 0 5px; border-radius: 10px; background: var(--pink); color: #141418; font-size: 11px; font-weight: 700; display: grid; place-items: center; }
+.menu { position: absolute; right: 0; top: 54px; width: min(340px, calc(100vw - 32px)); background: var(--panel); border: 1px solid var(--line); border-radius: 18px; padding: 14px; z-index: 10; box-shadow: 0 14px 40px rgba(0, 0, 0, .55); max-height: 75vh; overflow: auto; }
+.menu h3 { font-size: 11px; text-transform: uppercase; letter-spacing: .08em; color: var(--dim); margin: 6px 2px 8px; font-weight: 600; }
+.menu .acc { display: flex; gap: 12px; align-items: center; margin-bottom: 12px; }
+.menu .acc .grow > * { display: block; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.avatar { width: 44px; height: 44px; border-radius: 50%; background: linear-gradient(135deg, var(--pink), var(--lilac)); color: #141418; font-weight: 700; font-size: 18px; display: grid; place-items: center; flex: none; }
+.menu .mi { display: flex; align-items: center; gap: 10px; width: 100%; padding: 11px 10px; border-radius: 10px; font-weight: 600; text-decoration: none; color: #fff; }
+.menu .mi:hover { background: var(--card); }
+.menu .notif-list { margin: 0 0 8px; }
+.menu hr { border: 0; border-top: 1px solid var(--line); margin: 8px 0; }
+.exrow { display: flex; align-items: center; gap: 12px; width: 100%; background: var(--card); border-radius: 12px; padding: 12px; text-align: left; }
+.exrow .ck { width: 26px; height: 26px; border-radius: 50%; border: 2px solid var(--dim); display: grid; place-items: center; flex: none; color: #141418; }
+.exrow .ck svg { width: 16px; height: 16px; opacity: 0; }
+.exrow.done .ck, .exrow.sel .ck { background: var(--c); border-color: var(--c); }
+.exrow.done .ck svg, .exrow.sel .ck svg { opacity: 1; }
+.exrow.done .nm { color: var(--muted); text-decoration: line-through; }
+.exrow .nm { flex: 1; min-width: 0; }
+.exrow .pt { font-size: 12px; font-weight: 700; color: var(--c); white-space: nowrap; }
+.exrow .rm { color: var(--dim); padding: 2px 6px; font-weight: 700; }
+.grp { font-size: 11px; color: var(--dim); text-transform: uppercase; letter-spacing: .08em; margin: 14px 2px 6px; font-weight: 600; }
+.pickfoot { position: sticky; bottom: -20px; background: var(--panel); padding: 12px 0 4px; margin-top: 12px; box-shadow: 0 -10px 20px var(--panel); }
+.newex { display: grid; grid-template-columns: 1fr auto auto; gap: 8px; margin-top: 10px; }
+.newex input, .newex select { min-height: 40px; padding: 0 10px; border-radius: 10px; border: 1px solid var(--line); background: var(--card); min-width: 0; }
+.pick-btn { display: flex; align-items: center; gap: 10px; width: 100%; background: var(--card); border-radius: 12px; padding: 12px 14px; margin-bottom: 14px; }
+.pick-btn .grow { font-weight: 600; }
 .demo { font-size: 12px; color: var(--dim); text-align: center; margin-top: 20px; }
 </style>
 </head>
@@ -195,7 +224,7 @@ button.card:active, button.card:focus-visible { border-color: #fff; outline: non
 const REAL = window.FERRO_REAL === true;
 const KEY = 'fitness.v1';
 const H = 36e5, DAY = 24 * H;
-const PTS_LV = 4, PTS_MAX = 16;
+const LV_PTS = 60, PTS_MAX = 240, LOSS = 15;
 
 /* ---------- idioma ---------- */
 const LANGS = [['pt', 'Português'], ['en', 'English'], ['es', 'Español']];
@@ -213,21 +242,19 @@ function setLang(l) {
 const TX = {
   today: ['Hoje', 'Today', 'Hoy'], yesterday: ['Ontem', 'Yesterday', 'Ayer'],
   settings: ['Ajustes', 'Settings', 'Ajustes'], back: ['Voltar', 'Back', 'Volver'],
-  hud_aria: ['Saúde, fôlego e foco de hoje', 'Health, stamina and focus today', 'Salud, resistencia y enfoque de hoy'],
-  hud_s: ['Saúde: calorias e proteína de hoje', 'Health: calories and protein today', 'Salud: calorías y proteína de hoy'],
-  hud_f: ['Fôlego: janela de cárdio', 'Stamina: cardio window', 'Resistencia: ventana de cardio'],
-  hud_o: ['Foco: meta de hoje', 'Focus: today\'s goal', 'Enfoque: meta de hoy'],
+  menu: ['Menu', 'Menu', 'Menú'], notifications: ['Notificações', 'Notifications', 'Notificaciones'],
+  hello: ['Olá, {n}', 'Hi, {n}', 'Hola, {n}'], hello0: ['Olá!', 'Hi!', '¡Hola!'],
+  sub_hello: ['Vamos encher os círculos hoje?', 'Let\'s fill the rings today?', '¿Llenamos los círculos hoy?'],
+  no_acc_short: ['Usando sem conta', 'Using without an account', 'Usando sin cuenta'],
   n_forca: ['Força', 'Strength', 'Fuerza'], t_forca: ['Treino de Força', 'Strength Training', 'Entrenamiento de Fuerza'],
   n_cardio: ['Cárdio', 'Cardio', 'Cardio'], t_cardio: ['Treino de Cárdio', 'Cardio Training', 'Entrenamiento de Cardio'],
   n_foco: ['Foco', 'Focus', 'Enfoque'],
   rest_msg: ['Treino finalizado. Descanse para se recuperar.', 'Workout done. Rest to recover.', 'Entrenamiento terminado. Descansa para recuperarte.'],
   win: ['Janela de treino', 'Training window', 'Ventana de entrenamiento'],
-  open_win: ['Registre um treino para abrir sua janela.', 'Log a workout to open your window.', 'Registra un entrenamiento para abrir tu ventana.'],
+  open_win: ['Monte e complete um treino para abrir sua janela.', 'Build and finish a workout to open your window.', 'Arma y completa un entrenamiento para abrir tu ventana.'],
   level: ['Nível {l}/4', 'Level {l}/4', 'Nivel {l}/4'],
   in_progress: ['{c} em andamento', '{c} in progress', '{c} en curso'],
   today_of: ['Hoje: {m} de {g} min', 'Today: {m} of {g} min', 'Hoy: {m} de {g} min'],
-  reminders: ['Lembretes', 'Reminders', 'Recordatorios'],
-  notif_1: ['{n} notificação', '{n} notification', '{n} notificación'], notif: ['{n} notificações', '{n} notifications', '{n} notificaciones'],
   nothing: ['Nada pendente', 'All caught up', 'Nada pendiente'],
   lbl_body: ['Corpo e nutrição', 'Body and nutrition', 'Cuerpo y nutrición'],
   muscle: ['Musculatura - {v}', 'Muscle - {v}', 'Musculatura - {v}'], fat: ['Gordura corporal - {v}', 'Body fat - {v}', 'Grasa corporal - {v}'],
@@ -246,30 +273,48 @@ const TX = {
   bal_kg: [' · cerca de {k} kg por semana', ' · about {k} kg per week', ' · cerca de {k} kg por semana'],
   days_1: ['{n} dia', '{n} day', '{n} día'], days: ['{n} dias', '{n} days', '{n} días'],
   r_close: ['A janela de {a} fecha em {d}.', 'Your {a} window closes in {d}.', 'Tu ventana de {a} cierra en {d}.'],
-  r_lost: ['Você perdeu a janela de {a} e caiu um pouco de nível.', 'You missed your {a} window and lost some progress.', 'Perdiste tu ventana de {a} y bajaste un poco de nivel.'],
-  r_first: ['Registre seu primeiro treino de {a}.', 'Log your first {a} workout.', 'Registra tu primer entrenamiento de {a}.'],
+  r_lost: ['Você perdeu a janela de {a} e perdeu um pouco de progresso.', 'You missed your {a} window and lost some progress.', 'Perdiste tu ventana de {a} y bajaste un poco de progreso.'],
+  r_first: ['Monte seu primeiro treino de {a}.', 'Build your first {a} workout.', 'Arma tu primer entrenamiento de {a}.'],
+  r_running: ['{a}: treino em andamento ({x} de {y}).', '{a}: workout in progress ({x} of {y}).', '{a}: entrenamiento en curso ({x} de {y}).'],
   r_prot: ['Treinou hoje: faltam {g} g de proteína.', 'You trained today: {g} g of protein to go.', 'Entrenaste hoy: faltan {g} g de proteína.'],
   r_meal: ['Nenhuma refeição registrada hoje.', 'No meals logged today.', 'Ninguna comida registrada hoy.'],
   r_focus: ['Faltam {m} min para a meta de foco de hoje.', '{m} min left to hit today\'s focus goal.', 'Faltan {m} min para la meta de enfoque de hoy.'],
   r_profile: ['Preencha seu perfil para calcular calorias e corpo.', 'Fill in your profile to calculate calories and body.', 'Completa tu perfil para calcular calorías y cuerpo.'],
-  p_forca: ['<p>Exercícios de <b>Força</b>, como musculação e barra, melhoram sua <b>Saúde</b> e aumentam a <b>musculatura</b>.</p><p>Mantenha a constância e treine durante a <b>janela de treino</b>. Se deixar a janela passar sem um treino completo, você perde parte dos seus ganhos.</p><p>Depois de um treino completo, coma <b>proteína</b> e <b>descanse</b>. Treinar alimentado e descansado também melhora seu desempenho.</p>',
-    '<p><b>Strength</b> exercises, like weight training and pull-ups, improve your <b>Health</b> and build <b>muscle</b>.</p><p>Stay consistent and train during your <b>training window</b>. If the window passes without a full workout, you lose part of your gains.</p><p>After a full workout, eat <b>protein</b> and <b>rest</b>. Training well fed and rested also improves your performance.</p>',
-    '<p>Los ejercicios de <b>Fuerza</b>, como pesas y dominadas, mejoran tu <b>Salud</b> y aumentan la <b>musculatura</b>.</p><p>Sé constante y entrena durante la <b>ventana de entrenamiento</b>. Si la ventana pasa sin un entrenamiento completo, pierdes parte de lo ganado.</p><p>Después de un entrenamiento completo, come <b>proteína</b> y <b>descansa</b>. Entrenar alimentado y descansado también mejora tu rendimiento.</p>'],
-  p_cardio1: ['Aumente seu <b>Fôlego</b> com exercícios de <b>Cárdio</b> na academia ou ao ar livre.', 'Boost your <b>Stamina</b> with <b>Cardio</b> at the gym or outdoors.', 'Aumenta tu <b>Resistencia</b> con <b>Cardio</b> en el gimnasio o al aire libre.'],
-  p_cardio2: ['Mantenha a constância e treine durante a <b>janela de treino</b>. Se deixar a janela passar ou não completar um treino inteiro, você perderá seus ganhos.', 'Stay consistent and train during your <b>training window</b>. If the window passes or you don\'t finish a full workout, you\'ll lose your gains.', 'Sé constante y entrena durante la <b>ventana de entrenamiento</b>. Si la ventana pasa o no completas un entrenamiento, perderás lo ganado.'],
-  p_custom: ['<p>Treine <b>{a}</b> com constância durante a <b>janela de treino</b>.</p><p>Cada treino completo soma progresso. Se a janela fechar sem treino, você perde parte dos seus ganhos.</p>', '<p>Train <b>{a}</b> consistently during your <b>training window</b>.</p><p>Every full workout adds progress. If the window closes without a workout, you lose part of your gains.</p>', '<p>Entrena <b>{a}</b> con constancia durante la <b>ventana de entrenamiento</b>.</p><p>Cada entrenamiento completo suma progreso. Si la ventana se cierra sin entrenar, pierdes parte de lo ganado.</p>'],
-  g_gym: ['Academia', 'Gym', 'Gimnasio'], g_home: ['Em casa ou na rua', 'At home or outside', 'En casa o en la calle'],
-  g_gym2: ['Treinos na academia', 'At the gym', 'En el gimnasio'], g_out: ['Ao ar livre', 'Outdoors', 'Al aire libre'],
+  p_forca: ['<p>Exercícios de <b>Força</b>, como supino, agachamento e barra, melhoram sua <b>Saúde</b> e aumentam a <b>musculatura</b>.</p><p>Mantenha a constância e treine durante a <b>janela de treino</b>. Se deixar a janela passar sem completar um treino, você perde parte dos seus ganhos.</p><p>Depois de um treino completo, coma <b>proteína</b> e <b>descanse</b>.</p>',
+    '<p><b>Strength</b> exercises, like bench press, squats and pull-ups, improve your <b>Health</b> and build <b>muscle</b>.</p><p>Stay consistent and train during your <b>training window</b>. If the window passes without a finished workout, you lose part of your gains.</p><p>After a full workout, eat <b>protein</b> and <b>rest</b>.</p>',
+    '<p>Los ejercicios de <b>Fuerza</b>, como press de banca, sentadillas y dominadas, mejoran tu <b>Salud</b> y aumentan la <b>musculatura</b>.</p><p>Sé constante y entrena durante la <b>ventana de entrenamiento</b>. Si la ventana pasa sin completar un entrenamiento, pierdes parte de lo ganado.</p><p>Después de un entrenamiento completo, come <b>proteína</b> y <b>descansa</b>.</p>'],
+  p_cardio: ['<p>Aumente seu <b>Fôlego</b> com exercícios de <b>Cárdio</b> na academia, ao ar livre ou em casa.</p><p>Mantenha a constância e treine durante a <b>janela de treino</b>. Se deixar a janela passar sem completar um treino, você perderá seus ganhos.</p>',
+    '<p>Boost your <b>Stamina</b> with <b>Cardio</b> at the gym, outdoors or at home.</p><p>Stay consistent and train during your <b>training window</b>. If the window passes without a finished workout, you\'ll lose your gains.</p>',
+    '<p>Aumenta tu <b>Resistencia</b> con <b>Cardio</b> en el gimnasio, al aire libre o en casa.</p><p>Sé constante y entrena durante la <b>ventana de entrenamiento</b>. Si la ventana pasa sin completar un entrenamiento, perderás lo ganado.</p>'],
+  p_custom: ['<p>Treine <b>{a}</b> com constância durante a <b>janela de treino</b>.</p><p>Se a janela fechar sem um treino completo, você perde parte dos seus ganhos.</p>', '<p>Train <b>{a}</b> consistently during your <b>training window</b>.</p><p>If the window closes without a full workout, you lose part of your gains.</p>', '<p>Entrena <b>{a}</b> con constancia durante la <b>ventana de entrenamiento</b>.</p><p>Si la ventana se cierra sin un entrenamiento completo, pierdes parte de lo ganado.</p>'],
+  p_points: ['<p>Cada <b>exercício concluído</b> soma pontos e enche o círculo. Exercícios mais pesados valem mais. A janela só fecha quando você completa o <b>último exercício</b> do treino.</p>', '<p>Every <b>finished exercise</b> adds points and fills the ring. Harder exercises are worth more. The window only closes when you finish the <b>last exercise</b> of the workout.</p>', '<p>Cada <b>ejercicio completado</b> suma puntos y llena el círculo. Los ejercicios más pesados valen más. La ventana solo se cierra cuando completas el <b>último ejercicio</b>.</p>'],
   max_lv: ['Nível máximo. Continue treinando para não cair.', 'Max level. Keep training so you don\'t drop.', 'Nivel máximo. Sigue entrenando para no bajar.'],
-  more_1: ['Mais {n} treino completo para o nível {l}', '{n} more full workout to level {l}', '{n} entrenamiento completo más para el nivel {l}'],
-  more: ['Mais {n} treinos completos para o nível {l}', '{n} more full workouts to level {l}', '{n} entrenamientos completos más para el nivel {l}'],
+  pts_next: ['{p} de {t} pts para o nível {l}', '{p} of {t} pts to level {l}', '{p} de {t} pts para el nivel {l}'],
   recovery: ['Recuperação', 'Recovery', 'Recuperación'], win_closes: ['Janela de treino fecha em', 'Window closes in', 'La ventana cierra en'],
-  closed: ['Fechada', 'Closed', 'Cerrada'], full_wo: ['Treino completo', 'Full workout', 'Entrenamiento completo'],
-  min_more: ['{m} min ou mais', '{m} min or more', '{m} min o más'], rest_after: ['Descanso depois', 'Rest after', 'Descanso después'],
-  win_len: ['Duração da janela', 'Window length', 'Duración de la ventana'],
-  adjust: ['Ajustar tempos', 'Adjust times', 'Ajustar tiempos'], log_wo: ['Registrar treino', 'Log workout', 'Registrar entrenamiento'],
+  closed: ['Fechada', 'Closed', 'Cerrada'], rest_after: ['Descanso depois', 'Rest after', 'Descanso después'],
+  win_len: ['Duração da janela', 'Window length', 'Duración de la ventana'], total_pts: ['Pontos no total', 'Total points', 'Puntos en total'],
+  adjust: ['Ajustar tempos', 'Adjust times', 'Ajustar tiempos'],
+  my_wo: ['Seu treino', 'Your workout', 'Tu entrenamiento'], build_wo: ['Montar treino', 'Build workout', 'Armar entrenamiento'],
+  edit_wo: ['Editar treino', 'Edit workout', 'Editar entrenamiento'], start_wo: ['Começar treino', 'Start workout', 'Empezar entrenamiento'],
+  finish_wo: ['Terminar treino', 'Finish workout', 'Terminar entrenamiento'], wo_running: ['Treino em andamento', 'Workout in progress', 'Entrenamiento en curso'],
+  n_of_m: ['{a} de {b} exercícios', '{a} of {b} exercises', '{a} de {b} ejercicios'], plus_pts: ['+{p} pts', '+{p} pts', '+{p} pts'],
+  no_plan: ['Monte seu treino com os exercícios que você vai fazer. Cada exercício concluído enche o círculo.', 'Build your workout with the exercises you\'ll do. Each finished exercise fills the ring.', 'Arma tu entrenamiento con los ejercicios que vas a hacer. Cada ejercicio completado llena el círculo.'],
+  tap_done: ['Toque em cada exercício quando terminar.', 'Tap each exercise when you finish it.', 'Toca cada ejercicio cuando lo termines.'],
+  c_discard_wo: ['Descartar este treino? Os pontos dele saem.', 'Discard this workout? Its points will be removed.', '¿Descartar este entrenamiento? Se quitan sus puntos.'],
+  wo_full: ['Treino completo! +{p} pts. Agora coma proteína e descanse.', 'Workout complete! +{p} pts. Now eat protein and rest.', '¡Entrenamiento completo! +{p} pts. Ahora come proteína y descansa.'],
+  wo_partial: ['Treino encerrado: +{p} pts. A janela só fecha quando todos os exercícios forem concluídos.', 'Workout ended: +{p} pts. The window only closes when every exercise is done.', 'Entrenamiento terminado: +{p} pts. La ventana solo se cierra cuando completas todos los ejercicios.'],
+  w_up: ['{a} subiu para o nível {l}!', '{a} reached level {l}!', '¡{a} subió al nivel {l}!'],
+  full: ['Completo', 'Complete', 'Completo'], partial: ['Parcial', 'Partial', 'Parcial'],
+  x_ex: ['{n} exercícios', '{n} exercises', '{n} ejercicios'], x_ex_1: ['{n} exercício', '{n} exercise', '{n} ejercicio'],
+  pick_title: ['Montar treino: {a}', 'Build workout: {a}', 'Armar entrenamiento: {a}'],
+  search_ex: ['Buscar exercício', 'Search exercise', 'Buscar ejercicio'], new_ex: ['+ Novo exercício', '+ New exercise', '+ Nuevo ejercicio'],
+  ex_name: ['Nome do exercício', 'Exercise name', 'Nombre del ejercicio'],
+  d_easy: ['Leve +2', 'Light +2', 'Ligero +2'], d_mid: ['Média +3', 'Medium +3', 'Medio +3'], d_hard: ['Pesada +5', 'Hard +5', 'Pesado +5'],
+  sel_sum: ['{n} selecionados · +{p} pts', '{n} selected · +{p} pts', '{n} seleccionados · +{p} pts'],
+  save_plan: ['Salvar treino', 'Save workout', 'Guardar entrenamiento'], start_now: ['Começar agora', 'Start now', 'Empezar ahora'],
+  e_pick: ['Escolha pelo menos um exercício', 'Pick at least one exercise', 'Elige al menos un ejercicio'],
+  mine: ['Meus exercícios', 'My exercises', 'Mis ejercicios'],
   last_wo: ['Últimos treinos', 'Recent workouts', 'Últimos entrenamientos'],
-  counted: ['Contou', 'Counted', 'Contó'], not_counted: ['Não contou', 'Didn\'t count', 'No contó'], incomplete: ['Incompleto', 'Incomplete', 'Incompleto'],
   del_wo: ['Apagar treino', 'Delete workout', 'Borrar entrenamiento'], no_wo: ['Nenhum treino ainda.', 'No workouts yet.', 'Aún no hay entrenamientos.'],
   del_act: ['Excluir atividade', 'Delete activity', 'Eliminar actividad'],
   p_foco: ['<p>Melhore seu <b>Foco</b> com atividades que exigem concentração, como <b>estudo</b>, <b>trabalho</b>, leitura ou meditação.</p><p>Cada minuto concentrado conta. Use o cronômetro ou registre o tempo depois.</p><p>Com o tempo, ele aumentará <b>permanentemente</b>.</p>',
@@ -279,7 +324,10 @@ const TX = {
   lv_maxed: [' · nível máximo', ' · max level', ' · nivel máximo'],
   f_session: ['Sessão de foco', 'Focus session', 'Sesión de enfoque'], discard: ['Descartar', 'Discard', 'Descartar'],
   stop_save: ['Encerrar e salvar', 'Stop and save', 'Terminar y guardar'], log_time: ['Registrar tempo', 'Log time', 'Registrar tiempo'],
-  start: ['Começar', 'Start', 'Empezar'], daily_goal: ['Meta diária', 'Daily goal', 'Meta diaria'],
+  start: ['Começar', 'Start', 'Empezar'], daily_goal: ['Meta diária', 'Daily goal', 'Meta diaria'], change: ['Trocar', 'Change', 'Cambiar'],
+  pick_focus: ['Escolha a atividade de foco', 'Choose a focus activity', 'Elige la actividad de enfoque'],
+  search_focus: ['Buscar atividade', 'Search activity', 'Buscar actividad'], new_focus: ['+ Nova atividade de foco', '+ New focus activity', '+ Nueva actividad de enfoque'],
+  focus_name: ['Nome da atividade', 'Activity name', 'Nombre de la actividad'],
   goal_less: ['Diminuir meta', 'Lower goal', 'Bajar meta'], goal_more: ['Aumentar meta', 'Raise goal', 'Subir meta'],
   last_sess: ['Últimas sessões', 'Recent sessions', 'Últimas sesiones'], del_sess: ['Apagar sessão', 'Delete session', 'Borrar sesión'],
   no_sess: ['Nenhuma sessão ainda.', 'No sessions yet.', 'Aún no hay sesiones.'],
@@ -333,51 +381,41 @@ const TX = {
   your_data: ['Seus dados', 'Your data', 'Tus datos'], data_msg: ['Tudo fica salvo neste aparelho. Exporte um backup de vez em quando.', 'Everything is saved on this device. Export a backup now and then.', 'Todo se guarda en este dispositivo. Exporta una copia de vez en cuando.'],
   export: ['Exportar', 'Export', 'Exportar'], import: ['Importar', 'Import', 'Importar'], wipe: ['Apagar tudo', 'Erase everything', 'Borrar todo'],
   how: ['Como funciona', 'How it works', 'Cómo funciona'],
-  how_html: ['<p>Cada atividade sobe 1 nível a cada 4 treinos completos. Depois de um treino você descansa e então abre a janela de treino. Se ela fechar sem treino, você perde um pouco do progresso. Os tempos podem ser ajustados em cada atividade.</p><p>Foco sobe com as horas acumuladas: 5h, 20h e 50h. Ele nunca cai.</p><p>As calorias usam a fórmula de Mifflin-St Jeor e a gordura corporal é uma estimativa pelo IMC. Não substitui orientação médica ou de nutricionista.</p>',
-    '<p>Each activity goes up 1 level every 4 full workouts. After a workout you rest, then your training window opens. If it closes without a workout, you lose some progress. Times can be adjusted for each activity.</p><p>Focus grows with accumulated hours: 5h, 20h and 50h. It never drops.</p><p>Calories use the Mifflin-St Jeor formula and body fat is a BMI-based estimate. Not a substitute for medical or dietitian advice.</p>',
-    '<p>Cada actividad sube 1 nivel cada 4 entrenamientos completos. Después de entrenar descansas y luego se abre la ventana de entrenamiento. Si se cierra sin entrenar, pierdes algo de progreso. Los tiempos se pueden ajustar en cada actividad.</p><p>El Enfoque sube con las horas acumuladas: 5h, 20h y 50h. Nunca baja.</p><p>Las calorías usan la fórmula de Mifflin-St Jeor y la grasa corporal es una estimación por el IMC. No sustituye el consejo médico o de un nutricionista.</p>'],
+  how_html: ['<p>Monte o treino com os exercícios que vai fazer. Cada exercício concluído soma pontos (os mais pesados valem mais) e enche o círculo: a cada 60 pontos você sobe de nível, até o 4.</p><p>Quando você conclui o último exercício, o treino fecha a janela: você descansa e depois uma janela nova abre. Se ela fechar sem um treino completo, você perde 15 pontos. Os tempos podem ser ajustados em cada atividade.</p><p>Foco sobe com as horas acumuladas: 5h, 20h e 50h. Ele nunca cai.</p><p>As calorias usam a fórmula de Mifflin-St Jeor e a gordura corporal é uma estimativa pelo IMC. Não substitui orientação médica ou de nutricionista.</p>',
+    '<p>Build your workout with the exercises you\'ll do. Each finished exercise adds points (harder ones are worth more) and fills the ring: every 60 points you level up, up to 4.</p><p>When you finish the last exercise, the workout closes the window: you rest and then a new window opens. If it closes without a full workout, you lose 15 points. Times can be adjusted for each activity.</p><p>Focus grows with accumulated hours: 5h, 20h and 50h. It never drops.</p><p>Calories use the Mifflin-St Jeor formula and body fat is a BMI-based estimate. Not a substitute for medical or dietitian advice.</p>',
+    '<p>Arma tu entrenamiento con los ejercicios que vas a hacer. Cada ejercicio completado suma puntos (los más pesados valen más) y llena el círculo: cada 60 puntos subes de nivel, hasta el 4.</p><p>Cuando completas el último ejercicio, el entrenamiento cierra la ventana: descansas y luego se abre una nueva. Si se cierra sin un entrenamiento completo, pierdes 15 puntos. Los tiempos se pueden ajustar en cada actividad.</p><p>El Enfoque sube con las horas acumuladas: 5h, 20h y 50h. Nunca baja.</p><p>Las calorías usan la fórmula de Mifflin-St Jeor y la grasa corporal es una estimación por el IMC. No sustituye el consejo médico o de un nutricionista.</p>'],
   privacy: ['Política de Privacidade', 'Privacy Policy', 'Política de Privacidad'], terms: ['Termos de Uso', 'Terms of Use', 'Términos de Uso'],
   goal_lose: ['Perder peso', 'Lose weight', 'Perder peso'], goal_keep: ['Manter o peso', 'Maintain weight', 'Mantener el peso'], goal_gain: ['Ganhar massa', 'Gain muscle', 'Ganar masa'],
   act1: ['Quase parado', 'Mostly sedentary', 'Casi sedentario'], act2: ['Leve (1 a 2 treinos na semana)', 'Light (1–2 workouts a week)', 'Ligera (1 a 2 entrenamientos por semana)'],
   act3: ['Moderado (3 a 4 treinos)', 'Moderate (3–4 workouts)', 'Moderada (3 a 4 entrenamientos)'], act4: ['Alto (5 ou mais treinos)', 'High (5+ workouts)', 'Alta (5 o más entrenamientos)'],
   sex: ['Sexo', 'Sex', 'Sexo'], male: ['Masculino', 'Male', 'Masculino'], female: ['Feminino', 'Female', 'Femenino'],
-  log_x: ['Registrar: {a}', 'Log: {a}', 'Registrar: {a}'], type: ['Tipo', 'Type', 'Tipo'], new_type: ['+ Novo tipo', '+ New type', '+ Nuevo tipo'],
-  type_ph: ['Nome do tipo', 'Type name', 'Nombre del tipo'],
-  duration: ['Duração (min)', 'Duration (min)', 'Duración (min)'], when: ['Quando', 'When', 'Cuándo'],
-  did_full: ['Fiz o treino inteiro', 'I did the full workout', 'Hice el entrenamiento completo'],
-  cancel: ['Cancelar', 'Cancel', 'Cancelar'], save: ['Salvar', 'Save', 'Guardar'],
-  e_dur: ['Coloque a duração', 'Enter the duration', 'Pon la duración'], e_past: ['Escolha um horário que já passou', 'Pick a time in the past', 'Elige una hora que ya pasó'],
-  e_type: ['Escolha ou crie um tipo', 'Pick or create a type', 'Elige o crea un tipo'],
-  w_incomplete: ['Treino salvo, mas incompleto: não soma nível.', 'Workout saved, but incomplete: no progress.', 'Entrenamiento guardado, pero incompleto: no suma nivel.'],
-  w_short: ['Treino salvo, mas curto: precisa de pelo menos {m} min para contar.', 'Workout saved, but too short: it needs at least {m} min to count.', 'Entrenamiento guardado, pero corto: necesita al menos {m} min para contar.'],
-  w_rest: ['Treino salvo. Você ainda estava se recuperando, então ele não soma nível.', 'Workout saved. You were still recovering, so it doesn\'t add progress.', 'Entrenamiento guardado. Aún te estabas recuperando, así que no suma nivel.'],
-  w_up: ['{a} subiu para o nível {l}!', '{a} reached level {l}!', '¡{a} subió al nivel {l}!'],
-  w_done: ['Treino completo! Agora coma proteína e descanse.', 'Full workout! Now eat protein and rest.', '¡Entrenamiento completo! Ahora come proteína y descansa.'],
+  when: ['Quando', 'When', 'Cuándo'], cancel: ['Cancelar', 'Cancel', 'Cancelar'], save: ['Salvar', 'Save', 'Guardar'],
+  e_past: ['Escolha um horário que já passou', 'Pick a time in the past', 'Elige una hora que ya pasó'],
   log_focus: ['Registrar tempo de foco', 'Log focus time', 'Registrar tiempo de enfoque'], activity: ['Atividade', 'Activity', 'Actividad'],
   minutes: ['Minutos', 'Minutes', 'Minutos'], e_min: ['Coloque os minutos', 'Enter the minutes', 'Pon los minutos'],
   f_up: ['Foco subiu para o nível {l}!', 'Focus reached level {l}!', '¡El Enfoque subió al nivel {l}!'], f_plus: ['+{m} min de foco', '+{m} min of focus', '+{m} min de enfoque'],
   food: ['Comida', 'Food', 'Comida'], food_ph: ['Ex.: marmita, lanche da rua', 'E.g. lunch box, street food', 'Ej.: táper, comida de la calle'],
   kcal_f: ['Calorias (kcal)', 'Calories (kcal)', 'Calorías (kcal)'], prot_f: ['Proteína (g)', 'Protein (g)', 'Proteína (g)'],
   or_pick: ['Ou toque em uma comida pronta (1 porção)', 'Or tap a ready-made food (1 serving)', 'O toca una comida lista (1 porción)'],
-  search: ['Buscar', 'Search', 'Buscar'], nothing_found: ['Nada encontrado. Use o campo de cima.', 'Nothing found. Use the field above.', 'No se encontró nada. Usa el campo de arriba.'],
+  search: ['Buscar', 'Search', 'Buscar'], nothing_found: ['Nada encontrado.', 'Nothing found.', 'No se encontró nada.'],
   added: ['{f} adicionado', '{f} added', '{f} añadido'], e_meal: ['Coloque nome e calorias', 'Enter name and calories', 'Pon nombre y calorías'], g_prot_s: ['g prot.', 'g prot.', 'g prot.'],
   log_weight: ['Registrar peso', 'Log weight', 'Registrar peso'], weight_kg: ['Peso (kg)', 'Weight (kg)', 'Peso (kg)'], day: ['Dia', 'Day', 'Día'],
   e_weight: ['Peso inválido', 'Invalid weight', 'Peso inválido'], your_prof: ['Seu perfil', 'Your profile', 'Tu perfil'], height_cm: ['Altura (cm)', 'Height (cm)', 'Altura (cm)'],
   c_del_acc: ['Excluir sua conta e todos os dados dela? Não dá para desfazer.', 'Delete your account and all its data? This can\'t be undone.', '¿Eliminar tu cuenta y todos sus datos? No se puede deshacer.'],
-  c_del_wo: ['Apagar este treino?', 'Delete this workout?', '¿Borrar este entrenamiento?'], c_discard: ['Descartar esta sessão?', 'Discard this session?', '¿Descartar esta sesión?'],
+  c_del_wo: ['Apagar este treino? Os pontos dele saem.', 'Delete this workout? Its points will be removed.', '¿Borrar este entrenamiento? Se quitan sus puntos.'],
+  c_discard: ['Descartar esta sessão?', 'Discard this session?', '¿Descartar esta sesión?'],
   c_del_sess: ['Apagar esta sessão?', 'Delete this session?', '¿Borrar esta sesión?'],
   c_wipe: ['Apagar todos os dados deste aparelho? Não dá para desfazer.', 'Erase all data on this device? This can\'t be undone.', '¿Borrar todos los datos de este dispositivo? No se puede deshacer.'],
   c_del_act: ['Excluir {a} e todos os treinos dela?', 'Delete {a} and all its workouts?', '¿Eliminar {a} y todos sus entrenamientos?'],
   times_of: ['Tempos: {a}', 'Times: {a}', 'Tiempos: {a}'],
   rest_h: ['Descanso depois do treino (horas)', 'Rest after a workout (hours)', 'Descanso después de entrenar (horas)'],
   win_d: ['Duração da janela (dias)', 'Window length (days)', 'Duración de la ventana (días)'],
-  min_m: ['Treino mínimo para contar (min)', 'Minimum workout to count (min)', 'Entrenamiento mínimo para contar (min)'],
   win_help: ['A janela abre depois do descanso. Se ela fechar sem um treino completo, você perde progresso.', 'The window opens after the rest. If it closes without a full workout, you lose progress.', 'La ventana se abre después del descanso. Si se cierra sin un entrenamiento completo, pierdes progreso.'],
-  e_win: ['Valores inválidos: descanso de 0 a 168 h, janela de 0,5 a 30 dias, treino de 1 a 600 min.', 'Invalid values: rest 0–168 h, window 0.5–30 days, workout 1–600 min.', 'Valores inválidos: descanso de 0 a 168 h, ventana de 0,5 a 30 días, entrenamiento de 1 a 600 min.'],
+  e_win: ['Valores inválidos: descanso de 0 a 168 h e janela de 0,5 a 30 dias.', 'Invalid values: rest 0–168 h and window 0.5–30 days.', 'Valores inválidos: descanso de 0 a 168 h y ventana de 0,5 a 30 días.'],
   saved: ['Salvo', 'Saved', 'Guardado'], restore: ['Voltar ao padrão', 'Reset to default', 'Restablecer'],
   new_act_t: ['Nova atividade', 'New activity', 'Nueva actividad'], act_ph: ['Ex.: Yoga, Futebol, Luta', 'E.g. Yoga, Soccer, Martial arts', 'Ej.: Yoga, Fútbol, Lucha'],
   icon: ['Ícone', 'Icon', 'Icono'], color: ['Cor', 'Color', 'Color'], e_name: ['Dê um nome', 'Give it a name', 'Ponle un nombre'],
-  act_made: ['{a} criada!', '{a} created!', '¡{a} creada!'],
+  act_made: ['{a} criada! Agora adicione os exercícios dela.', '{a} created! Now add its exercises.', '¡{a} creada! Ahora añade sus ejercicios.'],
   e_save_dev: ['Não deu para salvar neste aparelho', 'Couldn\'t save on this device', 'No se pudo guardar en este dispositivo'],
   short_sess: ['Sessão muito curta, não foi salva', 'Session too short, not saved', 'Sesión muy corta, no se guardó'],
   backup_t: ['Backup do Fitness', 'Fitness backup', 'Copia de Fitness'], backup_save: ['Salvar backup', 'Save backup', 'Guardar copia'],
@@ -385,14 +423,27 @@ const TX = {
   bad_file: ['Arquivo inválido', 'Invalid file', 'Archivo inválido']
 };
 function t(k, v) { const e = TX[k]; let s = e ? (e[LI] != null ? e[LI] : e[0]) : k; if (v) for (const x in v) s = s.split('{' + x + '}').join(v[x]); return s; }
-// nomes de tipos, categorias e comidas da lista padrão (a chave é o nome em português)
+// nomes de exercícios, grupos, categorias e comidas da lista padrão (a chave é o nome em português)
 const TT = {
-  'Musculação': ['Weight training', 'Musculación'], 'Peito e tríceps': ['Chest and triceps', 'Pecho y tríceps'], 'Costas e bíceps': ['Back and biceps', 'Espalda y bíceps'],
-  'Pernas': ['Legs', 'Piernas'], 'Ombros': ['Shoulders', 'Hombros'], 'Corpo inteiro': ['Full body', 'Cuerpo completo'], 'Barra fixa': ['Pull-ups', 'Dominadas'],
-  'Flexão': ['Push-ups', 'Flexiones'], 'Calistenia': ['Calisthenics', 'Calistenia'], 'Esteira': ['Treadmill', 'Cinta de correr'], 'Máquinas elípticas': ['Elliptical', 'Elíptica'],
-  'Bicicleta ergométrica': ['Stationary bike', 'Bicicleta estática'], 'Saco de pancadas': ['Punching bag', 'Saco de boxeo'], 'Corrida': ['Running', 'Correr'],
-  'Natação': ['Swimming', 'Natación'], 'Ciclismo': ['Cycling', 'Ciclismo'], 'Caiaque': ['Kayaking', 'Kayak'], 'Caminhada': ['Walking', 'Caminata'],
-  'Estudo': ['Study', 'Estudio'], 'Trabalho': ['Work', 'Trabajo'], 'Leitura': ['Reading', 'Lectura'], 'Meditação': ['Meditation', 'Meditación'], 'Outro': ['Other', 'Otro'],
+  'Peito': ['Chest', 'Pecho'], 'Costas': ['Back', 'Espalda'], 'Pernas': ['Legs', 'Piernas'], 'Ombros': ['Shoulders', 'Hombros'], 'Braços': ['Arms', 'Brazos'], 'Abdômen': ['Core', 'Abdomen'],
+  'Na academia': ['At the gym', 'En el gimnasio'], 'Ao ar livre': ['Outdoors', 'Al aire libre'], 'Em casa': ['At home', 'En casa'],
+  'Supino reto': ['Flat bench press', 'Press de banca plano'], 'Supino inclinado': ['Incline bench press', 'Press inclinado'], 'Supino com halteres': ['Dumbbell bench press', 'Press con mancuernas'],
+  'Crucifixo': ['Chest fly', 'Aperturas'], 'Crossover': ['Cable crossover', 'Cruce de poleas'], 'Flexão de braço': ['Push-ups', 'Flexiones'],
+  'Puxada frontal': ['Lat pulldown', 'Jalón al pecho'], 'Barra fixa': ['Pull-ups', 'Dominadas'], 'Remada curvada': ['Bent-over row', 'Remo inclinado'],
+  'Remada baixa': ['Seated cable row', 'Remo sentado'], 'Remada unilateral': ['One-arm row', 'Remo a una mano'], 'Levantamento terra': ['Deadlift', 'Peso muerto'],
+  'Agachamento livre': ['Barbell squat', 'Sentadilla libre'], 'Leg press': ['Leg press', 'Prensa de piernas'], 'Avanço': ['Lunges', 'Zancadas'],
+  'Stiff': ['Stiff-leg deadlift', 'Peso muerto rumano'], 'Elevação pélvica': ['Hip thrust', 'Hip thrust'], 'Cadeira extensora': ['Leg extension', 'Extensión de piernas'],
+  'Mesa flexora': ['Leg curl', 'Curl femoral'], 'Panturrilha em pé': ['Standing calf raise', 'Elevación de talones'],
+  'Desenvolvimento': ['Shoulder press', 'Press de hombros'], 'Elevação lateral': ['Lateral raise', 'Elevaciones laterales'], 'Elevação frontal': ['Front raise', 'Elevaciones frontales'],
+  'Face pull': ['Face pull', 'Face pull'], 'Rosca direta': ['Barbell curl', 'Curl con barra'], 'Rosca martelo': ['Hammer curl', 'Curl martillo'],
+  'Rosca alternada': ['Alternating curl', 'Curl alterno'], 'Tríceps corda': ['Rope pushdown', 'Extensión con cuerda'], 'Tríceps testa': ['Skull crusher', 'Press francés'],
+  'Mergulho': ['Dips', 'Fondos'], 'Abdominal': ['Crunches', 'Abdominales'], 'Prancha': ['Plank', 'Plancha'], 'Elevação de pernas': ['Leg raises', 'Elevación de piernas'],
+  'Esteira': ['Treadmill', 'Cinta de correr'], 'Bicicleta ergométrica': ['Stationary bike', 'Bicicleta estática'], 'Máquinas elípticas': ['Elliptical', 'Elíptica'],
+  'Escada': ['Stair climber', 'Escaladora'], 'Remo ergômetro': ['Rowing machine', 'Remo'], 'Saco de pancadas': ['Punching bag', 'Saco de boxeo'],
+  'Corrida': ['Running', 'Correr'], 'Ciclismo': ['Cycling', 'Ciclismo'], 'Natação': ['Swimming', 'Natación'], 'Caminhada': ['Walking', 'Caminata'], 'Caiaque': ['Kayaking', 'Kayak'],
+  'Pular corda': ['Jump rope', 'Saltar la cuerda'], 'HIIT': ['HIIT', 'HIIT'], 'Polichinelo': ['Jumping jacks', 'Jumping jacks'], 'Burpee': ['Burpees', 'Burpees'],
+  'Estudo': ['Study', 'Estudio'], 'Trabalho': ['Work', 'Trabajo'], 'Leitura': ['Reading', 'Lectura'], 'Meditação': ['Meditation', 'Meditación'],
+  'Programação': ['Coding', 'Programación'], 'Idiomas': ['Languages', 'Idiomas'], 'Música': ['Music', 'Música'], 'Escrita': ['Writing', 'Escritura'], 'Desenho': ['Drawing', 'Dibujo'], 'Outro': ['Other', 'Otro'],
   'Arroz branco': ['White rice', 'Arroz blanco'], 'Feijão': ['Beans', 'Frijoles'], 'Peito de frango grelhado': ['Grilled chicken breast', 'Pechuga de pollo a la plancha'],
   'Bife de patinho': ['Lean beef steak', 'Bistec de ternera magra'], 'Carne moída': ['Ground beef', 'Carne picada'], 'Ovo cozido': ['Boiled egg', 'Huevo cocido'],
   'Ovo frito': ['Fried egg', 'Huevo frito'], 'Pão francês': ['French roll', 'Pan francés'], 'Pão de forma': ['Sliced bread', 'Pan de molde'],
@@ -411,16 +462,27 @@ const TT = {
 };
 const tn = x => (LI > 0 && TT[x]) ? TT[x][LI - 1] : x;
 
-/* ---------- atividades ---------- */
+/* ---------- atividades e exercícios ---------- */
 const BUILTIN = {
-  forca: { n: 'n_forca', t: 't_forca', icon: 'heart', c: 'var(--pink)', deep: 'var(--pink-deep)', rest: 20, win: 72, min: 30,
-    groups: [['g_gym', ['Musculação', 'Peito e tríceps', 'Costas e bíceps', 'Pernas', 'Ombros', 'Corpo inteiro']], ['g_home', ['Barra fixa', 'Flexão', 'Calistenia']]] },
-  cardio: { n: 'n_cardio', t: 't_cardio', icon: 'bolt', c: 'var(--teal)', deep: 'var(--teal-deep)', rest: 12, win: 60, min: 20,
-    groups: [['g_gym2', ['Esteira', 'Máquinas elípticas', 'Bicicleta ergométrica', 'Saco de pancadas']], ['g_out', ['Corrida', 'Natação', 'Ciclismo', 'Caiaque', 'Caminhada']]] }
+  forca: { n: 'n_forca', t: 't_forca', icon: 'heart', c: 'var(--pink)', deep: 'var(--pink-deep)', rest: 20, win: 72,
+    lib: [
+      ['Peito', [['Supino reto', 3], ['Supino inclinado', 3], ['Supino com halteres', 3], ['Crucifixo', 2], ['Crossover', 2], ['Flexão de braço', 2]]],
+      ['Costas', [['Puxada frontal', 3], ['Barra fixa', 4], ['Remada curvada', 3], ['Remada baixa', 3], ['Remada unilateral', 3], ['Levantamento terra', 5]]],
+      ['Pernas', [['Agachamento livre', 5], ['Leg press', 4], ['Avanço', 3], ['Stiff', 3], ['Elevação pélvica', 3], ['Cadeira extensora', 2], ['Mesa flexora', 2], ['Panturrilha em pé', 1]]],
+      ['Ombros', [['Desenvolvimento', 3], ['Elevação lateral', 2], ['Elevação frontal', 2], ['Face pull', 2]]],
+      ['Braços', [['Rosca direta', 3], ['Rosca martelo', 2], ['Rosca alternada', 2], ['Tríceps corda', 2], ['Tríceps testa', 2], ['Mergulho', 3]]],
+      ['Abdômen', [['Abdominal', 1], ['Prancha', 2], ['Elevação de pernas', 2]]]
+    ] },
+  cardio: { n: 'n_cardio', t: 't_cardio', icon: 'bolt', c: 'var(--teal)', deep: 'var(--teal-deep)', rest: 12, win: 60,
+    lib: [
+      ['Na academia', [['Esteira', 4], ['Bicicleta ergométrica', 4], ['Máquinas elípticas', 4], ['Escada', 4], ['Remo ergômetro', 4], ['Saco de pancadas', 4]]],
+      ['Ao ar livre', [['Corrida', 5], ['Ciclismo', 5], ['Natação', 5], ['Caminhada', 2], ['Caiaque', 4]]],
+      ['Em casa', [['Pular corda', 4], ['HIIT', 5], ['Polichinelo', 2], ['Burpee', 3]]]
+    ] }
 };
 const COLORS = [['#f6a6c8', '#8f4f6b'], ['#7fdfc6', '#3f8a7a'], ['#ffc27a', '#94693a'], ['#8ec5ff', '#3f6797'], ['#ff9a9a', '#994848'], ['#b9e58a', '#5d7d3c'], ['#f5e07a', '#8a7a33']];
 const ICON_PICK = ['heart', 'bolt', 'flame', 'star', 'ball', 'wave'];
-const FOCO_CATS = ['Estudo', 'Trabalho', 'Leitura', 'Meditação', 'Outro'];
+const FOCO_CATS = ['Estudo', 'Trabalho', 'Leitura', 'Meditação', 'Programação', 'Idiomas', 'Música', 'Escrita', 'Desenho', 'Outro'];
 const FOCO_LV = [0, 300, 1200, 3000];
 const MEALS = ['cafe', 'almoco', 'lanche', 'jantar'];
 const ACTS = [[1.2, 'act1'], [1.375, 'act2'], [1.55, 'act3'], [1.725, 'act4']];
@@ -441,6 +503,7 @@ const int = n => Math.round(n).toLocaleString(LOC[LANG]);
 const dec = n => { const s = String(Math.round(n * 10) / 10); return LANG === 'en' ? s : s.replace('.', ','); };
 const clamp = (n, a, b) => Math.max(a, Math.min(b, n));
 const days = n => t(n === 1 ? 'days_1' : 'days', { n: typeof n === 'number' && n % 1 ? dec(n) : n });
+const norm = s => String(s).toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '');
 function dur(ms) {
   ms = Math.max(0, ms);
   const m = Math.round(ms / 6e4), h = Math.floor(m / 60), d = Math.floor(h / 24);
@@ -478,10 +541,13 @@ const ICONS = {
   next: '<path fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/>',
   plus: '<path fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" d="M12 5v14M5 12h14"/>',
   x: '<path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" d="M7 7l10 10M17 7 7 17"/>',
+  check: '<path fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" d="M5 12.5l4.5 4.5L19 7.5"/>',
+  dots: '<circle cx="12" cy="5" r="2" fill="currentColor"/><circle cx="12" cy="12" r="2" fill="currentColor"/><circle cx="12" cy="19" r="2" fill="currentColor"/>',
   bell: '<path fill="currentColor" d="M12 3a6 6 0 0 0-6 6v3.6L4.3 16h15.4L18 12.6V9a6 6 0 0 0-6-6zm-2.4 14.5a2.4 2.4 0 0 0 4.8 0z"/>',
   gear: '<circle cx="12" cy="12" r="3.2" fill="none" stroke="currentColor" stroke-width="2"/><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" d="M12 2.5v3M12 18.5v3M2.5 12h3M18.5 12h3M5.3 5.3l2.1 2.1M16.6 16.6l2.1 2.1M5.3 18.7l2.1-2.1M16.6 7.4l2.1-2.1"/>',
   leaf: '<path fill="currentColor" d="M20 4c-9 0-15 4-15 11 0 1.4.3 2.6.8 3.6L4 20.5l1.4 1.4 1.8-1.8c1 .6 2.3.9 3.8.9 7 0 9-7 9-17zM9 17c1.5-3 4-5.5 7-7-2.5 2-4.6 4.4-6 7.6z"/>',
-  body: '<circle cx="12" cy="4.8" r="2.3" fill="currentColor"/><path fill="currentColor" d="M7 8h10l-1.6 6.4H14l-.6 7.1h-2.8l-.6-7.1H8.6z"/>'
+  body: '<circle cx="12" cy="4.8" r="2.3" fill="currentColor"/><path fill="currentColor" d="M7 8h10l-1.6 6.4H14l-.6 7.1h-2.8l-.6-7.1H8.6z"/>',
+  user: '<circle cx="12" cy="8" r="4" fill="currentColor"/><path fill="currentColor" d="M4 21c0-4.4 3.6-7 8-7s8 2.6 8 7z"/>'
 };
 const ico = (n, cls) => '<svg class="i' + (cls ? ' ' + cls : '') + '" viewBox="0 0 24 24" aria-hidden="true">' + (ICONS[n] || ICONS.star) + '</svg>';
 function ring(frac, icon, c) {
@@ -492,27 +558,40 @@ function ring(frac, icon, c) {
 /* ---------- estado ---------- */
 function blank() {
   return {
-    v: 1,
+    v: 1, pv: 2,
     profile: { sex: 'm', age: '', height: '', weight: '', act: 1.375, goal: 'perder' },
     forca: { pts: 0, last: null, due: null },
     cardio: { pts: 0, last: null, due: null },
-    cfg: {}, custom: [], tracks: {}, types: {},
+    cfg: {}, custom: [], tracks: {}, ex: {}, plan: {}, sess: {},
     workouts: [], lost: [],
-    focus: [], focusGoal: 60, timer: null,
+    focus: [], focusGoal: 60, timer: null, focusCats: [],
     meals: [], weights: [], recent: []
   };
 }
-const fill = o => { const s = Object.assign(blank(), o); ['cfg', 'tracks', 'types'].forEach(k => { if (!s[k] || typeof s[k] !== 'object') s[k] = {}; }); if (!Array.isArray(s.custom)) s.custom = []; return s; };
+function fill(o) {
+  const s = Object.assign(blank(), o);
+  ['cfg', 'tracks', 'ex', 'plan', 'sess'].forEach(k => { if (!s[k] || typeof s[k] !== 'object' || Array.isArray(s[k])) s[k] = {}; });
+  ['custom', 'focusCats'].forEach(k => { if (!Array.isArray(s[k])) s[k] = []; });
+  // versão antiga: pontos eram "treinos" (4 por nível); agora são pontos de exercício (60 por nível)
+  if (o && !o.pv) {
+    [s.forca, s.cardio].concat(Object.values(s.tracks)).forEach(a => { if (a) a.pts = Math.min(PTS_MAX, (a.pts || 0) * 15); });
+    if (o.types) for (const k in o.types) s.ex[k] = (o.types[k] || []).map(n => [n, 3]);
+    s.pv = 2;
+  }
+  delete s.types;
+  return s;
+}
 function demo() {
   const s = blank(), now = Date.now();
   s.profile = { sex: 'm', age: 22, height: 178, weight: 70, act: 1.55, goal: 'manter' };
-  s.forca = { pts: 15, last: now - 3 * H, due: now - 3 * H + (20 + 72) * H };
-  s.cardio = { pts: 7, last: now - 18 * H, due: now - 18 * H + (12 + 60) * H };
+  s.forca = { pts: 214, last: now - 3 * H, due: now - 3 * H + (20 + 72) * H };
+  s.cardio = { pts: 96, last: now - 18 * H, due: now - 18 * H + (12 + 60) * H };
+  s.plan = { forca: ['Supino reto', 'Supino inclinado', 'Crucifixo', 'Tríceps corda', 'Mergulho'], cardio: ['Esteira', 'Pular corda'] };
+  s.sess = { cardio: { start: now - 20 * 6e4, items: [{ n: 'Esteira', p: 4, done: true }, { n: 'Pular corda', p: 4, done: false }] } };
   s.workouts = [
-    { id: uid(), kind: 'forca', at: now - 3 * H, type: 'Peito e tríceps', min: 55, full: true, counted: true },
-    { id: uid(), kind: 'cardio', at: now - 18 * H, type: 'Corrida', min: 30, full: true, counted: true },
-    { id: uid(), kind: 'forca', at: now - 50 * H, type: 'Pernas', min: 60, full: true, counted: true },
-    { id: uid(), kind: 'cardio', at: now - 70 * H, type: 'Esteira', min: 25, full: true, counted: true }
+    { id: uid(), kind: 'forca', at: now - 4 * H, end: now - 3 * H, full: true, pts: 13, items: [{ n: 'Supino reto', p: 3, done: true }, { n: 'Supino inclinado', p: 3, done: true }, { n: 'Crucifixo', p: 2, done: true }, { n: 'Tríceps corda', p: 2, done: true }, { n: 'Mergulho', p: 3, done: true }] },
+    { id: uid(), kind: 'cardio', at: now - 19 * H, end: now - 18 * H, full: true, pts: 5, items: [{ n: 'Corrida', p: 5, done: true }] },
+    { id: uid(), kind: 'forca', at: now - 51 * H, end: now - 50 * H, full: true, pts: 15, items: [{ n: 'Agachamento livre', p: 5, done: true }, { n: 'Leg press', p: 4, done: true }, { n: 'Stiff', p: 3, done: true }, { n: 'Cadeira extensora', p: 2, done: true }, { n: 'Panturrilha em pé', p: 1, done: true }] }
   ];
   const td = today();
   for (let i = 0; i < 9; i++) s.focus.push({ id: uid(), at: now - i * DAY - 5 * H, cat: i % 3 ? 'Estudo' : 'Trabalho', min: 70 + (i * 17) % 50 });
@@ -606,7 +685,7 @@ async function signOut() {
   const k = storeKey();
   await sb.auth.signOut();
   lsDel(k); user = null; account = {}; S = load();
-  Object.assign(V, { page: 'auth', authMode: 'entrar', authMsg: '' }); render();
+  Object.assign(V, { page: 'auth', authMode: 'entrar', authMsg: '', menu: false }); render();
 }
 const AUTH_ERR = [
   [/invalid login/i, 'ae_login'], [/not confirmed/i, 'ae_confirm'], [/already registered|already been registered/i, 'ae_exists'],
@@ -616,30 +695,32 @@ const AUTH_ERR = [
 const authErr = e => { const m = (e && e.message) || String(e); const hit = AUTH_ERR.find(x => x[0].test(m)); return hit ? t(hit[1]) : t('ae_other', { m }); };
 const siteUrl = () => CFG.siteUrl || location.href.split('#')[0].split('?')[0];
 
-const V = { page: CLOUD ? 'loading' : 'home', notif: false, day: today(), focoCat: 'Estudo', authMode: 'entrar', authMsg: '', authErr: false, sync: '' };
+const V = { page: CLOUD ? 'loading' : 'home', menu: false, day: today(), focoCat: 'Estudo', authMode: 'entrar', authMsg: '', authErr: false, sync: '' };
 
 /* ---------- regras ---------- */
 const acts = () => ['forca', 'cardio'].concat(S.custom.map(c => c.id));
 function A(k) {
   const b = BUILTIN[k];
+  const mine = (S.ex[k] || []).map(([n, p]) => ({ n, p, g: null, mine: true }));
   if (b) {
     const o = S.cfg[k] || {};
+    const lib = b.lib.flatMap(([g, list]) => list.map(([n, p]) => ({ n, p, g })));
     return { k, builtin: true, name: t(b.n), title: t(b.t), icon: b.icon, c: b.c, deep: b.deep,
-      rest: (o.rest != null ? o.rest : b.rest) * H, win: (o.win != null ? o.win : b.win) * H, min: o.min != null ? o.min : b.min,
-      types: b.groups.flatMap(g => g[1]).concat(S.types[k] || []), groups: b.groups };
+      rest: (o.rest != null ? o.rest : b.rest) * H, win: (o.win != null ? o.win : b.win) * H, lib: lib.concat(mine) };
   }
   const c = S.custom.find(x => x.id === k); if (!c) return null;
   const col = COLORS[c.color] || COLORS[0];
-  return { k, builtin: false, name: c.name, title: c.name, icon: c.icon, c: col[0], deep: col[1], rest: c.rest * H, win: c.win * H, min: c.min, types: S.types[k] || [], groups: [] };
+  return { k, builtin: false, name: c.name, title: c.name, icon: c.icon, c: col[0], deep: col[1], rest: c.rest * H, win: c.win * H, lib: mine };
 }
+const exPts = (k, n) => { const e = A(k).lib.find(x => x.n === n); return e ? e.p : 3; };
 function st(k) { if (BUILTIN[k]) return S[k]; if (!S.tracks[k]) S.tracks[k] = { pts: 0, last: null, due: null }; return S.tracks[k]; }
-function level(p) { const l = Math.min(4, Math.floor(p / PTS_LV) + 1); return { l, frac: l === 4 ? Math.min(1, (p - 12) / 4) : (p % PTS_LV) / PTS_LV }; }
+function level(p) { const l = Math.min(4, Math.floor(p / LV_PTS) + 1); return { l, frac: l === 4 ? Math.min(1, (p - 3 * LV_PTS) / LV_PTS) : (p % LV_PTS) / LV_PTS }; }
 function tick() {
   const now = Date.now(); let ch = false;
   for (const k of acts()) {
     const a = st(k), win = A(k).win; let n = 0;
     while (a.due && now > a.due && n < 100) {
-      a.pts = Math.max(0, a.pts - 1);
+      a.pts = Math.max(0, a.pts - LOSS);
       S.lost.push({ kind: k, at: a.due });
       a.due = a.pts > 0 ? a.due + win : null;
       n++; ch = true;
@@ -655,31 +736,47 @@ function winState(k) {
   if (now < ready) return { s: 'rest', left: ready - now };
   return { s: 'open', left: a.due - now, frac: clamp((a.due - now) / D.win, 0, 1) };
 }
-function addWorkout(k, at, type, min, full) {
-  const D = A(k), a = st(k);
-  let counted = false, msg;
-  if (!full) msg = t('w_incomplete');
-  else if (min < D.min) msg = t('w_short', { m: D.min });
-  else if (a.last && at < a.last + D.rest && at >= a.last) msg = t('w_rest');
-  else {
-    counted = true;
-    const before = level(a.pts).l;
-    a.pts = Math.min(PTS_MAX, a.pts + 1);
-    a.last = Math.max(a.last || 0, at);
-    a.due = a.last + D.rest + D.win;
-    const after = level(a.pts).l;
-    msg = after > before ? t('w_up', { a: D.name, l: after }) : t('w_done');
-  }
-  S.workouts.unshift({ id: uid(), kind: k, at, type, min, full, counted });
-  S.workouts.sort((x, y) => y.at - x.at);
-  save(); return msg;
+function addPts(k, p) {
+  const a = st(k), before = level(a.pts).l;
+  a.pts = clamp(a.pts + p, 0, PTS_MAX);
+  const after = level(a.pts).l;
+  return after > before ? t('w_up', { a: A(k).name, l: after }) : '';
+}
+function startSession(k, names) {
+  S.sess[k] = { start: Date.now(), items: names.map(n => ({ n, p: exPts(k, n), done: false })) };
+  S.plan[k] = names.slice(); save();
+}
+function toggleItem(k, i) {
+  const s = S.sess[k]; if (!s || !s.items[i]) return;
+  const it = s.items[i];
+  it.done = !it.done;
+  const up = addPts(k, it.done ? it.p : -it.p);
+  if (it.done && s.items.every(x => x.done)) return finishSession(k);
+  save();
+  if (it.done) toast(up || t('plus_pts', { p: it.p }) + ' · ' + tn(it.n));
+}
+function finishSession(k) {
+  const s = S.sess[k]; if (!s) return;
+  const D = A(k), a = st(k), now = Date.now();
+  const done = s.items.filter(x => x.done), pts = done.reduce((x, y) => x + y.p, 0), full = done.length === s.items.length && done.length > 0;
+  if (done.length) S.workouts.unshift({ id: uid(), kind: k, at: s.start, end: now, full, pts, items: s.items });
+  if (full) { a.last = now; a.due = now + D.rest + D.win; }
+  delete S.sess[k];
+  save();
+  toast(done.length ? t(full ? 'wo_full' : 'wo_partial', { p: pts }) : t('saved'));
+}
+function discardSession(k) {
+  const s = S.sess[k]; if (!s) return;
+  addPts(k, -s.items.filter(x => x.done).reduce((x, y) => x + y.p, 0));
+  delete S.sess[k]; save();
 }
 function delWorkout(id) {
   const w = S.workouts.find(x => x.id === id); if (!w) return;
-  if (w.counted && A(w.kind)) st(w.kind).pts = Math.max(0, st(w.kind).pts - 1);
+  if (A(w.kind)) st(w.kind).pts = Math.max(0, st(w.kind).pts - (w.items ? w.pts || 0 : (w.counted ? LV_PTS / 4 : 0)));
   S.workouts = S.workouts.filter(x => x.id !== id); save();
 }
 function retime(k) { const a = st(k); if (a.last && a.due) a.due = a.last + A(k).rest + A(k).win; }
+const focusCats = () => FOCO_CATS.concat(S.focusCats || []);
 function focusTotal() { return S.focus.reduce((s, f) => s + f.min, 0); }
 function focusLevel() {
   const m = focusTotal(); let l = 1;
@@ -732,12 +829,13 @@ function reminders() {
   const out = [], now = Date.now(), td = today();
   if (aviso) out.push({ c: '#fff', t: aviso });
   for (const k of acts()) {
-    const w = winState(k), D = A(k), nm = D.name.toLowerCase();
+    const w = winState(k), D = A(k), nm = D.name.toLowerCase(), s = S.sess[k];
+    if (s) out.push({ c: D.c, t: t('r_running', { a: D.name, x: s.items.filter(x => x.done).length, y: s.items.length }) });
     if (w.s === 'open' && w.left < 24 * H) out.push({ c: D.c, t: t('r_close', { a: nm, d: dur(w.left) }) });
     if (S.lost.some(l => l.kind === k && now - l.at < 2 * DAY)) out.push({ c: 'var(--danger)', t: t('r_lost', { a: nm }) });
-    if (w.s === 'none' && !S.workouts.some(x => x.kind === k)) out.push({ c: D.c, t: t('r_first', { a: nm }) });
+    if (w.s === 'none' && !s && !S.workouts.some(x => x.kind === k)) out.push({ c: D.c, t: t('r_first', { a: nm }) });
   }
-  const trainedToday = S.workouts.some(x => x.counted && x.kind === 'forca' && dayOf(x.at) === td);
+  const trainedToday = S.workouts.some(x => x.kind === 'forca' && dayOf(x.end || x.at) === td);
   const pg = protGoal(), tot = dayTotals(td);
   if (trainedToday && pg && tot.prot < pg) out.push({ c: 'var(--pink)', t: t('r_prot', { g: int(pg - tot.prot) }) });
   if (!S.meals.some(m => m.date === td)) out.push({ c: 'var(--lime)', t: t('r_meal') });
@@ -748,20 +846,30 @@ function reminders() {
 
 /* ---------- telas ---------- */
 const langChips = () => LANGS.map(([k, n]) => '<button class="chip' + (LANG === k ? ' on' : '') + '" data-a="lang" data-v="' + k + '" lang="' + LOC[k] + '">' + n + '</button>').join('');
-function hud() {
-  const td = today(), kg = kcalGoal(), pg = protGoal(), tot = dayTotals(td);
-  const pk = kg ? clamp(tot.kcal / kg, 0, 1) : 0, pp = pg ? clamp(tot.prot / pg, 0, 1) : 0;
-  const cw = winState('cardio'), fol = cw.s === 'rest' ? 1 : cw.s === 'open' ? cw.frac : 0;
-  const fo = clamp((focusOn(td) + timerMin()) / S.focusGoal, 0, 1);
-  const bar = (icon, c, segs, label) => '<div class="b" style="color:' + c + '" title="' + label + '">' + ico(icon) + '<div class="t">' + segs.map(v => '<i style="--c:' + c + ';--w:' + Math.round(v * 100) + '%"></i>').join('') + '</div></div>';
-  return '<div class="hud"><div class="bars" aria-label="' + t('hud_aria') + '">' +
-    bar('heart', 'var(--pink)', [pk, pp], t('hud_s')) + bar('bolt', 'var(--teal)', [fol], t('hud_f')) + bar('eye', 'var(--lilac)', [fo], t('hud_o')) +
-    '</div><button class="gear" data-a="go" data-v="ajustes" aria-label="' + t('settings') + '">' + ico('gear') + '</button></div>';
+function topbar() {
+  const rs = reminders(), nm = account.name || (user && user.user_metadata && user.user_metadata.name) || '';
+  let h = '<div class="topbar"><div class="hi"><b>' + (nm ? t('hello', { n: esc(nm.split(' ')[0]) }) : t('hello0')) + '</b>' + t('sub_hello') + '</div>';
+  h += '<button class="dots" data-a="menu" aria-label="' + t('menu') + '" aria-expanded="' + V.menu + '">' + ico('dots') + (rs.length ? '<span class="badge">' + rs.length + '</span>' : '') + '</button>';
+  if (V.menu) {
+    h += '<div class="menu" role="menu">';
+    if (user) h += '<div class="acc"><span class="avatar">' + esc((nm || user.email || '?').charAt(0).toUpperCase()) + '</span><span class="grow">' + (nm ? '<b>' + esc(nm) + '</b>' : '') + '<span class="small muted">' + esc(user.email) + '</span></span></div>';
+    else if (CLOUD) h += '<div class="acc"><span class="avatar">' + ico('user') + '</span><span class="grow"><b>' + t('no_acc_short') + '</b></span></div><button class="btn main block" style="--c:#fff;margin-bottom:10px" data-a="to-auth">' + t('in_or_create') + '</button>';
+    h += '<h3>' + t('notifications') + '</h3>';
+    h += rs.length ? '<div class="notif-list">' + rs.map(r => '<div style="--c:' + r.c + '">' + esc(r.t) + '</div>').join('') + '</div>' : '<p class="empty">' + t('nothing') + '</p>';
+    h += '<hr><button class="mi" data-a="go" data-v="ajustes">' + ico('gear') + t('settings') + '</button>';
+    if (user && account.role === 'admin') h += '<a class="mi" href="admin.html">' + ico('star') + t('admin_panel') + '</a>';
+    if (user) h += '<button class="mi" data-a="logout">' + ico('back') + t('logout') + '</button>';
+    h += '</div>';
+  }
+  return h + '</div>';
 }
 function attrCard(k) {
-  const D = A(k), lv = level(st(k).pts), w = winState(k);
+  const D = A(k), lv = level(st(k).pts), w = winState(k), s = S.sess[k];
   let sub;
-  if (w.s === 'rest') sub = '<div class="sub">' + ico('clock') + '<span class="grow">' + t('rest_msg') + '</span></div>';
+  if (s) {
+    const d = s.items.filter(x => x.done).length;
+    sub = '<div class="sub win" style="--deep:' + D.deep + '"><span class="grow">' + t('wo_running') + '</span><span class="r num">' + d + '/' + s.items.length + '</span><div class="bar"><i style="--w:' + Math.round(d / s.items.length * 100) + '%"></i></div></div>';
+  } else if (w.s === 'rest') sub = '<div class="sub">' + ico('clock') + '<span class="grow">' + t('rest_msg') + '</span></div>';
   else if (w.s === 'open') sub = '<div class="sub win" style="--deep:' + D.deep + '"><span class="grow">' + t('win') + '</span>' + ico('glass') + '<div class="bar"><i style="--w:' + Math.round(w.frac * 100) + '%"></i></div></div>';
   else sub = '<div class="sub">' + ico('glass') + '<span class="grow">' + t('open_win') + '</span></div>';
   return '<button class="card" style="--c:' + D.c + '" data-a="go" data-v="' + esc(k) + '"><div class="head"><div class="grow"><div class="ttl">' + esc(D.title) + '</div><div class="lv num">' + t('level', { l: lv.l }) + '</div></div>' + ring(lv.frac, D.icon, D.c) + '</div>' + sub + '</button>';
@@ -774,10 +882,8 @@ function focoCard() {
   return '<button class="card" style="--c:var(--lilac)" data-a="go" data-v="foco"><div class="head"><div class="grow"><div class="ttl">' + t('n_foco') + '</div><div class="lv num">' + t('level', { l: fl.l }) + '</div></div>' + ring(fl.frac, 'eye', 'var(--lilac)') + '</div>' + sub + '</button>';
 }
 function viewHome() {
-  const rs = reminders(), b = bodyStatus(), bal = balance();
-  let h = hud();
-  h += '<button class="notif" data-a="notif" aria-expanded="' + V.notif + '"><span class="ic">' + ico('bell') + '</span><span class="grow"><b>' + t('reminders') + '</b><span class="small muted">' + (rs.length ? t(rs.length === 1 ? 'notif_1' : 'notif', { n: rs.length }) : t('nothing')) + '</span></span>' + ico(V.notif ? 'x' : 'next') + '</button>';
-  if (V.notif && rs.length) h += '<div class="notif-list">' + rs.map(r => '<div style="--c:' + r.c + '">' + esc(r.t) + '</div>').join('') + '</div>';
+  const b = bodyStatus(), bal = balance();
+  let h = topbar();
   h += '<div class="label">Fitness</div><div class="cards">' + acts().map(attrCard).join('') + focoCard() + '<button class="addcard" data-a="new-act">' + t('new_act') + '</button></div>';
   h += '<div class="label">' + t('lbl_body') + '</div><div class="cards">';
   h += '<button class="card" data-a="go" data-v="nutri"><div class="ttl">' + esc(b.name) + '</div><div class="desc">' + t('muscle', { v: b.mus }) + '</div><div class="desc">' + t('fat', { v: b.fat }) + '</div></button>';
@@ -789,23 +895,44 @@ function viewHome() {
 function top(title, icon, c) {
   return '<div class="top" style="--c:' + (c || '#fff') + '"><button class="back" data-a="go" data-v="home" aria-label="' + t('back') + '">' + ico('back') + '</button><h1>' + title + '</h1><span class="ico">' + (icon ? ico(icon) : '') + '</span></div>';
 }
+const exCount = n => t(n === 1 ? 'x_ex_1' : 'x_ex', { n });
 function viewAttr(k) {
-  const D = A(k), a = st(k), lv = level(a.pts), w = winState(k);
+  const D = A(k), a = st(k), lv = level(a.pts), w = winState(k), s = S.sess[k];
   let h = '<div style="--c:' + D.c + '">' + top(esc(D.name), D.icon, D.c);
-  if (k === 'forca') h += '<div class="prose">' + t('p_forca') + '</div>';
-  else if (k === 'cardio') h += '<div class="prose"><p>' + t('p_cardio1') + '</p>' + D.groups.map(g => '<div><b>' + t(g[0]) + ':</b><ul>' + g[1].map(x => '<li>' + esc(tn(x)) + '</li>').join('') + '</ul></div>').join('') + '<p>' + t('p_cardio2') + '</p></div>';
-  else h += '<div class="prose">' + t('p_custom', { a: esc(D.name) }) + '</div>';
-  const n = PTS_LV - a.pts % PTS_LV;
-  h += '<div class="panel"><div class="big">' + ring(lv.frac, D.icon, D.c) + '<div class="grow"><div class="n num">' + t('level', { l: lv.l }) + '</div><div class="small muted">' + (lv.l === 4 ? t('max_lv') : t(n === 1 ? 'more_1' : 'more', { n, l: lv.l + 1 })) + '</div></div></div>';
+  h += '<div class="prose">' + (k === 'forca' ? t('p_forca') : k === 'cardio' ? t('p_cardio') : t('p_custom', { a: esc(D.name) })) + t('p_points') + '</div>';
+  h += '<div class="panel"><div class="big">' + ring(lv.frac, D.icon, D.c) + '<div class="grow"><div class="n num">' + t('level', { l: lv.l }) + '</div><div class="small muted num">' + (lv.l === 4 ? t('max_lv') : t('pts_next', { p: a.pts % LV_PTS, t: LV_PTS, l: lv.l + 1 })) + '</div></div></div>';
   h += '<div class="kv" style="margin-top:14px">';
   if (w.s === 'rest') h += '<span>' + t('recovery') + '</span><span class="num">' + dur(w.left) + '</span>';
   if (w.s === 'open') h += '<span>' + t('win_closes') + '</span><span class="num">' + dur(w.left) + '</span>';
   if (w.s === 'none') h += '<span>' + t('win') + '</span><span>' + t('closed') + '</span>';
-  h += '<span>' + t('full_wo') + '</span><span>' + t('min_more', { m: D.min }) + '</span><span>' + t('rest_after') + '</span><span>' + dec(D.rest / H) + 'h</span><span>' + t('win_len') + '</span><span>' + days(Math.round(D.win / DAY * 10) / 10) + '</span></div>';
+  h += '<span>' + t('rest_after') + '</span><span>' + dec(D.rest / H) + 'h</span><span>' + t('win_len') + '</span><span>' + days(Math.round(D.win / DAY * 10) / 10) + '</span><span>' + t('total_pts') + '</span><span class="num">' + a.pts + '</span></div>';
   if (w.s === 'open') h += '<div class="meter" style="margin-top:12px"><i style="--w:' + Math.round(w.frac * 100) + '%"></i></div>';
-  h += '<div class="btns" style="margin-top:16px"><button class="btn" data-a="win-edit" data-k="' + esc(k) + '">' + ico('clock') + t('adjust') + '</button><button class="btn main" data-a="add-workout" data-k="' + esc(k) + '">' + ico('plus') + t('log_wo') + '</button></div></div>';
+  h += '<button class="btn block" style="margin-top:14px" data-a="win-edit" data-k="' + esc(k) + '">' + ico('clock') + t('adjust') + '</button></div>';
+  // treino
+  h += '<div class="panel"><h2>' + (s ? t('wo_running') : t('my_wo')) + '</h2>';
+  if (s) {
+    const d = s.items.filter(x => x.done);
+    h += '<p class="small muted" style="margin:-4px 0 10px">' + t('tap_done') + ' ' + t('n_of_m', { a: d.length, b: s.items.length }) + ' · ' + t('plus_pts', { p: d.reduce((x, y) => x + y.p, 0) }) + '</p><div class="list">';
+    h += s.items.map((it, i) => '<button class="exrow' + (it.done ? ' done' : '') + '" data-a="ex-toggle" data-k="' + esc(k) + '" data-i="' + i + '"><span class="ck">' + ico('check') + '</span><span class="nm">' + esc(tn(it.n)) + '</span><span class="pt">' + t('plus_pts', { p: it.p }) + '</span></button>').join('');
+    h += '</div><div class="btns" style="margin-top:14px"><button class="btn ghost" data-a="wo-discard" data-k="' + esc(k) + '">' + t('discard') + '</button><button class="btn main" data-a="wo-finish" data-k="' + esc(k) + '">' + t('finish_wo') + '</button></div>';
+  } else {
+    const plan = (S.plan[k] || []);
+    if (plan.length) {
+      const tot = plan.reduce((x, n) => x + exPts(k, n), 0);
+      h += '<p class="small muted" style="margin:-4px 0 10px">' + exCount(plan.length) + ' · ' + t('plus_pts', { p: tot }) + '</p><div class="list">' + plan.map(n => '<div class="exrow"><span class="nm">' + esc(tn(n)) + '</span><span class="pt">' + t('plus_pts', { p: exPts(k, n) }) + '</span></div>').join('') + '</div>';
+      h += '<div class="btns" style="margin-top:14px"><button class="btn" data-a="wo-pick" data-k="' + esc(k) + '">' + t('edit_wo') + '</button><button class="btn main" data-a="wo-start" data-k="' + esc(k) + '">' + t('start_wo') + '</button></div>';
+    } else {
+      h += '<p class="small muted" style="margin-bottom:14px">' + t('no_plan') + '</p><button class="btn main block" data-a="wo-pick" data-k="' + esc(k) + '">' + ico('plus') + t('build_wo') + '</button>';
+    }
+  }
+  h += '</div>';
   const list = S.workouts.filter(x => x.kind === k).slice(0, 20);
-  h += '<div class="panel"><h2>' + t('last_wo') + '</h2><div class="list">' + (list.length ? list.map(x => '<div class="li"><div class="grow"><div class="t">' + esc(tn(x.type)) + '</div><div class="s num">' + when(x.at) + ' · ' + x.min + ' min</div></div><span class="tag' + (x.counted ? ' ok' : '') + '">' + t(x.counted ? 'counted' : x.full ? 'not_counted' : 'incomplete') + '</span><button class="x" data-a="del-workout" data-id="' + x.id + '" aria-label="' + t('del_wo') + '">' + ico('x') + '</button></div>').join('') : '<p class="empty">' + t('no_wo') + '</p>') + '</div></div>';
+  h += '<div class="panel"><h2>' + t('last_wo') + '</h2><div class="list">' + (list.length ? list.map(x => {
+    const title = x.items ? x.items.filter(i => i.done).map(i => tn(i.n)).join(', ') : tn(x.type || '');
+    const sub = when(x.at) + ' · ' + (x.items ? t('plus_pts', { p: x.pts || 0 }) : (x.min || 0) + ' min');
+    const ok = x.items ? x.full : x.counted;
+    return '<div class="li"><div class="grow"><div class="t">' + esc(title) + '</div><div class="s num">' + sub + '</div></div><span class="tag' + (ok ? ' ok' : '') + '">' + t(ok ? 'full' : 'partial') + '</span><button class="x" data-a="del-workout" data-id="' + x.id + '" aria-label="' + t('del_wo') + '">' + ico('x') + '</button></div>';
+  }).join('') : '<p class="empty">' + t('no_wo') + '</p>') + '</div></div>';
   if (!D.builtin) h += '<button class="btn ghost danger block" data-a="del-act" data-k="' + esc(k) + '">' + t('del_act') + '</button>';
   return h + '</div>';
 }
@@ -818,7 +945,7 @@ function viewFoco() {
   if (S.timer) {
     h += '<div class="timer" data-live="timer">' + clockTxt() + '</div><p class="small muted" style="text-align:center;margin:-6px 0 14px">' + esc(tn(S.timer.cat)) + '</p><div class="btns"><button class="btn ghost" data-a="timer-cancel">' + t('discard') + '</button><button class="btn main" data-a="timer-stop">' + t('stop_save') + '</button></div>';
   } else {
-    h += '<div class="chips" style="margin-bottom:14px">' + FOCO_CATS.map(c => '<button class="chip' + (V.focoCat === c ? ' on' : '') + '" data-a="foco-cat" data-v="' + c + '">' + tn(c) + '</button>').join('') + '</div><div class="btns"><button class="btn" data-a="add-focus">' + t('log_time') + '</button><button class="btn main" data-a="timer-start">' + t('start') + '</button></div>';
+    h += '<button class="pick-btn" data-a="focus-pick"><span class="small muted">' + t('activity') + '</span><span class="grow">' + esc(tn(V.focoCat)) + '</span><span class="small" style="color:var(--lilac)">' + t('change') + '</span></button><div class="btns"><button class="btn" data-a="add-focus">' + t('log_time') + '</button><button class="btn main" data-a="timer-start">' + t('start') + '</button></div>';
   }
   h += '</div>';
   const m = focusOn(td);
@@ -920,48 +1047,54 @@ function viewAjustes() {
 /* ---------- folhas ---------- */
 const sheet = document.getElementById('sheet'), box = document.getElementById('sheet-box');
 let onSheet = null, sheetAfterClose = null;
-function openSheet(html, c, handler) { box.innerHTML = html; box.style.setProperty('--c', c || '#fff'); sheet.classList.add('on'); onSheet = handler; const f = box.querySelector('input,select'); if (f && matchMedia('(pointer:fine)').matches) f.focus(); }
+function openSheet(html, c, handler) { box.innerHTML = html; box.style.setProperty('--c', c || '#fff'); sheet.classList.add('on'); onSheet = handler; box.scrollTop = 0; const f = box.querySelector('input,select'); if (f && matchMedia('(pointer:fine)').matches) f.focus(); }
 function closeSheet() { sheet.classList.remove('on'); box.innerHTML = ''; onSheet = null; }
 function dismissSheet() { closeSheet(); if (sheetAfterClose) { const f = sheetAfterClose; sheetAfterClose = null; f(); } }
 const val = id => { const e = box.querySelector('#' + id); return e ? e.value : ''; };
 const btnsRow = () => '<div class="btns"><button class="btn ghost" data-a="close">' + t('cancel') + '</button><button class="btn main" data-s="ok">' + t('save') + '</button></div>';
 
-function workoutSheet(k) {
+// montar treino: busca + lista de exercícios por grupo, com pontos
+function pickerSheet(k) {
   const D = A(k);
-  const custom = () => S.types[k] || [];
-  let chosen = D.types[0] || '';
-  const chips = () => A(k).types.map(o => '<button class="chip' + (o === chosen ? ' on' : '') + '" data-t="' + esc(o) + '">' + esc(tn(o)) + (custom().includes(o) ? '<span class="rm" data-rm="' + esc(o) + '" aria-label="' + t('delete') + '">×</span>' : '') + '</button>').join('') + '<button class="chip" data-new="1">' + t('new_type') + '</button>';
-  const html = '<h2>' + t('log_x', { a: esc(D.title) }) + '</h2><div class="field"><span>' + t('type') + '</span><div class="chips" id="types">' + chips() + '</div><div class="newtype" id="newtype" hidden><input id="nt-name" maxlength="40" placeholder="' + t('type_ph') + '"><button class="btn slim" data-ntadd="1">' + t('add') + '</button></div></div><div class="two"><label class="field"><span>' + t('duration') + '</span><input id="w-min" type="number" inputmode="numeric" min="1" value="' + Math.max(D.min, k === 'forca' ? 60 : 30) + '"></label><label class="field"><span>' + t('when') + '</span><input id="w-at" type="datetime-local" value="' + localInput(Date.now()) + '"></label></div><label class="check"><input type="checkbox" id="w-full" checked>' + t('did_full') + '</label>' + btnsRow();
-  const redraw = () => { box.querySelector('#types').innerHTML = chips(); };
+  let sel = (S.plan[k] || []).filter(n => D.lib.some(e => e.n === n)), q = '';
+  const listHtml = () => {
+    const lib = A(k).lib.filter(e => !q || norm(tn(e.n)).includes(norm(q)) || norm(e.n).includes(norm(q)));
+    if (!lib.length) return '<p class="empty">' + t('nothing_found') + '</p>';
+    const groups = []; lib.forEach(e => { const g = e.mine ? t('mine') : tn(e.g); let gr = groups.find(x => x[0] === g); if (!gr) groups.push(gr = [g, []]); gr[1].push(e); });
+    return groups.map(([g, es]) => '<div class="grp">' + esc(g) + '</div><div class="list">' + es.map(e => '<button class="exrow' + (sel.includes(e.n) ? ' sel' : '') + '" data-ex="' + esc(e.n) + '"><span class="ck">' + ico('check') + '</span><span class="nm">' + esc(tn(e.n)) + '</span><span class="pt">' + t('plus_pts', { p: e.p }) + '</span>' + (e.mine ? '<span class="rm" data-rmex="' + esc(e.n) + '" aria-label="' + t('delete') + '">×</span>' : '') + '</button>').join('') + '</div>').join('');
+  };
+  const foot = () => '<p class="small muted" style="margin-bottom:10px">' + t('sel_sum', { n: sel.length, p: sel.reduce((x, n) => x + exPts(k, n), 0) }) + '</p><div class="btns"><button class="btn" data-s="save">' + t('save_plan') + '</button><button class="btn main" data-s="start">' + t('start_now') + '</button></div>';
+  const html = '<h2>' + t('pick_title', { a: esc(D.name) }) + '</h2><input id="ex-q" class="field" style="width:100%;min-height:46px;padding:0 12px;border-radius:12px;border:1px solid var(--line);background:var(--card)" placeholder="' + t('search_ex') + '" autocomplete="off"><button class="chip" data-newex="1" style="margin-top:10px">' + t('new_ex') + '</button><div class="newex" id="newex" hidden><input id="ne-name" maxlength="40" placeholder="' + t('ex_name') + '"><select id="ne-p"><option value="2">' + t('d_easy') + '</option><option value="3" selected>' + t('d_mid') + '</option><option value="5">' + t('d_hard') + '</option></select><button class="btn slim" data-neadd="1">' + t('add') + '</button></div><div id="exlist">' + listHtml() + '</div><div class="pickfoot" id="pfoot">' + foot() + '</div>';
+  const redraw = () => { box.querySelector('#exlist').innerHTML = listHtml(); box.querySelector('#pfoot').innerHTML = foot(); };
   openSheet(html, D.c, (el, e) => {
-    const rm = e.target.closest('[data-rm]');
-    if (rm) { S.types[k] = custom().filter(x => x !== rm.dataset.rm); if (chosen === rm.dataset.rm) chosen = A(k).types[0] || ''; save(); return redraw(); }
-    if (el.dataset.new) { const n = box.querySelector('#newtype'); n.hidden = false; box.querySelector('#nt-name').focus(); return; }
-    if (el.dataset.ntadd) {
-      const name = val('nt-name').trim(); if (!name) return;
-      if (!A(k).types.includes(name)) { S.types[k] = custom().concat(name); save(); }
-      chosen = name; box.querySelector('#nt-name').value = ''; box.querySelector('#newtype').hidden = true; return redraw();
+    const rm = e.target.closest('[data-rmex]');
+    if (rm) { const n = rm.dataset.rmex; S.ex[k] = (S.ex[k] || []).filter(x => x[0] !== n); sel = sel.filter(x => x !== n); save(); return redraw(); }
+    if (el.dataset.newex) { box.querySelector('#newex').hidden = false; box.querySelector('#ne-name').focus(); return; }
+    if (el.dataset.neadd) {
+      const n = val('ne-name').trim(); if (!n) return toast(t('e_name'));
+      if (!A(k).lib.some(x => x.n === n)) { S.ex[k] = (S.ex[k] || []).concat([[n, +val('ne-p') || 3]]); save(); }
+      if (!sel.includes(n)) sel.push(n);
+      box.querySelector('#ne-name').value = ''; box.querySelector('#newex').hidden = true; return redraw();
     }
-    if (el.dataset.t) { chosen = el.dataset.t; return redraw(); }
-    if (el.dataset.s !== 'ok') return;
-    if (!chosen) return toast(t('e_type'));
-    const min = Math.round(toNum(val('w-min'))), at = new Date(val('w-at')).getTime();
-    if (!min) return toast(t('e_dur'));
-    if (!isFinite(at) || at > Date.now() + 6e4) return toast(t('e_past'));
-    const msg = addWorkout(k, at, chosen, min, box.querySelector('#w-full').checked);
-    closeSheet(); render(); toast(msg);
+    if (el.dataset.ex) { const n = el.dataset.ex; sel = sel.includes(n) ? sel.filter(x => x !== n) : sel.concat(n); return redraw(); }
+    if (el.dataset.s === 'save' || el.dataset.s === 'start') {
+      if (!sel.length) return toast(t('e_pick'));
+      if (el.dataset.s === 'start') startSession(k, sel); else { S.plan[k] = sel.slice(); save(); }
+      closeSheet(); render();
+    }
   });
+  box.querySelector('#ex-q').addEventListener('input', e => { q = e.target.value; box.querySelector('#exlist').innerHTML = listHtml(); });
 }
 function windowSheet(k) {
   const D = A(k);
-  const html = '<h2>' + t('times_of', { a: esc(D.name) }) + '</h2><p class="small muted" style="margin:-6px 0 14px">' + t('win_help') + '</p><label class="field"><span>' + t('rest_h') + '</span><input id="t-rest" type="number" inputmode="decimal" step="1" min="0" max="168" value="' + dec(D.rest / H).replace(',', '.') + '"></label><label class="field"><span>' + t('win_d') + '</span><input id="t-win" type="number" inputmode="decimal" step="0.5" min="0.5" max="30" value="' + (Math.round(D.win / DAY * 10) / 10) + '"></label><label class="field"><span>' + t('min_m') + '</span><input id="t-min" type="number" inputmode="numeric" min="1" max="600" value="' + D.min + '"></label>' + (D.builtin ? '<button class="btn ghost block" data-reset="1" style="margin-bottom:8px">' + t('restore') + '</button>' : '') + btnsRow();
+  const html = '<h2>' + t('times_of', { a: esc(D.name) }) + '</h2><p class="small muted" style="margin:-6px 0 14px">' + t('win_help') + '</p><label class="field"><span>' + t('rest_h') + '</span><input id="t-rest" type="number" inputmode="decimal" step="1" min="0" max="168" value="' + (Math.round(D.rest / H * 10) / 10) + '"></label><label class="field"><span>' + t('win_d') + '</span><input id="t-win" type="number" inputmode="decimal" step="0.5" min="0.5" max="30" value="' + (Math.round(D.win / DAY * 10) / 10) + '"></label>' + (D.builtin ? '<button class="btn ghost block" data-reset="1" style="margin-bottom:8px">' + t('restore') + '</button>' : '') + btnsRow();
   openSheet(html, D.c, el => {
     if (el.dataset.reset) { delete S.cfg[k]; retime(k); save(); closeSheet(); render(); return toast(t('saved')); }
     if (el.dataset.s !== 'ok') return;
-    const rest = toNum(val('t-rest')), winD = toNum(val('t-win')), min = Math.round(toNum(val('t-min')));
-    if (rest < 0 || rest > 168 || winD < 0.5 || winD > 30 || min < 1 || min > 600) return toast(t('e_win'));
-    if (D.builtin) S.cfg[k] = { rest, win: winD * 24, min };
-    else Object.assign(S.custom.find(x => x.id === k), { rest, win: winD * 24, min });
+    const rest = toNum(val('t-rest')), winD = toNum(val('t-win'));
+    if (rest < 0 || rest > 168 || winD < 0.5 || winD > 30) return toast(t('e_win'));
+    if (D.builtin) S.cfg[k] = { rest, win: winD * 24 };
+    else Object.assign(S.custom.find(x => x.id === k), { rest, win: winD * 24 });
     retime(k); save(); closeSheet(); render(); toast(t('saved'));
   });
 }
@@ -969,29 +1102,50 @@ function activitySheet() {
   let icon = 'flame', color = 2;
   const pick = () => '<div class="icopick" id="ip">' + ICON_PICK.map(i => '<button class="' + (i === icon ? 'on' : '') + '" data-ic="' + i + '" aria-label="' + i + '">' + ico(i) + '</button>').join('') + '</div>';
   const sw = () => '<div class="swatches" id="sw">' + COLORS.map((c, i) => '<button class="sw' + (i === color ? ' on' : '') + '" style="--c:' + c[0] + '" data-col="' + i + '" aria-label="' + t('color') + ' ' + (i + 1) + '"></button>').join('') + '</div>';
-  const html = '<h2>' + t('new_act_t') + '</h2><label class="field"><span>' + t('name') + '</span><input id="na-name" maxlength="30" placeholder="' + t('act_ph') + '"></label><div class="field"><span>' + t('icon') + '</span>' + pick() + '</div><div class="field"><span>' + t('color') + '</span>' + sw() + '</div><div class="two"><label class="field"><span>' + t('rest_h') + '</span><input id="na-rest" type="number" inputmode="decimal" min="0" max="168" value="12"></label><label class="field"><span>' + t('win_d') + '</span><input id="na-win" type="number" inputmode="decimal" step="0.5" min="0.5" max="30" value="3"></label></div><label class="field"><span>' + t('min_m') + '</span><input id="na-min" type="number" inputmode="numeric" min="1" max="600" value="20"></label>' + btnsRow();
+  const html = '<h2>' + t('new_act_t') + '</h2><label class="field"><span>' + t('name') + '</span><input id="na-name" maxlength="30" placeholder="' + t('act_ph') + '"></label><div class="field"><span>' + t('icon') + '</span>' + pick() + '</div><div class="field"><span>' + t('color') + '</span>' + sw() + '</div><div class="two"><label class="field"><span>' + t('rest_h') + '</span><input id="na-rest" type="number" inputmode="decimal" min="0" max="168" value="12"></label><label class="field"><span>' + t('win_d') + '</span><input id="na-win" type="number" inputmode="decimal" step="0.5" min="0.5" max="30" value="3"></label></div>' + btnsRow();
   openSheet(html, COLORS[color][0], el => {
     if (el.dataset.ic) { icon = el.dataset.ic; box.querySelector('#ip').outerHTML = pick(); return; }
     if (el.dataset.col) { color = +el.dataset.col; box.style.setProperty('--c', COLORS[color][0]); box.querySelector('#sw').outerHTML = sw(); return; }
     if (el.dataset.s !== 'ok') return;
-    const name = val('na-name').trim(), rest = toNum(val('na-rest')), winD = toNum(val('na-win')), min = Math.round(toNum(val('na-min')));
+    const name = val('na-name').trim(), rest = toNum(val('na-rest')), winD = toNum(val('na-win'));
     if (!name) return toast(t('e_name'));
-    if (rest < 0 || rest > 168 || winD < 0.5 || winD > 30 || min < 1 || min > 600) return toast(t('e_win'));
+    if (rest < 0 || rest > 168 || winD < 0.5 || winD > 30) return toast(t('e_win'));
     const id = 'x_' + uid();
-    S.custom.push({ id, name, icon, color, rest, win: winD * 24, min });
-    save(); closeSheet(); go(id); toast(t('act_made', { a: name }));
+    S.custom.push({ id, name, icon, color, rest, win: winD * 24 });
+    save(); closeSheet(); go(id); toast(t('act_made', { a: name })); pickerSheet(id);
   });
 }
+// escolher a atividade de foco: busca igual à dos exercícios
+function focusPickSheet(onPick) {
+  let q = '';
+  const listHtml = () => {
+    const cs = focusCats().filter(c => !q || norm(tn(c)).includes(norm(q)) || norm(c).includes(norm(q)));
+    return cs.length ? '<div class="list">' + cs.map(c => '<button class="exrow' + (c === V.focoCat ? ' sel' : '') + '" data-fc="' + esc(c) + '"><span class="ck">' + ico('check') + '</span><span class="nm">' + esc(tn(c)) + '</span>' + ((S.focusCats || []).includes(c) ? '<span class="rm" data-rmfc="' + esc(c) + '" aria-label="' + t('delete') + '">×</span>' : '') + '</button>').join('') + '</div>' : '<p class="empty">' + t('nothing_found') + '</p>';
+  };
+  const html = '<h2>' + t('pick_focus') + '</h2><input id="fc-q" style="width:100%;min-height:46px;padding:0 12px;border-radius:12px;border:1px solid var(--line);background:var(--card)" placeholder="' + t('search_focus') + '" autocomplete="off"><button class="chip" data-newfc="1" style="margin:10px 0">' + t('new_focus') + '</button><div class="newex" id="newfc" hidden style="grid-template-columns:1fr auto;margin:0 0 10px"><input id="nf-name" maxlength="30" placeholder="' + t('focus_name') + '"><button class="btn slim" data-nfadd="1">' + t('add') + '</button></div><div id="fclist">' + listHtml() + '</div>';
+  const redraw = () => { box.querySelector('#fclist').innerHTML = listHtml(); };
+  openSheet(html, 'var(--lilac)', (el, e) => {
+    const rm = e.target.closest('[data-rmfc]');
+    if (rm) { S.focusCats = S.focusCats.filter(x => x !== rm.dataset.rmfc); if (V.focoCat === rm.dataset.rmfc) V.focoCat = 'Estudo'; save(); return redraw(); }
+    if (el.dataset.newfc) { box.querySelector('#newfc').hidden = false; box.querySelector('#nf-name').focus(); return; }
+    if (el.dataset.nfadd) {
+      const n = val('nf-name').trim(); if (!n) return toast(t('e_name'));
+      if (!focusCats().includes(n)) { S.focusCats = (S.focusCats || []).concat(n); save(); }
+      V.focoCat = n; closeSheet(); return onPick ? onPick() : render();
+    }
+    if (el.dataset.fc) { V.focoCat = el.dataset.fc; closeSheet(); return onPick ? onPick() : render(); }
+  });
+  box.querySelector('#fc-q').addEventListener('input', e => { q = e.target.value; redraw(); });
+}
 function focusSheet() {
-  const html = '<h2>' + t('log_focus') + '</h2><div class="field"><span>' + t('activity') + '</span><div class="chips" id="cats">' + FOCO_CATS.map(c => '<button class="chip' + (c === V.focoCat ? ' on' : '') + '" data-t="' + c + '">' + tn(c) + '</button>').join('') + '</div></div><div class="two"><label class="field"><span>' + t('minutes') + '</span><input id="f-min" type="number" inputmode="numeric" min="1" value="30"></label><label class="field"><span>' + t('when') + '</span><input id="f-at" type="datetime-local" value="' + localInput(Date.now()) + '"></label></div>' + btnsRow();
-  let cat = V.focoCat;
+  const html = '<h2>' + t('log_focus') + '</h2><button class="pick-btn" data-fpick="1"><span class="small muted">' + t('activity') + '</span><span class="grow">' + esc(tn(V.focoCat)) + '</span><span class="small" style="color:var(--lilac)">' + t('change') + '</span></button><div class="two"><label class="field"><span>' + t('minutes') + '</span><input id="f-min" type="number" inputmode="numeric" min="1" value="30"></label><label class="field"><span>' + t('when') + '</span><input id="f-at" type="datetime-local" value="' + localInput(Date.now()) + '"></label></div>' + btnsRow();
   openSheet(html, 'var(--lilac)', el => {
-    if (el.dataset.t) { cat = el.dataset.t; box.querySelectorAll('#cats .chip').forEach(c => c.classList.toggle('on', c === el)); return; }
+    if (el.dataset.fpick) return focusPickSheet(focusSheet);
     if (el.dataset.s !== 'ok') return;
     const min = Math.round(toNum(val('f-min'))), at = new Date(val('f-at')).getTime();
     if (!min) return toast(t('e_min'));
     if (!isFinite(at) || at > Date.now() + 6e4) return toast(t('e_past'));
-    addFocus(cat, min, at); closeSheet(); render();
+    addFocus(V.focoCat, min, at); closeSheet(); render();
   });
 }
 function addFocus(cat, min, at) {
@@ -1003,7 +1157,6 @@ function addFocus(cat, min, at) {
 function mealSheet(meal) {
   const rec = S.recent.map(n => FOODS.find(f => f[0] === n) || null).filter(Boolean);
   const all = rec.concat(FOODS.filter(f => !S.recent.includes(f[0])));
-  const norm = s => s.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '');
   const list = q => all.filter(f => !q || norm(tn(f[0])).includes(norm(q)) || norm(f[0]).includes(norm(q))).map(f => '<button class="food" data-f="' + esc(f[0]) + '"><span class="grow"><span>' + esc(tn(f[0])) + '</span><br><span class="s">' + esc(tn(f[1])) + ' · ' + f[2] + ' kcal · ' + dec(f[3]) + ' ' + t('g_prot_s') + '</span></span>' + ico('plus') + '</button>').join('') || '<p class="empty">' + t('nothing_found') + '</p>';
   const html = '<h2>' + t('m_' + meal) + '</h2><label class="field"><span>' + t('food') + '</span><input id="m-name" placeholder="' + t('food_ph') + '" autocomplete="off"></label><div class="two"><label class="field"><span>' + t('kcal_f') + '</span><input id="m-kcal" type="number" inputmode="numeric" min="0"></label><label class="field"><span>' + t('prot_f') + '</span><input id="m-prot" type="number" inputmode="decimal" min="0"></label></div><button class="btn main block" data-s="ok" style="margin-bottom:16px">' + t('add') + '</button><label class="field"><span>' + t('or_pick') + '</span><input id="m-q" placeholder="' + t('search') + '" autocomplete="off"></label><div class="foods" id="foods">' + list('') + '</div>';
   openSheet(html, 'var(--lime)', el => {
@@ -1066,6 +1219,7 @@ function render() {
   if ((p === 'forca' || p === 'cardio' || p.startsWith('x_')) && !A(p)) V.page = 'home';
   tick();
   const q = V.page;
+  if (q !== 'home') V.menu = false;
   app.innerHTML = A(q) ? viewAttr(q) : q === 'foco' ? viewFoco() : q === 'nutri' ? viewNutri() : q === 'ajustes' ? viewAjustes() : viewHome();
 }
 function togglePw(force) {
@@ -1075,7 +1229,7 @@ function togglePw(force) {
   b.innerHTML = ico(show ? 'eyeoff' : 'eye');
   b.setAttribute('aria-label', t(show ? 'hide_pw' : 'show_pw')); b.title = t(show ? 'hide_pw' : 'show_pw');
 }
-function go(p) { V.page = p; if (p === 'nutri') V.day = today(); render(); window.scrollTo(0, 0); }
+function go(p) { V.page = p; V.menu = false; if (p === 'nutri') V.day = today(); render(); window.scrollTo(0, 0); }
 let tt;
 function toast(m) { const el = document.getElementById('toast'); el.textContent = m; el.classList.add('on'); clearTimeout(tt); tt = setTimeout(() => el.classList.remove('on'), 2800); }
 
@@ -1085,23 +1239,29 @@ box.addEventListener('click', e => {
   if (onSheet) onSheet(el, e);
 });
 box.addEventListener('keydown', e => {
-  if (e.key !== 'Enter' || e.target.tagName !== 'INPUT' || e.target.id === 'm-q') return;
+  if (e.key !== 'Enter' || e.target.tagName !== 'INPUT' || ['m-q', 'ex-q', 'fc-q'].includes(e.target.id)) return;
   e.preventDefault();
-  if (e.target.id === 'nt-name') { const b = box.querySelector('[data-ntadd]'); if (b) b.click(); return; }
-  const ok = box.querySelector('[data-s="ok"]'); if (ok) ok.click();
+  const map = { 'ne-name': '[data-neadd]', 'nf-name': '[data-nfadd]' };
+  const b = box.querySelector(map[e.target.id] || '[data-s="ok"]'); if (b) b.click();
 });
 sheet.querySelector('.dim').addEventListener('click', dismissSheet);
-document.addEventListener('keydown', e => { if (e.key === 'Escape' && sheet.classList.contains('on')) dismissSheet(); });
+document.addEventListener('keydown', e => {
+  if (e.key !== 'Escape') return;
+  if (sheet.classList.contains('on')) return dismissSheet();
+  if (V.menu) { V.menu = false; render(); }
+});
 
 app.addEventListener('click', e => {
+  if (V.menu && !e.target.closest('.menu') && !e.target.closest('[data-a="menu"]')) { V.menu = false; render(); if (!e.target.closest('[data-a]')) return; }
   const el = e.target.closest('[data-a]'); if (!el) return;
   const a = el.dataset.a, d = el.dataset;
+  if (a === 'menu') { V.menu = !V.menu; return render(); }
   if (a === 'lang') { setLang(d.v); return render(); }
   if (a === 'pw-toggle') return togglePw();
   if (a === 'auth-go') return authGo();
   if (a === 'auth-mode') { Object.assign(V, { authMode: d.v, authMsg: '' }); return render(); }
   if (a === 'guest') { lsSet('fitness.guest', '1'); S = load(); V.page = 'home'; return render(); }
-  if (a === 'to-auth') { Object.assign(V, { page: 'auth', authMode: 'entrar', authMsg: '' }); return render(); }
+  if (a === 'to-auth') { Object.assign(V, { page: 'auth', authMode: 'entrar', authMsg: '', menu: false }); return render(); }
   if (a === 'logout') return signOut();
   if (a === 'delete-account') return confirmSheet(t('c_del_acc'), t('del_acc'), async () => {
     const { error } = await sb.rpc('delete_me');
@@ -1112,19 +1272,22 @@ app.addEventListener('click', e => {
     Object.assign(V, { page: 'auth', authMode: 'entrar', authMsg: t('deleted'), authErr: false }); render();
   });
   if (a === 'go') return go(d.v);
-  if (a === 'notif') { V.notif = !V.notif; return render(); }
   if (a === 'new-act') return activitySheet();
-  if (a === 'add-workout') return workoutSheet(d.k);
+  if (a === 'wo-pick') return pickerSheet(d.k);
+  if (a === 'wo-start') { startSession(d.k, S.plan[d.k] || []); return render(); }
+  if (a === 'ex-toggle') { toggleItem(d.k, +d.i); return render(); }
+  if (a === 'wo-finish') { finishSession(d.k); return render(); }
+  if (a === 'wo-discard') return confirmSheet(t('c_discard_wo'), t('discard'), () => discardSession(d.k));
   if (a === 'win-edit') return windowSheet(d.k);
   if (a === 'del-act') {
     const D = A(d.k); if (!D || D.builtin) return;
     return confirmSheet(t('c_del_act', { a: D.name }), t('del_act'), () => {
-      S.custom = S.custom.filter(x => x.id !== d.k); delete S.tracks[d.k]; delete S.types[d.k];
+      S.custom = S.custom.filter(x => x.id !== d.k); delete S.tracks[d.k]; delete S.ex[d.k]; delete S.plan[d.k]; delete S.sess[d.k];
       S.workouts = S.workouts.filter(x => x.kind !== d.k); S.lost = S.lost.filter(x => x.kind !== d.k); save(); V.page = 'home';
     });
   }
   if (a === 'del-workout') return confirmSheet(t('c_del_wo'), t('delete'), () => delWorkout(d.id));
-  if (a === 'foco-cat') { V.focoCat = d.v; return render(); }
+  if (a === 'focus-pick') return focusPickSheet();
   if (a === 'timer-start') { S.timer = { start: Date.now(), cat: V.focoCat }; save(); return render(); }
   if (a === 'timer-stop') {
     const min = timerMin(), cat = S.timer.cat, at = S.timer.start; S.timer = null;
@@ -1169,7 +1332,7 @@ setInterval(() => {
   const ts = app.querySelector('[data-live="timer-short"]'); if (ts) ts.textContent = timerMin() + ' min';
 }, 1000);
 app.addEventListener('keydown', e => { if (e.key === 'Enter' && V.page === 'auth' && e.target.tagName === 'INPUT') authGo(); });
-const busyPage = () => sheet.classList.contains('on') || V.page === 'auth' || V.page === 'loading';
+const busyPage = () => sheet.classList.contains('on') || V.page === 'auth' || V.page === 'loading' || V.menu;
 setInterval(() => { if (!busyPage()) render(); }, 60000);
 document.addEventListener('visibilitychange', () => {
   if (document.hidden) { if (user) { clearTimeout(pushT); push(); } return; }
@@ -1181,6 +1344,7 @@ document.addEventListener('visibilitychange', () => {
 const CapApp = window.Capacitor && window.Capacitor.Plugins && window.Capacitor.Plugins.App;
 if (CapApp) CapApp.addListener('backButton', () => {
   if (sheet.classList.contains('on')) return dismissSheet();
+  if (V.menu) { V.menu = false; return render(); }
   if (V.page === 'auth' && V.authMode !== 'entrar' && V.authMode !== 'nova') { Object.assign(V, { authMode: 'entrar', authMsg: '' }); return render(); }
   if (V.page !== 'home' && V.page !== 'auth' && V.page !== 'loading') return go('home');
   CapApp.exitApp();
