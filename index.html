@@ -11,7 +11,7 @@
 <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
 <link rel="icon" href="icons/icon-192.png">
 <style>:root{padding-top:max(env(safe-area-inset-top,0px),var(--safe-area-inset-top,0px));padding-bottom:max(env(safe-area-inset-bottom,0px),var(--safe-area-inset-bottom,0px))}img{max-width:100%}[hidden]{display:none!important}</style>
-<script>window.FERRO_REAL = true; window.FITNESS_CONFIG = {"supabaseUrl":"https://iwkcwharouakejivkiqp.supabase.co","supabaseAnonKey":"sb_publishable_BpQXJSmHBpqOA-n6yX1ydA_CQtHxBpk","siteUrl":"https://gabrielmartins05.github.io/ferro/","version":"1.0.0"}; window.FITNESS_FOODS = [["Arroz branco","1 escumadeira",115,2.3],["Feijão","1 concha",70,4.5],["Peito de frango grelhado","1 filé (120 g)",190,38],["Bife de patinho","1 bife (100 g)",220,32],["Carne moída","1 colher de servir",130,13],["Ovo cozido","1 unidade",73,6.5],["Ovo frito","1 unidade",110,6.5],["Pão francês","1 unidade",150,4.5],["Pão de forma","2 fatias",130,5],["Queijo muçarela","1 fatia",66,5],["Presunto","2 fatias",50,7],["Leite integral","1 copo",120,6],["Iogurte natural","1 pote",90,6],["Whey protein","1 scoop",120,24],["Aveia","2 colheres de sopa",118,4],["Banana","1 unidade",70,1],["Maçã","1 unidade",72,0.4],["Mamão","1 fatia",60,0.7],["Batata doce","1 média",100,1.5],["Macarrão","1 pegador",150,5],["Tapioca com queijo","1 unidade",250,8],["Cuscuz","1 pedaço",150,3],["Salada","1 prato",15,1],["Tilápia grelhada","1 filé",155,32],["Atum em lata","1 lata",140,30],["Café com açúcar","1 xícara",40,0],["Pizza","1 fatia",280,12],["Hambúrguer","1 unidade",500,25],["Coxinha","1 unidade",280,9],["Refrigerante","1 lata",140,0],["Suco de laranja","1 copo",90,1],["Chocolate","1 barrinha",135,2],["Açaí","1 tigela",360,4]];</script>
+<script>window.FERRO_REAL = true; window.FITNESS_CONFIG = {"supabaseUrl":"https://iwkcwharouakejivkiqp.supabase.co","supabaseAnonKey":"sb_publishable_BpQXJSmHBpqOA-n6yX1ydA_CQtHxBpk","siteUrl":"https://gabrielmartins05.github.io/ferro/","version":"1.0.1"}; window.FITNESS_FOODS = [["Arroz branco","1 escumadeira",115,2.3],["Feijão","1 concha",70,4.5],["Peito de frango grelhado","1 filé (120 g)",190,38],["Bife de patinho","1 bife (100 g)",220,32],["Carne moída","1 colher de servir",130,13],["Ovo cozido","1 unidade",73,6.5],["Ovo frito","1 unidade",110,6.5],["Pão francês","1 unidade",150,4.5],["Pão de forma","2 fatias",130,5],["Queijo muçarela","1 fatia",66,5],["Presunto","2 fatias",50,7],["Leite integral","1 copo",120,6],["Iogurte natural","1 pote",90,6],["Whey protein","1 scoop",120,24],["Aveia","2 colheres de sopa",118,4],["Banana","1 unidade",70,1],["Maçã","1 unidade",72,0.4],["Mamão","1 fatia",60,0.7],["Batata doce","1 média",100,1.5],["Macarrão","1 pegador",150,5],["Tapioca com queijo","1 unidade",250,8],["Cuscuz","1 pedaço",150,3],["Salada","1 prato",15,1],["Tilápia grelhada","1 filé",155,32],["Atum em lata","1 lata",140,30],["Café com açúcar","1 xícara",40,0],["Pizza","1 fatia",280,12],["Hambúrguer","1 unidade",500,25],["Coxinha","1 unidade",280,9],["Refrigerante","1 lata",140,0],["Suco de laranja","1 copo",90,1],["Chocolate","1 barrinha",135,2],["Açaí","1 tigela",360,4]];</script>
 <script src="vendor/supabase.js"></script>
 <title>Fitness</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -146,7 +146,7 @@ button.card:active, button.card:focus-visible { border-color: #fff; outline: non
 .field > span { font-size: 13px; color: var(--muted); }
 .field input, .field select { width: 100%; min-height: 46px; padding: 0 12px; border-radius: 12px; border: 1px solid var(--line); background: var(--card); }
 .field input:focus, .field select:focus { outline: 2px solid var(--c, #fff); outline-offset: -1px; }
-.two { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.two { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; align-items: end; }
 .check { display: flex; align-items: center; gap: 10px; margin: 4px 0 14px; font-size: 15px; }
 .check input { width: 20px; height: 20px; accent-color: var(--c, #fff); }
 .foods { display: grid; gap: 6px; max-height: 260px; overflow: auto; }
@@ -166,6 +166,21 @@ button.card:active, button.card:focus-visible { border-color: #fff; outline: non
 .aswitch button { color: #fff; font-weight: 600; }
 .check a, .legal a { color: #fff; }
 .legal { text-align: center; font-size: 12px; color: var(--dim); margin-top: 8px; line-height: 1.8; }
+.pw { position: relative; }
+.pw input { padding-right: 50px; }
+.pw button { position: absolute; right: 4px; top: 50%; transform: translateY(-50%); width: 42px; height: 42px; display: grid; place-items: center; color: var(--muted); border-radius: 10px; }
+.pw button:hover { color: #fff; }
+.langs { display: flex; justify-content: center; gap: 6px; margin-bottom: 18px; }
+.swatches, .icopick { display: flex; gap: 10px; flex-wrap: wrap; }
+.sw { width: 38px; height: 38px; border-radius: 50%; background: var(--c); border: 3px solid transparent; }
+.sw.on { border-color: #fff; }
+.icopick button { width: 46px; height: 46px; border-radius: 12px; background: var(--card); display: grid; place-items: center; color: var(--muted); }
+.icopick button.on { background: var(--c); color: #141418; }
+.chip .rm { margin-left: 6px; opacity: .65; font-weight: 700; }
+.addcard { width: 100%; border: 2px dashed rgba(255, 255, 255, .14); border-radius: 16px; padding: 14px; color: var(--muted); font-weight: 600; text-align: center; }
+.addcard:hover { border-color: rgba(255, 255, 255, .3); color: #fff; }
+.newtype { display: flex; gap: 8px; margin-top: 10px; }
+.newtype input { flex: 1; min-height: 40px; padding: 0 12px; border-radius: 10px; border: 1px solid var(--line); background: var(--card); }
 .demo { font-size: 12px; color: var(--dim); text-align: center; margin-top: 20px; }
 </style>
 </head>
@@ -181,17 +196,235 @@ const REAL = window.FERRO_REAL === true;
 const KEY = 'fitness.v1';
 const H = 36e5, DAY = 24 * H;
 const PTS_LV = 4, PTS_MAX = 16;
-const ATTR = {
-  forca: { title: 'Treino de Força', name: 'Força', stat: 'Saúde', icon: 'heart', c: 'var(--pink)', deep: 'var(--pink-deep)', rest: 20 * H, win: 72 * H, min: 30,
-    groups: [['Academia', ['Musculação', 'Peito e tríceps', 'Costas e bíceps', 'Pernas', 'Ombros', 'Corpo inteiro']], ['Em casa ou na rua', ['Barra fixa', 'Flexão', 'Calistenia']]] },
-  cardio: { title: 'Treino de Cárdio', name: 'Cárdio', stat: 'Fôlego', icon: 'bolt', c: 'var(--teal)', deep: 'var(--teal-deep)', rest: 12 * H, win: 60 * H, min: 20,
-    groups: [['Treinos na academia', ['Esteira', 'Máquinas elípticas', 'Bicicleta ergométrica', 'Saco de pancadas']], ['Ao ar livre', ['Corrida', 'Natação', 'Ciclismo', 'Caiaque', 'Caminhada']]] }
+
+/* ---------- idioma ---------- */
+const LANGS = [['pt', 'Português'], ['en', 'English'], ['es', 'Español']];
+const LOC = { pt: 'pt-BR', en: 'en-US', es: 'es-ES' };
+let LANG = (() => { try { const s = localStorage.getItem('fitness.lang'); if (s && LOC[s]) return s; } catch (e) {} const n = (navigator.language || 'pt').slice(0, 2).toLowerCase(); return LOC[n] ? n : 'pt'; })();
+let LI = ['pt', 'en', 'es'].indexOf(LANG);
+document.documentElement.lang = LOC[LANG];
+function setLang(l) {
+  if (!LOC[l]) return;
+  LANG = l; LI = ['pt', 'en', 'es'].indexOf(l);
+  try { localStorage.setItem('fitness.lang', l); } catch (e) {}
+  document.documentElement.lang = LOC[l];
+  if (user && sb) sb.auth.updateUser({ data: { lang: l } }).catch(() => {});
+}
+const TX = {
+  today: ['Hoje', 'Today', 'Hoy'], yesterday: ['Ontem', 'Yesterday', 'Ayer'],
+  settings: ['Ajustes', 'Settings', 'Ajustes'], back: ['Voltar', 'Back', 'Volver'],
+  hud_aria: ['Saúde, fôlego e foco de hoje', 'Health, stamina and focus today', 'Salud, resistencia y enfoque de hoy'],
+  hud_s: ['Saúde: calorias e proteína de hoje', 'Health: calories and protein today', 'Salud: calorías y proteína de hoy'],
+  hud_f: ['Fôlego: janela de cárdio', 'Stamina: cardio window', 'Resistencia: ventana de cardio'],
+  hud_o: ['Foco: meta de hoje', 'Focus: today\'s goal', 'Enfoque: meta de hoy'],
+  n_forca: ['Força', 'Strength', 'Fuerza'], t_forca: ['Treino de Força', 'Strength Training', 'Entrenamiento de Fuerza'],
+  n_cardio: ['Cárdio', 'Cardio', 'Cardio'], t_cardio: ['Treino de Cárdio', 'Cardio Training', 'Entrenamiento de Cardio'],
+  n_foco: ['Foco', 'Focus', 'Enfoque'],
+  rest_msg: ['Treino finalizado. Descanse para se recuperar.', 'Workout done. Rest to recover.', 'Entrenamiento terminado. Descansa para recuperarte.'],
+  win: ['Janela de treino', 'Training window', 'Ventana de entrenamiento'],
+  open_win: ['Registre um treino para abrir sua janela.', 'Log a workout to open your window.', 'Registra un entrenamiento para abrir tu ventana.'],
+  level: ['Nível {l}/4', 'Level {l}/4', 'Nivel {l}/4'],
+  in_progress: ['{c} em andamento', '{c} in progress', '{c} en curso'],
+  today_of: ['Hoje: {m} de {g} min', 'Today: {m} of {g} min', 'Hoy: {m} de {g} min'],
+  reminders: ['Lembretes', 'Reminders', 'Recordatorios'],
+  notif_1: ['{n} notificação', '{n} notification', '{n} notificación'], notif: ['{n} notificações', '{n} notifications', '{n} notificaciones'],
+  nothing: ['Nada pendente', 'All caught up', 'Nada pendiente'],
+  lbl_body: ['Corpo e nutrição', 'Body and nutrition', 'Cuerpo y nutrición'],
+  muscle: ['Musculatura - {v}', 'Muscle - {v}', 'Musculatura - {v}'], fat: ['Gordura corporal - {v}', 'Body fat - {v}', 'Grasa corporal - {v}'],
+  cal_bal: ['Equilíbrio calórico', 'Calorie balance', 'Balance calórico'],
+  demo: ['Prévia com dados de exemplo', 'Preview with sample data', 'Vista previa con datos de ejemplo'],
+  new_act: ['+ Nova atividade', '+ New activity', '+ Nueva actividad'],
+  lv_low: ['Baixa', 'Low', 'Baja'], lv_mid: ['Média', 'Medium', 'Media'], lv_high: ['Alta', 'High', 'Alta'], lv_max: ['Máxima', 'Maximum', 'Máxima'],
+  b_normal: ['Normal', 'Normal', 'Normal'], b_ripped: ['Trincado', 'Ripped', 'Marcado'], b_strong: ['Forte', 'Strong', 'Fuerte'],
+  b_lean: ['Magro', 'Lean', 'Delgado'], b_over: ['Acima do peso', 'Overweight', 'Sobrepeso'], b_fit: ['Em forma', 'Fit', 'En forma'],
+  bal_profile: ['Preencha seu perfil para ver a previsão.', 'Fill in your profile to see the forecast.', 'Completa tu perfil para ver la previsión.'],
+  bal_meals: ['Registre suas refeições para ver a previsão.', 'Log your meals to see the forecast.', 'Registra tus comidas para ver la previsión.'],
+  bal_lose: ['Você vai perder peso.', 'You will lose weight.', 'Vas a perder peso.'],
+  bal_gain: ['Você vai ganhar peso.', 'You will gain weight.', 'Vas a ganar peso.'],
+  bal_keep: ['Você vai manter o peso.', 'You will maintain your weight.', 'Vas a mantener tu peso.'],
+  bal_sub: ['Média de {a} kcal em {d} · gasto estimado de {t} kcal', 'Average of {a} kcal over {d} · estimated burn {t} kcal', 'Promedio de {a} kcal en {d} · gasto estimado de {t} kcal'],
+  bal_kg: [' · cerca de {k} kg por semana', ' · about {k} kg per week', ' · cerca de {k} kg por semana'],
+  days_1: ['{n} dia', '{n} day', '{n} día'], days: ['{n} dias', '{n} days', '{n} días'],
+  r_close: ['A janela de {a} fecha em {d}.', 'Your {a} window closes in {d}.', 'Tu ventana de {a} cierra en {d}.'],
+  r_lost: ['Você perdeu a janela de {a} e caiu um pouco de nível.', 'You missed your {a} window and lost some progress.', 'Perdiste tu ventana de {a} y bajaste un poco de nivel.'],
+  r_first: ['Registre seu primeiro treino de {a}.', 'Log your first {a} workout.', 'Registra tu primer entrenamiento de {a}.'],
+  r_prot: ['Treinou hoje: faltam {g} g de proteína.', 'You trained today: {g} g of protein to go.', 'Entrenaste hoy: faltan {g} g de proteína.'],
+  r_meal: ['Nenhuma refeição registrada hoje.', 'No meals logged today.', 'Ninguna comida registrada hoy.'],
+  r_focus: ['Faltam {m} min para a meta de foco de hoje.', '{m} min left to hit today\'s focus goal.', 'Faltan {m} min para la meta de enfoque de hoy.'],
+  r_profile: ['Preencha seu perfil para calcular calorias e corpo.', 'Fill in your profile to calculate calories and body.', 'Completa tu perfil para calcular calorías y cuerpo.'],
+  p_forca: ['<p>Exercícios de <b>Força</b>, como musculação e barra, melhoram sua <b>Saúde</b> e aumentam a <b>musculatura</b>.</p><p>Mantenha a constância e treine durante a <b>janela de treino</b>. Se deixar a janela passar sem um treino completo, você perde parte dos seus ganhos.</p><p>Depois de um treino completo, coma <b>proteína</b> e <b>descanse</b>. Treinar alimentado e descansado também melhora seu desempenho.</p>',
+    '<p><b>Strength</b> exercises, like weight training and pull-ups, improve your <b>Health</b> and build <b>muscle</b>.</p><p>Stay consistent and train during your <b>training window</b>. If the window passes without a full workout, you lose part of your gains.</p><p>After a full workout, eat <b>protein</b> and <b>rest</b>. Training well fed and rested also improves your performance.</p>',
+    '<p>Los ejercicios de <b>Fuerza</b>, como pesas y dominadas, mejoran tu <b>Salud</b> y aumentan la <b>musculatura</b>.</p><p>Sé constante y entrena durante la <b>ventana de entrenamiento</b>. Si la ventana pasa sin un entrenamiento completo, pierdes parte de lo ganado.</p><p>Después de un entrenamiento completo, come <b>proteína</b> y <b>descansa</b>. Entrenar alimentado y descansado también mejora tu rendimiento.</p>'],
+  p_cardio1: ['Aumente seu <b>Fôlego</b> com exercícios de <b>Cárdio</b> na academia ou ao ar livre.', 'Boost your <b>Stamina</b> with <b>Cardio</b> at the gym or outdoors.', 'Aumenta tu <b>Resistencia</b> con <b>Cardio</b> en el gimnasio o al aire libre.'],
+  p_cardio2: ['Mantenha a constância e treine durante a <b>janela de treino</b>. Se deixar a janela passar ou não completar um treino inteiro, você perderá seus ganhos.', 'Stay consistent and train during your <b>training window</b>. If the window passes or you don\'t finish a full workout, you\'ll lose your gains.', 'Sé constante y entrena durante la <b>ventana de entrenamiento</b>. Si la ventana pasa o no completas un entrenamiento, perderás lo ganado.'],
+  p_custom: ['<p>Treine <b>{a}</b> com constância durante a <b>janela de treino</b>.</p><p>Cada treino completo soma progresso. Se a janela fechar sem treino, você perde parte dos seus ganhos.</p>', '<p>Train <b>{a}</b> consistently during your <b>training window</b>.</p><p>Every full workout adds progress. If the window closes without a workout, you lose part of your gains.</p>', '<p>Entrena <b>{a}</b> con constancia durante la <b>ventana de entrenamiento</b>.</p><p>Cada entrenamiento completo suma progreso. Si la ventana se cierra sin entrenar, pierdes parte de lo ganado.</p>'],
+  g_gym: ['Academia', 'Gym', 'Gimnasio'], g_home: ['Em casa ou na rua', 'At home or outside', 'En casa o en la calle'],
+  g_gym2: ['Treinos na academia', 'At the gym', 'En el gimnasio'], g_out: ['Ao ar livre', 'Outdoors', 'Al aire libre'],
+  max_lv: ['Nível máximo. Continue treinando para não cair.', 'Max level. Keep training so you don\'t drop.', 'Nivel máximo. Sigue entrenando para no bajar.'],
+  more_1: ['Mais {n} treino completo para o nível {l}', '{n} more full workout to level {l}', '{n} entrenamiento completo más para el nivel {l}'],
+  more: ['Mais {n} treinos completos para o nível {l}', '{n} more full workouts to level {l}', '{n} entrenamientos completos más para el nivel {l}'],
+  recovery: ['Recuperação', 'Recovery', 'Recuperación'], win_closes: ['Janela de treino fecha em', 'Window closes in', 'La ventana cierra en'],
+  closed: ['Fechada', 'Closed', 'Cerrada'], full_wo: ['Treino completo', 'Full workout', 'Entrenamiento completo'],
+  min_more: ['{m} min ou mais', '{m} min or more', '{m} min o más'], rest_after: ['Descanso depois', 'Rest after', 'Descanso después'],
+  win_len: ['Duração da janela', 'Window length', 'Duración de la ventana'],
+  adjust: ['Ajustar tempos', 'Adjust times', 'Ajustar tiempos'], log_wo: ['Registrar treino', 'Log workout', 'Registrar entrenamiento'],
+  last_wo: ['Últimos treinos', 'Recent workouts', 'Últimos entrenamientos'],
+  counted: ['Contou', 'Counted', 'Contó'], not_counted: ['Não contou', 'Didn\'t count', 'No contó'], incomplete: ['Incompleto', 'Incomplete', 'Incompleto'],
+  del_wo: ['Apagar treino', 'Delete workout', 'Borrar entrenamiento'], no_wo: ['Nenhum treino ainda.', 'No workouts yet.', 'Aún no hay entrenamientos.'],
+  del_act: ['Excluir atividade', 'Delete activity', 'Eliminar actividad'],
+  p_foco: ['<p>Melhore seu <b>Foco</b> com atividades que exigem concentração, como <b>estudo</b>, <b>trabalho</b>, leitura ou meditação.</p><p>Cada minuto concentrado conta. Use o cronômetro ou registre o tempo depois.</p><p>Com o tempo, ele aumentará <b>permanentemente</b>.</p>',
+    '<p>Improve your <b>Focus</b> with activities that need concentration, like <b>study</b>, <b>work</b>, reading or meditation.</p><p>Every focused minute counts. Use the timer or log the time later.</p><p>Over time, it increases <b>permanently</b>.</p>',
+    '<p>Mejora tu <b>Enfoque</b> con actividades que exigen concentración, como <b>estudio</b>, <b>trabajo</b>, lectura o meditación.</p><p>Cada minuto concentrado cuenta. Usa el cronómetro o registra el tiempo después.</p><p>Con el tiempo, aumentará <b>permanentemente</b>.</p>'],
+  h_total: ['{h}h no total', '{h}h total', '{h}h en total'], h_next: [' · mais {h}h para o nível {l}', ' · {h}h more to level {l}', ' · {h}h más para el nivel {l}'],
+  lv_maxed: [' · nível máximo', ' · max level', ' · nivel máximo'],
+  f_session: ['Sessão de foco', 'Focus session', 'Sesión de enfoque'], discard: ['Descartar', 'Discard', 'Descartar'],
+  stop_save: ['Encerrar e salvar', 'Stop and save', 'Terminar y guardar'], log_time: ['Registrar tempo', 'Log time', 'Registrar tiempo'],
+  start: ['Começar', 'Start', 'Empezar'], daily_goal: ['Meta diária', 'Daily goal', 'Meta diaria'],
+  goal_less: ['Diminuir meta', 'Lower goal', 'Bajar meta'], goal_more: ['Aumentar meta', 'Raise goal', 'Subir meta'],
+  last_sess: ['Últimas sessões', 'Recent sessions', 'Últimas sesiones'], del_sess: ['Apagar sessão', 'Delete session', 'Borrar sesión'],
+  no_sess: ['Nenhuma sessão ainda.', 'No sessions yet.', 'Aún no hay sesiones.'],
+  p_nutri: ['<p>O que você <b>come</b> decide se você vai <b>perder</b>, <b>manter</b> ou <b>ganhar</b> peso. Registre as refeições para ver a previsão.</p><p>Depois de treinar, bata a meta de <b>proteína</b> para recuperar a musculatura.</p>',
+    '<p>What you <b>eat</b> decides whether you <b>lose</b>, <b>maintain</b> or <b>gain</b> weight. Log your meals to see the forecast.</p><p>After training, hit your <b>protein</b> goal to recover your muscles.</p>',
+    '<p>Lo que <b>comes</b> decide si vas a <b>perder</b>, <b>mantener</b> o <b>ganar</b> peso. Registra tus comidas para ver la previsión.</p><p>Después de entrenar, cumple tu meta de <b>proteína</b> para recuperar la musculatura.</p>'],
+  fill_prof_msg: ['Preencha idade, altura e peso para calcular suas calorias e o estado do corpo.', 'Fill in age, height and weight to calculate your calories and body status.', 'Completa edad, altura y peso para calcular tus calorías y el estado del cuerpo.'],
+  fill_prof: ['Preencher perfil', 'Fill in profile', 'Completar perfil'],
+  prev_day: ['Dia anterior', 'Previous day', 'Día anterior'], next_day: ['Próximo dia', 'Next day', 'Día siguiente'],
+  calories: ['Calorias', 'Calories', 'Calorías'], protein: ['Proteína', 'Protein', 'Proteína'], x_of_y: ['{a} de {b}', '{a} of {b}', '{a} de {b}'],
+  over: ['Passou {k} kcal da meta.', '{k} kcal over your goal.', 'Te pasaste {k} kcal de la meta.'],
+  m_cafe: ['Café da manhã', 'Breakfast', 'Desayuno'], m_almoco: ['Almoço', 'Lunch', 'Almuerzo'], m_lanche: ['Lanche', 'Snack', 'Merienda'], m_jantar: ['Jantar', 'Dinner', 'Cena'],
+  add: ['Adicionar', 'Add', 'Añadir'], g_prot: ['{g} g de proteína', '{g} g protein', '{g} g de proteína'], delete: ['Apagar', 'Delete', 'Borrar'],
+  weight: ['Peso', 'Weight', 'Peso'], log: ['Registrar', 'Log', 'Registrar'], no_weight: ['Nenhum peso registrado.', 'No weight logged.', 'Ningún peso registrado.'],
+  loading: ['Carregando…', 'Loading…', 'Cargando…'],
+  a_in: ['Entrar', 'Sign in', 'Entrar'], a_in_s: ['Seus treinos, refeições e foco salvos na sua conta.', 'Your workouts, meals and focus saved to your account.', 'Tus entrenamientos, comidas y enfoque guardados en tu cuenta.'],
+  a_new: ['Criar conta', 'Create account', 'Crear cuenta'], a_new_s: ['Leva menos de um minuto.', 'Takes less than a minute.', 'Toma menos de un minuto.'],
+  a_forgot: ['Esqueci a senha', 'Forgot password', 'Olvidé mi contraseña'], a_forgot_s: ['Enviamos um link para você criar uma senha nova.', 'We\'ll email you a link to create a new password.', 'Te enviamos un enlace para crear una contraseña nueva.'],
+  a_reset: ['Nova senha', 'New password', 'Nueva contraseña'], a_reset_s: ['Escolha uma senha nova para sua conta.', 'Choose a new password for your account.', 'Elige una contraseña nueva para tu cuenta.'],
+  name: ['Nome', 'Name', 'Nombre'], email: ['E-mail', 'Email', 'Correo'], password: ['Senha', 'Password', 'Contraseña'],
+  show_pw: ['Mostrar senha', 'Show password', 'Mostrar contraseña'], hide_pw: ['Esconder senha', 'Hide password', 'Ocultar contraseña'],
+  terms_ok: ['Li e aceito os <a href="termos.html" target="_blank" rel="noopener">Termos de Uso</a> e a <a href="privacidade.html" target="_blank" rel="noopener">Política de Privacidade</a>', 'I have read and accept the <a href="termos.html" target="_blank" rel="noopener">Terms of Use</a> and the <a href="privacidade.html" target="_blank" rel="noopener">Privacy Policy</a>', 'He leído y acepto los <a href="termos.html" target="_blank" rel="noopener">Términos de Uso</a> y la <a href="privacidade.html" target="_blank" rel="noopener">Política de Privacidad</a>'],
+  wait: ['Aguarde…', 'Please wait…', 'Espera…'], b_send: ['Enviar link', 'Send link', 'Enviar enlace'], b_savepw: ['Salvar senha', 'Save password', 'Guardar contraseña'],
+  no_acc: ['Não tem conta?', 'Don\'t have an account?', '¿No tienes cuenta?'], has_acc: ['Já tem conta?', 'Already have an account?', '¿Ya tienes cuenta?'],
+  guest: ['Usar sem conta', 'Use without an account', 'Usar sin cuenta'], guest_s: ['Sem conta, os dados ficam só neste aparelho.', 'Without an account, your data stays on this device only.', 'Sin cuenta, los datos quedan solo en este dispositivo.'],
+  e_email: ['Digite um e-mail válido.', 'Enter a valid email.', 'Escribe un correo válido.'],
+  e_pw8: ['A senha precisa ter pelo menos 8 caracteres.', 'Password must be at least 8 characters.', 'La contraseña debe tener al menos 8 caracteres.'],
+  e_terms: ['Aceite os Termos e a Política de Privacidade para continuar.', 'Accept the Terms and Privacy Policy to continue.', 'Acepta los Términos y la Política de Privacidad para continuar.'],
+  created: ['Conta criada! Abra o link que enviamos para {e} e depois entre aqui.', 'Account created! Open the link we sent to {e}, then sign in here.', '¡Cuenta creada! Abre el enlace que enviamos a {e} y luego entra aquí.'],
+  reset_sent: ['Se existir uma conta com esse e-mail, o link chega em alguns minutos.', 'If an account exists for that email, the link will arrive in a few minutes.', 'Si existe una cuenta con ese correo, el enlace llegará en unos minutos.'],
+  pw_changed: ['Senha alterada', 'Password changed', 'Contraseña cambiada'],
+  ae_login: ['E-mail ou senha incorretos.', 'Wrong email or password.', 'Correo o contraseña incorrectos.'],
+  ae_confirm: ['Confirme seu e-mail pelo link que enviamos.', 'Confirm your email using the link we sent.', 'Confirma tu correo con el enlace que enviamos.'],
+  ae_exists: ['Esse e-mail já tem conta. Tente entrar.', 'That email already has an account. Try signing in.', 'Ese correo ya tiene cuenta. Intenta entrar.'],
+  ae_rate: ['Muitas tentativas. Espere um pouco e tente de novo.', 'Too many attempts. Wait a bit and try again.', 'Demasiados intentos. Espera un poco y vuelve a intentarlo.'],
+  ae_weak: ['Senha fraca. Use pelo menos 8 caracteres.', 'Weak password. Use at least 8 characters.', 'Contraseña débil. Usa al menos 8 caracteres.'],
+  ae_bademail: ['E-mail inválido.', 'Invalid email.', 'Correo inválido.'], ae_net: ['Sem conexão com a internet.', 'No internet connection.', 'Sin conexión a internet.'],
+  ae_same: ['A nova senha precisa ser diferente da antiga.', 'The new password must be different from the old one.', 'La nueva contraseña debe ser distinta de la anterior.'],
+  ae_other: ['Algo deu errado: {m}', 'Something went wrong: {m}', 'Algo salió mal: {m}'],
+  blocked: ['Esta conta foi bloqueada.', 'This account has been blocked.', 'Esta cuenta fue bloqueada.'],
+  deleted: ['Sua conta foi excluída.', 'Your account was deleted.', 'Tu cuenta fue eliminada.'],
+  account: ['Conta', 'Account', 'Cuenta'],
+  guest_panel: ['Você está usando sem conta: os dados ficam só neste aparelho. Entre para salvar na nuvem e usar em outros aparelhos. O que você já registrou vai junto.', 'You\'re using the app without an account: data stays on this device only. Sign in to save to the cloud and use other devices. What you\'ve logged comes along.', 'Estás usando la app sin cuenta: los datos quedan solo en este dispositivo. Entra para guardar en la nube y usar otros dispositivos. Lo que ya registraste se mantiene.'],
+  in_or_create: ['Entrar ou criar conta', 'Sign in or create account', 'Entrar o crear cuenta'],
+  s_ok: ['Sincronizado', 'Synced', 'Sincronizado'], s_send: ['Sincronizando…', 'Syncing…', 'Sincronizando…'], s_err: ['Sem conexão: tenta de novo sozinho', 'Offline: will retry automatically', 'Sin conexión: se reintentará solo'],
+  cloud: ['Nuvem', 'Cloud', 'Nube'], admin_panel: ['Abrir painel de admin', 'Open admin panel', 'Abrir panel de admin'],
+  logout: ['Sair', 'Sign out', 'Cerrar sesión'], del_acc: ['Excluir conta', 'Delete account', 'Eliminar cuenta'],
+  language: ['Idioma', 'Language', 'Idioma'], profile: ['Perfil', 'Profile', 'Perfil'], age: ['Idade', 'Age', 'Edad'], years: ['{n} anos', '{n} years', '{n} años'],
+  height: ['Altura', 'Height', 'Altura'], cur_weight: ['Peso atual', 'Current weight', 'Peso actual'], goal: ['Objetivo', 'Goal', 'Objetivo'],
+  burn: ['Gasto estimado', 'Estimated burn', 'Gasto estimado'], edit_prof: ['Editar perfil', 'Edit profile', 'Editar perfil'],
+  your_data: ['Seus dados', 'Your data', 'Tus datos'], data_msg: ['Tudo fica salvo neste aparelho. Exporte um backup de vez em quando.', 'Everything is saved on this device. Export a backup now and then.', 'Todo se guarda en este dispositivo. Exporta una copia de vez en cuando.'],
+  export: ['Exportar', 'Export', 'Exportar'], import: ['Importar', 'Import', 'Importar'], wipe: ['Apagar tudo', 'Erase everything', 'Borrar todo'],
+  how: ['Como funciona', 'How it works', 'Cómo funciona'],
+  how_html: ['<p>Cada atividade sobe 1 nível a cada 4 treinos completos. Depois de um treino você descansa e então abre a janela de treino. Se ela fechar sem treino, você perde um pouco do progresso. Os tempos podem ser ajustados em cada atividade.</p><p>Foco sobe com as horas acumuladas: 5h, 20h e 50h. Ele nunca cai.</p><p>As calorias usam a fórmula de Mifflin-St Jeor e a gordura corporal é uma estimativa pelo IMC. Não substitui orientação médica ou de nutricionista.</p>',
+    '<p>Each activity goes up 1 level every 4 full workouts. After a workout you rest, then your training window opens. If it closes without a workout, you lose some progress. Times can be adjusted for each activity.</p><p>Focus grows with accumulated hours: 5h, 20h and 50h. It never drops.</p><p>Calories use the Mifflin-St Jeor formula and body fat is a BMI-based estimate. Not a substitute for medical or dietitian advice.</p>',
+    '<p>Cada actividad sube 1 nivel cada 4 entrenamientos completos. Después de entrenar descansas y luego se abre la ventana de entrenamiento. Si se cierra sin entrenar, pierdes algo de progreso. Los tiempos se pueden ajustar en cada actividad.</p><p>El Enfoque sube con las horas acumuladas: 5h, 20h y 50h. Nunca baja.</p><p>Las calorías usan la fórmula de Mifflin-St Jeor y la grasa corporal es una estimación por el IMC. No sustituye el consejo médico o de un nutricionista.</p>'],
+  privacy: ['Política de Privacidade', 'Privacy Policy', 'Política de Privacidad'], terms: ['Termos de Uso', 'Terms of Use', 'Términos de Uso'],
+  goal_lose: ['Perder peso', 'Lose weight', 'Perder peso'], goal_keep: ['Manter o peso', 'Maintain weight', 'Mantener el peso'], goal_gain: ['Ganhar massa', 'Gain muscle', 'Ganar masa'],
+  act1: ['Quase parado', 'Mostly sedentary', 'Casi sedentario'], act2: ['Leve (1 a 2 treinos na semana)', 'Light (1–2 workouts a week)', 'Ligera (1 a 2 entrenamientos por semana)'],
+  act3: ['Moderado (3 a 4 treinos)', 'Moderate (3–4 workouts)', 'Moderada (3 a 4 entrenamientos)'], act4: ['Alto (5 ou mais treinos)', 'High (5+ workouts)', 'Alta (5 o más entrenamientos)'],
+  sex: ['Sexo', 'Sex', 'Sexo'], male: ['Masculino', 'Male', 'Masculino'], female: ['Feminino', 'Female', 'Femenino'],
+  log_x: ['Registrar: {a}', 'Log: {a}', 'Registrar: {a}'], type: ['Tipo', 'Type', 'Tipo'], new_type: ['+ Novo tipo', '+ New type', '+ Nuevo tipo'],
+  type_ph: ['Nome do tipo', 'Type name', 'Nombre del tipo'],
+  duration: ['Duração (min)', 'Duration (min)', 'Duración (min)'], when: ['Quando', 'When', 'Cuándo'],
+  did_full: ['Fiz o treino inteiro', 'I did the full workout', 'Hice el entrenamiento completo'],
+  cancel: ['Cancelar', 'Cancel', 'Cancelar'], save: ['Salvar', 'Save', 'Guardar'],
+  e_dur: ['Coloque a duração', 'Enter the duration', 'Pon la duración'], e_past: ['Escolha um horário que já passou', 'Pick a time in the past', 'Elige una hora que ya pasó'],
+  e_type: ['Escolha ou crie um tipo', 'Pick or create a type', 'Elige o crea un tipo'],
+  w_incomplete: ['Treino salvo, mas incompleto: não soma nível.', 'Workout saved, but incomplete: no progress.', 'Entrenamiento guardado, pero incompleto: no suma nivel.'],
+  w_short: ['Treino salvo, mas curto: precisa de pelo menos {m} min para contar.', 'Workout saved, but too short: it needs at least {m} min to count.', 'Entrenamiento guardado, pero corto: necesita al menos {m} min para contar.'],
+  w_rest: ['Treino salvo. Você ainda estava se recuperando, então ele não soma nível.', 'Workout saved. You were still recovering, so it doesn\'t add progress.', 'Entrenamiento guardado. Aún te estabas recuperando, así que no suma nivel.'],
+  w_up: ['{a} subiu para o nível {l}!', '{a} reached level {l}!', '¡{a} subió al nivel {l}!'],
+  w_done: ['Treino completo! Agora coma proteína e descanse.', 'Full workout! Now eat protein and rest.', '¡Entrenamiento completo! Ahora come proteína y descansa.'],
+  log_focus: ['Registrar tempo de foco', 'Log focus time', 'Registrar tiempo de enfoque'], activity: ['Atividade', 'Activity', 'Actividad'],
+  minutes: ['Minutos', 'Minutes', 'Minutos'], e_min: ['Coloque os minutos', 'Enter the minutes', 'Pon los minutos'],
+  f_up: ['Foco subiu para o nível {l}!', 'Focus reached level {l}!', '¡El Enfoque subió al nivel {l}!'], f_plus: ['+{m} min de foco', '+{m} min of focus', '+{m} min de enfoque'],
+  food: ['Comida', 'Food', 'Comida'], food_ph: ['Ex.: marmita, lanche da rua', 'E.g. lunch box, street food', 'Ej.: táper, comida de la calle'],
+  kcal_f: ['Calorias (kcal)', 'Calories (kcal)', 'Calorías (kcal)'], prot_f: ['Proteína (g)', 'Protein (g)', 'Proteína (g)'],
+  or_pick: ['Ou toque em uma comida pronta (1 porção)', 'Or tap a ready-made food (1 serving)', 'O toca una comida lista (1 porción)'],
+  search: ['Buscar', 'Search', 'Buscar'], nothing_found: ['Nada encontrado. Use o campo de cima.', 'Nothing found. Use the field above.', 'No se encontró nada. Usa el campo de arriba.'],
+  added: ['{f} adicionado', '{f} added', '{f} añadido'], e_meal: ['Coloque nome e calorias', 'Enter name and calories', 'Pon nombre y calorías'], g_prot_s: ['g prot.', 'g prot.', 'g prot.'],
+  log_weight: ['Registrar peso', 'Log weight', 'Registrar peso'], weight_kg: ['Peso (kg)', 'Weight (kg)', 'Peso (kg)'], day: ['Dia', 'Day', 'Día'],
+  e_weight: ['Peso inválido', 'Invalid weight', 'Peso inválido'], your_prof: ['Seu perfil', 'Your profile', 'Tu perfil'], height_cm: ['Altura (cm)', 'Height (cm)', 'Altura (cm)'],
+  c_del_acc: ['Excluir sua conta e todos os dados dela? Não dá para desfazer.', 'Delete your account and all its data? This can\'t be undone.', '¿Eliminar tu cuenta y todos sus datos? No se puede deshacer.'],
+  c_del_wo: ['Apagar este treino?', 'Delete this workout?', '¿Borrar este entrenamiento?'], c_discard: ['Descartar esta sessão?', 'Discard this session?', '¿Descartar esta sesión?'],
+  c_del_sess: ['Apagar esta sessão?', 'Delete this session?', '¿Borrar esta sesión?'],
+  c_wipe: ['Apagar todos os dados deste aparelho? Não dá para desfazer.', 'Erase all data on this device? This can\'t be undone.', '¿Borrar todos los datos de este dispositivo? No se puede deshacer.'],
+  c_del_act: ['Excluir {a} e todos os treinos dela?', 'Delete {a} and all its workouts?', '¿Eliminar {a} y todos sus entrenamientos?'],
+  times_of: ['Tempos: {a}', 'Times: {a}', 'Tiempos: {a}'],
+  rest_h: ['Descanso depois do treino (horas)', 'Rest after a workout (hours)', 'Descanso después de entrenar (horas)'],
+  win_d: ['Duração da janela (dias)', 'Window length (days)', 'Duración de la ventana (días)'],
+  min_m: ['Treino mínimo para contar (min)', 'Minimum workout to count (min)', 'Entrenamiento mínimo para contar (min)'],
+  win_help: ['A janela abre depois do descanso. Se ela fechar sem um treino completo, você perde progresso.', 'The window opens after the rest. If it closes without a full workout, you lose progress.', 'La ventana se abre después del descanso. Si se cierra sin un entrenamiento completo, pierdes progreso.'],
+  e_win: ['Valores inválidos: descanso de 0 a 168 h, janela de 0,5 a 30 dias, treino de 1 a 600 min.', 'Invalid values: rest 0–168 h, window 0.5–30 days, workout 1–600 min.', 'Valores inválidos: descanso de 0 a 168 h, ventana de 0,5 a 30 días, entrenamiento de 1 a 600 min.'],
+  saved: ['Salvo', 'Saved', 'Guardado'], restore: ['Voltar ao padrão', 'Reset to default', 'Restablecer'],
+  new_act_t: ['Nova atividade', 'New activity', 'Nueva actividad'], act_ph: ['Ex.: Yoga, Futebol, Luta', 'E.g. Yoga, Soccer, Martial arts', 'Ej.: Yoga, Fútbol, Lucha'],
+  icon: ['Ícone', 'Icon', 'Icono'], color: ['Cor', 'Color', 'Color'], e_name: ['Dê um nome', 'Give it a name', 'Ponle un nombre'],
+  act_made: ['{a} criada!', '{a} created!', '¡{a} creada!'],
+  e_save_dev: ['Não deu para salvar neste aparelho', 'Couldn\'t save on this device', 'No se pudo guardar en este dispositivo'],
+  short_sess: ['Sessão muito curta, não foi salva', 'Session too short, not saved', 'Sesión muy corta, no se guardó'],
+  backup_t: ['Backup do Fitness', 'Fitness backup', 'Copia de Fitness'], backup_save: ['Salvar backup', 'Save backup', 'Guardar copia'],
+  e_export: ['Não deu para exportar', 'Couldn\'t export', 'No se pudo exportar'], imported: ['Backup importado', 'Backup imported', 'Copia importada'],
+  bad_file: ['Arquivo inválido', 'Invalid file', 'Archivo inválido']
 };
+function t(k, v) { const e = TX[k]; let s = e ? (e[LI] != null ? e[LI] : e[0]) : k; if (v) for (const x in v) s = s.split('{' + x + '}').join(v[x]); return s; }
+// nomes de tipos, categorias e comidas da lista padrão (a chave é o nome em português)
+const TT = {
+  'Musculação': ['Weight training', 'Musculación'], 'Peito e tríceps': ['Chest and triceps', 'Pecho y tríceps'], 'Costas e bíceps': ['Back and biceps', 'Espalda y bíceps'],
+  'Pernas': ['Legs', 'Piernas'], 'Ombros': ['Shoulders', 'Hombros'], 'Corpo inteiro': ['Full body', 'Cuerpo completo'], 'Barra fixa': ['Pull-ups', 'Dominadas'],
+  'Flexão': ['Push-ups', 'Flexiones'], 'Calistenia': ['Calisthenics', 'Calistenia'], 'Esteira': ['Treadmill', 'Cinta de correr'], 'Máquinas elípticas': ['Elliptical', 'Elíptica'],
+  'Bicicleta ergométrica': ['Stationary bike', 'Bicicleta estática'], 'Saco de pancadas': ['Punching bag', 'Saco de boxeo'], 'Corrida': ['Running', 'Correr'],
+  'Natação': ['Swimming', 'Natación'], 'Ciclismo': ['Cycling', 'Ciclismo'], 'Caiaque': ['Kayaking', 'Kayak'], 'Caminhada': ['Walking', 'Caminata'],
+  'Estudo': ['Study', 'Estudio'], 'Trabalho': ['Work', 'Trabajo'], 'Leitura': ['Reading', 'Lectura'], 'Meditação': ['Meditation', 'Meditación'], 'Outro': ['Other', 'Otro'],
+  'Arroz branco': ['White rice', 'Arroz blanco'], 'Feijão': ['Beans', 'Frijoles'], 'Peito de frango grelhado': ['Grilled chicken breast', 'Pechuga de pollo a la plancha'],
+  'Bife de patinho': ['Lean beef steak', 'Bistec de ternera magra'], 'Carne moída': ['Ground beef', 'Carne picada'], 'Ovo cozido': ['Boiled egg', 'Huevo cocido'],
+  'Ovo frito': ['Fried egg', 'Huevo frito'], 'Pão francês': ['French roll', 'Pan francés'], 'Pão de forma': ['Sliced bread', 'Pan de molde'],
+  'Queijo muçarela': ['Mozzarella cheese', 'Queso mozzarella'], 'Presunto': ['Ham', 'Jamón'], 'Leite integral': ['Whole milk', 'Leche entera'],
+  'Iogurte natural': ['Plain yogurt', 'Yogur natural'], 'Aveia': ['Oats', 'Avena'], 'Banana': ['Banana', 'Plátano'], 'Maçã': ['Apple', 'Manzana'],
+  'Mamão': ['Papaya', 'Papaya'], 'Batata doce': ['Sweet potato', 'Batata'], 'Macarrão': ['Pasta', 'Pasta'], 'Tapioca com queijo': ['Tapioca with cheese', 'Tapioca con queso'],
+  'Cuscuz': ['Corn couscous', 'Cuscús de maíz'], 'Salada': ['Salad', 'Ensalada'], 'Tilápia grelhada': ['Grilled tilapia', 'Tilapia a la plancha'],
+  'Atum em lata': ['Canned tuna', 'Atún en lata'], 'Café com açúcar': ['Coffee with sugar', 'Café con azúcar'], 'Hambúrguer': ['Burger', 'Hamburguesa'],
+  'Coxinha': ['Coxinha (chicken croquette)', 'Coxinha (croqueta de pollo)'], 'Refrigerante': ['Soda', 'Refresco'], 'Suco de laranja': ['Orange juice', 'Zumo de naranja'],
+  '1 escumadeira': ['1 serving spoon', '1 cucharón'], '1 concha': ['1 ladle', '1 cucharón'], '1 filé (120 g)': ['1 fillet (120 g)', '1 filete (120 g)'],
+  '1 bife (100 g)': ['1 steak (100 g)', '1 bistec (100 g)'], '1 colher de servir': ['1 serving spoon', '1 cuchara de servir'], '1 unidade': ['1 unit', '1 unidad'],
+  '2 fatias': ['2 slices', '2 rebanadas'], '1 fatia': ['1 slice', '1 rebanada'], '1 copo': ['1 glass', '1 vaso'], '1 pote': ['1 cup', '1 envase'],
+  '2 colheres de sopa': ['2 tablespoons', '2 cucharadas'], '1 média': ['1 medium', '1 mediana'], '1 pegador': ['1 serving', '1 porción'], '1 pedaço': ['1 piece', '1 trozo'],
+  '1 prato': ['1 plate', '1 plato'], '1 filé': ['1 fillet', '1 filete'], '1 lata': ['1 can', '1 lata'], '1 xícara': ['1 cup', '1 taza'], '1 barrinha': ['1 bar', '1 barrita'],
+  '1 tigela': ['1 bowl', '1 bol'], '1 scoop': ['1 scoop', '1 cazo']
+};
+const tn = x => (LI > 0 && TT[x]) ? TT[x][LI - 1] : x;
+
+/* ---------- atividades ---------- */
+const BUILTIN = {
+  forca: { n: 'n_forca', t: 't_forca', icon: 'heart', c: 'var(--pink)', deep: 'var(--pink-deep)', rest: 20, win: 72, min: 30,
+    groups: [['g_gym', ['Musculação', 'Peito e tríceps', 'Costas e bíceps', 'Pernas', 'Ombros', 'Corpo inteiro']], ['g_home', ['Barra fixa', 'Flexão', 'Calistenia']]] },
+  cardio: { n: 'n_cardio', t: 't_cardio', icon: 'bolt', c: 'var(--teal)', deep: 'var(--teal-deep)', rest: 12, win: 60, min: 20,
+    groups: [['g_gym2', ['Esteira', 'Máquinas elípticas', 'Bicicleta ergométrica', 'Saco de pancadas']], ['g_out', ['Corrida', 'Natação', 'Ciclismo', 'Caiaque', 'Caminhada']]] }
+};
+const COLORS = [['#f6a6c8', '#8f4f6b'], ['#7fdfc6', '#3f8a7a'], ['#ffc27a', '#94693a'], ['#8ec5ff', '#3f6797'], ['#ff9a9a', '#994848'], ['#b9e58a', '#5d7d3c'], ['#f5e07a', '#8a7a33']];
+const ICON_PICK = ['heart', 'bolt', 'flame', 'star', 'ball', 'wave'];
 const FOCO_CATS = ['Estudo', 'Trabalho', 'Leitura', 'Meditação', 'Outro'];
 const FOCO_LV = [0, 300, 1200, 3000];
-const MEALS = [['cafe', 'Café da manhã'], ['almoco', 'Almoço'], ['lanche', 'Lanche'], ['jantar', 'Jantar']];
-const ACTS = [[1.2, 'Quase parado'], [1.375, 'Leve (1 a 2 treinos na semana)'], [1.55, 'Moderado (3 a 4 treinos)'], [1.725, 'Alto (5 ou mais treinos)']];
-const GOALS = [['perder', 'Perder peso', -500], ['manter', 'Manter o peso', 0], ['ganhar', 'Ganhar massa', 300]];
+const MEALS = ['cafe', 'almoco', 'lanche', 'jantar'];
+const ACTS = [[1.2, 'act1'], [1.375, 'act2'], [1.55, 'act3'], [1.725, 'act4']];
+const GOALS = [['perder', 'goal_lose', -500], ['manter', 'goal_keep', 0], ['ganhar', 'goal_gain', 300]];
 let FOODS = (window.FITNESS_FOODS || []).slice();
 
 /* ---------- utilidades ---------- */
@@ -204,10 +437,10 @@ const dayOf = ms => iso(new Date(ms));
 const uid = () => Date.now().toString(36) + Math.random().toString(36).slice(2, 7);
 const esc = s => String(s == null ? '' : s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
 const toNum = v => { const n = parseFloat(String(v).replace(',', '.')); return isFinite(n) ? n : 0; };
-const int = n => Math.round(n).toLocaleString('pt-BR');
-const dec = n => String(Math.round(n * 10) / 10).replace('.', ',');
+const int = n => Math.round(n).toLocaleString(LOC[LANG]);
+const dec = n => { const s = String(Math.round(n * 10) / 10); return LANG === 'en' ? s : s.replace('.', ','); };
 const clamp = (n, a, b) => Math.max(a, Math.min(b, n));
-const WEEK = ['dom', 'seg', 'ter', 'qua', 'qui', 'sex', 'sáb'];
+const days = n => t(n === 1 ? 'days_1' : 'days', { n: typeof n === 'number' && n % 1 ? dec(n) : n });
 function dur(ms) {
   ms = Math.max(0, ms);
   const m = Math.round(ms / 6e4), h = Math.floor(m / 60), d = Math.floor(h / 24);
@@ -215,25 +448,30 @@ function dur(ms) {
   if (h >= 1) return h + 'h ' + pad(m % 60) + 'min';
   return m + 'min';
 }
+const shortDate = d => d.toLocaleDateString(LOC[LANG], { weekday: 'short', day: '2-digit', month: '2-digit' });
 function when(ms) {
-  const d = new Date(ms), t = today(), s = iso(d), hm = pad(d.getHours()) + ':' + pad(d.getMinutes());
-  if (s === t) return 'Hoje, ' + hm;
-  if (s === addDays(t, -1)) return 'Ontem, ' + hm;
-  return WEEK[d.getDay()] + ', ' + pad(d.getDate()) + '/' + pad(d.getMonth() + 1) + ' ' + hm;
+  const d = new Date(ms), td = today(), s = iso(d), hm = pad(d.getHours()) + ':' + pad(d.getMinutes());
+  if (s === td) return t('today') + ', ' + hm;
+  if (s === addDays(td, -1)) return t('yesterday') + ', ' + hm;
+  return shortDate(d) + ' ' + hm;
 }
 function dayLabel(s) {
-  const t = today();
-  if (s === t) return 'Hoje';
-  if (s === addDays(t, -1)) return 'Ontem';
-  const d = parseD(s);
-  return WEEK[d.getDay()] + ', ' + pad(d.getDate()) + '/' + pad(d.getMonth() + 1);
+  const td = today();
+  if (s === td) return t('today');
+  if (s === addDays(td, -1)) return t('yesterday');
+  return shortDate(parseD(s));
 }
 const localInput = ms => { const d = new Date(ms); return iso(d) + 'T' + pad(d.getHours()) + ':' + pad(d.getMinutes()); };
 
 const ICONS = {
   heart: '<path fill="currentColor" d="M12 20.5s-7.3-4.4-9.3-8.9C1.2 8.2 3.3 4.6 6.8 4.6c2 0 3.5 1 5.2 2.9 1.7-1.9 3.2-2.9 5.2-2.9 3.5 0 5.6 3.6 4.1 7-2 4.5-9.3 8.9-9.3 8.9z"/>',
   bolt: '<path fill="currentColor" d="M13.5 2 4.5 13.6h6.4L9.8 22l9-11.7h-6.4z"/>',
+  flame: '<path fill="currentColor" d="M12 2c1 4 5.5 5.6 5.5 11.2a5.5 5.5 0 0 1-11 0c0-2.7 1.3-4.4 2.7-5.6.2 1.8 1 3 2.1 3.5C10.9 8 11 5 12 2z"/>',
+  star: '<path fill="currentColor" d="m12 3 2.7 5.6 6.1.8-4.5 4.2 1.1 6.1L12 16.8l-5.4 2.9 1.1-6.1-4.5-4.2 6.1-.8z"/>',
+  ball: '<circle cx="12" cy="12" r="8.5" fill="none" stroke="currentColor" stroke-width="2"/><path fill="none" stroke="currentColor" stroke-width="1.8" d="M3.5 12h17M12 3.5c3 2.3 3 14.7 0 17M12 3.5c-3 2.3-3 14.7 0 17"/>',
+  wave: '<path fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" d="M3 9c3-3 6 3 9 0s6 3 9 0M3 15c3-3 6 3 9 0s6 3 9 0"/>',
   eye: '<path fill="none" stroke="currentColor" stroke-width="2.2" d="M2 12s3.7-6.5 10-6.5S22 12 22 12s-3.7 6.5-10 6.5S2 12 2 12z"/><circle cx="12" cy="12" r="3.2" fill="currentColor"/>',
+  eyeoff: '<path fill="none" stroke="currentColor" stroke-width="2.2" d="M2 12s3.7-6.5 10-6.5S22 12 22 12s-3.7 6.5-10 6.5S2 12 2 12z"/><circle cx="12" cy="12" r="3.2" fill="currentColor"/><path stroke="currentColor" stroke-width="2.2" stroke-linecap="round" d="M4 4l16 16"/>',
   clock: '<circle cx="12" cy="12" r="8.5" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12 7.5V12l3 2" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>',
   glass: '<path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" d="M6.5 3h11M6.5 21h11M8 3c0 4.5 8 5 8 9s-8 4.5-8 9M16 3c0 4.5-8 5-8 9s8 4.5 8 9"/>',
   back: '<path fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" d="M15 5l-7 7 7 7"/>',
@@ -245,7 +483,7 @@ const ICONS = {
   leaf: '<path fill="currentColor" d="M20 4c-9 0-15 4-15 11 0 1.4.3 2.6.8 3.6L4 20.5l1.4 1.4 1.8-1.8c1 .6 2.3.9 3.8.9 7 0 9-7 9-17zM9 17c1.5-3 4-5.5 7-7-2.5 2-4.6 4.4-6 7.6z"/>',
   body: '<circle cx="12" cy="4.8" r="2.3" fill="currentColor"/><path fill="currentColor" d="M7 8h10l-1.6 6.4H14l-.6 7.1h-2.8l-.6-7.1H8.6z"/>'
 };
-const ico = (n, cls) => '<svg class="i' + (cls ? ' ' + cls : '') + '" viewBox="0 0 24 24" aria-hidden="true">' + ICONS[n] + '</svg>';
+const ico = (n, cls) => '<svg class="i' + (cls ? ' ' + cls : '') + '" viewBox="0 0 24 24" aria-hidden="true">' + (ICONS[n] || ICONS.star) + '</svg>';
 function ring(frac, icon, c) {
   const r = 22, L = 2 * Math.PI * r;
   return '<div class="ring" style="--c:' + c + '"><svg class="r" viewBox="0 0 54 54" aria-hidden="true"><circle class="tr" cx="27" cy="27" r="' + r + '"/><circle class="pg" cx="27" cy="27" r="' + r + '" stroke-dasharray="' + L.toFixed(2) + '" stroke-dashoffset="' + (L * (1 - clamp(frac, 0, 1))).toFixed(2) + '"/></svg>' + ico(icon) + '</div>';
@@ -258,37 +496,40 @@ function blank() {
     profile: { sex: 'm', age: '', height: '', weight: '', act: 1.375, goal: 'perder' },
     forca: { pts: 0, last: null, due: null },
     cardio: { pts: 0, last: null, due: null },
+    cfg: {}, custom: [], tracks: {}, types: {},
     workouts: [], lost: [],
     focus: [], focusGoal: 60, timer: null,
     meals: [], weights: [], recent: []
   };
 }
+const fill = o => { const s = Object.assign(blank(), o); ['cfg', 'tracks', 'types'].forEach(k => { if (!s[k] || typeof s[k] !== 'object') s[k] = {}; }); if (!Array.isArray(s.custom)) s.custom = []; return s; };
 function demo() {
   const s = blank(), now = Date.now();
   s.profile = { sex: 'm', age: 22, height: 178, weight: 70, act: 1.55, goal: 'manter' };
-  s.forca = { pts: 15, last: now - 3 * H, due: now - 3 * H + ATTR.forca.rest + ATTR.forca.win };
-  s.cardio = { pts: 7, last: now - 18 * H, due: now - 18 * H + ATTR.cardio.rest + ATTR.cardio.win };
+  s.forca = { pts: 15, last: now - 3 * H, due: now - 3 * H + (20 + 72) * H };
+  s.cardio = { pts: 7, last: now - 18 * H, due: now - 18 * H + (12 + 60) * H };
   s.workouts = [
     { id: uid(), kind: 'forca', at: now - 3 * H, type: 'Peito e tríceps', min: 55, full: true, counted: true },
     { id: uid(), kind: 'cardio', at: now - 18 * H, type: 'Corrida', min: 30, full: true, counted: true },
     { id: uid(), kind: 'forca', at: now - 50 * H, type: 'Pernas', min: 60, full: true, counted: true },
     { id: uid(), kind: 'cardio', at: now - 70 * H, type: 'Esteira', min: 25, full: true, counted: true }
   ];
-  const t = today();
+  const td = today();
   for (let i = 0; i < 9; i++) s.focus.push({ id: uid(), at: now - i * DAY - 5 * H, cat: i % 3 ? 'Estudo' : 'Trabalho', min: 70 + (i * 17) % 50 });
   s.focus[0].min = 35; s.focus[0].at = now - 6e4;
   for (let i = 1; i < 7; i++) {
-    const d = addDays(t, -i);
+    const d = addDays(td, -i);
     s.meals.push({ id: uid(), date: d, meal: 'almoco', name: 'Arroz, feijão e frango', kcal: 700, prot: 45 });
     s.meals.push({ id: uid(), date: d, meal: 'jantar', name: 'Jantar', kcal: 900 + (i % 3) * 120, prot: 40 });
     s.meals.push({ id: uid(), date: d, meal: 'cafe', name: 'Pão com ovo e café', kcal: 420 + (i % 2) * 300, prot: 20 });
     s.meals.push({ id: uid(), date: d, meal: 'lanche', name: 'Whey, banana e aveia', kcal: 400, prot: 30 });
   }
-  s.meals.push({ id: uid(), date: t, meal: 'cafe', name: 'Pão com ovo e café', kcal: 420, prot: 20 });
-  s.meals.push({ id: uid(), date: t, meal: 'almoco', name: 'Arroz, feijão e frango', kcal: 700, prot: 45 });
-  s.weights = [{ date: addDays(t, -14), kg: 70.8 }, { date: addDays(t, -7), kg: 70.3 }, { date: t, kg: 70 }];
+  s.meals.push({ id: uid(), date: td, meal: 'cafe', name: 'Pão com ovo e café', kcal: 420, prot: 20 });
+  s.meals.push({ id: uid(), date: td, meal: 'almoco', name: 'Arroz, feijão e frango', kcal: 700, prot: 45 });
+  s.weights = [{ date: addDays(td, -14), kg: 70.8 }, { date: addDays(td, -7), kg: 70.3 }, { date: td, kg: 70 }];
   return s;
 }
+
 /* ---------- nuvem (Supabase) ---------- */
 const CFG = window.FITNESS_CONFIG || {};
 const CLOUD = REAL && !!(CFG.supabaseUrl && CFG.supabaseAnonKey && window.supabase);
@@ -301,14 +542,14 @@ const lsDel = k => { try { localStorage.removeItem(k); } catch (e) {} };
 
 function load() {
   if (!REAL) return demo();
-  try { const raw = lsGet(storeKey()); if (raw) return Object.assign(blank(), JSON.parse(raw)); } catch (e) {}
+  try { const raw = lsGet(storeKey()); if (raw) return fill(JSON.parse(raw)); } catch (e) {}
   return blank();
 }
 let S = load();
 function save() {
   if (!REAL) return;
   S._ts = Date.now();
-  if (!lsSet(storeKey(), JSON.stringify(S))) toast('Não deu para salvar neste aparelho');
+  if (!lsSet(storeKey(), JSON.stringify(S))) toast(t('e_save_dev'));
   if (user) { clearTimeout(pushT); pushT = setTimeout(push, 1200); }
 }
 async function push() {
@@ -322,7 +563,7 @@ async function pull() {
   const { data, error } = await sb.from('user_data').select('data').eq('user_id', user.id).maybeSingle();
   if (error) { V.sync = 'erro'; return; }
   const r = data && data.data;
-  if (r && r.v === 1 && (r._ts || 0) > (S._ts || 0)) { S = Object.assign(blank(), r); lsSet(storeKey(), JSON.stringify(S)); V.sync = 'ok'; }
+  if (r && r.v === 1 && (r._ts || 0) > (S._ts || 0)) { S = fill(r); lsSet(storeKey(), JSON.stringify(S)); V.sync = 'ok'; }
   else if (S._ts) await push();
   else V.sync = 'ok';
 }
@@ -342,16 +583,18 @@ async function onLogin(u) {
   const { data: prof } = await sb.from('profiles').select('name,role,blocked').eq('id', u.id).maybeSingle();
   if (prof && prof.blocked) {
     await sb.auth.signOut(); user = null;
-    Object.assign(V, { page: 'auth', authMode: 'entrar', authMsg: 'Esta conta foi bloqueada.', authErr: true });
+    Object.assign(V, { page: 'auth', authMode: 'entrar', authMsg: t('blocked'), authErr: true });
     S = load(); return render();
   }
   account = prof || {};
   sb.from('profiles').update({ last_seen: new Date().toISOString() }).eq('id', u.id).then(() => {});
+  // o idioma fica guardado na conta para os e-mails saírem na língua certa
+  if (!u.user_metadata || u.user_metadata.lang !== LANG) sb.auth.updateUser({ data: { lang: LANG } }).catch(() => {});
   const local = lsGet(storeKey());
-  if (local) { try { S = Object.assign(blank(), JSON.parse(local)); } catch (e) { S = blank(); } }
+  if (local) { try { S = fill(JSON.parse(local)); } catch (e) { S = blank(); } }
   else {
     S = blank();
-    try { const g = JSON.parse(lsGet(KEY) || 'null'); if (g && g._ts) { S = Object.assign(blank(), g); S._ts = 1; } } catch (e) {}
+    try { const g = JSON.parse(lsGet(KEY) || 'null'); if (g && g._ts) { S = fill(g); S._ts = 1; } } catch (e) {}
   }
   await pull();
   lsDel('fitness.guest');
@@ -366,26 +609,39 @@ async function signOut() {
   Object.assign(V, { page: 'auth', authMode: 'entrar', authMsg: '' }); render();
 }
 const AUTH_ERR = [
-  [/invalid login/i, 'E-mail ou senha incorretos.'], [/not confirmed/i, 'Confirme seu e-mail pelo link que enviamos.'],
-  [/already registered|already been registered/i, 'Esse e-mail já tem conta. Tente entrar.'], [/rate limit|too many/i, 'Muitas tentativas. Espere um pouco e tente de novo.'],
-  [/password should be|weak password/i, 'Senha fraca. Use pelo menos 8 caracteres.'], [/invalid email|unable to validate email/i, 'E-mail inválido.'],
-  [/failed to fetch|network/i, 'Sem conexão com a internet.'], [/same password|different from the old/i, 'A nova senha precisa ser diferente da antiga.']
+  [/invalid login/i, 'ae_login'], [/not confirmed/i, 'ae_confirm'], [/already registered|already been registered/i, 'ae_exists'],
+  [/rate limit|too many/i, 'ae_rate'], [/password should be|weak password/i, 'ae_weak'], [/invalid email|unable to validate email/i, 'ae_bademail'],
+  [/failed to fetch|network/i, 'ae_net'], [/same password|different from the old/i, 'ae_same']
 ];
-const authErr = e => { const m = (e && e.message) || String(e); const hit = AUTH_ERR.find(x => x[0].test(m)); return hit ? hit[1] : 'Algo deu errado: ' + m; };
+const authErr = e => { const m = (e && e.message) || String(e); const hit = AUTH_ERR.find(x => x[0].test(m)); return hit ? t(hit[1]) : t('ae_other', { m }); };
 const siteUrl = () => CFG.siteUrl || location.href.split('#')[0].split('?')[0];
 
 const V = { page: CLOUD ? 'loading' : 'home', notif: false, day: today(), focoCat: 'Estudo', authMode: 'entrar', authMsg: '', authErr: false, sync: '' };
 
 /* ---------- regras ---------- */
+const acts = () => ['forca', 'cardio'].concat(S.custom.map(c => c.id));
+function A(k) {
+  const b = BUILTIN[k];
+  if (b) {
+    const o = S.cfg[k] || {};
+    return { k, builtin: true, name: t(b.n), title: t(b.t), icon: b.icon, c: b.c, deep: b.deep,
+      rest: (o.rest != null ? o.rest : b.rest) * H, win: (o.win != null ? o.win : b.win) * H, min: o.min != null ? o.min : b.min,
+      types: b.groups.flatMap(g => g[1]).concat(S.types[k] || []), groups: b.groups };
+  }
+  const c = S.custom.find(x => x.id === k); if (!c) return null;
+  const col = COLORS[c.color] || COLORS[0];
+  return { k, builtin: false, name: c.name, title: c.name, icon: c.icon, c: col[0], deep: col[1], rest: c.rest * H, win: c.win * H, min: c.min, types: S.types[k] || [], groups: [] };
+}
+function st(k) { if (BUILTIN[k]) return S[k]; if (!S.tracks[k]) S.tracks[k] = { pts: 0, last: null, due: null }; return S.tracks[k]; }
 function level(p) { const l = Math.min(4, Math.floor(p / PTS_LV) + 1); return { l, frac: l === 4 ? Math.min(1, (p - 12) / 4) : (p % PTS_LV) / PTS_LV }; }
 function tick() {
   const now = Date.now(); let ch = false;
-  for (const k in ATTR) {
-    const a = S[k]; let n = 0;
+  for (const k of acts()) {
+    const a = st(k), win = A(k).win; let n = 0;
     while (a.due && now > a.due && n < 100) {
       a.pts = Math.max(0, a.pts - 1);
       S.lost.push({ kind: k, at: a.due });
-      a.due = a.pts > 0 ? a.due + ATTR[k].win : null;
+      a.due = a.pts > 0 ? a.due + win : null;
       n++; ch = true;
     }
   }
@@ -393,26 +649,26 @@ function tick() {
   if (ch) save();
 }
 function winState(k) {
-  const a = S[k], A = ATTR[k], now = Date.now();
+  const a = st(k), D = A(k), now = Date.now();
   if (!a.last || !a.due) return { s: 'none' };
-  const ready = a.last + A.rest;
+  const ready = a.last + D.rest;
   if (now < ready) return { s: 'rest', left: ready - now };
-  return { s: 'open', left: a.due - now, frac: clamp((a.due - now) / A.win, 0, 1) };
+  return { s: 'open', left: a.due - now, frac: clamp((a.due - now) / D.win, 0, 1) };
 }
 function addWorkout(k, at, type, min, full) {
-  const A = ATTR[k], a = S[k];
+  const D = A(k), a = st(k);
   let counted = false, msg;
-  if (!full) msg = 'Treino salvo, mas incompleto: não soma nível.';
-  else if (min < A.min) msg = 'Treino salvo, mas curto: precisa de pelo menos ' + A.min + ' min para contar.';
-  else if (a.last && at < a.last + A.rest && at >= a.last) msg = 'Treino salvo. Você ainda estava se recuperando, então ele não soma nível.';
+  if (!full) msg = t('w_incomplete');
+  else if (min < D.min) msg = t('w_short', { m: D.min });
+  else if (a.last && at < a.last + D.rest && at >= a.last) msg = t('w_rest');
   else {
     counted = true;
     const before = level(a.pts).l;
     a.pts = Math.min(PTS_MAX, a.pts + 1);
     a.last = Math.max(a.last || 0, at);
-    a.due = a.last + A.rest + A.win;
+    a.due = a.last + D.rest + D.win;
     const after = level(a.pts).l;
-    msg = after > before ? A.name + ' subiu para o nível ' + after + '!' : 'Treino completo! Agora coma proteína e descanse.';
+    msg = after > before ? t('w_up', { a: D.name, l: after }) : t('w_done');
   }
   S.workouts.unshift({ id: uid(), kind: k, at, type, min, full, counted });
   S.workouts.sort((x, y) => y.at - x.at);
@@ -420,9 +676,10 @@ function addWorkout(k, at, type, min, full) {
 }
 function delWorkout(id) {
   const w = S.workouts.find(x => x.id === id); if (!w) return;
-  if (w.counted) S[w.kind].pts = Math.max(0, S[w.kind].pts - 1);
+  if (w.counted && A(w.kind)) st(w.kind).pts = Math.max(0, st(w.kind).pts - 1);
   S.workouts = S.workouts.filter(x => x.id !== id); save();
 }
+function retime(k) { const a = st(k); if (a.last && a.due) a.due = a.last + A(k).rest + A(k).win; }
 function focusTotal() { return S.focus.reduce((s, f) => s + f.min, 0); }
 function focusLevel() {
   const m = focusTotal(); let l = 1;
@@ -439,182 +696,182 @@ function tdee() {
   if (!profOk()) return 0; const p = S.profile;
   return Math.round((10 * curWeight() + 6.25 * toNum(p.height) - 5 * toNum(p.age) + (p.sex === 'f' ? -161 : 5)) * p.act);
 }
-function kcalGoal() { const t = tdee(); if (!t) return 0; const g = GOALS.find(x => x[0] === S.profile.goal) || GOALS[1]; return t + g[2]; }
+function kcalGoal() { const x = tdee(); if (!x) return 0; const g = GOALS.find(y => y[0] === S.profile.goal) || GOALS[1]; return x + g[2]; }
 function protGoal() { const w = curWeight(); return w ? Math.round(w * 1.6) : 0; }
 function dayTotals(d) { return S.meals.filter(m => m.date === d).reduce((s, m) => ({ kcal: s.kcal + m.kcal, prot: s.prot + m.prot }), { kcal: 0, prot: 0 }); }
 function balance() {
-  const t = tdee();
-  if (!t) return { text: 'Preencha seu perfil para ver a previsão.', sub: '' };
-  const td = today(); let days = [];
-  for (let i = 1; i <= 7; i++) { const d = addDays(td, -i); if (S.meals.some(m => m.date === d)) days.push(d); }
-  if (!days.length && S.meals.some(m => m.date === td)) days = [td];
-  if (!days.length) return { text: 'Registre suas refeições para ver a previsão.', sub: '' };
-  const avg = days.reduce((s, d) => s + dayTotals(d).kcal, 0) / days.length, diff = avg - t;
-  const text = diff < -150 ? 'Você vai perder peso.' : diff > 150 ? 'Você vai ganhar peso.' : 'Você vai manter o peso.';
-  const kgWeek = diff * 7 / 7700;
-  return { text, sub: 'Média de ' + int(avg) + ' kcal em ' + days.length + (days.length === 1 ? ' dia' : ' dias') + ' · gasto estimado de ' + int(t) + ' kcal' + (Math.abs(diff) > 150 ? ' · cerca de ' + dec(Math.abs(kgWeek)) + ' kg por semana' : '') };
+  const burn = tdee();
+  if (!burn) return { text: t('bal_profile'), sub: '' };
+  const td = today(); let ds = [];
+  for (let i = 1; i <= 7; i++) { const d = addDays(td, -i); if (S.meals.some(m => m.date === d)) ds.push(d); }
+  if (!ds.length && S.meals.some(m => m.date === td)) ds = [td];
+  if (!ds.length) return { text: t('bal_meals'), sub: '' };
+  const avg = ds.reduce((s, d) => s + dayTotals(d).kcal, 0) / ds.length, diff = avg - burn;
+  const text = diff < -150 ? t('bal_lose') : diff > 150 ? t('bal_gain') : t('bal_keep');
+  return { text, sub: t('bal_sub', { a: int(avg), d: days(ds.length), t: int(burn) }) + (Math.abs(diff) > 150 ? t('bal_kg', { k: dec(Math.abs(diff * 7 / 7700)) }) : '') };
 }
 function bodyStatus() {
-  const mus = ['Baixa', 'Média', 'Alta', 'Máxima'][level(S.forca.pts).l - 1];
+  const m = level(S.forca.pts).l;
+  const mus = t(['lv_low', 'lv_mid', 'lv_high', 'lv_max'][m - 1]);
   let fat = null;
   if (profOk()) {
     const p = S.profile, bmi = curWeight() / Math.pow(toNum(p.height) / 100, 2);
     const bf = 1.2 * bmi + 0.23 * toNum(p.age) - 10.8 * (p.sex === 'f' ? 0 : 1) - 5.4;
     const lim = p.sex === 'f' ? [24, 31] : [16, 23];
-    fat = bf < lim[0] ? 'Baixa' : bf < lim[1] ? 'Média' : 'Alta';
+    fat = bf < lim[0] ? 'low' : bf < lim[1] ? 'mid' : 'high';
   }
-  const m = level(S.forca.pts).l;
-  let name = 'Normal';
-  if (m >= 3 && fat === 'Baixa') name = 'Trincado';
-  else if (m >= 3) name = 'Forte';
-  else if (fat === 'Baixa') name = 'Magro';
-  else if (fat === 'Alta') name = 'Acima do peso';
-  else if (m === 2) name = 'Em forma';
-  return { name, mus, fat: fat || '—' };
+  let name = 'b_normal';
+  if (m >= 3 && fat === 'low') name = 'b_ripped';
+  else if (m >= 3) name = 'b_strong';
+  else if (fat === 'low') name = 'b_lean';
+  else if (fat === 'high') name = 'b_over';
+  else if (m === 2) name = 'b_fit';
+  return { name: t(name), mus, fat: fat ? t('lv_' + fat) : '—' };
 }
 function reminders() {
   const out = [], now = Date.now(), td = today();
   if (aviso) out.push({ c: '#fff', t: aviso });
-  for (const k in ATTR) {
-    const w = winState(k), A = ATTR[k];
-    if (w.s === 'open' && w.left < 24 * H) out.push({ c: A.c, t: 'A janela de ' + A.name.toLowerCase() + ' fecha em ' + dur(w.left) + '.' });
-    const lost = S.lost.filter(l => l.kind === k && now - l.at < 2 * DAY).length;
-    if (lost) out.push({ c: 'var(--danger)', t: 'Você perdeu a janela de ' + A.name.toLowerCase() + ' e caiu um pouco de nível.' });
-    if (w.s === 'none' && !S.workouts.some(x => x.kind === k)) out.push({ c: A.c, t: 'Registre seu primeiro treino de ' + A.name.toLowerCase() + '.' });
+  for (const k of acts()) {
+    const w = winState(k), D = A(k), nm = D.name.toLowerCase();
+    if (w.s === 'open' && w.left < 24 * H) out.push({ c: D.c, t: t('r_close', { a: nm, d: dur(w.left) }) });
+    if (S.lost.some(l => l.kind === k && now - l.at < 2 * DAY)) out.push({ c: 'var(--danger)', t: t('r_lost', { a: nm }) });
+    if (w.s === 'none' && !S.workouts.some(x => x.kind === k)) out.push({ c: D.c, t: t('r_first', { a: nm }) });
   }
   const trainedToday = S.workouts.some(x => x.counted && x.kind === 'forca' && dayOf(x.at) === td);
   const pg = protGoal(), tot = dayTotals(td);
-  if (trainedToday && pg && tot.prot < pg) out.push({ c: 'var(--pink)', t: 'Treinou hoje: faltam ' + int(pg - tot.prot) + ' g de proteína.' });
-  if (!S.meals.some(m => m.date === td)) out.push({ c: 'var(--lime)', t: 'Nenhuma refeição registrada hoje.' });
-  if (!S.timer && focusOn(td) < S.focusGoal) out.push({ c: 'var(--lilac)', t: 'Faltam ' + (S.focusGoal - focusOn(td)) + ' min para a meta de foco de hoje.' });
-  if (!profOk()) out.push({ c: 'var(--muted)', t: 'Preencha seu perfil para calcular calorias e corpo.' });
+  if (trainedToday && pg && tot.prot < pg) out.push({ c: 'var(--pink)', t: t('r_prot', { g: int(pg - tot.prot) }) });
+  if (!S.meals.some(m => m.date === td)) out.push({ c: 'var(--lime)', t: t('r_meal') });
+  if (!S.timer && focusOn(td) < S.focusGoal) out.push({ c: 'var(--lilac)', t: t('r_focus', { m: S.focusGoal - focusOn(td) }) });
+  if (!profOk()) out.push({ c: 'var(--muted)', t: t('r_profile') });
   return out;
 }
 
 /* ---------- telas ---------- */
+const langChips = () => LANGS.map(([k, n]) => '<button class="chip' + (LANG === k ? ' on' : '') + '" data-a="lang" data-v="' + k + '" lang="' + LOC[k] + '">' + n + '</button>').join('');
 function hud() {
   const td = today(), kg = kcalGoal(), pg = protGoal(), tot = dayTotals(td);
   const pk = kg ? clamp(tot.kcal / kg, 0, 1) : 0, pp = pg ? clamp(tot.prot / pg, 0, 1) : 0;
   const cw = winState('cardio'), fol = cw.s === 'rest' ? 1 : cw.s === 'open' ? cw.frac : 0;
   const fo = clamp((focusOn(td) + timerMin()) / S.focusGoal, 0, 1);
   const bar = (icon, c, segs, label) => '<div class="b" style="color:' + c + '" title="' + label + '">' + ico(icon) + '<div class="t">' + segs.map(v => '<i style="--c:' + c + ';--w:' + Math.round(v * 100) + '%"></i>').join('') + '</div></div>';
-  return '<div class="hud"><div class="bars" aria-label="Saúde, fôlego e foco de hoje">' +
-    bar('heart', 'var(--pink)', [pk, pp], 'Saúde: calorias e proteína de hoje') +
-    bar('bolt', 'var(--teal)', [fol], 'Fôlego: janela de cárdio') +
-    bar('eye', 'var(--lilac)', [fo], 'Foco: meta de hoje') +
-    '</div><button class="gear" data-a="go" data-v="ajustes" aria-label="Ajustes">' + ico('gear') + '</button></div>';
+  return '<div class="hud"><div class="bars" aria-label="' + t('hud_aria') + '">' +
+    bar('heart', 'var(--pink)', [pk, pp], t('hud_s')) + bar('bolt', 'var(--teal)', [fol], t('hud_f')) + bar('eye', 'var(--lilac)', [fo], t('hud_o')) +
+    '</div><button class="gear" data-a="go" data-v="ajustes" aria-label="' + t('settings') + '">' + ico('gear') + '</button></div>';
 }
 function attrCard(k) {
-  const A = ATTR[k], a = S[k], lv = level(a.pts), w = winState(k);
+  const D = A(k), lv = level(st(k).pts), w = winState(k);
   let sub;
-  if (w.s === 'rest') sub = '<div class="sub">' + ico('clock') + '<span class="grow">Treino finalizado. Descanse para se recuperar.</span></div>';
-  else if (w.s === 'open') sub = '<div class="sub win" style="--deep:' + A.deep + '"><span class="grow">Janela de treino</span>' + ico('glass') + '<div class="bar"><i style="--w:' + Math.round(w.frac * 100) + '%"></i></div></div>';
-  else sub = '<div class="sub">' + ico('glass') + '<span class="grow">Registre um treino para abrir sua janela.</span></div>';
-  return '<button class="card" style="--c:' + A.c + '" data-a="go" data-v="' + k + '"><div class="head"><div class="grow"><div class="ttl">' + A.title + '</div><div class="lv num">Nível ' + lv.l + '/4</div></div>' + ring(lv.frac, A.icon, A.c) + '</div>' + sub + '</button>';
+  if (w.s === 'rest') sub = '<div class="sub">' + ico('clock') + '<span class="grow">' + t('rest_msg') + '</span></div>';
+  else if (w.s === 'open') sub = '<div class="sub win" style="--deep:' + D.deep + '"><span class="grow">' + t('win') + '</span>' + ico('glass') + '<div class="bar"><i style="--w:' + Math.round(w.frac * 100) + '%"></i></div></div>';
+  else sub = '<div class="sub">' + ico('glass') + '<span class="grow">' + t('open_win') + '</span></div>';
+  return '<button class="card" style="--c:' + D.c + '" data-a="go" data-v="' + esc(k) + '"><div class="head"><div class="grow"><div class="ttl">' + esc(D.title) + '</div><div class="lv num">' + t('level', { l: lv.l }) + '</div></div>' + ring(lv.frac, D.icon, D.c) + '</div>' + sub + '</button>';
 }
 function focoCard() {
   const fl = focusLevel(), td = today(), m = focusOn(td) + timerMin();
   const sub = S.timer
-    ? '<div class="sub win" style="--deep:var(--lilac-deep)"><span class="grow">' + esc(S.timer.cat) + ' em andamento</span><span class="r num" data-live="timer-short">' + timerMin() + ' min</span><div class="bar"><i style="--w:' + Math.round(clamp(m / S.focusGoal, 0, 1) * 100) + '%"></i></div></div>'
-    : '<div class="sub">' + ico('clock') + '<span class="grow">Hoje: ' + m + ' de ' + S.focusGoal + ' min</span></div>';
-  return '<button class="card" style="--c:var(--lilac)" data-a="go" data-v="foco"><div class="head"><div class="grow"><div class="ttl">Foco</div><div class="lv num">Nível ' + fl.l + '/4</div></div>' + ring(fl.frac, 'eye', 'var(--lilac)') + '</div>' + sub + '</button>';
+    ? '<div class="sub win" style="--deep:var(--lilac-deep)"><span class="grow">' + t('in_progress', { c: esc(tn(S.timer.cat)) }) + '</span><span class="r num" data-live="timer-short">' + timerMin() + ' min</span><div class="bar"><i style="--w:' + Math.round(clamp(m / S.focusGoal, 0, 1) * 100) + '%"></i></div></div>'
+    : '<div class="sub">' + ico('clock') + '<span class="grow">' + t('today_of', { m, g: S.focusGoal }) + '</span></div>';
+  return '<button class="card" style="--c:var(--lilac)" data-a="go" data-v="foco"><div class="head"><div class="grow"><div class="ttl">' + t('n_foco') + '</div><div class="lv num">' + t('level', { l: fl.l }) + '</div></div>' + ring(fl.frac, 'eye', 'var(--lilac)') + '</div>' + sub + '</button>';
 }
 function viewHome() {
   const rs = reminders(), b = bodyStatus(), bal = balance();
   let h = hud();
-  h += '<button class="notif" data-a="notif" aria-expanded="' + V.notif + '"><span class="ic">' + ico('bell') + '</span><span class="grow"><b>Lembretes</b><span class="small muted">' + (rs.length ? rs.length + (rs.length === 1 ? ' notificação' : ' notificações') : 'Nada pendente') + '</span></span>' + ico(V.notif ? 'x' : 'next') + '</button>';
+  h += '<button class="notif" data-a="notif" aria-expanded="' + V.notif + '"><span class="ic">' + ico('bell') + '</span><span class="grow"><b>' + t('reminders') + '</b><span class="small muted">' + (rs.length ? t(rs.length === 1 ? 'notif_1' : 'notif', { n: rs.length }) : t('nothing')) + '</span></span>' + ico(V.notif ? 'x' : 'next') + '</button>';
   if (V.notif && rs.length) h += '<div class="notif-list">' + rs.map(r => '<div style="--c:' + r.c + '">' + esc(r.t) + '</div>').join('') + '</div>';
-  h += '<div class="label">Fitness</div><div class="cards">' + attrCard('forca') + attrCard('cardio') + focoCard() + '</div>';
-  h += '<div class="label">Corpo e nutrição</div><div class="cards">';
-  h += '<button class="card" data-a="go" data-v="nutri"><div class="ttl">' + esc(b.name) + '</div><div class="desc">Musculatura - ' + b.mus + '</div><div class="desc">Gordura corporal - ' + b.fat + '</div></button>';
-  h += '<button class="card" data-a="go" data-v="nutri"><div class="ttl">Equilíbrio calórico</div><div class="desc">' + esc(bal.text) + '</div></button>';
+  h += '<div class="label">Fitness</div><div class="cards">' + acts().map(attrCard).join('') + focoCard() + '<button class="addcard" data-a="new-act">' + t('new_act') + '</button></div>';
+  h += '<div class="label">' + t('lbl_body') + '</div><div class="cards">';
+  h += '<button class="card" data-a="go" data-v="nutri"><div class="ttl">' + esc(b.name) + '</div><div class="desc">' + t('muscle', { v: b.mus }) + '</div><div class="desc">' + t('fat', { v: b.fat }) + '</div></button>';
+  h += '<button class="card" data-a="go" data-v="nutri"><div class="ttl">' + t('cal_bal') + '</div><div class="desc">' + esc(bal.text) + '</div></button>';
   h += '</div>';
-  if (!REAL) h += '<p class="demo">Prévia com dados de exemplo</p>';
+  if (!REAL) h += '<p class="demo">' + t('demo') + '</p>';
   return h;
 }
 function top(title, icon, c) {
-  return '<div class="top" style="--c:' + (c || '#fff') + '"><button class="back" data-a="go" data-v="home" aria-label="Voltar">' + ico('back') + '</button><h1>' + title + '</h1><span class="ico">' + (icon ? ico(icon) : '') + '</span></div>';
+  return '<div class="top" style="--c:' + (c || '#fff') + '"><button class="back" data-a="go" data-v="home" aria-label="' + t('back') + '">' + ico('back') + '</button><h1>' + title + '</h1><span class="ico">' + (icon ? ico(icon) : '') + '</span></div>';
 }
 function viewAttr(k) {
-  const A = ATTR[k], a = S[k], lv = level(a.pts), w = winState(k);
-  let h = '<div style="--c:' + A.c + '">' + top(A.name, A.icon, A.c);
-  if (k === 'forca') h += '<div class="prose"><p>Exercícios de <b>Força</b>, como musculação e barra, melhoram sua <b>Saúde</b> e aumentam a <b>musculatura</b>.</p><p>Mantenha a constância e treine durante a <b>janela de treino</b>. Se deixar a janela passar sem um treino completo, você perde parte dos seus ganhos.</p><p>Depois de um treino completo, coma <b>proteína</b> e <b>descanse</b>. Treinar alimentado e descansado também melhora seu desempenho.</p></div>';
-  else h += '<div class="prose"><p>Aumente seu <b>Fôlego</b> com exercícios de <b>Cárdio</b> na academia ou ao ar livre.</p>' + A.groups.map(g => '<div><b>' + g[0] + ':</b><ul>' + g[1].map(x => '<li>' + x + '</li>').join('') + '</ul></div>').join('') + '<p>Mantenha a constância e treine durante a <b>janela de treino</b>. Se deixar a janela passar ou não completar um treino inteiro, você perderá seus ganhos.</p></div>';
-  h += '<div class="panel"><div class="big">' + ring(lv.frac, A.icon, A.c) + '<div class="grow"><div class="n num">Nível ' + lv.l + '/4</div><div class="small muted">' + (lv.l === 4 ? 'Nível máximo. Continue treinando para não cair.' : (n => 'Mais ' + n + (n === 1 ? ' treino completo' : ' treinos completos') + ' para o nível ' + (lv.l + 1))(PTS_LV - a.pts % PTS_LV)) + '</div></div></div>';
+  const D = A(k), a = st(k), lv = level(a.pts), w = winState(k);
+  let h = '<div style="--c:' + D.c + '">' + top(esc(D.name), D.icon, D.c);
+  if (k === 'forca') h += '<div class="prose">' + t('p_forca') + '</div>';
+  else if (k === 'cardio') h += '<div class="prose"><p>' + t('p_cardio1') + '</p>' + D.groups.map(g => '<div><b>' + t(g[0]) + ':</b><ul>' + g[1].map(x => '<li>' + esc(tn(x)) + '</li>').join('') + '</ul></div>').join('') + '<p>' + t('p_cardio2') + '</p></div>';
+  else h += '<div class="prose">' + t('p_custom', { a: esc(D.name) }) + '</div>';
+  const n = PTS_LV - a.pts % PTS_LV;
+  h += '<div class="panel"><div class="big">' + ring(lv.frac, D.icon, D.c) + '<div class="grow"><div class="n num">' + t('level', { l: lv.l }) + '</div><div class="small muted">' + (lv.l === 4 ? t('max_lv') : t(n === 1 ? 'more_1' : 'more', { n, l: lv.l + 1 })) + '</div></div></div>';
   h += '<div class="kv" style="margin-top:14px">';
-  if (w.s === 'rest') h += '<span>Recuperação</span><span class="num" data-live="rest-' + k + '">' + dur(w.left) + '</span>';
-  if (w.s === 'open') h += '<span>Janela de treino fecha em</span><span class="num" data-live="win-' + k + '">' + dur(w.left) + '</span>';
-  if (w.s === 'none') h += '<span>Janela de treino</span><span>Fechada</span>';
-  h += '<span>Treino completo</span><span>' + A.min + ' min ou mais</span><span>Descanso depois</span><span>' + Math.round(A.rest / H) + 'h</span><span>Duração da janela</span><span>' + dec(A.win / DAY) + ' dias</span></div>';
+  if (w.s === 'rest') h += '<span>' + t('recovery') + '</span><span class="num">' + dur(w.left) + '</span>';
+  if (w.s === 'open') h += '<span>' + t('win_closes') + '</span><span class="num">' + dur(w.left) + '</span>';
+  if (w.s === 'none') h += '<span>' + t('win') + '</span><span>' + t('closed') + '</span>';
+  h += '<span>' + t('full_wo') + '</span><span>' + t('min_more', { m: D.min }) + '</span><span>' + t('rest_after') + '</span><span>' + dec(D.rest / H) + 'h</span><span>' + t('win_len') + '</span><span>' + days(Math.round(D.win / DAY * 10) / 10) + '</span></div>';
   if (w.s === 'open') h += '<div class="meter" style="margin-top:12px"><i style="--w:' + Math.round(w.frac * 100) + '%"></i></div>';
-  h += '<div style="margin-top:16px"><button class="btn main block" data-a="add-workout" data-k="' + k + '">' + ico('plus') + 'Registrar treino</button></div></div>';
+  h += '<div class="btns" style="margin-top:16px"><button class="btn" data-a="win-edit" data-k="' + esc(k) + '">' + ico('clock') + t('adjust') + '</button><button class="btn main" data-a="add-workout" data-k="' + esc(k) + '">' + ico('plus') + t('log_wo') + '</button></div></div>';
   const list = S.workouts.filter(x => x.kind === k).slice(0, 20);
-  h += '<div class="panel"><h2>Últimos treinos</h2><div class="list">' + (list.length ? list.map(x => '<div class="li"><div class="grow"><div class="t">' + esc(x.type) + '</div><div class="s num">' + when(x.at) + ' · ' + x.min + ' min</div></div><span class="tag' + (x.counted ? ' ok' : '') + '">' + (x.counted ? 'Contou' : x.full ? 'Não contou' : 'Incompleto') + '</span><button class="x" data-a="del-workout" data-id="' + x.id + '" aria-label="Apagar treino">' + ico('x') + '</button></div>').join('') : '<p class="empty">Nenhum treino ainda.</p>') + '</div></div>';
+  h += '<div class="panel"><h2>' + t('last_wo') + '</h2><div class="list">' + (list.length ? list.map(x => '<div class="li"><div class="grow"><div class="t">' + esc(tn(x.type)) + '</div><div class="s num">' + when(x.at) + ' · ' + x.min + ' min</div></div><span class="tag' + (x.counted ? ' ok' : '') + '">' + t(x.counted ? 'counted' : x.full ? 'not_counted' : 'incomplete') + '</span><button class="x" data-a="del-workout" data-id="' + x.id + '" aria-label="' + t('del_wo') + '">' + ico('x') + '</button></div>').join('') : '<p class="empty">' + t('no_wo') + '</p>') + '</div></div>';
+  if (!D.builtin) h += '<button class="btn ghost danger block" data-a="del-act" data-k="' + esc(k) + '">' + t('del_act') + '</button>';
   return h + '</div>';
 }
 function viewFoco() {
   const fl = focusLevel(), td = today();
-  let h = '<div style="--c:var(--lilac)">' + top('Foco', 'eye', 'var(--lilac)');
-  h += '<div class="prose"><p>Melhore seu <b>Foco</b> com atividades que exigem concentração, como <b>estudo</b>, <b>trabalho</b>, leitura ou meditação.</p><p>Cada minuto concentrado conta. Use o cronômetro ou registre o tempo depois.</p><p>Com o tempo, ele aumentará <b>permanentemente</b>.</p></div>';
-  h += '<div class="panel"><div class="big">' + ring(fl.frac, 'eye', 'var(--lilac)') + '<div class="grow"><div class="n num">Nível ' + fl.l + '/4</div><div class="small muted num">' + dec(fl.m / 60) + 'h no total' + (fl.next ? ' · mais ' + dec(fl.next / 60) + 'h para o nível ' + (fl.l + 1) : ' · nível máximo') + '</div></div></div></div>';
-  h += '<div class="panel"><h2>Sessão de foco</h2>';
+  let h = '<div style="--c:var(--lilac)">' + top(t('n_foco'), 'eye', 'var(--lilac)');
+  h += '<div class="prose">' + t('p_foco') + '</div>';
+  h += '<div class="panel"><div class="big">' + ring(fl.frac, 'eye', 'var(--lilac)') + '<div class="grow"><div class="n num">' + t('level', { l: fl.l }) + '</div><div class="small muted num">' + t('h_total', { h: dec(fl.m / 60) }) + (fl.next ? t('h_next', { h: dec(fl.next / 60), l: fl.l + 1 }) : t('lv_maxed')) + '</div></div></div></div>';
+  h += '<div class="panel"><h2>' + t('f_session') + '</h2>';
   if (S.timer) {
-    h += '<div class="timer" data-live="timer">' + clockTxt() + '</div><p class="small muted" style="text-align:center;margin:-6px 0 14px">' + esc(S.timer.cat) + '</p><div class="btns"><button class="btn ghost" data-a="timer-cancel">Descartar</button><button class="btn main" data-a="timer-stop">Encerrar e salvar</button></div>';
+    h += '<div class="timer" data-live="timer">' + clockTxt() + '</div><p class="small muted" style="text-align:center;margin:-6px 0 14px">' + esc(tn(S.timer.cat)) + '</p><div class="btns"><button class="btn ghost" data-a="timer-cancel">' + t('discard') + '</button><button class="btn main" data-a="timer-stop">' + t('stop_save') + '</button></div>';
   } else {
-    h += '<div class="chips" style="margin-bottom:14px">' + FOCO_CATS.map(c => '<button class="chip' + (V.focoCat === c ? ' on' : '') + '" data-a="foco-cat" data-v="' + c + '">' + c + '</button>').join('') + '</div><div class="btns"><button class="btn" data-a="add-focus">Registrar tempo</button><button class="btn main" data-a="timer-start">Começar</button></div>';
+    h += '<div class="chips" style="margin-bottom:14px">' + FOCO_CATS.map(c => '<button class="chip' + (V.focoCat === c ? ' on' : '') + '" data-a="foco-cat" data-v="' + c + '">' + tn(c) + '</button>').join('') + '</div><div class="btns"><button class="btn" data-a="add-focus">' + t('log_time') + '</button><button class="btn main" data-a="timer-start">' + t('start') + '</button></div>';
   }
   h += '</div>';
   const m = focusOn(td);
-  h += '<div class="panel"><div class="row between" style="margin-bottom:10px"><h2 style="margin:0">Meta diária</h2><div class="row"><button class="btn slim" data-a="focus-goal" data-d="-15" aria-label="Diminuir meta">−</button><b class="num">' + S.focusGoal + ' min</b><button class="btn slim" data-a="focus-goal" data-d="15" aria-label="Aumentar meta">+</button></div></div><div class="meter"><i style="--w:' + Math.round(clamp(m / S.focusGoal, 0, 1) * 100) + '%"></i></div><p class="small muted num" style="margin-top:8px">Hoje: ' + m + ' de ' + S.focusGoal + ' min</p></div>';
+  h += '<div class="panel"><div class="row between" style="margin-bottom:10px"><h2 style="margin:0">' + t('daily_goal') + '</h2><div class="row"><button class="btn slim" data-a="focus-goal" data-d="-15" aria-label="' + t('goal_less') + '">−</button><b class="num">' + S.focusGoal + ' min</b><button class="btn slim" data-a="focus-goal" data-d="15" aria-label="' + t('goal_more') + '">+</button></div></div><div class="meter"><i style="--w:' + Math.round(clamp(m / S.focusGoal, 0, 1) * 100) + '%"></i></div><p class="small muted num" style="margin-top:8px">' + t('today_of', { m, g: S.focusGoal }) + '</p></div>';
   const list = S.focus.slice().sort((a, b) => b.at - a.at).slice(0, 20);
-  h += '<div class="panel"><h2>Últimas sessões</h2><div class="list">' + (list.length ? list.map(f => '<div class="li"><div class="grow"><div class="t">' + esc(f.cat) + '</div><div class="s num">' + when(f.at) + ' · ' + f.min + ' min</div></div><button class="x" data-a="del-focus" data-id="' + f.id + '" aria-label="Apagar sessão">' + ico('x') + '</button></div>').join('') : '<p class="empty">Nenhuma sessão ainda.</p>') + '</div></div>';
+  h += '<div class="panel"><h2>' + t('last_sess') + '</h2><div class="list">' + (list.length ? list.map(f => '<div class="li"><div class="grow"><div class="t">' + esc(tn(f.cat)) + '</div><div class="s num">' + when(f.at) + ' · ' + f.min + ' min</div></div><button class="x" data-a="del-focus" data-id="' + f.id + '" aria-label="' + t('del_sess') + '">' + ico('x') + '</button></div>').join('') : '<p class="empty">' + t('no_sess') + '</p>') + '</div></div>';
   return h + '</div>';
 }
 function clockTxt() { if (!S.timer) return '00:00'; const s = Math.floor((Date.now() - S.timer.start) / 1000), h = Math.floor(s / 3600); return (h ? h + ':' : '') + pad(Math.floor(s / 60) % 60) + ':' + pad(s % 60); }
 function viewNutri() {
   const d = V.day, td = today(), tot = dayTotals(d), kg = kcalGoal(), pg = protGoal(), b = bodyStatus(), bal = balance();
-  let h = '<div style="--c:var(--lime)">' + top('Corpo e nutrição', 'leaf', 'var(--lime)');
-  h += '<div class="prose"><p>O que você <b>come</b> decide se você vai <b>perder</b>, <b>manter</b> ou <b>ganhar</b> peso. Registre as refeições para ver a previsão.</p><p>Depois de treinar, bata a meta de <b>proteína</b> para recuperar a musculatura.</p></div>';
-  h += '<div class="cards">';
-  h += '<div class="card"><div class="head"><div class="grow"><div class="ttl" style="color:#fff">' + esc(b.name) + '</div><div class="desc">Musculatura - ' + b.mus + '</div><div class="desc">Gordura corporal - ' + b.fat + '</div></div><span style="color:var(--lime)">' + ico('body') + '</span></div></div>';
-  h += '<div class="card"><div class="ttl" style="color:#fff">Equilíbrio calórico</div><div class="desc">' + esc(bal.text) + '</div>' + (bal.sub ? '<div class="small muted" style="margin-top:4px">' + esc(bal.sub) + '</div>' : '') + '</div></div>';
-  if (!profOk()) h += '<div class="panel"><p class="small muted" style="margin-bottom:12px">Preencha idade, altura e peso para calcular suas calorias e o estado do corpo.</p><button class="btn main block" data-a="profile">Preencher perfil</button></div>';
-  h += '<div class="daynav"><button data-a="day" data-d="-1" aria-label="Dia anterior">' + ico('back') + '</button><b>' + dayLabel(d) + '</b><button data-a="day" data-d="1" aria-label="Próximo dia"' + (d >= td ? ' disabled' : '') + '>' + ico('next') + '</button></div>';
-  h += '<div class="panel"><div class="kv"><span>Calorias</span><span class="num">' + int(tot.kcal) + (kg ? ' de ' + int(kg) : '') + ' kcal</span></div><div class="meter" style="margin:8px 0 12px;--c:var(--lime)"><i style="--w:' + (kg ? Math.round(clamp(tot.kcal / kg, 0, 1) * 100) : 0) + '%"></i></div><div class="kv"><span>Proteína</span><span class="num">' + int(tot.prot) + (pg ? ' de ' + pg : '') + ' g</span></div><div class="meter" style="margin-top:8px;--c:var(--pink)"><i style="--w:' + (pg ? Math.round(clamp(tot.prot / pg, 0, 1) * 100) : 0) + '%"></i></div>' + (kg && tot.kcal > kg ? '<p class="small" style="color:var(--danger);margin-top:10px">Passou ' + int(tot.kcal - kg) + ' kcal da meta.</p>' : '') + '</div>';
-  MEALS.forEach(([id, label]) => {
+  let h = '<div style="--c:var(--lime)">' + top(t('lbl_body'), 'leaf', 'var(--lime)');
+  h += '<div class="prose">' + t('p_nutri') + '</div><div class="cards">';
+  h += '<div class="card"><div class="head"><div class="grow"><div class="ttl" style="color:#fff">' + esc(b.name) + '</div><div class="desc">' + t('muscle', { v: b.mus }) + '</div><div class="desc">' + t('fat', { v: b.fat }) + '</div></div><span style="color:var(--lime)">' + ico('body') + '</span></div></div>';
+  h += '<div class="card"><div class="ttl" style="color:#fff">' + t('cal_bal') + '</div><div class="desc">' + esc(bal.text) + '</div>' + (bal.sub ? '<div class="small muted" style="margin-top:4px">' + esc(bal.sub) + '</div>' : '') + '</div></div>';
+  if (!profOk()) h += '<div class="panel"><p class="small muted" style="margin-bottom:12px">' + t('fill_prof_msg') + '</p><button class="btn main block" data-a="profile">' + t('fill_prof') + '</button></div>';
+  h += '<div class="daynav"><button data-a="day" data-d="-1" aria-label="' + t('prev_day') + '">' + ico('back') + '</button><b>' + dayLabel(d) + '</b><button data-a="day" data-d="1" aria-label="' + t('next_day') + '"' + (d >= td ? ' disabled' : '') + '>' + ico('next') + '</button></div>';
+  h += '<div class="panel"><div class="kv"><span>' + t('calories') + '</span><span class="num">' + (kg ? t('x_of_y', { a: int(tot.kcal), b: int(kg) }) : int(tot.kcal)) + ' kcal</span></div><div class="meter" style="margin:8px 0 12px;--c:var(--lime)"><i style="--w:' + (kg ? Math.round(clamp(tot.kcal / kg, 0, 1) * 100) : 0) + '%"></i></div><div class="kv"><span>' + t('protein') + '</span><span class="num">' + (pg ? t('x_of_y', { a: int(tot.prot), b: pg }) : int(tot.prot)) + ' g</span></div><div class="meter" style="margin-top:8px;--c:var(--pink)"><i style="--w:' + (pg ? Math.round(clamp(tot.prot / pg, 0, 1) * 100) : 0) + '%"></i></div>' + (kg && tot.kcal > kg ? '<p class="small" style="color:var(--danger);margin-top:10px">' + t('over', { k: int(tot.kcal - kg) }) + '</p>' : '') + '</div>';
+  MEALS.forEach(id => {
     const ms = S.meals.filter(m => m.date === d && m.meal === id), k = ms.reduce((s, m) => s + m.kcal, 0);
-    h += '<div class="panel"><div class="row between" style="margin-bottom:' + (ms.length ? 10 : 0) + 'px"><h2 style="margin:0">' + label + (k ? ' · <span class="num">' + int(k) + ' kcal</span>' : '') + '</h2><button class="btn slim" data-a="add-meal" data-m="' + id + '">' + ico('plus') + 'Adicionar</button></div>' + (ms.length ? '<div class="list">' + ms.map(m => '<div class="li"><div class="grow"><div class="t">' + esc(m.name) + '</div><div class="s num">' + int(m.kcal) + ' kcal · ' + dec(m.prot) + ' g de proteína</div></div><button class="x" data-a="del-meal" data-id="' + m.id + '" aria-label="Apagar">' + ico('x') + '</button></div>').join('') + '</div>' : '') + '</div>';
+    h += '<div class="panel"><div class="row between" style="margin-bottom:' + (ms.length ? 10 : 0) + 'px"><h2 style="margin:0">' + t('m_' + id) + (k ? ' · <span class="num">' + int(k) + ' kcal</span>' : '') + '</h2><button class="btn slim" data-a="add-meal" data-m="' + id + '">' + ico('plus') + t('add') + '</button></div>' + (ms.length ? '<div class="list">' + ms.map(m => '<div class="li"><div class="grow"><div class="t">' + esc(tn(m.name)) + '</div><div class="s num">' + int(m.kcal) + ' kcal · ' + t('g_prot', { g: dec(m.prot) }) + '</div></div><button class="x" data-a="del-meal" data-id="' + m.id + '" aria-label="' + t('delete') + '">' + ico('x') + '</button></div>').join('') + '</div>' : '') + '</div>';
   });
   const ws = S.weights.slice().sort((a, b) => a.date < b.date ? 1 : -1);
-  h += '<div class="panel"><div class="row between" style="margin-bottom:10px"><h2 style="margin:0">Peso</h2><button class="btn slim" data-a="add-weight">' + ico('plus') + 'Registrar</button></div>' + (ws.length ? '<div class="list">' + ws.slice(0, 8).map((w, i) => { const prev = ws[i + 1], df = prev ? w.kg - prev.kg : 0; return '<div class="li"><div class="grow"><div class="t num">' + dec(w.kg) + ' kg</div><div class="s">' + dayLabel(w.date) + '</div></div>' + (prev && df ? '<span class="tag num">' + (df > 0 ? '+' : '−') + dec(Math.abs(df)) + ' kg</span>' : '') + '<button class="x" data-a="del-weight" data-v="' + w.date + '" aria-label="Apagar">' + ico('x') + '</button></div>'; }).join('') + '</div>' : '<p class="empty">Nenhum peso registrado.</p>') + '</div>';
+  h += '<div class="panel"><div class="row between" style="margin-bottom:10px"><h2 style="margin:0">' + t('weight') + '</h2><button class="btn slim" data-a="add-weight">' + ico('plus') + t('log') + '</button></div>' + (ws.length ? '<div class="list">' + ws.slice(0, 8).map((w, i) => { const prev = ws[i + 1], df = prev ? w.kg - prev.kg : 0; return '<div class="li"><div class="grow"><div class="t num">' + dec(w.kg) + ' kg</div><div class="s">' + dayLabel(w.date) + '</div></div>' + (prev && df ? '<span class="tag num">' + (df > 0 ? '+' : '−') + dec(Math.abs(df)) + ' kg</span>' : '') + '<button class="x" data-a="del-weight" data-v="' + w.date + '" aria-label="' + t('delete') + '">' + ico('x') + '</button></div>'; }).join('') + '</div>' : '<p class="empty">' + t('no_weight') + '</p>') + '</div>';
   return h + '</div>';
 }
 const LOGO = '<svg class="logo" viewBox="0 0 100 100" aria-hidden="true"><g transform="translate(50 50) rotate(-90)" fill="none" stroke-linecap="round" stroke-width="7"><circle r="34" stroke="rgba(255,255,255,.1)"/><circle r="34" stroke="#f6a6c8" stroke-dasharray="160 214"/><circle r="23" stroke="rgba(255,255,255,.1)"/><circle r="23" stroke="#7fdfc6" stroke-dasharray="105 145"/><circle r="12" stroke="rgba(255,255,255,.1)"/><circle r="12" stroke="#b8a1ff" stroke-dasharray="50 76"/></g></svg>';
-function viewLoading() { return '<div class="auth"><div class="brand">' + LOGO + '</div><p class="muted" style="text-align:center">Carregando…</p></div>'; }
+function viewLoading() { return '<div class="auth"><div class="brand">' + LOGO + '</div><p class="muted" style="text-align:center">' + t('loading') + '</p></div>'; }
+const pwField = (label, auto) => '<div class="field"><span id="a-pass-l">' + label + '</span><div class="pw"><input id="a-pass" type="password" aria-labelledby="a-pass-l" autocomplete="' + auto + '" minlength="8"><button type="button" data-a="pw-toggle" aria-label="' + t('show_pw') + '" title="' + t('show_pw') + '">' + ico('eye') + '</button></div></div>';
 function viewAuth() {
   const m = V.authMode;
-  const head = { entrar: ['Entrar', 'Seus treinos, refeições e foco salvos na sua conta.'], criar: ['Criar conta', 'Leva menos de um minuto.'], esqueci: ['Esqueci a senha', 'Enviamos um link para você criar uma senha nova.'], nova: ['Nova senha', 'Escolha uma senha nova para sua conta.'] }[m];
-  let h = '<div class="auth"><div class="brand">' + LOGO + '<h1>Fitness</h1></div><div class="panel"><h2 class="atitle">' + head[0] + '</h2><p class="small muted" style="margin-bottom:16px">' + head[1] + '</p>';
+  const head = { entrar: ['a_in', 'a_in_s'], criar: ['a_new', 'a_new_s'], esqueci: ['a_forgot', 'a_forgot_s'], nova: ['a_reset', 'a_reset_s'] }[m];
+  let h = '<div class="auth"><div class="langs">' + langChips() + '</div><div class="brand">' + LOGO + '<h1>Fitness</h1></div><div class="panel"><h2 class="atitle">' + t(head[0]) + '</h2><p class="small muted" style="margin-bottom:16px">' + t(head[1]) + '</p>';
   if (V.authMsg) h += '<p class="amsg' + (V.authErr ? ' err' : '') + '" role="alert">' + esc(V.authMsg) + '</p>';
-  if (m === 'criar') h += '<label class="field"><span>Nome</span><input id="a-name" autocomplete="name" maxlength="60"></label>';
-  if (m !== 'nova') h += '<label class="field"><span>E-mail</span><input id="a-email" type="email" autocomplete="email" inputmode="email"></label>';
-  if (m !== 'esqueci') h += '<label class="field"><span>' + (m === 'nova' ? 'Nova senha' : 'Senha') + '</span><input id="a-pass" type="password" autocomplete="' + (m === 'entrar' ? 'current-password' : 'new-password') + '" minlength="8"></label>';
-  if (m === 'criar') h += '<label class="check small"><input type="checkbox" id="a-terms">Li e aceito os <a href="termos.html" target="_blank" rel="noopener">Termos de Uso</a> e a <a href="privacidade.html" target="_blank" rel="noopener">Política de Privacidade</a></label>';
-  h += '<button class="btn main block" style="--c:#fff" data-a="auth-go"' + (V.authBusy ? ' disabled' : '') + '>' + (V.authBusy ? 'Aguarde…' : { entrar: 'Entrar', criar: 'Criar conta', esqueci: 'Enviar link', nova: 'Salvar senha' }[m]) + '</button>';
-  if (m === 'entrar') h += '<button class="btn ghost block" data-a="auth-mode" data-v="esqueci">Esqueci a senha</button>';
+  if (m === 'criar') h += '<label class="field"><span>' + t('name') + '</span><input id="a-name" autocomplete="name" maxlength="60"></label>';
+  if (m !== 'nova') h += '<label class="field"><span>' + t('email') + '</span><input id="a-email" type="email" autocomplete="email" inputmode="email"></label>';
+  if (m !== 'esqueci') h += pwField(t(m === 'nova' ? 'a_reset' : 'password'), m === 'entrar' ? 'current-password' : 'new-password');
+  if (m === 'criar') h += '<label class="check small"><input type="checkbox" id="a-terms">' + t('terms_ok') + '</label>';
+  h += '<button class="btn main block" style="--c:#fff" data-a="auth-go"' + (V.authBusy ? ' disabled' : '') + '>' + (V.authBusy ? t('wait') : t({ entrar: 'a_in', criar: 'a_new', esqueci: 'b_send', nova: 'b_savepw' }[m])) + '</button>';
+  if (m === 'entrar') h += '<button class="btn ghost block" data-a="auth-mode" data-v="esqueci">' + t('a_forgot') + '</button>';
   h += '</div>';
-  if (m === 'entrar') h += '<p class="aswitch">Não tem conta? <button data-a="auth-mode" data-v="criar">Criar conta</button></p>';
-  else if (m !== 'nova') h += '<p class="aswitch">Já tem conta? <button data-a="auth-mode" data-v="entrar">Entrar</button></p>';
-  if (m !== 'nova') h += '<button class="btn ghost block" data-a="guest">Usar sem conta</button><p class="small muted" style="text-align:center;margin-top:4px">Sem conta, os dados ficam só neste aparelho.</p>';
+  if (m === 'entrar') h += '<p class="aswitch">' + t('no_acc') + ' <button data-a="auth-mode" data-v="criar">' + t('a_new') + '</button></p>';
+  else if (m !== 'nova') h += '<p class="aswitch">' + t('has_acc') + ' <button data-a="auth-mode" data-v="entrar">' + t('a_in') + '</button></p>';
+  if (m !== 'nova') h += '<button class="btn ghost block" data-a="guest">' + t('guest') + '</button><p class="small muted" style="text-align:center;margin-top:4px">' + t('guest_s') + '</p>';
   return h + '</div>';
 }
 async function authGo() {
   const val2 = id => { const e = document.getElementById(id); return e ? e.value.trim() : ''; };
   const m = V.authMode, email = val2('a-email'), pass = (document.getElementById('a-pass') || {}).value || '';
   const fail = msg => { Object.assign(V, { authMsg: msg, authErr: true, authBusy: false }); render(); };
-  if (m !== 'nova' && !/^\S+@\S+\.\S+$/.test(email)) return fail('Digite um e-mail válido.');
-  if (m !== 'esqueci' && pass.length < 8) return fail('A senha precisa ter pelo menos 8 caracteres.');
-  if (m === 'criar' && !document.getElementById('a-terms').checked) return fail('Aceite os Termos e a Política de Privacidade para continuar.');
+  if (m !== 'nova' && !/^\S+@\S+\.\S+$/.test(email)) return fail(t('e_email'));
+  if (m !== 'esqueci' && pass.length < 8) return fail(t('e_pw8'));
+  if (m === 'criar' && !document.getElementById('a-terms').checked) return fail(t('e_terms'));
   const name = val2('a-name');
   Object.assign(V, { authBusy: true, authMsg: '' }); render();
   try {
@@ -623,72 +880,117 @@ async function authGo() {
       if (error) throw error;
       V.authBusy = false; await onLogin(data.user);
     } else if (m === 'criar') {
-      const { data, error } = await sb.auth.signUp({ email, password: pass, options: { data: { name }, emailRedirectTo: siteUrl() } });
+      const { data, error } = await sb.auth.signUp({ email, password: pass, options: { data: { name, lang: LANG }, emailRedirectTo: siteUrl() } });
       if (error) throw error;
       V.authBusy = false;
       if (data.session) await onLogin(data.user);
-      else { Object.assign(V, { authMode: 'entrar', authMsg: 'Conta criada! Abra o link que enviamos para ' + email + ' e depois entre aqui.', authErr: false }); render(); }
+      else { Object.assign(V, { authMode: 'entrar', authMsg: t('created', { e: email }), authErr: false }); render(); }
     } else if (m === 'esqueci') {
       const { error } = await sb.auth.resetPasswordForEmail(email, { redirectTo: siteUrl() });
       if (error) throw error;
-      Object.assign(V, { authBusy: false, authMode: 'entrar', authMsg: 'Se existir uma conta com esse e-mail, o link chega em alguns minutos.', authErr: false }); render();
+      Object.assign(V, { authBusy: false, authMode: 'entrar', authMsg: t('reset_sent'), authErr: false }); render();
     } else {
       const { data, error } = await sb.auth.updateUser({ password: pass });
       if (error) throw error;
-      V.authBusy = false; toast('Senha alterada'); await onLogin(data.user);
+      V.authBusy = false; toast(t('pw_changed')); await onLogin(data.user);
     }
   } catch (e) { fail(authErr(e)); }
 }
 function accountPanel() {
   if (!CLOUD) return '';
-  if (!user) return '<div class="panel"><h2>Conta</h2><p class="small muted" style="margin-bottom:12px">Você está usando sem conta: os dados ficam só neste aparelho. Entre para salvar na nuvem e usar em outros aparelhos. O que você já registrou vai junto.</p><button class="btn main block" style="--c:#fff" data-a="to-auth">Entrar ou criar conta</button></div>';
-  const st = { ok: 'Sincronizado', enviando: 'Sincronizando…', erro: 'Sem conexão: tenta de novo sozinho' }[V.sync] || '—';
-  let h = '<div class="panel"><h2>Conta</h2><div class="kv" style="margin-bottom:14px">' + (account.name ? '<span>Nome</span><span>' + esc(account.name) + '</span>' : '') + '<span>E-mail</span><span>' + esc(user.email) + '</span><span>Nuvem</span><span>' + st + '</span></div>';
-  if (account.role === 'admin') h += '<a class="btn block" href="admin.html" style="margin-bottom:8px;text-decoration:none">Abrir painel de admin</a>';
-  h += '<div class="btns"><button class="btn" data-a="logout">Sair</button><button class="btn danger" data-a="delete-account">Excluir conta</button></div></div>';
+  if (!user) return '<div class="panel"><h2>' + t('account') + '</h2><p class="small muted" style="margin-bottom:12px">' + t('guest_panel') + '</p><button class="btn main block" style="--c:#fff" data-a="to-auth">' + t('in_or_create') + '</button></div>';
+  const sy = { ok: 's_ok', enviando: 's_send', erro: 's_err' }[V.sync];
+  let h = '<div class="panel"><h2>' + t('account') + '</h2><div class="kv" style="margin-bottom:14px">' + (account.name ? '<span>' + t('name') + '</span><span>' + esc(account.name) + '</span>' : '') + '<span>' + t('email') + '</span><span>' + esc(user.email) + '</span><span>' + t('cloud') + '</span><span>' + (sy ? t(sy) : '—') + '</span></div>';
+  if (account.role === 'admin') h += '<a class="btn block" href="admin.html" style="margin-bottom:8px;text-decoration:none">' + t('admin_panel') + '</a>';
+  h += '<div class="btns"><button class="btn" data-a="logout">' + t('logout') + '</button><button class="btn danger" data-a="delete-account">' + t('del_acc') + '</button></div></div>';
   return h;
 }
 function viewAjustes() {
   const p = S.profile;
-  let h = top('Ajustes', 'gear', 'var(--muted)');
+  let h = top(t('settings'), 'gear', 'var(--muted)');
+  h += '<div class="panel"><h2>' + t('language') + '</h2><div class="chips">' + langChips() + '</div></div>';
   h += accountPanel();
-  h += '<div class="panel"><h2>Perfil</h2><div class="kv" style="margin-bottom:14px"><span>Idade</span><span>' + (p.age ? esc(p.age) + ' anos' : '—') + '</span><span>Altura</span><span>' + (p.height ? esc(p.height) + ' cm' : '—') + '</span><span>Peso atual</span><span>' + (curWeight() ? dec(curWeight()) + ' kg' : '—') + '</span><span>Objetivo</span><span>' + (GOALS.find(g => g[0] === p.goal) || GOALS[1])[1] + '</span>' + (tdee() ? '<span>Gasto estimado</span><span class="num">' + int(tdee()) + ' kcal</span><span>Meta diária</span><span class="num">' + int(kcalGoal()) + ' kcal</span>' : '') + '</div><button class="btn block" data-a="profile">Editar perfil</button></div>';
-  h += '<div class="panel"><h2>Seus dados</h2><p class="small muted" style="margin-bottom:12px">Tudo fica salvo só neste aparelho. Exporte um backup de vez em quando.</p><div class="btns"><button class="btn" data-a="export">Exportar</button><button class="btn" data-a="import">Importar</button></div><button class="btn ghost danger block" style="margin-top:8px" data-a="wipe">Apagar tudo</button></div>';
-  h += '<div class="panel"><h2>Como funciona</h2><div class="small muted stack"><p>Força e Cárdio sobem 1 nível a cada 4 treinos completos. Depois de um treino você descansa e então abre a janela de treino. Se ela fechar sem treino, você perde um pouco do progresso.</p><p>Foco sobe com as horas acumuladas: 5h, 20h e 50h. Ele nunca cai.</p><p>As calorias usam a fórmula de Mifflin-St Jeor e a gordura corporal é uma estimativa pelo IMC. Não substitui orientação médica ou de nutricionista.</p></div></div>';
-  h += '<p class="legal"><a href="privacidade.html" target="_blank" rel="noopener">Política de Privacidade</a> · <a href="termos.html" target="_blank" rel="noopener">Termos de Uso</a><br>Fitness ' + (CFG.version || '') + '</p>';
+  h += '<div class="panel"><h2>' + t('profile') + '</h2><div class="kv" style="margin-bottom:14px"><span>' + t('age') + '</span><span>' + (p.age ? t('years', { n: esc(p.age) }) : '—') + '</span><span>' + t('height') + '</span><span>' + (p.height ? esc(p.height) + ' cm' : '—') + '</span><span>' + t('cur_weight') + '</span><span>' + (curWeight() ? dec(curWeight()) + ' kg' : '—') + '</span><span>' + t('goal') + '</span><span>' + t((GOALS.find(g => g[0] === p.goal) || GOALS[1])[1]) + '</span>' + (tdee() ? '<span>' + t('burn') + '</span><span class="num">' + int(tdee()) + ' kcal</span><span>' + t('daily_goal') + '</span><span class="num">' + int(kcalGoal()) + ' kcal</span>' : '') + '</div><button class="btn block" data-a="profile">' + t('edit_prof') + '</button></div>';
+  h += '<div class="panel"><h2>' + t('your_data') + '</h2><p class="small muted" style="margin-bottom:12px">' + t('data_msg') + '</p><div class="btns"><button class="btn" data-a="export">' + t('export') + '</button><button class="btn" data-a="import">' + t('import') + '</button></div><button class="btn ghost danger block" style="margin-top:8px" data-a="wipe">' + t('wipe') + '</button></div>';
+  h += '<div class="panel"><h2>' + t('how') + '</h2><div class="small muted stack">' + t('how_html') + '</div></div>';
+  h += '<p class="legal"><a href="privacidade.html" target="_blank" rel="noopener">' + t('privacy') + '</a> · <a href="termos.html" target="_blank" rel="noopener">' + t('terms') + '</a><br>Fitness ' + (CFG.version || '') + '</p>';
   return h;
 }
 
 /* ---------- folhas ---------- */
 const sheet = document.getElementById('sheet'), box = document.getElementById('sheet-box');
-let onSheet = null;
+let onSheet = null, sheetAfterClose = null;
 function openSheet(html, c, handler) { box.innerHTML = html; box.style.setProperty('--c', c || '#fff'); sheet.classList.add('on'); onSheet = handler; const f = box.querySelector('input,select'); if (f && matchMedia('(pointer:fine)').matches) f.focus(); }
 function closeSheet() { sheet.classList.remove('on'); box.innerHTML = ''; onSheet = null; }
+function dismissSheet() { closeSheet(); if (sheetAfterClose) { const f = sheetAfterClose; sheetAfterClose = null; f(); } }
 const val = id => { const e = box.querySelector('#' + id); return e ? e.value : ''; };
+const btnsRow = () => '<div class="btns"><button class="btn ghost" data-a="close">' + t('cancel') + '</button><button class="btn main" data-s="ok">' + t('save') + '</button></div>';
 
 function workoutSheet(k) {
-  const A = ATTR[k], opts = A.groups.flatMap(g => g[1]);
-  let chosen = opts[0];
-  const html = '<h2>Registrar ' + A.title.toLowerCase() + '</h2><div class="field"><span>Tipo</span><div class="chips" id="types">' + opts.map((o, i) => '<button class="chip' + (i ? '' : ' on') + '" data-t="' + esc(o) + '">' + esc(o) + '</button>').join('') + '</div></div><div class="two"><label class="field"><span>Duração (min)</span><input id="w-min" type="number" inputmode="numeric" min="1" value="' + (k === 'forca' ? 60 : 30) + '"></label><label class="field"><span>Quando</span><input id="w-at" type="datetime-local" value="' + localInput(Date.now()) + '"></label></div><label class="check"><input type="checkbox" id="w-full" checked>Fiz o treino inteiro</label><div class="btns"><button class="btn ghost" data-a="close">Cancelar</button><button class="btn main" data-s="ok">Salvar</button></div>';
-  openSheet(html, A.c, (el) => {
-    if (el.dataset.t) { chosen = el.dataset.t; box.querySelectorAll('#types .chip').forEach(c => c.classList.toggle('on', c === el)); return; }
+  const D = A(k);
+  const custom = () => S.types[k] || [];
+  let chosen = D.types[0] || '';
+  const chips = () => A(k).types.map(o => '<button class="chip' + (o === chosen ? ' on' : '') + '" data-t="' + esc(o) + '">' + esc(tn(o)) + (custom().includes(o) ? '<span class="rm" data-rm="' + esc(o) + '" aria-label="' + t('delete') + '">×</span>' : '') + '</button>').join('') + '<button class="chip" data-new="1">' + t('new_type') + '</button>';
+  const html = '<h2>' + t('log_x', { a: esc(D.title) }) + '</h2><div class="field"><span>' + t('type') + '</span><div class="chips" id="types">' + chips() + '</div><div class="newtype" id="newtype" hidden><input id="nt-name" maxlength="40" placeholder="' + t('type_ph') + '"><button class="btn slim" data-ntadd="1">' + t('add') + '</button></div></div><div class="two"><label class="field"><span>' + t('duration') + '</span><input id="w-min" type="number" inputmode="numeric" min="1" value="' + Math.max(D.min, k === 'forca' ? 60 : 30) + '"></label><label class="field"><span>' + t('when') + '</span><input id="w-at" type="datetime-local" value="' + localInput(Date.now()) + '"></label></div><label class="check"><input type="checkbox" id="w-full" checked>' + t('did_full') + '</label>' + btnsRow();
+  const redraw = () => { box.querySelector('#types').innerHTML = chips(); };
+  openSheet(html, D.c, (el, e) => {
+    const rm = e.target.closest('[data-rm]');
+    if (rm) { S.types[k] = custom().filter(x => x !== rm.dataset.rm); if (chosen === rm.dataset.rm) chosen = A(k).types[0] || ''; save(); return redraw(); }
+    if (el.dataset.new) { const n = box.querySelector('#newtype'); n.hidden = false; box.querySelector('#nt-name').focus(); return; }
+    if (el.dataset.ntadd) {
+      const name = val('nt-name').trim(); if (!name) return;
+      if (!A(k).types.includes(name)) { S.types[k] = custom().concat(name); save(); }
+      chosen = name; box.querySelector('#nt-name').value = ''; box.querySelector('#newtype').hidden = true; return redraw();
+    }
+    if (el.dataset.t) { chosen = el.dataset.t; return redraw(); }
     if (el.dataset.s !== 'ok') return;
+    if (!chosen) return toast(t('e_type'));
     const min = Math.round(toNum(val('w-min'))), at = new Date(val('w-at')).getTime();
-    if (!min) return toast('Coloque a duração');
-    if (!isFinite(at) || at > Date.now() + 6e4) return toast('Escolha um horário que já passou');
+    if (!min) return toast(t('e_dur'));
+    if (!isFinite(at) || at > Date.now() + 6e4) return toast(t('e_past'));
     const msg = addWorkout(k, at, chosen, min, box.querySelector('#w-full').checked);
     closeSheet(); render(); toast(msg);
   });
 }
+function windowSheet(k) {
+  const D = A(k);
+  const html = '<h2>' + t('times_of', { a: esc(D.name) }) + '</h2><p class="small muted" style="margin:-6px 0 14px">' + t('win_help') + '</p><label class="field"><span>' + t('rest_h') + '</span><input id="t-rest" type="number" inputmode="decimal" step="1" min="0" max="168" value="' + dec(D.rest / H).replace(',', '.') + '"></label><label class="field"><span>' + t('win_d') + '</span><input id="t-win" type="number" inputmode="decimal" step="0.5" min="0.5" max="30" value="' + (Math.round(D.win / DAY * 10) / 10) + '"></label><label class="field"><span>' + t('min_m') + '</span><input id="t-min" type="number" inputmode="numeric" min="1" max="600" value="' + D.min + '"></label>' + (D.builtin ? '<button class="btn ghost block" data-reset="1" style="margin-bottom:8px">' + t('restore') + '</button>' : '') + btnsRow();
+  openSheet(html, D.c, el => {
+    if (el.dataset.reset) { delete S.cfg[k]; retime(k); save(); closeSheet(); render(); return toast(t('saved')); }
+    if (el.dataset.s !== 'ok') return;
+    const rest = toNum(val('t-rest')), winD = toNum(val('t-win')), min = Math.round(toNum(val('t-min')));
+    if (rest < 0 || rest > 168 || winD < 0.5 || winD > 30 || min < 1 || min > 600) return toast(t('e_win'));
+    if (D.builtin) S.cfg[k] = { rest, win: winD * 24, min };
+    else Object.assign(S.custom.find(x => x.id === k), { rest, win: winD * 24, min });
+    retime(k); save(); closeSheet(); render(); toast(t('saved'));
+  });
+}
+function activitySheet() {
+  let icon = 'flame', color = 2;
+  const pick = () => '<div class="icopick" id="ip">' + ICON_PICK.map(i => '<button class="' + (i === icon ? 'on' : '') + '" data-ic="' + i + '" aria-label="' + i + '">' + ico(i) + '</button>').join('') + '</div>';
+  const sw = () => '<div class="swatches" id="sw">' + COLORS.map((c, i) => '<button class="sw' + (i === color ? ' on' : '') + '" style="--c:' + c[0] + '" data-col="' + i + '" aria-label="' + t('color') + ' ' + (i + 1) + '"></button>').join('') + '</div>';
+  const html = '<h2>' + t('new_act_t') + '</h2><label class="field"><span>' + t('name') + '</span><input id="na-name" maxlength="30" placeholder="' + t('act_ph') + '"></label><div class="field"><span>' + t('icon') + '</span>' + pick() + '</div><div class="field"><span>' + t('color') + '</span>' + sw() + '</div><div class="two"><label class="field"><span>' + t('rest_h') + '</span><input id="na-rest" type="number" inputmode="decimal" min="0" max="168" value="12"></label><label class="field"><span>' + t('win_d') + '</span><input id="na-win" type="number" inputmode="decimal" step="0.5" min="0.5" max="30" value="3"></label></div><label class="field"><span>' + t('min_m') + '</span><input id="na-min" type="number" inputmode="numeric" min="1" max="600" value="20"></label>' + btnsRow();
+  openSheet(html, COLORS[color][0], el => {
+    if (el.dataset.ic) { icon = el.dataset.ic; box.querySelector('#ip').outerHTML = pick(); return; }
+    if (el.dataset.col) { color = +el.dataset.col; box.style.setProperty('--c', COLORS[color][0]); box.querySelector('#sw').outerHTML = sw(); return; }
+    if (el.dataset.s !== 'ok') return;
+    const name = val('na-name').trim(), rest = toNum(val('na-rest')), winD = toNum(val('na-win')), min = Math.round(toNum(val('na-min')));
+    if (!name) return toast(t('e_name'));
+    if (rest < 0 || rest > 168 || winD < 0.5 || winD > 30 || min < 1 || min > 600) return toast(t('e_win'));
+    const id = 'x_' + uid();
+    S.custom.push({ id, name, icon, color, rest, win: winD * 24, min });
+    save(); closeSheet(); go(id); toast(t('act_made', { a: name }));
+  });
+}
 function focusSheet() {
-  const html = '<h2>Registrar tempo de foco</h2><div class="field"><span>Atividade</span><div class="chips" id="cats">' + FOCO_CATS.map(c => '<button class="chip' + (c === V.focoCat ? ' on' : '') + '" data-t="' + c + '">' + c + '</button>').join('') + '</div></div><div class="two"><label class="field"><span>Minutos</span><input id="f-min" type="number" inputmode="numeric" min="1" value="30"></label><label class="field"><span>Quando</span><input id="f-at" type="datetime-local" value="' + localInput(Date.now()) + '"></label></div><div class="btns"><button class="btn ghost" data-a="close">Cancelar</button><button class="btn main" data-s="ok">Salvar</button></div>';
+  const html = '<h2>' + t('log_focus') + '</h2><div class="field"><span>' + t('activity') + '</span><div class="chips" id="cats">' + FOCO_CATS.map(c => '<button class="chip' + (c === V.focoCat ? ' on' : '') + '" data-t="' + c + '">' + tn(c) + '</button>').join('') + '</div></div><div class="two"><label class="field"><span>' + t('minutes') + '</span><input id="f-min" type="number" inputmode="numeric" min="1" value="30"></label><label class="field"><span>' + t('when') + '</span><input id="f-at" type="datetime-local" value="' + localInput(Date.now()) + '"></label></div>' + btnsRow();
   let cat = V.focoCat;
   openSheet(html, 'var(--lilac)', el => {
     if (el.dataset.t) { cat = el.dataset.t; box.querySelectorAll('#cats .chip').forEach(c => c.classList.toggle('on', c === el)); return; }
     if (el.dataset.s !== 'ok') return;
     const min = Math.round(toNum(val('f-min'))), at = new Date(val('f-at')).getTime();
-    if (!min) return toast('Coloque os minutos');
-    if (!isFinite(at) || at > Date.now() + 6e4) return toast('Escolha um horário que já passou');
+    if (!min) return toast(t('e_min'));
+    if (!isFinite(at) || at > Date.now() + 6e4) return toast(t('e_past'));
     addFocus(cat, min, at); closeSheet(); render();
   });
 }
@@ -696,46 +998,45 @@ function addFocus(cat, min, at) {
   const before = focusLevel().l;
   S.focus.push({ id: uid(), at, cat, min }); save();
   const after = focusLevel().l;
-  toast(after > before ? 'Foco subiu para o nível ' + after + '!' : '+' + min + ' min de foco');
+  toast(after > before ? t('f_up', { l: after }) : t('f_plus', { m: min }));
 }
 function mealSheet(meal) {
-  const label = MEALS.find(m => m[0] === meal)[1];
   const rec = S.recent.map(n => FOODS.find(f => f[0] === n) || null).filter(Boolean);
   const all = rec.concat(FOODS.filter(f => !S.recent.includes(f[0])));
-  const list = q => all.filter(f => !q || f[0].toLowerCase().includes(q.toLowerCase())).map(f => '<button class="food" data-f="' + esc(f[0]) + '"><span class="grow"><span>' + esc(f[0]) + '</span><br><span class="s">' + esc(f[1]) + ' · ' + f[2] + ' kcal · ' + dec(f[3]) + ' g prot.</span></span>' + ico('plus') + '</button>').join('') || '<p class="empty">Nada encontrado. Use o campo de cima.</p>';
-  const html = '<h2>' + label + '</h2><label class="field"><span>Comida</span><input id="m-name" placeholder="Ex.: marmita, lanche da rua" autocomplete="off"></label><div class="two"><label class="field"><span>Calorias (kcal)</span><input id="m-kcal" type="number" inputmode="numeric" min="0"></label><label class="field"><span>Proteína (g)</span><input id="m-prot" type="number" inputmode="decimal" min="0"></label></div><button class="btn main block" data-s="ok" style="margin-bottom:16px">Adicionar</button><label class="field"><span>Ou toque em uma comida pronta (1 porção)</span><input id="m-q" placeholder="Buscar" autocomplete="off"></label><div class="foods" id="foods">' + list('') + '</div>';
+  const norm = s => s.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '');
+  const list = q => all.filter(f => !q || norm(tn(f[0])).includes(norm(q)) || norm(f[0]).includes(norm(q))).map(f => '<button class="food" data-f="' + esc(f[0]) + '"><span class="grow"><span>' + esc(tn(f[0])) + '</span><br><span class="s">' + esc(tn(f[1])) + ' · ' + f[2] + ' kcal · ' + dec(f[3]) + ' ' + t('g_prot_s') + '</span></span>' + ico('plus') + '</button>').join('') || '<p class="empty">' + t('nothing_found') + '</p>';
+  const html = '<h2>' + t('m_' + meal) + '</h2><label class="field"><span>' + t('food') + '</span><input id="m-name" placeholder="' + t('food_ph') + '" autocomplete="off"></label><div class="two"><label class="field"><span>' + t('kcal_f') + '</span><input id="m-kcal" type="number" inputmode="numeric" min="0"></label><label class="field"><span>' + t('prot_f') + '</span><input id="m-prot" type="number" inputmode="decimal" min="0"></label></div><button class="btn main block" data-s="ok" style="margin-bottom:16px">' + t('add') + '</button><label class="field"><span>' + t('or_pick') + '</span><input id="m-q" placeholder="' + t('search') + '" autocomplete="off"></label><div class="foods" id="foods">' + list('') + '</div>';
   openSheet(html, 'var(--lime)', el => {
     if (el.dataset.f) {
       const f = FOODS.find(x => x[0] === el.dataset.f);
-      addMeal(meal, f[0], f[2], f[3]); el.style.opacity = .5; toast(f[0] + ' adicionado');
+      addMeal(meal, f[0], f[2], f[3]); el.style.opacity = .5; toast(t('added', { f: tn(f[0]) }));
       return;
     }
     if (el.dataset.s !== 'ok') return;
     const name = val('m-name').trim(), kcal = Math.round(toNum(val('m-kcal')));
-    if (!name || !kcal) return toast('Coloque nome e calorias');
+    if (!name || !kcal) return toast(t('e_meal'));
     addMeal(meal, name, kcal, toNum(val('m-prot'))); closeSheet(); render();
   });
   box.querySelector('#m-q').addEventListener('input', e => { box.querySelector('#foods').innerHTML = list(e.target.value); });
   sheetAfterClose = render;
 }
-let sheetAfterClose = null;
 function addMeal(meal, name, kcal, prot) {
   S.meals.push({ id: uid(), date: V.day, meal, name, kcal, prot });
   if (FOODS.some(f => f[0] === name)) S.recent = [name].concat(S.recent.filter(n => n !== name)).slice(0, 6);
   save();
 }
 function weightSheet() {
-  const html = '<h2>Registrar peso</h2><div class="two"><label class="field"><span>Peso (kg)</span><input id="p-kg" type="number" inputmode="decimal" step="0.1" value="' + (curWeight() || '') + '"></label><label class="field"><span>Dia</span><input id="p-d" type="date" value="' + today() + '" max="' + today() + '"></label></div><div class="btns"><button class="btn ghost" data-a="close">Cancelar</button><button class="btn main" data-s="ok">Salvar</button></div>';
+  const html = '<h2>' + t('log_weight') + '</h2><div class="two"><label class="field"><span>' + t('weight_kg') + '</span><input id="p-kg" type="number" inputmode="decimal" step="0.1" value="' + (curWeight() || '') + '"></label><label class="field"><span>' + t('day') + '</span><input id="p-d" type="date" value="' + today() + '" max="' + today() + '"></label></div>' + btnsRow();
   openSheet(html, 'var(--lime)', el => {
     if (el.dataset.s !== 'ok') return;
     const k = toNum(val('p-kg')), d = val('p-d') || today();
-    if (k < 20 || k > 400) return toast('Peso inválido');
+    if (k < 20 || k > 400) return toast(t('e_weight'));
     S.weights = S.weights.filter(w => w.date !== d).concat({ date: d, kg: k }); save(); closeSheet(); render();
   });
 }
 function profileSheet() {
   const p = S.profile;
-  const html = '<h2>Seu perfil</h2><div class="two"><label class="field"><span>Sexo</span><select id="pf-sex"><option value="m"' + (p.sex !== 'f' ? ' selected' : '') + '>Masculino</option><option value="f"' + (p.sex === 'f' ? ' selected' : '') + '>Feminino</option></select></label><label class="field"><span>Idade</span><input id="pf-age" type="number" inputmode="numeric" value="' + esc(p.age) + '"></label><label class="field"><span>Altura (cm)</span><input id="pf-h" type="number" inputmode="numeric" value="' + esc(p.height) + '"></label><label class="field"><span>Peso (kg)</span><input id="pf-w" type="number" inputmode="decimal" step="0.1" value="' + (curWeight() || '') + '"></label></div><label class="field"><span>Atividade</span><select id="pf-act">' + ACTS.map(a => '<option value="' + a[0] + '"' + (+p.act === a[0] ? ' selected' : '') + '>' + a[1] + '</option>').join('') + '</select></label><label class="field"><span>Objetivo</span><select id="pf-goal">' + GOALS.map(g => '<option value="' + g[0] + '"' + (p.goal === g[0] ? ' selected' : '') + '>' + g[1] + '</option>').join('') + '</select></label><div class="btns"><button class="btn ghost" data-a="close">Cancelar</button><button class="btn main" data-s="ok">Salvar</button></div>';
+  const html = '<h2>' + t('your_prof') + '</h2><div class="two"><label class="field"><span>' + t('sex') + '</span><select id="pf-sex"><option value="m"' + (p.sex !== 'f' ? ' selected' : '') + '>' + t('male') + '</option><option value="f"' + (p.sex === 'f' ? ' selected' : '') + '>' + t('female') + '</option></select></label><label class="field"><span>' + t('age') + '</span><input id="pf-age" type="number" inputmode="numeric" value="' + esc(p.age) + '"></label><label class="field"><span>' + t('height_cm') + '</span><input id="pf-h" type="number" inputmode="numeric" value="' + esc(p.height) + '"></label><label class="field"><span>' + t('weight_kg') + '</span><input id="pf-w" type="number" inputmode="decimal" step="0.1" value="' + (curWeight() || '') + '"></label></div><label class="field"><span>' + t('activity') + '</span><select id="pf-act">' + ACTS.map(a => '<option value="' + a[0] + '"' + (+p.act === a[0] ? ' selected' : '') + '>' + t(a[1]) + '</option>').join('') + '</select></label><label class="field"><span>' + t('goal') + '</span><select id="pf-goal">' + GOALS.map(g => '<option value="' + g[0] + '"' + (p.goal === g[0] ? ' selected' : '') + '>' + t(g[1]) + '</option>').join('') + '</select></label>' + btnsRow();
   openSheet(html, 'var(--lime)', el => {
     if (el.dataset.s !== 'ok') return;
     const w = toNum(val('pf-w'));
@@ -745,7 +1046,7 @@ function profileSheet() {
   });
 }
 function confirmSheet(text, btn, fn) {
-  openSheet('<h2>' + esc(text) + '</h2><div class="btns"><button class="btn ghost" data-a="close">Cancelar</button><button class="btn main" style="--c:var(--danger)" data-s="ok">' + esc(btn) + '</button></div>', 'var(--danger)', el => { if (el.dataset.s === 'ok') { fn(); closeSheet(); render(); } });
+  openSheet('<h2>' + esc(text) + '</h2><div class="btns"><button class="btn ghost" data-a="close">' + t('cancel') + '</button><button class="btn main" style="--c:var(--danger)" data-s="ok">' + esc(btn) + '</button></div>', 'var(--danger)', el => { if (el.dataset.s === 'ok') { fn(); closeSheet(); render(); } });
 }
 
 /* ---------- render e eventos ---------- */
@@ -753,53 +1054,86 @@ const app = document.getElementById('app');
 function render() {
   const p = V.page;
   if (p === 'loading') { app.innerHTML = viewLoading(); return; }
-  if (p === 'auth') { app.innerHTML = viewAuth(); return; }
+  if (p === 'auth') {
+    // guarda o que já foi digitado para não sumir quando a tela redesenha
+    const keep = {}; app.querySelectorAll('input').forEach(i => { if (i.id) keep[i.id] = i.type === 'checkbox' ? i.checked : i.value; });
+    const shown = !!app.querySelector('#a-pass[type="text"]');
+    app.innerHTML = viewAuth();
+    app.querySelectorAll('input').forEach(i => { if (i.id in keep) { if (i.type === 'checkbox') i.checked = keep[i.id]; else i.value = keep[i.id]; } });
+    if (shown) togglePw(true);
+    return;
+  }
+  if ((p === 'forca' || p === 'cardio' || p.startsWith('x_')) && !A(p)) V.page = 'home';
   tick();
-  app.innerHTML = p === 'forca' || p === 'cardio' ? viewAttr(p) : p === 'foco' ? viewFoco() : p === 'nutri' ? viewNutri() : p === 'ajustes' ? viewAjustes() : viewHome();
+  const q = V.page;
+  app.innerHTML = A(q) ? viewAttr(q) : q === 'foco' ? viewFoco() : q === 'nutri' ? viewNutri() : q === 'ajustes' ? viewAjustes() : viewHome();
+}
+function togglePw(force) {
+  const i = app.querySelector('#a-pass'), b = app.querySelector('[data-a="pw-toggle"]'); if (!i || !b) return;
+  const show = force != null ? force : i.type === 'password';
+  i.type = show ? 'text' : 'password';
+  b.innerHTML = ico(show ? 'eyeoff' : 'eye');
+  b.setAttribute('aria-label', t(show ? 'hide_pw' : 'show_pw')); b.title = t(show ? 'hide_pw' : 'show_pw');
 }
 function go(p) { V.page = p; if (p === 'nutri') V.day = today(); render(); window.scrollTo(0, 0); }
 let tt;
-function toast(m) { const t = document.getElementById('toast'); t.textContent = m; t.classList.add('on'); clearTimeout(tt); tt = setTimeout(() => t.classList.remove('on'), 2600); }
+function toast(m) { const el = document.getElementById('toast'); el.textContent = m; el.classList.add('on'); clearTimeout(tt); tt = setTimeout(() => el.classList.remove('on'), 2800); }
 
 box.addEventListener('click', e => {
   const el = e.target.closest('button'); if (!el) return;
-  if (el.dataset.a === 'close') { closeSheet(); if (sheetAfterClose) { sheetAfterClose(); sheetAfterClose = null; } return; }
-  if (onSheet) onSheet(el);
+  if (el.dataset.a === 'close') return dismissSheet();
+  if (onSheet) onSheet(el, e);
 });
-box.addEventListener('keydown', e => { if (e.key === 'Enter' && e.target.tagName === 'INPUT' && e.target.id !== 'm-q') { const ok = box.querySelector('[data-s="ok"]'); if (ok) ok.click(); } });
-sheet.querySelector('.dim').addEventListener('click', () => { closeSheet(); if (sheetAfterClose) { sheetAfterClose(); sheetAfterClose = null; } });
-document.addEventListener('keydown', e => { if (e.key === 'Escape' && sheet.classList.contains('on')) { closeSheet(); if (sheetAfterClose) { sheetAfterClose(); sheetAfterClose = null; } } });
+box.addEventListener('keydown', e => {
+  if (e.key !== 'Enter' || e.target.tagName !== 'INPUT' || e.target.id === 'm-q') return;
+  e.preventDefault();
+  if (e.target.id === 'nt-name') { const b = box.querySelector('[data-ntadd]'); if (b) b.click(); return; }
+  const ok = box.querySelector('[data-s="ok"]'); if (ok) ok.click();
+});
+sheet.querySelector('.dim').addEventListener('click', dismissSheet);
+document.addEventListener('keydown', e => { if (e.key === 'Escape' && sheet.classList.contains('on')) dismissSheet(); });
 
 app.addEventListener('click', e => {
   const el = e.target.closest('[data-a]'); if (!el) return;
   const a = el.dataset.a, d = el.dataset;
+  if (a === 'lang') { setLang(d.v); return render(); }
+  if (a === 'pw-toggle') return togglePw();
   if (a === 'auth-go') return authGo();
   if (a === 'auth-mode') { Object.assign(V, { authMode: d.v, authMsg: '' }); return render(); }
   if (a === 'guest') { lsSet('fitness.guest', '1'); S = load(); V.page = 'home'; return render(); }
   if (a === 'to-auth') { Object.assign(V, { page: 'auth', authMode: 'entrar', authMsg: '' }); return render(); }
   if (a === 'logout') return signOut();
-  if (a === 'delete-account') return confirmSheet('Excluir sua conta e todos os dados dela? Não dá para desfazer.', 'Excluir conta', async () => {
+  if (a === 'delete-account') return confirmSheet(t('c_del_acc'), t('del_acc'), async () => {
     const { error } = await sb.rpc('delete_me');
     if (error) return toast(authErr(error));
     const k = storeKey(); clearTimeout(pushT);
     await sb.auth.signOut().catch(() => {});
     lsDel(k); user = null; account = {}; S = load();
-    Object.assign(V, { page: 'auth', authMode: 'entrar', authMsg: 'Sua conta foi excluída.', authErr: false }); render();
+    Object.assign(V, { page: 'auth', authMode: 'entrar', authMsg: t('deleted'), authErr: false }); render();
   });
   if (a === 'go') return go(d.v);
   if (a === 'notif') { V.notif = !V.notif; return render(); }
+  if (a === 'new-act') return activitySheet();
   if (a === 'add-workout') return workoutSheet(d.k);
-  if (a === 'del-workout') return confirmSheet('Apagar este treino?', 'Apagar', () => delWorkout(d.id));
+  if (a === 'win-edit') return windowSheet(d.k);
+  if (a === 'del-act') {
+    const D = A(d.k); if (!D || D.builtin) return;
+    return confirmSheet(t('c_del_act', { a: D.name }), t('del_act'), () => {
+      S.custom = S.custom.filter(x => x.id !== d.k); delete S.tracks[d.k]; delete S.types[d.k];
+      S.workouts = S.workouts.filter(x => x.kind !== d.k); S.lost = S.lost.filter(x => x.kind !== d.k); save(); V.page = 'home';
+    });
+  }
+  if (a === 'del-workout') return confirmSheet(t('c_del_wo'), t('delete'), () => delWorkout(d.id));
   if (a === 'foco-cat') { V.focoCat = d.v; return render(); }
   if (a === 'timer-start') { S.timer = { start: Date.now(), cat: V.focoCat }; save(); return render(); }
   if (a === 'timer-stop') {
     const min = timerMin(), cat = S.timer.cat, at = S.timer.start; S.timer = null;
-    if (min >= 1) addFocus(cat, min, at); else { save(); toast('Sessão muito curta, não foi salva'); }
+    if (min >= 1) addFocus(cat, min, at); else { save(); toast(t('short_sess')); }
     return render();
   }
-  if (a === 'timer-cancel') return confirmSheet('Descartar esta sessão?', 'Descartar', () => { S.timer = null; save(); });
+  if (a === 'timer-cancel') return confirmSheet(t('c_discard'), t('discard'), () => { S.timer = null; save(); });
   if (a === 'add-focus') return focusSheet();
-  if (a === 'del-focus') return confirmSheet('Apagar esta sessão?', 'Apagar', () => { S.focus = S.focus.filter(f => f.id !== d.id); save(); });
+  if (a === 'del-focus') return confirmSheet(t('c_del_sess'), t('delete'), () => { S.focus = S.focus.filter(f => f.id !== d.id); save(); });
   if (a === 'focus-goal') { S.focusGoal = clamp(S.focusGoal + +d.d, 15, 600); save(); return render(); }
   if (a === 'day') { V.day = addDays(V.day, +d.d); if (V.day > today()) V.day = today(); return render(); }
   if (a === 'add-meal') return mealSheet(d.m);
@@ -813,25 +1147,25 @@ app.addEventListener('click', e => {
       // no app nativo: salva no cache e abre o menu de compartilhar do celular
       const name = 'fitness-backup-' + today() + '.json';
       return P.Filesystem.writeFile({ path: name, data: JSON.stringify(S, null, 1), directory: 'CACHE', encoding: 'utf8' })
-        .then(r => P.Share.share({ title: 'Backup do Fitness', url: r.uri, dialogTitle: 'Salvar backup' }))
-        .catch(e => { if (!/cancel/i.test(String(e && e.message))) toast('Não deu para exportar'); });
+        .then(r => P.Share.share({ title: t('backup_t'), url: r.uri, dialogTitle: t('backup_save') }))
+        .catch(err => { if (!/cancel/i.test(String(err && err.message))) toast(t('e_export')); });
     }
     const blob = new Blob([JSON.stringify(S, null, 1)], { type: 'application/json' });
     const link = document.createElement('a'); link.href = URL.createObjectURL(blob); link.download = 'fitness-backup-' + today() + '.json'; link.click();
     return setTimeout(() => URL.revokeObjectURL(link.href), 2000);
   }
   if (a === 'import') return document.getElementById('backup-input').click();
-  if (a === 'wipe') return confirmSheet('Apagar todos os dados deste aparelho? Não dá para desfazer.', 'Apagar tudo', () => { S = blank(); save(); V.page = 'home'; });
+  if (a === 'wipe') return confirmSheet(t('c_wipe'), t('wipe'), () => { S = blank(); save(); V.page = 'home'; });
 });
 document.getElementById('backup-input').addEventListener('change', e => {
   const f = e.target.files[0]; if (!f) return;
-  f.text().then(t => { const o = JSON.parse(t); if (!o || o.v !== 1) throw 0; S = Object.assign(blank(), o); save(); render(); toast('Backup importado'); }).catch(() => toast('Arquivo inválido'));
+  f.text().then(x => { const o = JSON.parse(x); if (!o || o.v !== 1) throw 0; S = fill(o); save(); render(); toast(t('imported')); }).catch(() => toast(t('bad_file')));
   e.target.value = '';
 });
 
 setInterval(() => {
   if (sheet.classList.contains('on')) return;
-  const t = app.querySelector('[data-live="timer"]'); if (t) t.textContent = clockTxt();
+  const el = app.querySelector('[data-live="timer"]'); if (el) el.textContent = clockTxt();
   const ts = app.querySelector('[data-live="timer-short"]'); if (ts) ts.textContent = timerMin() + ' min';
 }, 1000);
 app.addEventListener('keydown', e => { if (e.key === 'Enter' && V.page === 'auth' && e.target.tagName === 'INPUT') authGo(); });
@@ -846,7 +1180,7 @@ document.addEventListener('visibilitychange', () => {
 // botão voltar do Android: fecha a janela aberta, depois volta para o início, e só então sai do app
 const CapApp = window.Capacitor && window.Capacitor.Plugins && window.Capacitor.Plugins.App;
 if (CapApp) CapApp.addListener('backButton', () => {
-  if (sheet.classList.contains('on')) { closeSheet(); if (sheetAfterClose) { sheetAfterClose(); sheetAfterClose = null; } return; }
+  if (sheet.classList.contains('on')) return dismissSheet();
   if (V.page === 'auth' && V.authMode !== 'entrar' && V.authMode !== 'nova') { Object.assign(V, { authMode: 'entrar', authMsg: '' }); return render(); }
   if (V.page !== 'home' && V.page !== 'auth' && V.page !== 'loading') return go('home');
   CapApp.exitApp();
