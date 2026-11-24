@@ -11,14 +11,15 @@
 <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
 <link rel="icon" href="icons/icon-192.png">
 <style>:root{padding-top:max(env(safe-area-inset-top,0px),var(--safe-area-inset-top,0px));padding-bottom:max(env(safe-area-inset-bottom,0px),var(--safe-area-inset-bottom,0px))}img{max-width:100%}[hidden]{display:none!important}</style>
-<script>window.FERRO_REAL = true; window.FITNESS_CONFIG = {"supabaseUrl":"https://iwkcwharouakejivkiqp.supabase.co","supabaseAnonKey":"sb_publishable_BpQXJSmHBpqOA-n6yX1ydA_CQtHxBpk","siteUrl":"https://gabrielmartins05.github.io/ferro/","version":"1.0.2"}; window.FITNESS_FOODS = [["Arroz branco","1 escumadeira",115,2.3],["Feijão","1 concha",70,4.5],["Peito de frango grelhado","1 filé (120 g)",190,38],["Bife de patinho","1 bife (100 g)",220,32],["Carne moída","1 colher de servir",130,13],["Ovo cozido","1 unidade",73,6.5],["Ovo frito","1 unidade",110,6.5],["Pão francês","1 unidade",150,4.5],["Pão de forma","2 fatias",130,5],["Queijo muçarela","1 fatia",66,5],["Presunto","2 fatias",50,7],["Leite integral","1 copo",120,6],["Iogurte natural","1 pote",90,6],["Whey protein","1 scoop",120,24],["Aveia","2 colheres de sopa",118,4],["Banana","1 unidade",70,1],["Maçã","1 unidade",72,0.4],["Mamão","1 fatia",60,0.7],["Batata doce","1 média",100,1.5],["Macarrão","1 pegador",150,5],["Tapioca com queijo","1 unidade",250,8],["Cuscuz","1 pedaço",150,3],["Salada","1 prato",15,1],["Tilápia grelhada","1 filé",155,32],["Atum em lata","1 lata",140,30],["Café com açúcar","1 xícara",40,0],["Pizza","1 fatia",280,12],["Hambúrguer","1 unidade",500,25],["Coxinha","1 unidade",280,9],["Refrigerante","1 lata",140,0],["Suco de laranja","1 copo",90,1],["Chocolate","1 barrinha",135,2],["Açaí","1 tigela",360,4]];</script>
+<script>window.FERRO_REAL = true; window.FITNESS_CONFIG = {"supabaseUrl":"https://iwkcwharouakejivkiqp.supabase.co","supabaseAnonKey":"sb_publishable_BpQXJSmHBpqOA-n6yX1ydA_CQtHxBpk","siteUrl":"https://gabrielmartins05.github.io/ferro/","version":"1.0.3"}; window.FITNESS_FOODS = [["Arroz branco","1 escumadeira",115,2.3],["Feijão","1 concha",70,4.5],["Peito de frango grelhado","1 filé (120 g)",190,38],["Bife de patinho","1 bife (100 g)",220,32],["Carne moída","1 colher de servir",130,13],["Ovo cozido","1 unidade",73,6.5],["Ovo frito","1 unidade",110,6.5],["Pão francês","1 unidade",150,4.5],["Pão de forma","2 fatias",130,5],["Queijo muçarela","1 fatia",66,5],["Presunto","2 fatias",50,7],["Leite integral","1 copo",120,6],["Iogurte natural","1 pote",90,6],["Whey protein","1 scoop",120,24],["Aveia","2 colheres de sopa",118,4],["Banana","1 unidade",70,1],["Maçã","1 unidade",72,0.4],["Mamão","1 fatia",60,0.7],["Batata doce","1 média",100,1.5],["Macarrão","1 pegador",150,5],["Tapioca com queijo","1 unidade",250,8],["Cuscuz","1 pedaço",150,3],["Salada","1 prato",15,1],["Tilápia grelhada","1 filé",155,32],["Atum em lata","1 lata",140,30],["Café com açúcar","1 xícara",40,0],["Pizza","1 fatia",280,12],["Hambúrguer","1 unidade",500,25],["Coxinha","1 unidade",280,9],["Refrigerante","1 lata",140,0],["Suco de laranja","1 copo",90,1],["Chocolate","1 barrinha",135,2],["Açaí","1 tigela",360,4]];</script>
 <script src="vendor/supabase.js"></script>
 <title>Fitness</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
 <style>
 :root {
-  --bg: #0e0f12; --panel: #17181c; --card: #222328; --card2: #2b2c32; --line: rgba(255, 255, 255, .09);
+  --bg: #000000; --panel: #0c0c0e; --card: #141417; --card2: #1c1c20; --line: rgba(255, 255, 255, .08);
+  --neon-a: #27e8ff; --neon-b: #ff2fd8;
   --fg: #f3f3f5; --muted: #a2a3ac; --dim: #6e7079;
   --pink: #f6a6c8; --teal: #7fdfc6; --lilac: #b8a1ff; --lime: #b9e58a; --danger: #ff7a8a;
   --pink-deep: #8f4f6b; --teal-deep: #3f8a7a; --lilac-deep: #5f4f9c;
@@ -68,8 +69,8 @@ svg.i { width: 20px; height: 20px; flex: none; }
 /* cards */
 .cards { display: grid; gap: 10px; margin-bottom: 16px; }
 .card { width: 100%; display: block; background: var(--card); border: 2px solid transparent; border-radius: 16px; padding: 14px 16px; }
-button.card:hover { border-color: rgba(255, 255, 255, .25); }
-button.card:active, button.card:focus-visible { border-color: #fff; outline: none; }
+button.card:hover { border-color: rgba(255, 255, 255, .12); }
+button.card:focus-visible { border-color: #fff; outline: none; }
 .card .head { display: flex; align-items: center; gap: 12px; }
 .card .ttl { font-size: 16px; font-weight: 600; color: var(--c, #fff); }
 .card .lv { font-size: 16px; color: #fff; margin-top: 2px; }
@@ -210,6 +211,44 @@ button.card:active, button.card:focus-visible { border-color: #fff; outline: non
 .newex input, .newex select { min-height: 40px; padding: 0 10px; border-radius: 10px; border: 1px solid var(--line); background: var(--card); min-width: 0; }
 .pick-btn { display: flex; align-items: center; gap: 10px; width: 100%; background: var(--card); border-radius: 12px; padding: 12px 14px; margin-bottom: 14px; }
 .pick-btn .grow { font-weight: 600; }
+/* ---------- neon ao toque ---------- */
+.card, .exrow, .btn, .addcard, .pick-btn, .chip, .food, .dots, .notif-list div, .li, .daynav button { position: relative; transition: box-shadow .7s ease-out, transform .15s ease-out; }
+.card::after, .exrow::after, .btn::after, .addcard::after, .pick-btn::after, .chip::after, .food::after, .dots::after, .li::after, .daynav button::after {
+  content: ""; position: absolute; inset: -2px; border-radius: inherit; padding: 2px; pointer-events: none;
+  background: linear-gradient(120deg, var(--neon-a), var(--c, var(--lilac)) 50%, var(--neon-b));
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0); -webkit-mask-composite: xor;
+  mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0); mask-composite: exclude;
+  opacity: 0; transition: opacity .7s ease-out;
+}
+@keyframes neon { 0%, 35% { box-shadow: -10px 0 26px -8px var(--neon-a), 10px 0 26px -8px var(--neon-b), 0 0 18px -6px var(--c, var(--lilac)); } 100% { box-shadow: -10px 0 26px -8px transparent, 10px 0 26px -8px transparent, 0 0 18px -6px transparent; } }
+@keyframes neonB { 0%, 35% { opacity: 1; } 100% { opacity: 0; } }
+@keyframes press { 0% { transform: scale(1); } 30% { transform: scale(.975); } 100% { transform: scale(1); } }
+.glow { animation: neon .9s ease-out both, press .35s ease-out !important; }
+.glow::after { animation: neonB .9s ease-out both !important; }
+
+/* ---------- animações ---------- */
+@keyframes fadeUp { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: none; } }
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+@keyframes slideUp { from { transform: translateY(100%); } to { transform: none; } }
+@keyframes ringIn { from { stroke-dashoffset: var(--L); } }
+@keyframes pop { 0% { transform: scale(.6); } 60% { transform: scale(1.25); } 100% { transform: scale(1); } }
+@keyframes shine { from { background-position: 0 0; } to { background-position: 200% 0; } }
+#app.enter > *, #app.enter .cards > *, #app.enter .panel { animation: fadeUp .45s cubic-bezier(.2, .8, .2, 1) both; }
+#app.enter .cards > *:nth-child(2) { animation-delay: .05s; } #app.enter .cards > *:nth-child(3) { animation-delay: .1s; }
+#app.enter .cards > *:nth-child(4) { animation-delay: .15s; } #app.enter .cards > *:nth-child(5) { animation-delay: .2s; }
+#app.enter .cards > *:nth-child(n+6) { animation-delay: .25s; }
+#app.enter .ring .pg { animation: ringIn 1.1s cubic-bezier(.2, .8, .2, 1) .15s both; }
+#app.enter .sub .bar i, #app.enter .meter i { animation: grow 1s cubic-bezier(.2, .8, .2, 1) .2s both; }
+@keyframes grow { from { width: 0; } }
+#sheet.on .dim { animation: fadeIn .25s both; }
+#sheet.on .box { animation: slideUp .32s cubic-bezier(.2, .8, .2, 1) both; }
+.menu { animation: fadeUp .22s cubic-bezier(.2, .8, .2, 1) both; transform-origin: top right; }
+.exrow.pop .ck { animation: pop .35s ease-out; }
+.sub.win .bar i { background: linear-gradient(90deg, rgba(255, 255, 255, .7), #fff, rgba(255, 255, 255, .7)); background-size: 200% 100%; animation: shine 2.5s linear infinite; }
+#app.enter .sub.win .bar i { animation: grow 1s cubic-bezier(.2, .8, .2, 1) .2s both, shine 2.5s linear 1.2s infinite; }
+.wchips { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-bottom: 14px; }
+.wchips .chip { text-align: center; padding: 12px 6px; border-radius: 12px; }
+@media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation: none !important; transition: none !important; } }
 .demo { font-size: 12px; color: var(--dim); text-align: center; margin-top: 20px; }
 </style>
 </head>
@@ -412,6 +451,14 @@ const TX = {
   win_d: ['Duração da janela (dias)', 'Window length (days)', 'Duración de la ventana (días)'],
   win_help: ['A janela abre depois do descanso. Se ela fechar sem um treino completo, você perde progresso.', 'The window opens after the rest. If it closes without a full workout, you lose progress.', 'La ventana se abre después del descanso. Si se cierra sin un entrenamiento completo, pierdes progreso.'],
   e_win: ['Valores inválidos: descanso de 0 a 168 h e janela de 0,5 a 30 dias.', 'Invalid values: rest 0–168 h and window 0.5–30 days.', 'Valores inválidos: descanso de 0 a 168 h y ventana de 0,5 a 30 días.'],
+  win_time: ['Tempo da janela', 'Window time', 'Tiempo de la ventana'],
+  win_time_help: ['Quanto tempo você tem para fazer o próximo treino depois de descansar.', 'How long you have to do your next workout after resting.', 'Cuánto tiempo tienes para el próximo entrenamiento después de descansar.'],
+  resting: ['Descansando', 'Resting', 'Descansando'], week1: ['1 semana', '1 week', '1 semana'],
+  mode_timer: ['Timer', 'Timer', 'Temporizador'], mode_alarm: ['Despertador', 'Alarm', 'Alarma'], hours: ['Horas', 'Hours', 'Horas'],
+  timer_help: ['Depois de cada treino e do descanso, você terá esse tempo para treinar de novo.', 'After each workout and rest, you\'ll have this much time to train again.', 'Después de cada entrenamiento y del descanso, tendrás este tiempo para entrenar de nuevo.'],
+  alarm_help: ['Escolha o dia e a hora em que a janela atual deve fechar.', 'Pick the day and time the current window should close.', 'Elige el día y la hora en que la ventana actual debe cerrarse.'],
+  e_time: ['Escolha um tempo entre 15 min e 30 dias', 'Choose a time between 15 min and 30 days', 'Elige un tiempo entre 15 min y 30 días'],
+  e_future: ['Escolha um horário no futuro', 'Pick a time in the future', 'Elige una hora futura'],
   saved: ['Salvo', 'Saved', 'Guardado'], restore: ['Voltar ao padrão', 'Reset to default', 'Restablecer'],
   new_act_t: ['Nova atividade', 'New activity', 'Nueva actividad'], act_ph: ['Ex.: Yoga, Futebol, Luta', 'E.g. Yoga, Soccer, Martial arts', 'Ej.: Yoga, Fútbol, Lucha'],
   icon: ['Ícone', 'Icon', 'Icono'], color: ['Cor', 'Color', 'Color'], e_name: ['Dê um nome', 'Give it a name', 'Ponle un nombre'],
@@ -504,13 +551,9 @@ const dec = n => { const s = String(Math.round(n * 10) / 10); return LANG === 'e
 const clamp = (n, a, b) => Math.max(a, Math.min(b, n));
 const days = n => t(n === 1 ? 'days_1' : 'days', { n: typeof n === 'number' && n % 1 ? dec(n) : n });
 const norm = s => String(s).toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '');
-function dur(ms) {
-  ms = Math.max(0, ms);
-  const m = Math.round(ms / 6e4), h = Math.floor(m / 60), d = Math.floor(h / 24);
-  if (d >= 1) return d + 'd ' + (h % 24) + 'h';
-  if (h >= 1) return h + 'h ' + pad(m % 60) + 'min';
-  return m + 'min';
-}
+// até 60 min mostra em minutos; passou disso, em horas
+function fmtMin(m) { m = Math.max(0, Math.round(m)); if (m < 60) return m + ' min'; const h = Math.floor(m / 60), r = m % 60; return r ? h + 'h ' + pad(r) + 'min' : h + 'h'; }
+const dur = ms => fmtMin(ms / 6e4);
 const shortDate = d => d.toLocaleDateString(LOC[LANG], { weekday: 'short', day: '2-digit', month: '2-digit' });
 function when(ms) {
   const d = new Date(ms), td = today(), s = iso(d), hm = pad(d.getHours()) + ':' + pad(d.getMinutes());
@@ -552,7 +595,7 @@ const ICONS = {
 const ico = (n, cls) => '<svg class="i' + (cls ? ' ' + cls : '') + '" viewBox="0 0 24 24" aria-hidden="true">' + (ICONS[n] || ICONS.star) + '</svg>';
 function ring(frac, icon, c) {
   const r = 22, L = 2 * Math.PI * r;
-  return '<div class="ring" style="--c:' + c + '"><svg class="r" viewBox="0 0 54 54" aria-hidden="true"><circle class="tr" cx="27" cy="27" r="' + r + '"/><circle class="pg" cx="27" cy="27" r="' + r + '" stroke-dasharray="' + L.toFixed(2) + '" stroke-dashoffset="' + (L * (1 - clamp(frac, 0, 1))).toFixed(2) + '"/></svg>' + ico(icon) + '</div>';
+  return '<div class="ring" style="--c:' + c + '"><svg class="r" viewBox="0 0 54 54" aria-hidden="true"><circle class="tr" cx="27" cy="27" r="' + r + '"/><circle class="pg" cx="27" cy="27" r="' + r + '" style="--L:' + L.toFixed(2) + '" stroke-dasharray="' + L.toFixed(2) + '" stroke-dashoffset="' + (L * (1 - clamp(frac, 0, 1))).toFixed(2) + '"/></svg>' + ico(icon) + '</div>';
 }
 
 /* ---------- estado ---------- */
@@ -902,12 +945,12 @@ function viewAttr(k) {
   h += '<div class="prose">' + (k === 'forca' ? t('p_forca') : k === 'cardio' ? t('p_cardio') : t('p_custom', { a: esc(D.name) })) + t('p_points') + '</div>';
   h += '<div class="panel"><div class="big">' + ring(lv.frac, D.icon, D.c) + '<div class="grow"><div class="n num">' + t('level', { l: lv.l }) + '</div><div class="small muted num">' + (lv.l === 4 ? t('max_lv') : t('pts_next', { p: a.pts % LV_PTS, t: LV_PTS, l: lv.l + 1 })) + '</div></div></div>';
   h += '<div class="kv" style="margin-top:14px">';
-  if (w.s === 'rest') h += '<span>' + t('recovery') + '</span><span class="num">' + dur(w.left) + '</span>';
-  if (w.s === 'open') h += '<span>' + t('win_closes') + '</span><span class="num">' + dur(w.left) + '</span>';
-  if (w.s === 'none') h += '<span>' + t('win') + '</span><span>' + t('closed') + '</span>';
-  h += '<span>' + t('rest_after') + '</span><span>' + dec(D.rest / H) + 'h</span><span>' + t('win_len') + '</span><span>' + days(Math.round(D.win / DAY * 10) / 10) + '</span><span>' + t('total_pts') + '</span><span class="num">' + a.pts + '</span></div>';
-  if (w.s === 'open') h += '<div class="meter" style="margin-top:12px"><i style="--w:' + Math.round(w.frac * 100) + '%"></i></div>';
-  h += '<button class="btn block" style="margin-top:14px" data-a="win-edit" data-k="' + esc(k) + '">' + ico('clock') + t('adjust') + '</button></div>';
+  if (w.s === 'rest') h += '<span>' + t('resting') + '</span><span class="num">' + dur(w.left) + '</span>';
+  else if (w.s === 'open') h += '<span>' + t('win_closes') + '</span><span class="num">' + dur(w.left) + '</span>';
+  else h += '<span>' + t('win') + '</span><span>' + t('closed') + '</span>';
+  h += '</div>';
+  if (w.s === 'open') h += '<div class="meter" style="margin-top:10px"><i style="--w:' + Math.round(w.frac * 100) + '%"></i></div>';
+  h += '<button class="btn block" style="margin-top:14px" data-a="win-edit" data-k="' + esc(k) + '">' + ico('clock') + t('win_time') + ': ' + winLabel(D.win) + '</button></div>';
   // treino
   h += '<div class="panel"><h2>' + (s ? t('wo_running') : t('my_wo')) + '</h2>';
   if (s) {
@@ -1085,33 +1128,57 @@ function pickerSheet(k) {
   });
   box.querySelector('#ex-q').addEventListener('input', e => { q = e.target.value; box.querySelector('#exlist').innerHTML = listHtml(); });
 }
+// tempo da janela: timer (duração livre) ou despertador (dia e hora em que a janela atual fecha)
+const WIN_OPTS = [30, 60, 120, 720, 1440, 2880, 4320, 10080]; // minutos
+const winLabel = ms => fmtMin(ms / 6e4);
+const winChips = cur => '<div class="wchips" id="wc">' + WIN_OPTS.map(m => '<button class="chip' + (Math.abs(cur - m) < 1 ? ' on' : '') + '" data-wm="' + m + '">' + fmtMin(m) + '</button>').join('') + '</div>';
 function windowSheet(k) {
-  const D = A(k);
-  const html = '<h2>' + t('times_of', { a: esc(D.name) }) + '</h2><p class="small muted" style="margin:-6px 0 14px">' + t('win_help') + '</p><label class="field"><span>' + t('rest_h') + '</span><input id="t-rest" type="number" inputmode="decimal" step="1" min="0" max="168" value="' + (Math.round(D.rest / H * 10) / 10) + '"></label><label class="field"><span>' + t('win_d') + '</span><input id="t-win" type="number" inputmode="decimal" step="0.5" min="0.5" max="30" value="' + (Math.round(D.win / DAY * 10) / 10) + '"></label>' + (D.builtin ? '<button class="btn ghost block" data-reset="1" style="margin-bottom:8px">' + t('restore') + '</button>' : '') + btnsRow();
+  const D = A(k), a = st(k);
+  let mode = 'timer', cur = Math.round(D.win / 6e4);
+  const timerPane = () => '<p class="small muted" style="margin:0 0 12px">' + t('timer_help') + '</p>' + winChips(cur) + '<div class="two"><label class="field"><span>' + t('hours') + '</span><input id="w-h" type="number" inputmode="numeric" min="0" max="720" value="' + Math.floor(cur / 60) + '"></label><label class="field"><span>' + t('minutes') + '</span><input id="w-m" type="number" inputmode="numeric" min="0" max="59" value="' + (cur % 60) + '"></label></div>';
+  const alarmPane = () => { const def = a.due && a.due > Date.now() ? a.due : Date.now() + D.win; return '<p class="small muted" style="margin:0 0 12px">' + t('alarm_help') + '</p><label class="field"><span>' + t('when') + '</span><input id="w-at" type="datetime-local" value="' + localInput(def) + '" min="' + localInput(Date.now()) + '"></label>'; };
+  const body = () => '<div class="chips" id="wmode" style="margin-bottom:14px"><button class="chip' + (mode === 'timer' ? ' on' : '') + '" data-mode="timer">' + ico('clock') + ' ' + t('mode_timer') + '</button><button class="chip' + (mode === 'alarm' ? ' on' : '') + '" data-mode="alarm">' + ico('bell') + ' ' + t('mode_alarm') + '</button></div><div id="wpane">' + (mode === 'timer' ? timerPane() : alarmPane()) + '</div>';
+  const html = '<h2>' + t('win_time') + '</h2><div id="wbody">' + body() + '</div>' + (D.builtin ? '<button class="btn ghost block" data-reset="1" style="margin-bottom:8px">' + t('restore') + '</button>' : '') + btnsRow();
+  const bind = () => {
+    const sync = () => { cur = Math.round(toNum(val('w-h')) * 60 + toNum(val('w-m'))); box.querySelectorAll('#wc .chip').forEach(c => c.classList.toggle('on', Math.abs(+c.dataset.wm - cur) < 1)); };
+    ['w-h', 'w-m'].forEach(id => { const i = box.querySelector('#' + id); if (i) i.oninput = sync; });
+  };
+  const redraw = () => { box.querySelector('#wbody').innerHTML = body(); bind(); };
   openSheet(html, D.c, el => {
-    if (el.dataset.reset) { delete S.cfg[k]; retime(k); save(); closeSheet(); render(); return toast(t('saved')); }
+    if (el.dataset.mode) { mode = el.dataset.mode; return redraw(); }
+    if (el.dataset.wm) { cur = +el.dataset.wm; return redraw(); }
+    if (el.dataset.reset) { const o = Object.assign({}, S.cfg[k]); delete o.win; S.cfg[k] = o; retime(k); save(); closeSheet(); render(); return toast(t('saved')); }
     if (el.dataset.s !== 'ok') return;
-    const rest = toNum(val('t-rest')), winD = toNum(val('t-win'));
-    if (rest < 0 || rest > 168 || winD < 0.5 || winD > 30) return toast(t('e_win'));
-    if (D.builtin) S.cfg[k] = { rest, win: winD * 24 };
-    else Object.assign(S.custom.find(x => x.id === k), { rest, win: winD * 24 });
-    retime(k); save(); closeSheet(); render(); toast(t('saved'));
+    if (mode === 'timer') {
+      const m = Math.round(toNum(val('w-h')) * 60 + toNum(val('w-m')));
+      if (m < 15 || m > 43200) return toast(t('e_time'));
+      if (D.builtin) S.cfg[k] = Object.assign({}, S.cfg[k], { win: m / 60 });
+      else S.custom.find(x => x.id === k).win = m / 60;
+      retime(k);
+    } else {
+      const at = new Date(val('w-at')).getTime();
+      if (!isFinite(at) || at < Date.now() + 6e4) return toast(t('e_future'));
+      if (!a.last || !a.due) a.last = Date.now() - D.rest; // abre a janela agora
+      a.due = at;
+    }
+    save(); closeSheet(); render(); toast(t('saved'));
   });
+  bind();
 }
 function activitySheet() {
-  let icon = 'flame', color = 2;
+  let icon = 'flame', color = 2, winM = 4320;
   const pick = () => '<div class="icopick" id="ip">' + ICON_PICK.map(i => '<button class="' + (i === icon ? 'on' : '') + '" data-ic="' + i + '" aria-label="' + i + '">' + ico(i) + '</button>').join('') + '</div>';
   const sw = () => '<div class="swatches" id="sw">' + COLORS.map((c, i) => '<button class="sw' + (i === color ? ' on' : '') + '" style="--c:' + c[0] + '" data-col="' + i + '" aria-label="' + t('color') + ' ' + (i + 1) + '"></button>').join('') + '</div>';
-  const html = '<h2>' + t('new_act_t') + '</h2><label class="field"><span>' + t('name') + '</span><input id="na-name" maxlength="30" placeholder="' + t('act_ph') + '"></label><div class="field"><span>' + t('icon') + '</span>' + pick() + '</div><div class="field"><span>' + t('color') + '</span>' + sw() + '</div><div class="two"><label class="field"><span>' + t('rest_h') + '</span><input id="na-rest" type="number" inputmode="decimal" min="0" max="168" value="12"></label><label class="field"><span>' + t('win_d') + '</span><input id="na-win" type="number" inputmode="decimal" step="0.5" min="0.5" max="30" value="3"></label></div>' + btnsRow();
+  const html = '<h2>' + t('new_act_t') + '</h2><label class="field"><span>' + t('name') + '</span><input id="na-name" maxlength="30" placeholder="' + t('act_ph') + '"></label><div class="field"><span>' + t('icon') + '</span>' + pick() + '</div><div class="field"><span>' + t('color') + '</span>' + sw() + '</div><div class="field"><span>' + t('win_time') + '</span>' + winChips(winM) + '</div>' + btnsRow();
   openSheet(html, COLORS[color][0], el => {
     if (el.dataset.ic) { icon = el.dataset.ic; box.querySelector('#ip').outerHTML = pick(); return; }
     if (el.dataset.col) { color = +el.dataset.col; box.style.setProperty('--c', COLORS[color][0]); box.querySelector('#sw').outerHTML = sw(); return; }
+    if (el.dataset.wm) { winM = +el.dataset.wm; box.querySelector('#wc').outerHTML = winChips(winM); return; }
     if (el.dataset.s !== 'ok') return;
-    const name = val('na-name').trim(), rest = toNum(val('na-rest')), winD = toNum(val('na-win'));
+    const name = val('na-name').trim();
     if (!name) return toast(t('e_name'));
-    if (rest < 0 || rest > 168 || winD < 0.5 || winD > 30) return toast(t('e_win'));
     const id = 'x_' + uid();
-    S.custom.push({ id, name, icon, color, rest, win: winD * 24 });
+    S.custom.push({ id, name, icon, color, rest: 12, win: winM / 60 });
     save(); closeSheet(); go(id); toast(t('act_made', { a: name })); pickerSheet(id);
   });
 }
@@ -1221,7 +1288,24 @@ function render() {
   const q = V.page;
   if (q !== 'home') V.menu = false;
   app.innerHTML = A(q) ? viewAttr(q) : q === 'foco' ? viewFoco() : q === 'nutri' ? viewNutri() : q === 'ajustes' ? viewAjustes() : viewHome();
+  if (V.pop) { const r = app.querySelector('.exrow[data-k="' + V.pop[0] + '"][data-i="' + V.pop[1] + '"]'); if (r) r.classList.add('pop'); V.pop = null; }
 }
+// anima a entrada só quando muda de tela (não a cada atualização)
+let shownPage = null;
+const _render = render;
+render = function () {
+  const changed = V.page !== shownPage;
+  _render();
+  shownPage = V.page;
+  if (changed) { app.classList.remove('enter'); void app.offsetWidth; app.classList.add('enter'); clearTimeout(render._t); render._t = setTimeout(() => app.classList.remove('enter'), 1600); }
+};
+// borda neon ao tocar
+const GLOW = '.card, .exrow, .btn, .addcard, .pick-btn, .chip, .food, .dots, .li, .daynav button';
+document.addEventListener('pointerdown', e => {
+  const el = e.target.closest(GLOW); if (!el || el.disabled) return;
+  el.classList.remove('glow'); void el.offsetWidth; el.classList.add('glow');
+  clearTimeout(el._glow); el._glow = setTimeout(() => el.classList.remove('glow'), 950);
+}, { passive: true });
 function togglePw(force) {
   const i = app.querySelector('#a-pass'), b = app.querySelector('[data-a="pw-toggle"]'); if (!i || !b) return;
   const show = force != null ? force : i.type === 'password';
@@ -1271,11 +1355,11 @@ app.addEventListener('click', e => {
     lsDel(k); user = null; account = {}; S = load();
     Object.assign(V, { page: 'auth', authMode: 'entrar', authMsg: t('deleted'), authErr: false }); render();
   });
-  if (a === 'go') return go(d.v);
+  if (a === 'go') { const v = d.v; return setTimeout(() => go(v), matchMedia('(prefers-reduced-motion: reduce)').matches ? 0 : 160); }
   if (a === 'new-act') return activitySheet();
   if (a === 'wo-pick') return pickerSheet(d.k);
   if (a === 'wo-start') { startSession(d.k, S.plan[d.k] || []); return render(); }
-  if (a === 'ex-toggle') { toggleItem(d.k, +d.i); return render(); }
+  if (a === 'ex-toggle') { toggleItem(d.k, +d.i); V.pop = [d.k, d.i]; return render(); }
   if (a === 'wo-finish') { finishSession(d.k); return render(); }
   if (a === 'wo-discard') return confirmSheet(t('c_discard_wo'), t('discard'), () => discardSession(d.k));
   if (a === 'win-edit') return windowSheet(d.k);
