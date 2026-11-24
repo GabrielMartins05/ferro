@@ -11,7 +11,7 @@
 <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
 <link rel="icon" href="icons/icon-192.png">
 <style>:root{padding-top:max(env(safe-area-inset-top,0px),var(--safe-area-inset-top,0px));padding-bottom:max(env(safe-area-inset-bottom,0px),var(--safe-area-inset-bottom,0px))}img{max-width:100%}[hidden]{display:none!important}</style>
-<script>window.FERRO_REAL = true; window.FITNESS_CONFIG = {"supabaseUrl":"https://iwkcwharouakejivkiqp.supabase.co","supabaseAnonKey":"sb_publishable_BpQXJSmHBpqOA-n6yX1ydA_CQtHxBpk","siteUrl":"https://gabrielmartins05.github.io/ferro/","version":"1.0.3"}; window.FITNESS_FOODS = [["Arroz branco","1 escumadeira",115,2.3],["Feijão","1 concha",70,4.5],["Peito de frango grelhado","1 filé (120 g)",190,38],["Bife de patinho","1 bife (100 g)",220,32],["Carne moída","1 colher de servir",130,13],["Ovo cozido","1 unidade",73,6.5],["Ovo frito","1 unidade",110,6.5],["Pão francês","1 unidade",150,4.5],["Pão de forma","2 fatias",130,5],["Queijo muçarela","1 fatia",66,5],["Presunto","2 fatias",50,7],["Leite integral","1 copo",120,6],["Iogurte natural","1 pote",90,6],["Whey protein","1 scoop",120,24],["Aveia","2 colheres de sopa",118,4],["Banana","1 unidade",70,1],["Maçã","1 unidade",72,0.4],["Mamão","1 fatia",60,0.7],["Batata doce","1 média",100,1.5],["Macarrão","1 pegador",150,5],["Tapioca com queijo","1 unidade",250,8],["Cuscuz","1 pedaço",150,3],["Salada","1 prato",15,1],["Tilápia grelhada","1 filé",155,32],["Atum em lata","1 lata",140,30],["Café com açúcar","1 xícara",40,0],["Pizza","1 fatia",280,12],["Hambúrguer","1 unidade",500,25],["Coxinha","1 unidade",280,9],["Refrigerante","1 lata",140,0],["Suco de laranja","1 copo",90,1],["Chocolate","1 barrinha",135,2],["Açaí","1 tigela",360,4]];</script>
+<script>window.FERRO_REAL = true; window.FITNESS_CONFIG = {"supabaseUrl":"https://iwkcwharouakejivkiqp.supabase.co","supabaseAnonKey":"sb_publishable_BpQXJSmHBpqOA-n6yX1ydA_CQtHxBpk","siteUrl":"https://gabrielmartins05.github.io/ferro/","version":"1.0.4"}; window.FITNESS_FOODS = [["Arroz branco","1 escumadeira",115,2.3],["Feijão","1 concha",70,4.5],["Peito de frango grelhado","1 filé (120 g)",190,38],["Bife de patinho","1 bife (100 g)",220,32],["Carne moída","1 colher de servir",130,13],["Ovo cozido","1 unidade",73,6.5],["Ovo frito","1 unidade",110,6.5],["Pão francês","1 unidade",150,4.5],["Pão de forma","2 fatias",130,5],["Queijo muçarela","1 fatia",66,5],["Presunto","2 fatias",50,7],["Leite integral","1 copo",120,6],["Iogurte natural","1 pote",90,6],["Whey protein","1 scoop",120,24],["Aveia","2 colheres de sopa",118,4],["Banana","1 unidade",70,1],["Maçã","1 unidade",72,0.4],["Mamão","1 fatia",60,0.7],["Batata doce","1 média",100,1.5],["Macarrão","1 pegador",150,5],["Tapioca com queijo","1 unidade",250,8],["Cuscuz","1 pedaço",150,3],["Salada","1 prato",15,1],["Tilápia grelhada","1 filé",155,32],["Atum em lata","1 lata",140,30],["Café com açúcar","1 xícara",40,0],["Pizza","1 fatia",280,12],["Hambúrguer","1 unidade",500,25],["Coxinha","1 unidade",280,9],["Refrigerante","1 lata",140,0],["Suco de laranja","1 copo",90,1],["Chocolate","1 barrinha",135,2],["Açaí","1 tigela",360,4]];</script>
 <script src="vendor/supabase.js"></script>
 <title>Fitness</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -183,8 +183,24 @@ button.card:focus-visible { border-color: #fff; outline: none; }
 .newtype { display: flex; gap: 8px; margin-top: 10px; }
 .newtype input { flex: 1; min-height: 40px; padding: 0 12px; border-radius: 10px; border: 1px solid var(--line); background: var(--card); }
 .topbar { position: relative; display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 4px 0 18px; }
-.topbar .hi { font-size: 14px; color: var(--muted); min-width: 0; }
-.topbar .hi b { color: #fff; font-size: 22px; display: block; line-height: 1.2; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.brandbar { display: flex; align-items: center; gap: 10px; font-size: 20px; font-weight: 700; letter-spacing: -.3px; color: #fff; }
+.brandbar svg { width: 34px; height: 34px; flex: none; }
+#drawer { position: fixed; inset: 0; z-index: 15; pointer-events: none; }
+#drawer .ddim { position: absolute; inset: 0; background: rgba(0, 0, 0, .65); opacity: 0; transition: opacity .3s; }
+#drawer .side { position: absolute; top: 0; right: 0; bottom: 0; width: min(320px, 86vw); background: var(--panel); transform: translateX(105%); transition: transform .32s cubic-bezier(.2, .8, .2, 1); padding: calc(16px + max(env(safe-area-inset-top, 0px), var(--safe-area-inset-top, 0px))) 16px calc(20px + env(safe-area-inset-bottom, 0px)); overflow-y: auto; }
+#drawer .side::before { content: ""; position: absolute; left: 0; top: 0; bottom: 0; width: 2px; background: linear-gradient(180deg, var(--neon-a), var(--lilac) 50%, var(--neon-b)); box-shadow: -4px 0 18px var(--neon-a), -4px 0 30px var(--neon-b); opacity: .9; }
+#drawer.on { pointer-events: auto; }
+#drawer.on .ddim { opacity: 1; }
+#drawer.on .side { transform: none; }
+#drawer .shead { display: flex; align-items: center; justify-content: space-between; margin-bottom: 18px; }
+#drawer .shead .x { width: 40px; height: 40px; display: grid; place-items: center; border-radius: 12px; background: var(--card); }
+#drawer h3 { font-size: 11px; text-transform: uppercase; letter-spacing: .08em; color: var(--dim); margin: 14px 2px 8px; font-weight: 600; }
+#drawer .acc { display: flex; gap: 12px; align-items: center; margin-bottom: 10px; }
+#drawer .acc .grow > * { display: block; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+#drawer .mi { display: flex; align-items: center; gap: 12px; width: 100%; padding: 12px 10px; border-radius: 12px; font-weight: 600; text-decoration: none; color: #fff; position: relative; }
+#drawer .mi svg { color: var(--c, var(--muted)); }
+#drawer .mi.on { background: var(--card); }
+#drawer hr { border: 0; border-top: 1px solid var(--line); margin: 10px 0; }
 .dots { position: relative; width: 44px; height: 44px; display: grid; place-items: center; border-radius: 14px; background: var(--card); color: #fff; flex: none; }
 .dots .badge { position: absolute; top: -5px; right: -5px; min-width: 20px; height: 20px; padding: 0 5px; border-radius: 10px; background: var(--pink); color: #141418; font-size: 11px; font-weight: 700; display: grid; place-items: center; }
 .menu { position: absolute; right: 0; top: 54px; width: min(340px, calc(100vw - 32px)); background: var(--panel); border: 1px solid var(--line); border-radius: 18px; padding: 14px; z-index: 10; box-shadow: 0 14px 40px rgba(0, 0, 0, .55); max-height: 75vh; overflow: auto; }
@@ -281,7 +297,7 @@ function setLang(l) {
 const TX = {
   today: ['Hoje', 'Today', 'Hoy'], yesterday: ['Ontem', 'Yesterday', 'Ayer'],
   settings: ['Ajustes', 'Settings', 'Ajustes'], back: ['Voltar', 'Back', 'Volver'],
-  menu: ['Menu', 'Menu', 'Menú'], notifications: ['Notificações', 'Notifications', 'Notificaciones'],
+  menu: ['Menu', 'Menu', 'Menú'], home: ['Início', 'Home', 'Inicio'], activities: ['Atividades', 'Activities', 'Actividades'], notifications: ['Notificações', 'Notifications', 'Notificaciones'],
   hello: ['Olá, {n}', 'Hi, {n}', 'Hola, {n}'], hello0: ['Olá!', 'Hi!', '¡Hola!'],
   sub_hello: ['Vamos encher os círculos hoje?', 'Let\'s fill the rings today?', '¿Llenamos los círculos hoy?'],
   no_acc_short: ['Usando sem conta', 'Using without an account', 'Usando sin cuenta'],
@@ -590,7 +606,8 @@ const ICONS = {
   gear: '<circle cx="12" cy="12" r="3.2" fill="none" stroke="currentColor" stroke-width="2"/><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" d="M12 2.5v3M12 18.5v3M2.5 12h3M18.5 12h3M5.3 5.3l2.1 2.1M16.6 16.6l2.1 2.1M5.3 18.7l2.1-2.1M16.6 7.4l2.1-2.1"/>',
   leaf: '<path fill="currentColor" d="M20 4c-9 0-15 4-15 11 0 1.4.3 2.6.8 3.6L4 20.5l1.4 1.4 1.8-1.8c1 .6 2.3.9 3.8.9 7 0 9-7 9-17zM9 17c1.5-3 4-5.5 7-7-2.5 2-4.6 4.4-6 7.6z"/>',
   body: '<circle cx="12" cy="4.8" r="2.3" fill="currentColor"/><path fill="currentColor" d="M7 8h10l-1.6 6.4H14l-.6 7.1h-2.8l-.6-7.1H8.6z"/>',
-  user: '<circle cx="12" cy="8" r="4" fill="currentColor"/><path fill="currentColor" d="M4 21c0-4.4 3.6-7 8-7s8 2.6 8 7z"/>'
+  user: '<circle cx="12" cy="8" r="4" fill="currentColor"/><path fill="currentColor" d="M4 21c0-4.4 3.6-7 8-7s8 2.6 8 7z"/>',
+  home: '<path fill="currentColor" d="M12 3 3 10.5V21h6.5v-6h5v6H21V10.5z"/>'
 };
 const ico = (n, cls) => '<svg class="i' + (cls ? ' ' + cls : '') + '" viewBox="0 0 24 24" aria-hidden="true">' + (ICONS[n] || ICONS.star) + '</svg>';
 function ring(frac, icon, c) {
@@ -889,22 +906,30 @@ function reminders() {
 
 /* ---------- telas ---------- */
 const langChips = () => LANGS.map(([k, n]) => '<button class="chip' + (LANG === k ? ' on' : '') + '" data-a="lang" data-v="' + k + '" lang="' + LOC[k] + '">' + n + '</button>').join('');
+const BRAND = '<svg viewBox="0 0 100 100" aria-hidden="true"><g transform="translate(50 50) rotate(-90)" fill="none" stroke-linecap="round" stroke-width="9"><circle r="34" stroke="rgba(255,255,255,.1)"/><circle r="34" stroke="#f6a6c8" stroke-dasharray="160 214"/><circle r="21" stroke="rgba(255,255,255,.1)"/><circle r="21" stroke="#7fdfc6" stroke-dasharray="95 132"/><circle r="8" stroke="rgba(255,255,255,.1)"/><circle r="8" stroke="#b8a1ff" stroke-dasharray="34 50"/></g></svg>';
 function topbar() {
+  const rs = reminders();
+  return '<div class="topbar"><div class="brandbar">' + BRAND + 'Fitness</div><button class="dots" data-a="menu" aria-label="' + t('menu') + '" aria-expanded="' + V.menu + '">' + ico('dots') + (rs.length ? '<span class="badge">' + rs.length + '</span>' : '') + '</button></div>';
+}
+// barra lateral (abre pelos três pontinhos)
+const drawer = document.createElement('div'); drawer.id = 'drawer'; document.body.appendChild(drawer);
+function drawerHtml() {
   const rs = reminders(), nm = account.name || (user && user.user_metadata && user.user_metadata.name) || '';
-  let h = '<div class="topbar"><div class="hi"><b>' + (nm ? t('hello', { n: esc(nm.split(' ')[0]) }) : t('hello0')) + '</b>' + t('sub_hello') + '</div>';
-  h += '<button class="dots" data-a="menu" aria-label="' + t('menu') + '" aria-expanded="' + V.menu + '">' + ico('dots') + (rs.length ? '<span class="badge">' + rs.length + '</span>' : '') + '</button>';
-  if (V.menu) {
-    h += '<div class="menu" role="menu">';
-    if (user) h += '<div class="acc"><span class="avatar">' + esc((nm || user.email || '?').charAt(0).toUpperCase()) + '</span><span class="grow">' + (nm ? '<b>' + esc(nm) + '</b>' : '') + '<span class="small muted">' + esc(user.email) + '</span></span></div>';
-    else if (CLOUD) h += '<div class="acc"><span class="avatar">' + ico('user') + '</span><span class="grow"><b>' + t('no_acc_short') + '</b></span></div><button class="btn main block" style="--c:#fff;margin-bottom:10px" data-a="to-auth">' + t('in_or_create') + '</button>';
-    h += '<h3>' + t('notifications') + '</h3>';
-    h += rs.length ? '<div class="notif-list">' + rs.map(r => '<div style="--c:' + r.c + '">' + esc(r.t) + '</div>').join('') + '</div>' : '<p class="empty">' + t('nothing') + '</p>';
-    h += '<hr><button class="mi" data-a="go" data-v="ajustes">' + ico('gear') + t('settings') + '</button>';
-    if (user && account.role === 'admin') h += '<a class="mi" href="admin.html">' + ico('star') + t('admin_panel') + '</a>';
-    if (user) h += '<button class="mi" data-a="logout">' + ico('back') + t('logout') + '</button>';
-    h += '</div>';
-  }
-  return h + '</div>';
+  let h = '<div class="ddim" data-a="menu-close"></div><aside class="side" role="dialog" aria-label="' + t('menu') + '"><div class="shead"><div class="brandbar">' + BRAND + 'Fitness</div><button class="x" data-a="menu-close" aria-label="' + t('back') + '">' + ico('x') + '</button></div>';
+  if (user) h += '<div class="acc"><span class="avatar">' + esc((nm || user.email || '?').charAt(0).toUpperCase()) + '</span><span class="grow">' + (nm ? '<b>' + esc(nm) + '</b>' : '') + '<span class="small muted">' + esc(user.email) + '</span></span></div>';
+  else if (CLOUD) h += '<div class="acc"><span class="avatar">' + ico('user') + '</span><span class="grow"><b>' + t('no_acc_short') + '</b></span></div><button class="btn main block" style="--c:#fff;margin-bottom:6px" data-a="to-auth">' + t('in_or_create') + '</button>';
+  const nav = [['home', 'home', t('home'), '#fff']].concat(acts().map(k => [k, A(k).icon, A(k).name, A(k).c]), [['foco', 'eye', t('n_foco'), 'var(--lilac)'], ['nutri', 'leaf', t('lbl_body'), 'var(--lime)']]);
+  h += '<h3>' + t('menu') + '</h3>' + nav.map(([p, i, n, c]) => '<button class="mi' + (V.page === p ? ' on' : '') + '" style="--c:' + c + '" data-a="go" data-v="' + esc(p) + '">' + ico(i) + esc(n) + '</button>').join('');
+  h += '<h3>' + t('notifications') + (rs.length ? ' · ' + rs.length : '') + '</h3>';
+  h += rs.length ? '<div class="notif-list">' + rs.map(r => '<div style="--c:' + r.c + '">' + esc(r.t) + '</div>').join('') + '</div>' : '<p class="empty">' + t('nothing') + '</p>';
+  h += '<hr><button class="mi" data-a="go" data-v="ajustes">' + ico('gear') + t('settings') + '</button>';
+  if (user && account.role === 'admin') h += '<a class="mi" href="admin.html">' + ico('star') + t('admin_panel') + '</a>';
+  if (user) h += '<button class="mi" data-a="logout">' + ico('back') + t('logout') + '</button>';
+  return h + '</aside>';
+}
+function renderDrawer() {
+  if (V.menu) drawer.innerHTML = drawerHtml();
+  drawer.classList.toggle('on', !!V.menu);
 }
 function attrCard(k) {
   const D = A(k), lv = level(st(k).pts), w = winState(k), s = S.sess[k];
@@ -927,7 +952,7 @@ function focoCard() {
 function viewHome() {
   const b = bodyStatus(), bal = balance();
   let h = topbar();
-  h += '<div class="label">Fitness</div><div class="cards">' + acts().map(attrCard).join('') + focoCard() + '<button class="addcard" data-a="new-act">' + t('new_act') + '</button></div>';
+  h += '<div class="label">' + t('activities') + '</div><div class="cards">' + acts().map(attrCard).join('') + focoCard() + '<button class="addcard" data-a="new-act">' + t('new_act') + '</button></div>';
   h += '<div class="label">' + t('lbl_body') + '</div><div class="cards">';
   h += '<button class="card" data-a="go" data-v="nutri"><div class="ttl">' + esc(b.name) + '</div><div class="desc">' + t('muscle', { v: b.mus }) + '</div><div class="desc">' + t('fat', { v: b.fat }) + '</div></button>';
   h += '<button class="card" data-a="go" data-v="nutri"><div class="ttl">' + t('cal_bal') + '</div><div class="desc">' + esc(bal.text) + '</div></button>';
@@ -1296,6 +1321,8 @@ const _render = render;
 render = function () {
   const changed = V.page !== shownPage;
   _render();
+  if (V.page === 'auth' || V.page === 'loading') V.menu = false;
+  renderDrawer();
   shownPage = V.page;
   if (changed) { app.classList.remove('enter'); void app.offsetWidth; app.classList.add('enter'); clearTimeout(render._t); render._t = setTimeout(() => app.classList.remove('enter'), 1600); }
 };
@@ -1335,11 +1362,14 @@ document.addEventListener('keydown', e => {
   if (V.menu) { V.menu = false; render(); }
 });
 
-app.addEventListener('click', e => {
-  if (V.menu && !e.target.closest('.menu') && !e.target.closest('[data-a="menu"]')) { V.menu = false; render(); if (!e.target.closest('[data-a]')) return; }
+drawer.addEventListener('click', e => onClick(e));
+app.addEventListener('click', e => onClick(e));
+function onClick(e) {
   const el = e.target.closest('[data-a]'); if (!el) return;
   const a = el.dataset.a, d = el.dataset;
-  if (a === 'menu') { V.menu = !V.menu; return render(); }
+  if (a === 'menu') { V.menu = !V.menu; return renderDrawer(); }
+  if (a === 'menu-close') { V.menu = false; return renderDrawer(); }
+  if (V.menu && drawer.contains(el)) { V.menu = false; renderDrawer(); }
   if (a === 'lang') { setLang(d.v); return render(); }
   if (a === 'pw-toggle') return togglePw();
   if (a === 'auth-go') return authGo();
@@ -1403,7 +1433,7 @@ app.addEventListener('click', e => {
   }
   if (a === 'import') return document.getElementById('backup-input').click();
   if (a === 'wipe') return confirmSheet(t('c_wipe'), t('wipe'), () => { S = blank(); save(); V.page = 'home'; });
-});
+}
 document.getElementById('backup-input').addEventListener('change', e => {
   const f = e.target.files[0]; if (!f) return;
   f.text().then(x => { const o = JSON.parse(x); if (!o || o.v !== 1) throw 0; S = fill(o); save(); render(); toast(t('imported')); }).catch(() => toast(t('bad_file')));

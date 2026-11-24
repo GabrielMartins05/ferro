@@ -1,6 +1,6 @@
 {
   "name": "fitness",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "private": true,
   "description": "Treino, alimentação e foco com níveis e janela de treino.",
   "scripts": {
