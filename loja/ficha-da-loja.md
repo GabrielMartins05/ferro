@@ -1,7 +1,7 @@
 # Ficha da loja (Google Play)
 
 ## Nome do app (até 30 caracteres)
-[A DEFINIR — não pode usar "GTA" nem só "Fitness"]
+Fitness GTA (nome do projeto; dentro do app aparece só "Fitness")
 
 ## Descrição curta (até 80 caracteres)
 Treino, alimentação e foco com níveis. Treine na janela certa e evolua.

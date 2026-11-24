@@ -223,6 +223,10 @@ button.card:focus-visible { border-color: #fff; outline: none; }
 }
 @keyframes neon { 0%, 35% { box-shadow: -10px 0 26px -8px var(--neon-a), 10px 0 26px -8px var(--neon-b), 0 0 18px -6px var(--c, var(--lilac)); } 100% { box-shadow: -10px 0 26px -8px transparent, 10px 0 26px -8px transparent, 0 0 18px -6px transparent; } }
 @keyframes neonB { 0%, 35% { opacity: 1; } 100% { opacity: 0; } }
+/* cards e exercícios brilham na cor da própria atividade (sem cor definida, fica o neon ciano/magenta) */
+@keyframes neonC { 0%, 35% { box-shadow: -10px 0 26px -8px var(--c, var(--neon-a)), 10px 0 26px -8px var(--c, var(--neon-b)), 0 0 22px -4px var(--c, var(--lilac)); } 100% { box-shadow: -10px 0 26px -8px transparent, 10px 0 26px -8px transparent, 0 0 22px -4px transparent; } }
+.card::after, .exrow::after { background: linear-gradient(120deg, var(--c, var(--neon-a)), var(--c, var(--lilac)) 50%, var(--c, var(--neon-b))); }
+.card.glow, .exrow.glow { animation: neonC .9s ease-out both, press .35s ease-out !important; }
 @keyframes press { 0% { transform: scale(1); } 30% { transform: scale(.975); } 100% { transform: scale(1); } }
 .glow { animation: neon .9s ease-out both, press .35s ease-out !important; }
 .glow::after { animation: neonB .9s ease-out both !important; }
@@ -293,7 +297,9 @@ const TX = {
   open_win: ['Monte e complete um treino para abrir sua janela.', 'Build and finish a workout to open your window.', 'Arma y completa un entrenamiento para abrir tu ventana.'],
   level: ['Nível {l}/4', 'Level {l}/4', 'Nivel {l}/4'],
   in_progress: ['{c} em andamento', '{c} in progress', '{c} en curso'],
-  today_of: ['Hoje: {m} de {g} min', 'Today: {m} of {g} min', 'Hoy: {m} de {g} min'],
+  today_of: ['Hoje: {m} de {g}', 'Today: {m} of {g}', 'Hoy: {m} de {g}'],
+  goal_help: ['Quanto tempo de foco você quer ter por dia.', 'How much focus time you want each day.', 'Cuánto tiempo de enfoque quieres tener por día.'],
+  e_goal: ['Escolha entre 5 min e 16h', 'Choose between 5 min and 16h', 'Elige entre 5 min y 16h'],
   nothing: ['Nada pendente', 'All caught up', 'Nada pendiente'],
   lbl_body: ['Corpo e nutrição', 'Body and nutrition', 'Cuerpo y nutrición'],
   muscle: ['Musculatura - {v}', 'Muscle - {v}', 'Musculatura - {v}'], fat: ['Gordura corporal - {v}', 'Body fat - {v}', 'Grasa corporal - {v}'],
@@ -317,16 +323,12 @@ const TX = {
   r_running: ['{a}: treino em andamento ({x} de {y}).', '{a}: workout in progress ({x} of {y}).', '{a}: entrenamiento en curso ({x} de {y}).'],
   r_prot: ['Treinou hoje: faltam {g} g de proteína.', 'You trained today: {g} g of protein to go.', 'Entrenaste hoy: faltan {g} g de proteína.'],
   r_meal: ['Nenhuma refeição registrada hoje.', 'No meals logged today.', 'Ninguna comida registrada hoy.'],
-  r_focus: ['Faltam {m} min para a meta de foco de hoje.', '{m} min left to hit today\'s focus goal.', 'Faltan {m} min para la meta de enfoque de hoy.'],
+  r_focus: ['Faltam {m} para a meta de foco de hoje.', '{m} left to hit today\'s focus goal.', 'Faltan {m} para la meta de enfoque de hoy.'],
   r_profile: ['Preencha seu perfil para calcular calorias e corpo.', 'Fill in your profile to calculate calories and body.', 'Completa tu perfil para calcular calorías y cuerpo.'],
-  p_forca: ['<p>Exercícios de <b>Força</b>, como supino, agachamento e barra, melhoram sua <b>Saúde</b> e aumentam a <b>musculatura</b>.</p><p>Mantenha a constância e treine durante a <b>janela de treino</b>. Se deixar a janela passar sem completar um treino, você perde parte dos seus ganhos.</p><p>Depois de um treino completo, coma <b>proteína</b> e <b>descanse</b>.</p>',
-    '<p><b>Strength</b> exercises, like bench press, squats and pull-ups, improve your <b>Health</b> and build <b>muscle</b>.</p><p>Stay consistent and train during your <b>training window</b>. If the window passes without a finished workout, you lose part of your gains.</p><p>After a full workout, eat <b>protein</b> and <b>rest</b>.</p>',
-    '<p>Los ejercicios de <b>Fuerza</b>, como press de banca, sentadillas y dominadas, mejoran tu <b>Salud</b> y aumentan la <b>musculatura</b>.</p><p>Sé constante y entrena durante la <b>ventana de entrenamiento</b>. Si la ventana pasa sin completar un entrenamiento, pierdes parte de lo ganado.</p><p>Después de un entrenamiento completo, come <b>proteína</b> y <b>descansa</b>.</p>'],
-  p_cardio: ['<p>Aumente seu <b>Fôlego</b> com exercícios de <b>Cárdio</b> na academia, ao ar livre ou em casa.</p><p>Mantenha a constância e treine durante a <b>janela de treino</b>. Se deixar a janela passar sem completar um treino, você perderá seus ganhos.</p>',
-    '<p>Boost your <b>Stamina</b> with <b>Cardio</b> at the gym, outdoors or at home.</p><p>Stay consistent and train during your <b>training window</b>. If the window passes without a finished workout, you\'ll lose your gains.</p>',
-    '<p>Aumenta tu <b>Resistencia</b> con <b>Cardio</b> en el gimnasio, al aire libre o en casa.</p><p>Sé constante y entrena durante la <b>ventana de entrenamiento</b>. Si la ventana pasa sin completar un entrenamiento, perderás lo ganado.</p>'],
-  p_custom: ['<p>Treine <b>{a}</b> com constância durante a <b>janela de treino</b>.</p><p>Se a janela fechar sem um treino completo, você perde parte dos seus ganhos.</p>', '<p>Train <b>{a}</b> consistently during your <b>training window</b>.</p><p>If the window closes without a full workout, you lose part of your gains.</p>', '<p>Entrena <b>{a}</b> con constancia durante la <b>ventana de entrenamiento</b>.</p><p>Si la ventana se cierra sin un entrenamiento completo, pierdes parte de lo ganado.</p>'],
-  p_points: ['<p>Cada <b>exercício concluído</b> soma pontos e enche o círculo. Exercícios mais pesados valem mais. A janela só fecha quando você completa o <b>último exercício</b> do treino.</p>', '<p>Every <b>finished exercise</b> adds points and fills the ring. Harder exercises are worth more. The window only closes when you finish the <b>last exercise</b> of the workout.</p>', '<p>Cada <b>ejercicio completado</b> suma puntos y llena el círculo. Los ejercicios más pesados valen más. La ventana solo se cierra cuando completas el <b>último ejercicio</b>.</p>'],
+  p_forca: ['<p>Exercícios de <b>Força</b>, como supino, agachamento e barra, melhoram sua <b>Saúde</b> e aumentam a <b>musculatura</b>.</p><p>Depois de um treino, coma <b>proteína</b> e <b>descanse</b>.</p>', '<p><b>Strength</b> exercises, like bench press, squats and pull-ups, improve your <b>Health</b> and build <b>muscle</b>.</p><p>After a workout, eat <b>protein</b> and <b>rest</b>.</p>', '<p>Los ejercicios de <b>Fuerza</b>, como press de banca, sentadillas y dominadas, mejoran tu <b>Salud</b> y aumentan la <b>musculatura</b>.</p><p>Después de entrenar, come <b>proteína</b> y <b>descansa</b>.</p>'],
+  p_cardio: ['<p>Aumente seu <b>Fôlego</b> com exercícios de <b>Cárdio</b> na academia, ao ar livre ou em casa.</p>', '<p>Boost your <b>Stamina</b> with <b>Cardio</b> at the gym, outdoors or at home.</p>', '<p>Aumenta tu <b>Resistencia</b> con <b>Cardio</b> en el gimnasio, al aire libre o en casa.</p>'],
+  p_custom: ['<p>Monte seu treino de <b>{a}</b> com os exercícios que você faz.</p>', '<p>Build your <b>{a}</b> workout with the exercises you do.</p>', '<p>Arma tu entrenamiento de <b>{a}</b> con los ejercicios que haces.</p>'],
+  p_points: ['<p>Cada <b>exercício concluído</b> soma pontos e enche o círculo. Exercícios mais pesados valem mais.</p>', '<p>Every <b>finished exercise</b> adds points and fills the ring. Harder exercises are worth more.</p>', '<p>Cada <b>ejercicio completado</b> suma puntos y llena el círculo. Los ejercicios más pesados valen más.</p>'],
   max_lv: ['Nível máximo. Continue treinando para não cair.', 'Max level. Keep training so you don\'t drop.', 'Nivel máximo. Sigue entrenando para no bajar.'],
   pts_next: ['{p} de {t} pts para o nível {l}', '{p} of {t} pts to level {l}', '{p} de {t} pts para el nivel {l}'],
   recovery: ['Recuperação', 'Recovery', 'Recuperación'], win_closes: ['Janela de treino fecha em', 'Window closes in', 'La ventana cierra en'],
@@ -341,7 +343,7 @@ const TX = {
   tap_done: ['Toque em cada exercício quando terminar.', 'Tap each exercise when you finish it.', 'Toca cada ejercicio cuando lo termines.'],
   c_discard_wo: ['Descartar este treino? Os pontos dele saem.', 'Discard this workout? Its points will be removed.', '¿Descartar este entrenamiento? Se quitan sus puntos.'],
   wo_full: ['Treino completo! +{p} pts. Agora coma proteína e descanse.', 'Workout complete! +{p} pts. Now eat protein and rest.', '¡Entrenamiento completo! +{p} pts. Ahora come proteína y descansa.'],
-  wo_partial: ['Treino encerrado: +{p} pts. A janela só fecha quando todos os exercícios forem concluídos.', 'Workout ended: +{p} pts. The window only closes when every exercise is done.', 'Entrenamiento terminado: +{p} pts. La ventana solo se cierra cuando completas todos los ejercicios.'],
+  wo_partial: ['Treino encerrado: +{p} pts.', 'Workout ended: +{p} pts.', 'Entrenamiento terminado: +{p} pts.'],
   w_up: ['{a} subiu para o nível {l}!', '{a} reached level {l}!', '¡{a} subió al nivel {l}!'],
   full: ['Completo', 'Complete', 'Completo'], partial: ['Parcial', 'Partial', 'Parcial'],
   x_ex: ['{n} exercícios', '{n} exercises', '{n} ejercicios'], x_ex_1: ['{n} exercício', '{n} exercise', '{n} ejercicio'],
@@ -420,9 +422,7 @@ const TX = {
   your_data: ['Seus dados', 'Your data', 'Tus datos'], data_msg: ['Tudo fica salvo neste aparelho. Exporte um backup de vez em quando.', 'Everything is saved on this device. Export a backup now and then.', 'Todo se guarda en este dispositivo. Exporta una copia de vez en cuando.'],
   export: ['Exportar', 'Export', 'Exportar'], import: ['Importar', 'Import', 'Importar'], wipe: ['Apagar tudo', 'Erase everything', 'Borrar todo'],
   how: ['Como funciona', 'How it works', 'Cómo funciona'],
-  how_html: ['<p>Monte o treino com os exercícios que vai fazer. Cada exercício concluído soma pontos (os mais pesados valem mais) e enche o círculo: a cada 60 pontos você sobe de nível, até o 4.</p><p>Quando você conclui o último exercício, o treino fecha a janela: você descansa e depois uma janela nova abre. Se ela fechar sem um treino completo, você perde 15 pontos. Os tempos podem ser ajustados em cada atividade.</p><p>Foco sobe com as horas acumuladas: 5h, 20h e 50h. Ele nunca cai.</p><p>As calorias usam a fórmula de Mifflin-St Jeor e a gordura corporal é uma estimativa pelo IMC. Não substitui orientação médica ou de nutricionista.</p>',
-    '<p>Build your workout with the exercises you\'ll do. Each finished exercise adds points (harder ones are worth more) and fills the ring: every 60 points you level up, up to 4.</p><p>When you finish the last exercise, the workout closes the window: you rest and then a new window opens. If it closes without a full workout, you lose 15 points. Times can be adjusted for each activity.</p><p>Focus grows with accumulated hours: 5h, 20h and 50h. It never drops.</p><p>Calories use the Mifflin-St Jeor formula and body fat is a BMI-based estimate. Not a substitute for medical or dietitian advice.</p>',
-    '<p>Arma tu entrenamiento con los ejercicios que vas a hacer. Cada ejercicio completado suma puntos (los más pesados valen más) y llena el círculo: cada 60 puntos subes de nivel, hasta el 4.</p><p>Cuando completas el último ejercicio, el entrenamiento cierra la ventana: descansas y luego se abre una nueva. Si se cierra sin un entrenamiento completo, pierdes 15 puntos. Los tiempos se pueden ajustar en cada actividad.</p><p>El Enfoque sube con las horas acumuladas: 5h, 20h y 50h. Nunca baja.</p><p>Las calorías usan la fórmula de Mifflin-St Jeor y la grasa corporal es una estimación por el IMC. No sustituye el consejo médico o de un nutricionista.</p>'],
+  how_html: ['<p>Monte o treino com os exercícios que vai fazer. Cada exercício concluído soma pontos (os mais pesados valem mais) e enche o círculo: a cada 60 pontos você sobe de nível, até o 4. Os pontos não caem.</p><p>Foco sobe com as horas acumuladas: 5h, 20h e 50h. Ele nunca cai.</p><p>As calorias usam a fórmula de Mifflin-St Jeor e a gordura corporal é uma estimativa pelo IMC. Não substitui orientação médica ou de nutricionista.</p>', '<p>Build your workout with the exercises you\'ll do. Each finished exercise adds points (harder ones are worth more) and fills the ring: every 60 points you level up, up to 4. Points never drop.</p><p>Focus grows with accumulated hours: 5h, 20h and 50h. It never drops.</p><p>Calories use the Mifflin-St Jeor formula and body fat is a BMI-based estimate. Not a substitute for medical or dietitian advice.</p>', '<p>Arma tu entrenamiento con los ejercicios que vas a hacer. Cada ejercicio completado suma puntos (los más pesados valen más) y llena el círculo: cada 60 puntos subes de nivel, hasta el 4. Los puntos no bajan.</p><p>El Enfoque sube con las horas acumuladas: 5h, 20h y 50h. Nunca baja.</p><p>Las calorías usan la fórmula de Mifflin-St Jeor y la grasa corporal es una estimación por el IMC. No sustituye el consejo médico o de un nutricionista.</p>'],
   privacy: ['Política de Privacidade', 'Privacy Policy', 'Política de Privacidad'], terms: ['Termos de Uso', 'Terms of Use', 'Términos de Uso'],
   goal_lose: ['Perder peso', 'Lose weight', 'Perder peso'], goal_keep: ['Manter o peso', 'Maintain weight', 'Mantener el peso'], goal_gain: ['Ganhar massa', 'Gain muscle', 'Ganar masa'],
   act1: ['Quase parado', 'Mostly sedentary', 'Casi sedentario'], act2: ['Leve (1 a 2 treinos na semana)', 'Light (1–2 workouts a week)', 'Ligera (1 a 2 entrenamientos por semana)'],
@@ -453,6 +453,9 @@ const TX = {
   e_win: ['Valores inválidos: descanso de 0 a 168 h e janela de 0,5 a 30 dias.', 'Invalid values: rest 0–168 h and window 0.5–30 days.', 'Valores inválidos: descanso de 0 a 168 h y ventana de 0,5 a 30 días.'],
   win_time: ['Tempo da janela', 'Window time', 'Tiempo de la ventana'],
   win_time_help: ['Quanto tempo você tem para fazer o próximo treino depois de descansar.', 'How long you have to do your next workout after resting.', 'Cuánto tiempo tienes para el próximo entrenamiento después de descansar.'],
+  done_today: ['Treino de hoje feito · +{p} pts', 'Today\'s workout done · +{p} pts', 'Entrenamiento de hoy hecho · +{p} pts'],
+  last_trained: ['Último treino: {d}', 'Last workout: {d}', 'Último entrenamiento: {d}'],
+  start_hint: ['Monte e comece um treino.', 'Build and start a workout.', 'Arma y empieza un entrenamiento.'],
   resting: ['Descansando', 'Resting', 'Descansando'], week1: ['1 semana', '1 week', '1 semana'],
   mode_timer: ['Timer', 'Timer', 'Temporizador'], mode_alarm: ['Despertador', 'Alarm', 'Alarma'], hours: ['Horas', 'Hours', 'Horas'],
   timer_help: ['Depois de cada treino e do descanso, você terá esse tempo para treinar de novo.', 'After each workout and rest, you\'ll have this much time to train again.', 'Después de cada entrenamiento y del descanso, tendrás este tiempo para entrenar de nuevo.'],
@@ -760,6 +763,7 @@ const exPts = (k, n) => { const e = A(k).lib.find(x => x.n === n); return e ? e.
 function st(k) { if (BUILTIN[k]) return S[k]; if (!S.tracks[k]) S.tracks[k] = { pts: 0, last: null, due: null }; return S.tracks[k]; }
 function level(p) { const l = Math.min(4, Math.floor(p / LV_PTS) + 1); return { l, frac: l === 4 ? Math.min(1, (p - 3 * LV_PTS) / LV_PTS) : (p % LV_PTS) / LV_PTS }; }
 function tick() {
+  return; // sem janela de treino: os pontos não caem mais com o tempo
   const now = Date.now(); let ch = false;
   for (const k of acts()) {
     const a = st(k), win = A(k).win; let n = 0;
@@ -873,17 +877,15 @@ function reminders() {
   const out = [], now = Date.now(), td = today();
   if (aviso) out.push({ c: '#fff', t: aviso });
   for (const k of acts()) {
-    const w = winState(k), D = A(k), nm = D.name.toLowerCase(), s = S.sess[k];
+    const D = A(k), nm = D.name.toLowerCase(), s = S.sess[k];
     if (s) out.push({ c: D.c, t: t('r_running', { a: D.name, x: s.items.filter(x => x.done).length, y: s.items.length }) });
-    if (w.s === 'open' && w.left < 24 * H) out.push({ c: D.c, t: t('r_close', { a: nm, d: dur(w.left) }) });
-    if (S.lost.some(l => l.kind === k && now - l.at < 2 * DAY)) out.push({ c: 'var(--danger)', t: t('r_lost', { a: nm }) });
-    if (w.s === 'none' && !s && !S.workouts.some(x => x.kind === k)) out.push({ c: D.c, t: t('r_first', { a: nm }) });
+    if (!s && !S.workouts.some(x => x.kind === k)) out.push({ c: D.c, t: t('r_first', { a: nm }) });
   }
   const trainedToday = S.workouts.some(x => x.kind === 'forca' && dayOf(x.end || x.at) === td);
   const pg = protGoal(), tot = dayTotals(td);
   if (trainedToday && pg && tot.prot < pg) out.push({ c: 'var(--pink)', t: t('r_prot', { g: int(pg - tot.prot) }) });
   if (!S.meals.some(m => m.date === td)) out.push({ c: 'var(--lime)', t: t('r_meal') });
-  if (!S.timer && focusOn(td) < S.focusGoal) out.push({ c: 'var(--lilac)', t: t('r_focus', { m: S.focusGoal - focusOn(td) }) });
+  if (!S.timer && focusOn(td) < S.focusGoal) out.push({ c: 'var(--lilac)', t: t('r_focus', { m: fmtMin(S.focusGoal - focusOn(td)) }) });
   if (!profOk()) out.push({ c: 'var(--muted)', t: t('r_profile') });
   return out;
 }
@@ -916,21 +918,25 @@ function renderDrawer() {
   drawer.classList.toggle('on', !!V.menu);
 }
 function attrCard(k) {
-  const D = A(k), lv = level(st(k).pts), w = winState(k), s = S.sess[k];
+  const D = A(k), lv = level(st(k).pts), s = S.sess[k];
   let sub;
   if (s) {
     const d = s.items.filter(x => x.done).length;
     sub = '<div class="sub win" style="--deep:' + D.deep + '"><span class="grow">' + t('wo_running') + '</span><span class="r num">' + d + '/' + s.items.length + '</span><div class="bar"><i style="--w:' + Math.round(d / s.items.length * 100) + '%"></i></div></div>';
-  } else if (w.s === 'rest') sub = '<div class="sub">' + ico('clock') + '<span class="grow">' + t('rest_msg') + '</span></div>';
-  else if (w.s === 'open') sub = '<div class="sub win" style="--deep:' + D.deep + '"><span class="grow">' + t('win') + '</span>' + ico('glass') + '<div class="bar"><i style="--w:' + Math.round(w.frac * 100) + '%"></i></div></div>';
-  else sub = '<div class="sub">' + ico('glass') + '<span class="grow">' + t('open_win') + '</span></div>';
+  } else {
+    const td = today(), mine = S.workouts.filter(x => x.kind === k);
+    const ptsToday = mine.filter(x => dayOf(x.end || x.at) === td).reduce((x, y) => x + (y.pts || 0), 0);
+    if (ptsToday) sub = '<div class="sub">' + ico('check') + '<span class="grow">' + t('done_today', { p: ptsToday }) + '</span></div>';
+    else if (mine.length) sub = '<div class="sub">' + ico('clock') + '<span class="grow">' + t('last_trained', { d: dayLabel(dayOf(mine[0].end || mine[0].at)) }) + '</span></div>';
+    else sub = '<div class="sub">' + ico('plus') + '<span class="grow">' + t('start_hint') + '</span></div>';
+  }
   return '<button class="card" style="--c:' + D.c + '" data-a="go" data-v="' + esc(k) + '"><div class="head"><div class="grow"><div class="ttl">' + esc(D.title) + '</div><div class="lv num">' + t('level', { l: lv.l }) + '</div></div>' + ring(lv.frac, D.icon, D.c) + '</div>' + sub + '</button>';
 }
 function focoCard() {
   const fl = focusLevel(), td = today(), m = focusOn(td) + timerMin();
   const sub = S.timer
     ? '<div class="sub win" style="--deep:var(--lilac-deep)"><span class="grow">' + t('in_progress', { c: esc(tn(S.timer.cat)) }) + '</span><span class="r num" data-live="timer-short">' + timerMin() + ' min</span><div class="bar"><i style="--w:' + Math.round(clamp(m / S.focusGoal, 0, 1) * 100) + '%"></i></div></div>'
-    : '<div class="sub">' + ico('clock') + '<span class="grow">' + t('today_of', { m, g: S.focusGoal }) + '</span></div>';
+    : '<div class="sub">' + ico('clock') + '<span class="grow">' + t('today_of', { m: fmtMin(m), g: fmtMin(S.focusGoal) }) + '</span></div>';
   return '<button class="card" style="--c:var(--lilac)" data-a="go" data-v="foco"><div class="head"><div class="grow"><div class="ttl">' + t('n_foco') + '</div><div class="lv num">' + t('level', { l: fl.l }) + '</div></div>' + ring(fl.frac, 'eye', 'var(--lilac)') + '</div>' + sub + '</button>';
 }
 function viewHome() {
@@ -949,17 +955,11 @@ function top(title, icon, c) {
 }
 const exCount = n => t(n === 1 ? 'x_ex_1' : 'x_ex', { n });
 function viewAttr(k) {
-  const D = A(k), a = st(k), lv = level(a.pts), w = winState(k), s = S.sess[k];
+  const D = A(k), a = st(k), lv = level(a.pts), s = S.sess[k];
   let h = '<div style="--c:' + D.c + '">' + top(esc(D.name), D.icon, D.c);
   h += '<div class="prose">' + (k === 'forca' ? t('p_forca') : k === 'cardio' ? t('p_cardio') : t('p_custom', { a: esc(D.name) })) + t('p_points') + '</div>';
   h += '<div class="panel"><div class="big">' + ring(lv.frac, D.icon, D.c) + '<div class="grow"><div class="n num">' + t('level', { l: lv.l }) + '</div><div class="small muted num">' + (lv.l === 4 ? t('max_lv') : t('pts_next', { p: a.pts % LV_PTS, t: LV_PTS, l: lv.l + 1 })) + '</div></div></div>';
-  h += '<div class="kv" style="margin-top:14px">';
-  if (w.s === 'rest') h += '<span>' + t('resting') + '</span><span class="num">' + dur(w.left) + '</span>';
-  else if (w.s === 'open') h += '<span>' + t('win_closes') + '</span><span class="num">' + dur(w.left) + '</span>';
-  else h += '<span>' + t('win') + '</span><span>' + t('closed') + '</span>';
-  h += '</div>';
-  if (w.s === 'open') h += '<div class="meter" style="margin-top:10px"><i style="--w:' + Math.round(w.frac * 100) + '%"></i></div>';
-  h += '<button class="btn block" style="margin-top:14px" data-a="win-edit" data-k="' + esc(k) + '">' + ico('clock') + t('win_time') + ': ' + winLabel(D.win) + '</button></div>';
+  h += '<div class="kv" style="margin-top:14px"><span>' + t('total_pts') + '</span><span class="num">' + a.pts + '</span></div></div>';
   // treino
   h += '<div class="panel"><h2>' + (s ? t('wo_running') : t('my_wo')) + '</h2>';
   if (s) {
@@ -1001,7 +1001,7 @@ function viewFoco() {
   }
   h += '</div>';
   const m = focusOn(td);
-  h += '<div class="panel"><div class="row between" style="margin-bottom:10px"><h2 style="margin:0">' + t('daily_goal') + '</h2><div class="row"><button class="btn slim" data-a="focus-goal" data-d="-15" aria-label="' + t('goal_less') + '">−</button><b class="num">' + S.focusGoal + ' min</b><button class="btn slim" data-a="focus-goal" data-d="15" aria-label="' + t('goal_more') + '">+</button></div></div><div class="meter"><i style="--w:' + Math.round(clamp(m / S.focusGoal, 0, 1) * 100) + '%"></i></div><p class="small muted num" style="margin-top:8px">' + t('today_of', { m, g: S.focusGoal }) + '</p></div>';
+  h += '<div class="panel"><div class="row between" style="margin-bottom:10px"><h2 style="margin:0">' + t('daily_goal') + '</h2><button class="btn slim" data-a="focus-goal">' + ico('clock') + '<b class="num">' + fmtMin(S.focusGoal) + '</b></button></div><div class="meter"><i style="--w:' + Math.round(clamp(m / S.focusGoal, 0, 1) * 100) + '%"></i></div><p class="small muted num" style="margin-top:8px">' + t('today_of', { m: fmtMin(m), g: fmtMin(S.focusGoal) }) + '</p></div>';
   const list = S.focus.slice().sort((a, b) => b.at - a.at).slice(0, 20);
   h += '<div class="panel"><h2>' + t('last_sess') + '</h2><div class="list">' + (list.length ? list.map(f => '<div class="li"><div class="grow"><div class="t">' + esc(tn(f.cat)) + '</div><div class="s num">' + when(f.at) + ' · ' + f.min + ' min</div></div><button class="x" data-a="del-focus" data-id="' + f.id + '" aria-label="' + t('del_sess') + '">' + ico('x') + '</button></div>').join('') : '<p class="empty">' + t('no_sess') + '</p>') + '</div></div>';
   return h + '</div>';
@@ -1178,7 +1178,7 @@ function activitySheet() {
   let icon = 'flame', color = 2, winM = 4320;
   const pick = () => '<div class="icopick" id="ip">' + ICON_PICK.map(i => '<button class="' + (i === icon ? 'on' : '') + '" data-ic="' + i + '" aria-label="' + i + '">' + ico(i) + '</button>').join('') + '</div>';
   const sw = () => '<div class="swatches" id="sw">' + COLORS.map((c, i) => '<button class="sw' + (i === color ? ' on' : '') + '" style="--c:' + c[0] + '" data-col="' + i + '" aria-label="' + t('color') + ' ' + (i + 1) + '"></button>').join('') + '</div>';
-  const html = '<h2>' + t('new_act_t') + '</h2><label class="field"><span>' + t('name') + '</span><input id="na-name" maxlength="30" placeholder="' + t('act_ph') + '"></label><div class="field"><span>' + t('icon') + '</span>' + pick() + '</div><div class="field"><span>' + t('color') + '</span>' + sw() + '</div><div class="field"><span>' + t('win_time') + '</span>' + winChips(winM) + '</div>' + btnsRow();
+  const html = '<h2>' + t('new_act_t') + '</h2><label class="field"><span>' + t('name') + '</span><input id="na-name" maxlength="30" placeholder="' + t('act_ph') + '"></label><div class="field"><span>' + t('icon') + '</span>' + pick() + '</div><div class="field"><span>' + t('color') + '</span>' + sw() + '</div>' + btnsRow();
   openSheet(html, COLORS[color][0], el => {
     if (el.dataset.ic) { icon = el.dataset.ic; box.querySelector('#ip').outerHTML = pick(); return; }
     if (el.dataset.col) { color = +el.dataset.col; box.style.setProperty('--c', COLORS[color][0]); box.querySelector('#sw').outerHTML = sw(); return; }
@@ -1223,6 +1223,24 @@ function focusSheet() {
     if (!isFinite(at) || at > Date.now() + 6e4) return toast(t('e_past'));
     addFocus(V.focoCat, min, at); closeSheet(); render();
   });
+}
+// meta diária de foco: atalhos prontos ou horas e minutos livres
+const GOAL_OPTS = [15, 30, 45, 60, 90, 120, 180, 240, 360];
+function goalSheet() {
+  let cur = S.focusGoal;
+  const chips = () => '<div class="wchips" id="gc">' + GOAL_OPTS.map(m => '<button class="chip' + (m === cur ? ' on' : '') + '" data-gm="' + m + '">' + fmtMin(m) + '</button>').join('') + '</div>';
+  const html = '<h2>' + t('daily_goal') + '</h2><p class="small muted" style="margin:-6px 0 14px">' + t('goal_help') + '</p>' + chips() + '<div class="two"><label class="field"><span>' + t('hours') + '</span><input id="g-h" type="number" inputmode="numeric" min="0" max="16" value="' + Math.floor(cur / 60) + '"></label><label class="field"><span>' + t('minutes') + '</span><input id="g-m" type="number" inputmode="numeric" min="0" max="59" value="' + (cur % 60) + '"></label></div>' + btnsRow();
+  openSheet(html, 'var(--lilac)', el => {
+    if (el.dataset.gm) {
+      cur = +el.dataset.gm; box.querySelector('#gc').outerHTML = chips();
+      box.querySelector('#g-h').value = Math.floor(cur / 60); box.querySelector('#g-m').value = cur % 60; return;
+    }
+    if (el.dataset.s !== 'ok') return;
+    const m = Math.round(toNum(val('g-h')) * 60 + toNum(val('g-m')));
+    if (m < 5 || m > 960) return toast(t('e_goal'));
+    S.focusGoal = m; save(); closeSheet(); render(); toast(t('saved'));
+  });
+  ['g-h', 'g-m'].forEach(id => box.querySelector('#' + id).oninput = () => { cur = Math.round(toNum(val('g-h')) * 60 + toNum(val('g-m'))); box.querySelectorAll('#gc .chip').forEach(c => c.classList.toggle('on', +c.dataset.gm === cur)); });
 }
 function addFocus(cat, min, at) {
   const before = focusLevel().l;
@@ -1395,7 +1413,7 @@ function onClick(e) {
   if (a === 'timer-cancel') return confirmSheet(t('c_discard'), t('discard'), () => { S.timer = null; save(); });
   if (a === 'add-focus') return focusSheet();
   if (a === 'del-focus') return confirmSheet(t('c_del_sess'), t('delete'), () => { S.focus = S.focus.filter(f => f.id !== d.id); save(); });
-  if (a === 'focus-goal') { S.focusGoal = clamp(S.focusGoal + +d.d, 15, 600); save(); return render(); }
+  if (a === 'focus-goal') return goalSheet();
   if (a === 'day') { V.day = addDays(V.day, +d.d); if (V.day > today()) V.day = today(); return render(); }
   if (a === 'add-meal') return mealSheet(d.m);
   if (a === 'del-meal') { S.meals = S.meals.filter(m => m.id !== d.id); save(); return render(); }

@@ -1,4 +1,4 @@
-const VERSION = 'fitness-7';
+const VERSION = 'fitness-8';
 const SHELL = ['./', 'index.html', 'manifest.webmanifest', 'vendor/supabase.js', 'privacidade.html', 'termos.html', 'excluir-conta.html', 'icons/icon-192.png', 'icons/icon-512.png', 'icons/icon-maskable-512.png', 'icons/apple-touch-icon.png'];
 
 self.addEventListener('install', e => {
