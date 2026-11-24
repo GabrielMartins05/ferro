@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">Fitness</string>
+    <string name="title_activity_main">Fitness</string>
+    <string name="package_name">io.github.gabrielmartins05.fitness</string>
+    <string name="custom_url_scheme">io.github.gabrielmartins05.fitness</string>
+</resources>

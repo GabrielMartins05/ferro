@@ -1,0 +1,20 @@
+{
+  "name": "fitness",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Treino, alimentação e foco com níveis e janela de treino.",
+  "scripts": {
+    "build": "node build.js",
+    "cap:sync": "node build.js && npx cap sync"
+  },
+  "dependencies": {
+    "@capacitor/android": "^8.6.2",
+    "@capacitor/app": "^8.1.2",
+    "@capacitor/core": "^8.6.2",
+    "@capacitor/ios": "^8.6.2",
+    "@supabase/supabase-js": "^2.45.4"
+  },
+  "devDependencies": {
+    "@capacitor/cli": "^8.6.2"
+  }
+}

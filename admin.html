@@ -1,0 +1,200 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Fitness Admin</title>
+<link rel="icon" href="icons/icon-192.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
+<script>window.FERRO_REAL = true; window.FITNESS_CONFIG = {"supabaseUrl":"https://iwkcwharouakejivkiqp.supabase.co","supabaseAnonKey":"sb_publishable_BpQXJSmHBpqOA-n6yX1ydA_CQtHxBpk","siteUrl":"https://gabrielmartins05.github.io/ferro/","version":"1.0.0"}; window.FITNESS_FOODS = [["Arroz branco","1 escumadeira",115,2.3],["Feijão","1 concha",70,4.5],["Peito de frango grelhado","1 filé (120 g)",190,38],["Bife de patinho","1 bife (100 g)",220,32],["Carne moída","1 colher de servir",130,13],["Ovo cozido","1 unidade",73,6.5],["Ovo frito","1 unidade",110,6.5],["Pão francês","1 unidade",150,4.5],["Pão de forma","2 fatias",130,5],["Queijo muçarela","1 fatia",66,5],["Presunto","2 fatias",50,7],["Leite integral","1 copo",120,6],["Iogurte natural","1 pote",90,6],["Whey protein","1 scoop",120,24],["Aveia","2 colheres de sopa",118,4],["Banana","1 unidade",70,1],["Maçã","1 unidade",72,0.4],["Mamão","1 fatia",60,0.7],["Batata doce","1 média",100,1.5],["Macarrão","1 pegador",150,5],["Tapioca com queijo","1 unidade",250,8],["Cuscuz","1 pedaço",150,3],["Salada","1 prato",15,1],["Tilápia grelhada","1 filé",155,32],["Atum em lata","1 lata",140,30],["Café com açúcar","1 xícara",40,0],["Pizza","1 fatia",280,12],["Hambúrguer","1 unidade",500,25],["Coxinha","1 unidade",280,9],["Refrigerante","1 lata",140,0],["Suco de laranja","1 copo",90,1],["Chocolate","1 barrinha",135,2],["Açaí","1 tigela",360,4]];</script>
+<script src="vendor/supabase.js"></script>
+<style>
+:root { --bg: #0e0f12; --panel: #17181c; --card: #222328; --card2: #2b2c32; --line: rgba(255,255,255,.09); --fg: #f3f3f5; --muted: #a2a3ac; --dim: #6e7079; --pink: #f6a6c8; --teal: #7fdfc6; --lilac: #b8a1ff; --lime: #b9e58a; --danger: #ff7a8a; color-scheme: dark; }
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--bg); color: var(--fg); font: 400 15px/1.45 "Inter", system-ui, sans-serif; }
+button, input, textarea { font: inherit; color: inherit; }
+button { cursor: pointer; border: 0; background: none; }
+:focus-visible { outline: 2px solid #fff; outline-offset: 2px; }
+h1, h2, p { margin: 0; }
+.wrap { max-width: 1040px; margin: 0 auto; padding: 20px 16px 60px; }
+header { display: flex; align-items: center; gap: 12px; margin-bottom: 20px; flex-wrap: wrap; }
+header h1 { font-size: 20px; font-weight: 700; flex: 1; }
+header .who { color: var(--muted); font-size: 13px; }
+.tabs { display: flex; gap: 6px; margin-bottom: 18px; overflow-x: auto; }
+.tab { padding: 8px 14px; border-radius: 999px; background: var(--card); color: var(--muted); font-weight: 600; font-size: 14px; white-space: nowrap; }
+.tab.on { background: #fff; color: #141418; }
+.panel { background: var(--panel); border-radius: 16px; padding: 16px; margin-bottom: 14px; }
+.panel h2 { font-size: 15px; color: var(--muted); font-weight: 600; margin-bottom: 12px; }
+.stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 10px; margin-bottom: 14px; }
+.stat { background: var(--card); border-radius: 14px; padding: 14px; border-top: 3px solid var(--c, var(--muted)); }
+.stat b { display: block; font-size: 26px; font-weight: 700; font-variant-numeric: tabular-nums; }
+.stat span { color: var(--muted); font-size: 13px; }
+.chart { display: flex; align-items: flex-end; gap: 3px; height: 120px; padding-top: 10px; }
+.chart i { flex: 1; background: var(--teal); border-radius: 3px 3px 0 0; min-height: 2px; position: relative; }
+.chart i:hover::after { content: attr(data-t); position: absolute; bottom: 100%; left: 50%; transform: translate(-50%, -4px); background: #fff; color: #141418; font-size: 12px; font-style: normal; padding: 3px 6px; border-radius: 6px; white-space: nowrap; }
+.axis { display: flex; justify-content: space-between; color: var(--dim); font-size: 12px; margin-top: 6px; }
+.btn { display: inline-flex; align-items: center; justify-content: center; min-height: 40px; padding: 0 14px; border-radius: 10px; background: var(--card2); font-weight: 600; font-size: 14px; }
+.btn.main { background: #fff; color: #141418; }
+.btn.slim { min-height: 30px; padding: 0 10px; font-size: 13px; border-radius: 8px; }
+.btn.danger { color: var(--danger); }
+.btn:disabled { opacity: .5; cursor: default; }
+input, textarea { width: 100%; min-height: 42px; padding: 8px 12px; border-radius: 10px; border: 1px solid var(--line); background: var(--card); }
+textarea { min-height: 90px; resize: vertical; }
+.field { display: grid; gap: 6px; margin-bottom: 12px; }
+.field span { font-size: 13px; color: var(--muted); }
+table { width: 100%; border-collapse: collapse; font-size: 14px; }
+th { text-align: left; color: var(--muted); font-weight: 500; font-size: 12px; padding: 8px; border-bottom: 1px solid var(--line); white-space: nowrap; }
+td { padding: 10px 8px; border-bottom: 1px solid var(--line); vertical-align: middle; }
+td.n { font-variant-numeric: tabular-nums; text-align: right; }
+th.n { text-align: right; }
+.scroll { overflow-x: auto; }
+.tag { font-size: 11px; font-weight: 700; padding: 2px 7px; border-radius: 6px; background: rgba(255,255,255,.1); color: var(--muted); }
+.tag.admin { background: var(--lilac); color: #141418; }
+.tag.blocked { background: var(--danger); color: #141418; }
+.acts { display: flex; gap: 6px; flex-wrap: wrap; justify-content: flex-end; }
+.muted { color: var(--muted); }
+.small { font-size: 13px; }
+.row { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; }
+.grow { flex: 1; min-width: 0; }
+.login { max-width: 380px; margin: 12vh auto 0; }
+.msg { padding: 10px 12px; border-radius: 10px; font-size: 14px; margin-bottom: 12px; background: rgba(255,122,138,.14); color: var(--danger); }
+.msg.ok { background: rgba(127,223,198,.14); color: var(--teal); }
+.foods { display: grid; gap: 6px; }
+.food { display: grid; grid-template-columns: 2fr 1.4fr 80px 80px 34px; gap: 6px; align-items: center; }
+.food input { min-height: 36px; padding: 4px 8px; font-size: 14px; }
+.food .x { width: 34px; height: 34px; border-radius: 8px; color: var(--danger); background: var(--card); }
+@media (max-width: 640px) { .food { grid-template-columns: 1fr 1fr; } .food .x { justify-self: end; } }
+#toast { position: fixed; left: 50%; bottom: 24px; transform: translate(-50%, 20px); opacity: 0; background: #fff; color: #141418; font-weight: 600; padding: 10px 16px; border-radius: 12px; font-size: 14px; transition: .25s; pointer-events: none; }
+#toast.on { opacity: 1; transform: translate(-50%, 0); }
+</style>
+</head>
+<body>
+<div class="wrap" id="root"></div>
+<div id="toast" role="status"></div>
+<script>
+(function () {
+'use strict';
+const CFG = window.FITNESS_CONFIG || {};
+const root = document.getElementById('root');
+const esc = s => String(s == null ? '' : s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+const int = n => Math.round(+n || 0).toLocaleString('pt-BR');
+const date = s => s ? new Date(s).toLocaleDateString('pt-BR') : '—';
+const ago = s => { if (!s) return 'nunca'; const d = Math.floor((Date.now() - new Date(s)) / 864e5); return d <= 0 ? 'hoje' : d === 1 ? 'ontem' : 'há ' + d + ' dias'; };
+let tt; const toast = m => { const t = document.getElementById('toast'); t.textContent = m; t.classList.add('on'); clearTimeout(tt); tt = setTimeout(() => t.classList.remove('on'), 2600); };
+
+if (!CFG.supabaseUrl || !window.supabase) {
+  root.innerHTML = '<div class="login panel"><h2>Painel de admin</h2><p class="small muted">O Supabase ainda não foi configurado. Coloque a URL e a chave pública em <b>config.json</b> e rode <b>node build.js</b>.</p></div>';
+  return;
+}
+const sb = window.supabase.createClient(CFG.supabaseUrl, CFG.supabaseAnonKey);
+const V = { tab: 'geral', q: '', msg: '', ok: false, me: null, users: null, stats: null, aviso: '', foods: null };
+
+function loginView() {
+  return '<div class="login"><div class="panel"><h2 style="color:#fff;font-size:20px">Painel de admin</h2><p class="small muted" style="margin-bottom:14px">Entre com uma conta de admin.</p>' + (V.msg ? '<p class="msg' + (V.ok ? ' ok' : '') + '">' + esc(V.msg) + '</p>' : '') + '<label class="field"><span>E-mail</span><input id="e" type="email" autocomplete="email"></label><label class="field"><span>Senha</span><input id="p" type="password" autocomplete="current-password"></label><button class="btn main" style="width:100%" data-a="login">Entrar</button></div><p class="small muted" style="text-align:center"><a href="./" style="color:#fff">Voltar ao app</a></p></div>';
+}
+function shell(inner) {
+  const tabs = [['geral', 'Visão geral'], ['usuarios', 'Usuários'], ['aviso', 'Aviso'], ['comidas', 'Comidas']];
+  return '<header><h1>Fitness · Admin</h1><span class="who">' + esc(V.me.email) + '</span><a class="btn slim" href="./" style="text-decoration:none">App</a><button class="btn slim" data-a="logout">Sair</button></header><nav class="tabs">' + tabs.map(t => '<button class="tab' + (V.tab === t[0] ? ' on' : '') + '" data-a="tab" data-v="' + t[0] + '">' + t[1] + '</button>').join('') + '</nav>' + inner;
+}
+function geral() {
+  const s = V.stats;
+  if (!s) return '<p class="muted">Carregando…</p>';
+  const stat = (n, l, c) => '<div class="stat" style="--c:' + c + '"><b>' + n + '</b><span>' + l + '</span></div>';
+  let h = '<div class="stats">' + stat(int(s.users), 'usuários', '#fff') + stat(int(s.new7), 'novos em 7 dias', 'var(--teal)') + stat(int(s.active7), 'ativos em 7 dias', 'var(--lime)') + stat(int(s.blocked), 'bloqueados', 'var(--danger)') + '</div>';
+  h += '<div class="stats">' + stat(int(s.workouts), 'treinos registrados', 'var(--pink)') + stat(int(s.focusMin / 60), 'horas de foco', 'var(--lilac)') + stat(int(s.meals), 'refeições registradas', 'var(--lime)') + '</div>';
+  const days = []; const map = {}; (s.signups || []).forEach(x => map[x.day] = x.n);
+  for (let i = 29; i >= 0; i--) { const d = new Date(); d.setDate(d.getDate() - i); const k = d.toISOString().slice(0, 10); days.push([k, map[k] || 0]); }
+  const max = Math.max(1, ...days.map(d => d[1]));
+  h += '<div class="panel"><h2>Cadastros nos últimos 30 dias</h2><div class="chart">' + days.map(d => '<i style="height:' + (d[1] / max * 100) + '%" data-t="' + d[0].slice(8) + '/' + d[0].slice(5, 7) + ': ' + d[1] + '"></i>').join('') + '</div><div class="axis"><span>há 30 dias</span><span>hoje</span></div></div>';
+  return h;
+}
+function usuarios() {
+  if (!V.users) return '<p class="muted">Carregando…</p>';
+  const q = V.q.toLowerCase();
+  const list = V.users.filter(u => !q || (u.email || '').toLowerCase().includes(q) || (u.name || '').toLowerCase().includes(q));
+  let h = '<div class="panel"><div class="row" style="margin-bottom:12px"><input id="q" class="grow" placeholder="Buscar por nome ou e-mail" value="' + esc(V.q) + '" style="max-width:340px"><span class="small muted">' + list.length + ' de ' + V.users.length + '</span></div><div class="scroll"><table><thead><tr><th>Usuário</th><th>Cadastro</th><th>Último acesso</th><th class="n">Treinos</th><th class="n">Foco</th><th class="n">Refeições</th><th></th></tr></thead><tbody>';
+  h += list.map(u => {
+    const me = u.id === V.me.id;
+    return '<tr><td><b>' + esc(u.name || '—') + '</b> ' + (u.role === 'admin' ? '<span class="tag admin">admin</span> ' : '') + (u.blocked ? '<span class="tag blocked">bloqueado</span>' : '') + '<div class="small muted">' + esc(u.email) + '</div></td><td>' + date(u.created_at) + '</td><td>' + ago(u.last_seen) + '</td><td class="n">' + int(u.workouts) + '</td><td class="n">' + int(u.focus_min / 60) + 'h</td><td class="n">' + int(u.meals) + '</td><td>' + (me ? '<span class="small muted">você</span>' : '<div class="acts"><button class="btn slim" data-a="role" data-id="' + u.id + '">' + (u.role === 'admin' ? 'Tirar admin' : 'Tornar admin') + '</button><button class="btn slim" data-a="block" data-id="' + u.id + '">' + (u.blocked ? 'Desbloquear' : 'Bloquear') + '</button><button class="btn slim danger" data-a="del" data-id="' + u.id + '">Excluir</button></div>') + '</td></tr>';
+  }).join('') || '<tr><td colspan="7" class="muted">Ninguém encontrado.</td></tr>';
+  return h + '</tbody></table></div></div>';
+}
+function avisoView() {
+  return '<div class="panel"><h2>Aviso para todos</h2><p class="small muted" style="margin-bottom:12px">Aparece em primeiro lugar nos Lembretes de todo mundo. Deixe vazio para não mostrar nada.</p><textarea id="aviso" maxlength="200" placeholder="Ex.: Nova versão com cronômetro de foco!">' + esc(V.aviso) + '</textarea><div class="row" style="margin-top:12px"><button class="btn main" data-a="save-aviso">Salvar aviso</button><button class="btn" data-a="clear-aviso">Limpar</button></div></div>';
+}
+function comidasView() {
+  const f = V.foods || [];
+  return '<div class="panel"><h2>Comidas prontas</h2><p class="small muted" style="margin-bottom:12px">A lista que aparece ao adicionar uma refeição no app. Valores por porção: nome, porção, calorias e proteína (g).</p><div class="foods" id="foods">' + f.map((x, i) => '<div class="food" data-i="' + i + '"><input value="' + esc(x[0]) + '" aria-label="Nome"><input value="' + esc(x[1]) + '" aria-label="Porção"><input type="number" value="' + x[2] + '" aria-label="Calorias"><input type="number" step="0.1" value="' + x[3] + '" aria-label="Proteína"><button class="x" data-a="food-del" data-i="' + i + '" aria-label="Remover">✕</button></div>').join('') + '</div><div class="row" style="margin-top:12px"><button class="btn" data-a="food-add">+ Adicionar comida</button><span class="grow"></span><button class="btn" data-a="food-reset">Voltar à lista padrão</button><button class="btn main" data-a="food-save">Salvar lista</button></div></div>';
+}
+function render() {
+  if (!V.me) { root.innerHTML = loginView(); return; }
+  root.innerHTML = shell(V.tab === 'usuarios' ? usuarios() : V.tab === 'aviso' ? avisoView() : V.tab === 'comidas' ? comidasView() : geral());
+  const q = document.getElementById('q');
+  if (q) q.addEventListener('input', e => { V.q = e.target.value; const pos = e.target.selectionStart; render(); const n = document.getElementById('q'); n.focus(); n.setSelectionRange(pos, pos); });
+}
+function readFoods() {
+  return [...document.querySelectorAll('#foods .food')].map(r => { const i = r.querySelectorAll('input'); return [i[0].value.trim(), i[1].value.trim(), Math.round(+i[2].value || 0), Math.round((+i[3].value || 0) * 10) / 10]; });
+}
+async function loadAll() {
+  const [st, us, cf] = await Promise.all([sb.rpc('admin_stats'), sb.rpc('admin_users'), sb.from('app_config').select('key,value')]);
+  if (st.error) { toast('Erro: ' + st.error.message); return; }
+  V.stats = st.data; V.users = us.data || [];
+  const cfg = {}; (cf.data || []).forEach(r => cfg[r.key] = r.value);
+  V.aviso = typeof cfg.aviso === 'string' ? cfg.aviso : '';
+  V.foods = Array.isArray(cfg.foods) && cfg.foods.length ? cfg.foods : (window.FITNESS_FOODS || []).slice();
+  render();
+}
+async function enter(user) {
+  const { data } = await sb.from('profiles').select('role,blocked,email').eq('id', user.id).maybeSingle();
+  if (!data || data.role !== 'admin' || data.blocked) {
+    await sb.auth.signOut(); V.me = null; V.msg = 'Esta conta não é de admin.'; V.ok = false; return render();
+  }
+  V.me = { id: user.id, email: user.email }; V.msg = ''; render(); loadAll();
+}
+async function setConfig(key, value) {
+  const { error } = await sb.from('app_config').upsert({ key, value, updated_at: new Date().toISOString() });
+  toast(error ? 'Erro: ' + error.message : 'Salvo');
+  return !error;
+}
+root.addEventListener('keydown', e => { if (e.key === 'Enter' && !V.me && e.target.tagName === 'INPUT') root.querySelector('[data-a="login"]').click(); });
+root.addEventListener('click', async e => {
+  const el = e.target.closest('[data-a]'); if (!el) return;
+  const a = el.dataset.a, id = el.dataset.id, u = id && V.users.find(x => x.id === id);
+  if (a === 'login') {
+    const { data, error } = await sb.auth.signInWithPassword({ email: document.getElementById('e').value.trim(), password: document.getElementById('p').value });
+    if (error) { V.msg = /invalid login/i.test(error.message) ? 'E-mail ou senha incorretos.' : error.message; V.ok = false; return render(); }
+    return enter(data.user);
+  }
+  if (a === 'logout') { await sb.auth.signOut(); V.me = null; return render(); }
+  if (a === 'tab') { V.tab = el.dataset.v; return render(); }
+  if (a === 'role' || a === 'block') {
+    const role = a === 'role' ? (u.role === 'admin' ? 'user' : 'admin') : u.role, blocked = a === 'block' ? !u.blocked : u.blocked;
+    if (!confirm((a === 'role' ? (role === 'admin' ? 'Dar acesso de admin para ' : 'Tirar o admin de ') : (blocked ? 'Bloquear ' : 'Desbloquear ')) + (u.email || 'este usuário') + '?')) return;
+    const { error } = await sb.rpc('admin_set_user', { target: id, new_role: role, new_blocked: blocked });
+    if (error) return toast('Erro: ' + error.message);
+    u.role = role; u.blocked = blocked; toast('Feito'); return render();
+  }
+  if (a === 'del') {
+    if (!confirm('Excluir a conta de ' + (u.email || 'este usuário') + ' e todos os dados? Não dá para desfazer.')) return;
+    const { error } = await sb.rpc('admin_delete_user', { target: id });
+    if (error) return toast('Erro: ' + error.message);
+    V.users = V.users.filter(x => x.id !== id); toast('Conta excluída'); return render();
+  }
+  if (a === 'save-aviso') { V.aviso = document.getElementById('aviso').value.trim(); return setConfig('aviso', V.aviso); }
+  if (a === 'clear-aviso') { V.aviso = ''; if (await setConfig('aviso', '')) render(); return; }
+  if (a === 'food-add') { V.foods = readFoods().concat([['', '1 porção', 0, 0]]); render(); const r = document.querySelectorAll('#foods .food input'); r[r.length - 4].focus(); return; }
+  if (a === 'food-del') { V.foods = readFoods(); V.foods.splice(+el.dataset.i, 1); return render(); }
+  if (a === 'food-reset') { if (!confirm('Trocar pela lista padrão do app? As mudanças não salvas se perdem.')) return; V.foods = (window.FITNESS_FOODS || []).slice(); return render(); }
+  if (a === 'food-save') {
+    const f = readFoods().filter(x => x[0]);
+    if (f.some(x => x[2] <= 0)) return toast('Toda comida precisa de calorias');
+    V.foods = f; if (await setConfig('foods', f)) render(); return;
+  }
+});
+sb.auth.getSession().then(({ data }) => { if (data.session) enter(data.session.user); else render(); });
+})();
+</script>
+</body>
+</html>

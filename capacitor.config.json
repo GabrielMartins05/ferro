@@ -1,0 +1,8 @@
+{
+  "appId": "io.github.gabrielmartins05.fitness",
+  "appName": "Fitness",
+  "webDir": "www",
+  "backgroundColor": "#0e0f12",
+  "ios": { "contentInset": "always" },
+  "android": { "backgroundColor": "#0e0f12" }
+}

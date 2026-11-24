@@ -1,0 +1,6 @@
+node_modules/
+www/
+# chave de assinatura do app: NUNCA no Git
+*.jks
+*.keystore
+android/keystore.properties

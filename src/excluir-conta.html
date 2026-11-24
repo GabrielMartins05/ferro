@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Excluir conta · Fitness</title>
+<link rel="icon" href="icons/icon-192.png">
+<!--INJECT-->
+<style>
+:root { color-scheme: dark; }
+* { box-sizing: border-box; }
+body { margin: 0; background: #0e0f12; color: #e6e6ea; font: 400 16px/1.6 system-ui, "Segoe UI", Roboto, sans-serif; }
+main { max-width: 520px; margin: 0 auto; padding: 28px 16px 60px; }
+h1 { font-size: 26px; margin: 0 0 8px; color: #fff; }
+h2 { font-size: 18px; margin: 26px 0 6px; color: #fff; }
+p, li { color: #c4c5cc; }
+a { color: #7fdfc6; }
+.box { background: #17181c; border-radius: 16px; padding: 16px; margin-top: 12px; }
+label { display: grid; gap: 6px; margin-bottom: 12px; font-size: 14px; color: #a2a3ac; }
+input { min-height: 44px; padding: 0 12px; border-radius: 10px; border: 1px solid rgba(255,255,255,.1); background: #222328; color: #fff; font: inherit; }
+button { min-height: 46px; width: 100%; border: 0; border-radius: 12px; font: 600 15px system-ui, sans-serif; cursor: pointer; }
+.danger { background: #ff7a8a; color: #141418; }
+.ghost { background: #2b2c32; color: #fff; margin-top: 8px; }
+.msg { padding: 10px 12px; border-radius: 10px; font-size: 14px; margin-bottom: 12px; background: rgba(255,122,138,.14); color: #ff7a8a; }
+.msg.ok { background: rgba(127,223,198,.14); color: #7fdfc6; }
+</style>
+</head>
+<body><main>
+<p><a href="./">← Voltar ao app</a></p>
+<h1>Excluir sua conta</h1>
+<p>Ao excluir a conta, apagamos de forma permanente o seu cadastro (nome e e-mail) e todos os dados registrados no app: treinos, sessões de foco, refeições, peso e perfil. Não guardamos cópia. Isso não pode ser desfeito.</p>
+<h2>Pelo app</h2>
+<p>Abra o app, toque na engrenagem (Ajustes) e depois em <b>Excluir conta</b>.</p>
+<h2>Por aqui</h2>
+<p>Entre com o e-mail e a senha da conta que quer excluir.</p>
+<div class="box" id="box"></div>
+<h2>Sem acesso à conta?</h2>
+<p>Envie um pedido para <b>[COLOQUE AQUI O E-MAIL DE CONTATO]</b> a partir do e-mail cadastrado. Excluímos em até 7 dias.</p>
+</main>
+<script>
+(function () {
+  const CFG = window.FITNESS_CONFIG || {};
+  const box = document.getElementById('box');
+  const esc = s => String(s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+  if (!CFG.supabaseUrl || !window.supabase) { box.innerHTML = '<p>Indisponível no momento.</p>'; return; }
+  const sb = window.supabase.createClient(CFG.supabaseUrl, CFG.supabaseAnonKey, { auth: { persistSession: false } });
+  let user = null, msg = '', ok = false;
+  function render() {
+    const m = msg ? '<p class="msg' + (ok ? ' ok' : '') + '" role="alert">' + esc(msg) + '</p>' : '';
+    if (!user) box.innerHTML = m + '<label>E-mail<input id="e" type="email" autocomplete="email"></label><label>Senha<input id="p" type="password" autocomplete="current-password"></label><button class="ghost" id="go">Entrar</button>';
+    else box.innerHTML = m + '<p>Conta: <b>' + esc(user.email) + '</b></p><label>Para confirmar, digite EXCLUIR<input id="c" autocomplete="off"></label><button class="danger" id="del">Excluir conta e dados</button><button class="ghost" id="out">Cancelar</button>';
+  }
+  box.addEventListener('click', async e => {
+    if (e.target.id === 'go') {
+      const { data, error } = await sb.auth.signInWithPassword({ email: document.getElementById('e').value.trim(), password: document.getElementById('p').value });
+      if (error) { msg = /invalid login/i.test(error.message) ? 'E-mail ou senha incorretos.' : error.message; ok = false; return render(); }
+      user = data.user; msg = ''; render();
+    }
+    if (e.target.id === 'out') { await sb.auth.signOut(); user = null; msg = ''; render(); }
+    if (e.target.id === 'del') {
+      if (document.getElementById('c').value.trim().toUpperCase() !== 'EXCLUIR') { msg = 'Digite EXCLUIR para confirmar.'; ok = false; return render(); }
+      const { error } = await sb.rpc('delete_me');
+      if (error) { msg = 'Não deu certo: ' + error.message; ok = false; return render(); }
+      await sb.auth.signOut().catch(() => {});
+      user = null; msg = 'Sua conta e todos os dados foram excluídos.'; ok = true; render();
+    }
+  });
+  render();
+})();
+</script>
+</body>
+</html>
