@@ -33,7 +33,7 @@ Depois de mudar qualquer coisa em `src/` ou `config.json`, rode `npm run cap:syn
 
 ## Antes de publicar em loja
 
-- Trocar `[COLOQUE AQUI O E-MAIL DE CONTATO]` em `privacidade.html` e `termos.html`.
+- E-mail de contato: fitnessapp534@gmail.com (já está nas páginas legais).
 - Escolher um nome próprio para a loja (não pode usar marca de terceiros nem só "Fitness").
 - Se adicionar login com Google, a Apple exige também "Entrar com Apple".
 
