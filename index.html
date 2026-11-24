@@ -470,7 +470,7 @@ function bodyStatus() {
   else if (fat === 'Baixa') name = 'Magro';
   else if (fat === 'Alta') name = 'Acima do peso';
   else if (m === 2) name = 'Em forma';
-  return { name, mus, fat: fat || '?' };
+  return { name, mus, fat: fat || '—' };
 }
 function reminders() {
   const out = [], now = Date.now(), td = today();
@@ -808,6 +808,14 @@ app.addEventListener('click', e => {
   if (a === 'del-weight') { S.weights = S.weights.filter(w => w.date !== d.v); save(); return render(); }
   if (a === 'profile') return profileSheet();
   if (a === 'export') {
+    const P = window.Capacitor && window.Capacitor.isNativePlatform && window.Capacitor.isNativePlatform() && window.Capacitor.Plugins;
+    if (P && P.Filesystem && P.Share) {
+      // no app nativo: salva no cache e abre o menu de compartilhar do celular
+      const name = 'fitness-backup-' + today() + '.json';
+      return P.Filesystem.writeFile({ path: name, data: JSON.stringify(S, null, 1), directory: 'CACHE', encoding: 'utf8' })
+        .then(r => P.Share.share({ title: 'Backup do Fitness', url: r.uri, dialogTitle: 'Salvar backup' }))
+        .catch(e => { if (!/cancel/i.test(String(e && e.message))) toast('Não deu para exportar'); });
+    }
     const blob = new Blob([JSON.stringify(S, null, 1)], { type: 'application/json' });
     const link = document.createElement('a'); link.href = URL.createObjectURL(blob); link.download = 'fitness-backup-' + today() + '.json'; link.click();
     return setTimeout(() => URL.revokeObjectURL(link.href), 2000);

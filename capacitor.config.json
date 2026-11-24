@@ -3,6 +3,16 @@
   "appName": "Fitness",
   "webDir": "www",
   "backgroundColor": "#0e0f12",
-  "ios": { "contentInset": "always" },
-  "android": { "backgroundColor": "#0e0f12" }
+  "ios": {
+    "contentInset": "always"
+  },
+  "android": {
+    "backgroundColor": "#0e0f12"
+  },
+  "plugins": {
+    "SystemBars": {
+      "style": "DARK",
+      "insetsHandling": "css"
+    }
+  }
 }
